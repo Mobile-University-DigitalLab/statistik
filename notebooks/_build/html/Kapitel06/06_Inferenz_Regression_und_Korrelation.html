@@ -1,0 +1,1383 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Inferenzmethoden in Regression und Korrelation &#8212; Modul Statistik und Machine Learning Modelle</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel06/06_Inferenz_Regression_und_Korrelation';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Wahrscheinlichkeits-Tabellen" href="07_Wahrscheinlichkeitstabellen.html" />
+    <link rel="prev" title="Chi-Quadrat-Tests" href="05_Chi_Quadrat_Tests.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vorwort</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Vorwort.html">Vorwort</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Statistik</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel1_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/01_Deskriptive_Statistik.html">Deskriptive Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/02_Ma%C3%9Fe_der_zentralen_Tendenz.html">Maße der zentralen Tendenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel2_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel3_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/01_stetige_Zufallsvariablen.html">Stetige Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/02_Die%20Normalverteilung.html">Die Normalverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/03_Die_kontinuierliche_gleichm%C3%A4%C3%9Fige_Verteilung.html">Die kontinuierliche gleichmäßige Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel6_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_Hypothesentests.html">Hypothesentests</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="02_Hypothesentests_Mittelwert_einer_Grundgesamtheit.html">Hypothesentests für den Mittelwert einer Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte.html">Hypothesentests für zwei Grundgesamtheitsmittelwerte</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="04_Standardabweichung_der_Grundgesamtheit.html">Inferenz für die Standardabweichung der Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_Chi_Quadrat_Tests.html">Chi-Quadrat-Tests</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Inferenzmethoden in Regression und Korrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Wahrscheinlichkeitstabellen.html">Wahrscheinlichkeits-Tabellen</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Literaturverzeichnis.html">Literaturverzeichnis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel06/06_Inferenz_Regression_und_Korrelation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Kapitel06/06_Inferenz_Regression_und_Korrelation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Inferenzmethoden in Regression und Korrelation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferenz-uber-die-steigung-der-t-test-des-regressionskoeffizienten">Inferenz über die Steigung - Der <span class="math notranslate nohighlight">\(t\)</span>-Test des Regressionskoeffizienten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervall-schatzung-von-beta-1">Intervall-Schätzung von <span class="math notranslate nohighlight">\(\beta_1\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-t-test-des-regressionskoeffizienten-ein-beispiel">Der <span class="math notranslate nohighlight">\(t\)</span>-Test des Regressionskoeffizienten: Ein Beispiel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vorbereitung-der-daten">Vorbereitung der Daten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uberprufung-der-hypothesen">Überprüfung der Hypothesen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesentests-in-python">Hypothesentests in Python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferenzstatistik-der-lineare-korrelationskoeffizienten">Inferenzstatistik - Der lineare Korrelationskoeffizienten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-t-test-zur-prufung-des-korrelationskoeffizienten-ein-beispiel">Der <span class="math notranslate nohighlight">\(t\)</span>-test zur Prüfung des Korrelationskoeffizienten: Ein Beispiel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Vorbereitung der Daten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Überprüfung der Hypothesen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Hypothesentests in Python</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="inferenzmethoden-in-regression-und-korrelation">
+<h1>Inferenzmethoden in Regression und Korrelation<a class="headerlink" href="#inferenzmethoden-in-regression-und-korrelation" title="Permalink to this heading">#</a></h1>
+<p>Das lineare Modell ergibt sich aus der Gleichung</p>
+<div class="math notranslate nohighlight">
+\[y = \beta_0 + \beta_1x+e\text{,}\]</div>
+<p>Wobei <span class="math notranslate nohighlight">\(\beta_0\)</span> der Achsenabschnitt, <span class="math notranslate nohighlight">\(\beta_1\)</span> der Regressionskoeffizient und <span class="math notranslate nohighlight">\(e\)</span> der Fehlerterm ist. Die beste Regressionsgerade wird durch Anwendung der <a href="https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate">Methode der kleinsten Quadrate</a> gefunden, um die <strong>Summe der quadratischen Fehler (SSE)</strong> zu minimieren, d. h. die quadratische Differenz zwischen der gemessenen Reaktionsvariablen <span class="math notranslate nohighlight">\(y\)</span> und der Modellvorhersage <span class="math notranslate nohighlight">\(\hat y\)</span> zu minimieren, die wie folgt lautet</p>
+<div class="math notranslate nohighlight">
+\[SSE = \sum_{i=1}^n e_i^2=\sum_{i=1}^n (y - \hat y)^2\text{.}\]</div>
+<p>Im Abschnitt über die <em>lineare Regression</em> finden Sie weitere Einzelheiten zum linearen Modell.</p>
+<p>Wie auch immer, wir müssen anerkennen, dass wir unsere Modelle, in diesem Fall unser lineares Regressionsmodell, auf Beobachtungsdaten aufbauen. Die Daten stammen also aus einer Grundgesamtheit und deren entsprechenden statistischen Eigenschaften, die uns im Allgemeinen unbekannt sind. Jede Beobachtung stellt also eine Ausprägung der Population dar, die mit dem Begriff Zufallsvariable bezeichnet wird.</p>
+<p>Betrachten wir ein Beispiel, wie es in der folgenden Abbildung dargestellt ist. In diesem Beispiel sind die Parameter der Grundgesamtheit bekannt, so dass wir ein lineares Regressionsmodell der Form <span class="math notranslate nohighlight">\(y=β_0+β_1x=1+0,25x\)</span> erstellen können</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">linregress</span>
+
+
+<span class="k">def</span> <span class="nf">generate_dataset_simple</span><span class="p">(</span><span class="n">intercept</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">,</span> <span class="n">min_max_x</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">min_max_x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">min_max_x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">std_dev</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">intercept</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="n">beta</span> <span class="o">+</span> <span class="n">e</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">generate_dataset_simple</span><span class="p">(</span><span class="n">intercept</span><span class="o">=</span><span class="mf">1.01</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">std_dev</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="p">(</span><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;$y=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">intercept</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">slope</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">x$&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">28</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Grundgesamtheit&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Grundgesamtheit&#39;)
+</pre></div>
+</div>
+<img alt="../_images/403b034715ea255c6c5ce0a8b6c2a2076a680040ea29e31c7574d04bbc0e2b4e.png" src="../_images/403b034715ea255c6c5ce0a8b6c2a2076a680040ea29e31c7574d04bbc0e2b4e.png" />
+</div>
+</details>
+</div>
+<p>Wenn wir jedoch eine Zufallsstichprobe aus der Grundgesamtheit nehmen und ein lineares Modell auf der Grundlage der Stichprobendaten erstellen, wird die Regressionslinie der Stichprobe nicht mit der Regressionslinie der Grundgesamtheit übereinstimmen. In der folgenden Abbildung haben wir vier Stichproben mit dem Stichprobenumfang <span class="math notranslate nohighlight">\(10\)</span> (blaue Punkte) gezogen. Wir sehen sofort, dass die Regressionslinie der Stichprobe (blaue gestrichelte Linie) nicht mit der Regressionslinie der Grundgesamtheit (graue Linie) übereinstimmt. Um dieser Variabilität Rechnung zu tragen, die auf den Zufallsstichprobenprozess zurückzuführen ist, wird eine Statistik berechnet, indem die folgende Gleichung angewendet wird</p>
+<div class="math notranslate nohighlight">
+\[s_e = \sqrt{\frac{SSE}{n-2}}\text{,}\]</div>
+<p>Wobei SSE für die <strong>Summe der quadratischen Fehler</strong> und <span class="math notranslate nohighlight">\(n\)</span> für den Stichprobenumfang steht. Die Statistik <span class="math notranslate nohighlight">\(s_e\)</span> wird als <strong>Standardfehler der Schätzung</strong> (<span class="math notranslate nohighlight">\(s_e\)</span>) oder als <strong>Reststandardfehler</strong> bezeichnet.</p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+    <span class="n">_y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">_x</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">_slope</span><span class="p">,</span> <span class="n">_intercept</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">stderr</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">_x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">_y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">_intercept</span> <span class="o">+</span> <span class="n">_slope</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;$s_e=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/887aec49de973b0d9fd4b1e0c0b67a9890a5ee6cdeffea4b31e537a0efa5f411.png" src="../_images/887aec49de973b0d9fd4b1e0c0b67a9890a5ee6cdeffea4b31e537a0efa5f411.png" />
+</div>
+</details>
+</div>
+<p>Wie oben dargestellt, variiert die Regressionsgerade der Stichprobe von einer Stichprobe zur anderen und ist daher eine Zufallsvariable. Ihre Verteilung wird als <strong>Stichprobenverteilung der Steigung der Regressionsgeraden</strong> bezeichnet.</p>
+<section id="inferenz-uber-die-steigung-der-t-test-des-regressionskoeffizienten">
+<h2>Inferenz über die Steigung - Der <span class="math notranslate nohighlight">\(t\)</span>-Test des Regressionskoeffizienten<a class="headerlink" href="#inferenz-uber-die-steigung-der-t-test-des-regressionskoeffizienten" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span><span class="p">,</span> <span class="n">linregress</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <strong><span class="math notranslate nohighlight">\(t\)</span>-Test des Regressionskoeffizienten</strong> wird angewendet, um zu prüfen, ob die Steigung <span class="math notranslate nohighlight">\(\beta_1\)</span> der Regressionslinie der Grundgesamtheit gleich <span class="math notranslate nohighlight">\(0\)</span> ist. Auf der Grundlage dieses Tests können wir entscheiden, ob <span class="math notranslate nohighlight">\(x\)</span> ein nützlicher (linearer) Vorhersagewert für <span class="math notranslate nohighlight">\(y\)</span> ist.</p>
+<p>Die Teststatistik folgt einer <span class="math notranslate nohighlight">\(t\)</span>-Verteilung mit <span class="math notranslate nohighlight">\(df=n-2\)</span> und kann geschrieben werden als</p>
+<div class="math notranslate nohighlight">
+\[t =\frac{\beta_1}{s_b}= \frac{\beta_1}{s_e/\sqrt{\sum(x- \bar x)^2}}\text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\beta_1\)</span> dem Stichprobenregressionskoeffizienten und <span class="math notranslate nohighlight">\(s_e\)</span> dem <strong>Reststandardfehler</strong> entspricht <span class="math notranslate nohighlight">\((s_e=\sqrt{\frac{SSE}{n-2}}\)</span> und <span class="math notranslate nohighlight">\(SSE = \sum_{i=1}^n e_i^2)\)</span></p>
+<section id="intervall-schatzung-von-beta-1">
+<h3>Intervall-Schätzung von <span class="math notranslate nohighlight">\(\beta_1\)</span><a class="headerlink" href="#intervall-schatzung-von-beta-1" title="Permalink to this heading">#</a></h3>
+<p>Das <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span>-Konfidenzintervall für <span class="math notranslate nohighlight">\(\beta_1\)</span> ist gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[\beta_1 \pm t_{\alpha/2} \times  \frac{s_e}{\sqrt{\sum(x- \bar x)^2}}\text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(s_e\)</span> dem <strong>Reststandardfehler</strong> (auch als <strong>Standardfehler der Schätzung</strong> bezeichnet) entspricht.</p>
+<p>Der Wert von <span class="math notranslate nohighlight">\(t\)</span> ergibt sich aus der <span class="math notranslate nohighlight">\(t\)</span>-Verteilung für das gegebene Konfidenzniveau und <span class="math notranslate nohighlight">\(n-2\)</span> Freiheitsgrade.</p>
+</section>
+<section id="der-t-test-des-regressionskoeffizienten-ein-beispiel">
+<h3>Der <span class="math notranslate nohighlight">\(t\)</span>-Test des Regressionskoeffizienten: Ein Beispiel<a class="headerlink" href="#der-t-test-des-regressionskoeffizienten-ein-beispiel" title="Permalink to this heading">#</a></h3>
+<p>Um praktische Erfahrungen zu sammeln, wenden wir den <strong>Regressions-<span class="math notranslate nohighlight">\(t\)</span>-Test</strong> in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lese Datei students.csv als Dataframe ein; Indexspalte wird übersprungen</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz besteht aus 8239 Zeilen, von denen jede einen bestimmten Studenten repräsentiert, und 16 Spalten, von denen jede einer Variable/einem Merkmal entspricht, das sich auf diesen bestimmten Studenten bezieht. Diese selbsterklärenden Variablen sind: stud_id, name, gender, age, height, weight, religion, nc_score, semester, major, minor, score1, score2, online_tutorial, graduated, salary.</p>
+<p>Um den <span class="math notranslate nohighlight">\(t\)</span>-Test des Regressionskoeffizienten zu veranschaulichen, untersuchen wir die Beziehung zwischen zwei Variablen, der Körpergröße der Studenten als Vorhersagevariable und dem Gewicht der Studenten als Antwortvariable. <strong>Die Frage ist, ob die Vorhersagevariable <code class="docutils literal notranslate"><span class="pre">height</span></code> nützlich ist, um Vorhersagen über das Gewicht der Studierenden zu treffen.</strong></p>
+</section>
+<section id="vorbereitung-der-daten">
+<h3>Vorbereitung der Daten<a class="headerlink" href="#vorbereitung-der-daten" title="Permalink to this heading">#</a></h3>
+<p>Zur Datenaufbereitung ziehen wir eine Zufallsstichprobe von <span class="math notranslate nohighlight">\(12\)</span> Studenten aus dem Datensatz und erstellen einen <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> mit den zwei Variablen von Interesse (<code class="docutils literal notranslate"><span class="pre">height</span></code> und <code class="docutils literal notranslate"><span class="pre">weight</span></code>). Außerdem stellen wir die Daten in Form eines Streudiagramms dar, um die zugrunde liegende lineare Beziehung zwischen den beiden Variablen zu visualisieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nehme Stichprobe</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">students</span><span class="p">[[</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>height</th>
+      <th>weight</th>
+    </tr>
+    <tr>
+      <th>stud_id</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>769350</th>
+      <td>169</td>
+      <td>71.7</td>
+    </tr>
+    <tr>
+      <th>886785</th>
+      <td>181</td>
+      <td>81.0</td>
+    </tr>
+    <tr>
+      <th>648615</th>
+      <td>148</td>
+      <td>57.8</td>
+    </tr>
+    <tr>
+      <th>501070</th>
+      <td>173</td>
+      <td>72.1</td>
+    </tr>
+    <tr>
+      <th>649588</th>
+      <td>168</td>
+      <td>70.7</td>
+    </tr>
+    <tr>
+      <th>822135</th>
+      <td>159</td>
+      <td>66.1</td>
+    </tr>
+    <tr>
+      <th>261234</th>
+      <td>169</td>
+      <td>69.5</td>
+    </tr>
+    <tr>
+      <th>249763</th>
+      <td>159</td>
+      <td>62.5</td>
+    </tr>
+    <tr>
+      <th>211480</th>
+      <td>173</td>
+      <td>70.7</td>
+    </tr>
+    <tr>
+      <th>934141</th>
+      <td>164</td>
+      <td>68.5</td>
+    </tr>
+    <tr>
+      <th>399893</th>
+      <td>171</td>
+      <td>70.8</td>
+    </tr>
+    <tr>
+      <th>413775</th>
+      <td>160</td>
+      <td>62.9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeuge Streudiagramm</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Größe&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Gewicht&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Gewicht&#39;)
+</pre></div>
+</div>
+<img alt="../_images/5f02a485630220b4952a835260e470518e5a713a67ccb77727d0ba738d45875c.png" src="../_images/5f02a485630220b4952a835260e470518e5a713a67ccb77727d0ba738d45875c.png" />
+</div>
+</div>
+<p>Die visuelle Inspektion bestätigt unsere Vermutung, dass die Beziehung zwischen der Größe und der Gewichtsvariable ungefähr linear ist. Mit anderen Worten: Mit zunehmender Größe neigt der einzelne Student dazu, ein höheres Gewicht zu haben.</p>
+</section>
+<section id="uberprufung-der-hypothesen">
+<h3>Überprüfung der Hypothesen<a class="headerlink" href="#uberprufung-der-hypothesen" title="Permalink to this heading">#</a></h3>
+<p>Zur Durchführung des <strong><span class="math notranslate nohighlight">\(t\)</span>-Test des Regressionskoeffizienten</strong> folgen wir dem schrittweisen Durchführungsverfahren für Hypothesentests. Der <strong><span class="math notranslate nohighlight">\(t\)</span>-Test des Regressionskoeffizienten</strong> folgt demselben schrittweisen Verfahren wie in den vorangegangenen Abschnitten beschrieben.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Schritt 1</p></td>
+<td><p>Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</p></td>
+</tr>
+<tr class="row-odd"><td><p>Schritt 2</p></td>
+<td><p>Legen Sie das Signifikanzniveau,<span class="math notranslate nohighlight">\(\alpha\)</span> fest</p></td>
+</tr>
+<tr class="row-even"><td><p>Schritt 3</p></td>
+<td><p>Berechnen Sie den Wert der Teststatistik</p></td>
+</tr>
+<tr class="row-odd"><td><p>Schritt 4</p></td>
+<td><p>Bestimmen Sie den p-Wert</p></td>
+</tr>
+<tr class="row-even"><td><p>Schritt 5</p></td>
+<td><p>Wenn <span class="math notranslate nohighlight">\(p \le \alpha\)</span>, <span class="math notranslate nohighlight">\(H_0\)</span> ablehnen; ansonsten <span class="math notranslate nohighlight">\(H_0\)</span> nicht ablehnen</p></td>
+</tr>
+<tr class="row-odd"><td><p>Schritt 6</p></td>
+<td><p>Interpretieren Sie das Ergebnis des Hypothesentests</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Schritt 1 : Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</strong></p>
+<p>Die Nullhypothese besagt, dass es keinen linearen Zusammenhang zwischen der Größe und dem Gewicht der Personen im Datensatz der Studierenden gibt.</p>
+<div class="math notranslate nohighlight">
+\[H_0: \beta_1=0\text{ (die Vorhersagevariable ist für die Erstellung von Vorhersagen nicht geeignet)}\]</div>
+<p><strong>Alternative Hypothese</strong></p>
+<div class="math notranslate nohighlight">
+\[H_A: \beta_1\ne0\text{ (die Vorhersagevariable ist für die Erstellung von Vorhersagen geeignet)}\]</div>
+<p><strong>Schritt 2: Legen Sie das Signifikanzniveau,<span class="math notranslate nohighlight">\(\alpha\)</span> fest</strong></p>
+<div class="math notranslate nohighlight">
+\[\alpha = 0,01\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.01</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 3 und 4: Berechnen Sie den Wert der Teststatistik und den <span class="math notranslate nohighlight">\(p\)</span>-Wert</strong></p>
+<p>Zur Veranschaulichung berechnen wir die Teststatistik manuell in Python. Erinnern Sie sich an die obige Gleichung.</p>
+<div class="math notranslate nohighlight">
+\[t =\frac{\beta_1}{s_b}= \frac{\beta_1}{s_e/\sqrt{\sum(x- \bar x)^2}}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\beta_1 = \frac{cov(x,y)}{var(x)}\)</span>, und</p>
+<div class="math notranslate nohighlight">
+\[s_e = \sqrt{\frac{SSE}{n-2}}\text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(SSE = \sum_{i=1}^n e_i^2 = \sum_{i=1}^n (y - \hat y)^2\)</span>. Die Teststatistik folgt einer <span class="math notranslate nohighlight">\(t\)</span>-Verteilung mit <span class="math notranslate nohighlight">\(df=n-2\)</span>. Um <span class="math notranslate nohighlight">\(\hat y = \beta_0+\beta_1x\)</span> zu berechnen, müssen wir <span class="math notranslate nohighlight">\(\beta_0\)</span> kennen, das als <span class="math notranslate nohighlight">\(\beta_0 = \bar y -\beta_1 \bar x\)</span> berechnet wird.</p>
+<p>Um nicht durch die verschiedenen Berechnungsschritte verwirrt zu werden, führen wir einen Schritt nach dem anderen durch.</p>
+<ul class="simple">
+<li><p>Erstellen Sie das lineare Modell durch Berechnung des Achsenabschnitts (<span class="math notranslate nohighlight">\(β_0\)</span>) und des Regressionskoeffizienten (<span class="math notranslate nohighlight">\(β_1\)</span>).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_bar</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">x_bar</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Lineares Modell</span>
+<span class="n">beta1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+<span class="n">beta1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6507615230460922
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">beta0</span> <span class="o">=</span> <span class="n">y_bar</span> <span class="o">-</span> <span class="n">beta1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">x_bar</span>
+<span class="n">beta0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-39.44320641282566
+</pre></div>
+</div>
+</div>
+</div>
+<p>Berechnen Sie die Summe der quadrierten Fehler (<span class="math notranslate nohighlight">\(SSE\)</span>) und den Reststandardfehler (<span class="math notranslate nohighlight">\(s_e\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne SSE</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">beta0</span> <span class="o">+</span> <span class="n">beta1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span>
+<span class="n">SSE</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">y_hat</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">SSE</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>30.38618436873755
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne Reststandardfehler</span>
+<span class="n">se</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">SSE</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">se</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.743163341994592
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Berechnen Sie den Wert der Teststatistik.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne Teststatistik</span>
+<span class="n">tw</span> <span class="o">=</span> <span class="n">beta1</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">se</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_bar</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="n">tw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.766100516207496
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der numerische Wert der Teststatistik ist <span class="math notranslate nohighlight">\(\approx 10,7661\)</span>.</p>
+<p>Um den <span class="math notranslate nohighlight">\(p\)</span>-Wert zu berechnen, wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">t.cdf()</span></code> an. Erinnern Sie sich daran, wie man die Freiheitsgrade berechnet.</p>
+<div class="math notranslate nohighlight">
+\[df = n - 2= 10\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne p-Wert</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span>
+
+<span class="c1"># zweiseitiger Test</span>
+<span class="n">p_upper</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">tw</span><span class="p">),</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">p_lower</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="nb">abs</span><span class="p">(</span><span class="n">tw</span><span class="p">),</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">p_upper</span> <span class="o">+</span> <span class="n">p_lower</span>
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.048424329265031e-07
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 5: Wenn <span class="math notranslate nohighlight">\(p \le \alpha , H_0\)</span> ablehnen; ansonsten <span class="math notranslate nohighlight">\(H_0\)</span> nicht ablehnen</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">&lt;=</span> <span class="n">alpha</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <span class="math notranslate nohighlight">\(p\)</span>-Wert ist kleiner als das angegebene Signifikanzniveau von <span class="math notranslate nohighlight">\(0,01\)</span>; wir verwerfen <span class="math notranslate nohighlight">\(H_0\)</span>. Die Testergebnisse sind statistisch signifikant auf dem <span class="math notranslate nohighlight">\(1 \%\)</span>-Niveau und liefern einen sehr starken Beweis gegen die Nullhypothese.</p>
+<p><strong>Schritt 6: Interpretieren Sie das Ergebnis des Hypothesentests</strong></p>
+<p><span class="math notranslate nohighlight">\(p=8,0484243 \cdot 10^{-7}\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(1 \%\)</span> lassen die Daten den Schluss zu, dass die Variable Größe ein guter Schätzer für das Gewicht der Studenten ist.</p>
+</section>
+<section id="hypothesentests-in-python">
+<h3>Hypothesentests in Python<a class="headerlink" href="#hypothesentests-in-python" title="Permalink to this heading">#</a></h3>
+<p>Wir haben gerade einen <strong><span class="math notranslate nohighlight">\(t\)</span>-Test des Regressionskoeffizienten</strong> in Python manuell berechnet. Das ist in Ordnung, aber wir können dasselbe in Python mit nur ein paar Zeilen Code tun!</p>
+<p>Daher müssen wir die Funktion <code class="docutils literal notranslate"><span class="pre">linregress()</span></code> auf unsere Antwortvariable <code class="docutils literal notranslate"><span class="pre">weight</span></code> und unsere Vorhersagevariable <code class="docutils literal notranslate"><span class="pre">height</span></code> anwenden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gradient</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">linregress</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p-value&quot;</span><span class="p">,</span> <span class="n">p_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value 8.048424329265105e-07
+</pre></div>
+</div>
+</div>
+</div>
+<p>Für den Vergleich mit den manuell berechneten Werten extrahieren wir den Achsenabschnitt <span class="math notranslate nohighlight">\(\beta_0\)</span> und die Steigung <span class="math notranslate nohighlight">\(\beta_1\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Achsenabschnitt: </span><span class="si">{</span><span class="n">intercept</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Steigung:        </span><span class="si">{</span><span class="n">gradient</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Achsenabschnitt: -39.44320641282562
+Steigung:        0.650761523046092
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vergleichen Sie die Ausgabe mit unseren Ergebnissen von oben. Sie passen perfekt!</p>
+</section>
+</section>
+<section id="inferenzstatistik-der-lineare-korrelationskoeffizienten">
+<h2>Inferenzstatistik - Der lineare Korrelationskoeffizienten<a class="headerlink" href="#inferenzstatistik-der-lineare-korrelationskoeffizienten" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span><span class="p">,</span> <span class="n">pearsonr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um zu prüfen, ob zwei Variablen linear korreliert sind, d. h. ob eine lineare Beziehung zwischen den beiden Variablen besteht, können wir den so genannten <strong><span class="math notranslate nohighlight">\(t\)</span>-Test zur Prüfung des Korrelationskoeffizienten</strong> anwenden. Der <strong>lineare Korrelationskoeffizient der Grundgesamtheit</strong>, <span class="math notranslate nohighlight">\(\rho\)</span>, misst die lineare Korrelation zweier Variablen auf die gleiche Weise wie der <strong>lineare Korrelationskoeffizient der Stichprobe</strong>, <span class="math notranslate nohighlight">\(r\)</span>, die lineare Korrelation zweier Variablen einer Stichprobe von Paaren misst. Sowohl <span class="math notranslate nohighlight">\(\rho\)</span> als auch <span class="math notranslate nohighlight">\(r\)</span> beschreiben die Stärke der linearen Beziehung zwischen zwei Variablen; <span class="math notranslate nohighlight">\(r\)</span> ist jedoch eine Schätzung von <span class="math notranslate nohighlight">\(\rho\)</span> der aus Stichprobendaten gewonnen wird.</p>
+<p>Der lineare Korrelationskoeffizient von zwei Variablen liegt zwischen <span class="math notranslate nohighlight">\(-1\)</span> und <span class="math notranslate nohighlight">\(1\)</span>. Bei <span class="math notranslate nohighlight">\(\rho=0\)</span> sind die Variablen linear unkorreliert, es besteht also keine lineare Beziehung zwischen den Variablen. Bei <span class="math notranslate nohighlight">\(\rho \ne 0\)</span> sind die Variablen linear korreliert. Wenn <span class="math notranslate nohighlight">\(\rho \gt 0\)</span>, sind die Variablen positiv linear korreliert, und wenn <span class="math notranslate nohighlight">\(\rho \lt 0\)</span> sind die Variablen negativ linear korreliert.</p>
+<p>Eine häufig verwendete Statistik zur Berechnung der linearen Beziehung zwischen quantitativen Variablen ist der <a href="https://de.wikipedia.org/wiki/Korrelationskoeffizient">Pearson-Produkt-Moment-Korrelationskoeffizient</a>. Er ist gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{\sum_{i=1}^n(x_i- \bar x)(y_i - \bar y)}{\sqrt{\sum_{i=1}^n(x_i- \bar x)^2}\sqrt{\sum_{i=1}^n(y_i- \bar y)^2}}=\frac{s_{xy}}{s_x s_y}\text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(s_{xy}\)</span> die Kovarianz von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> ist und <span class="math notranslate nohighlight">\(s_x\)</span> und <span class="math notranslate nohighlight">\(s_y\)</span> die Standardabweichungen von <span class="math notranslate nohighlight">\(x\)</span> bzw. <span class="math notranslate nohighlight">\(y\)</span> sind.</p>
+<p>Da der lineare Korrelationskoeffizient der Stichprobe, <span class="math notranslate nohighlight">\(r\)</span> eine Schätzung des linearen Korrelationskoeffizienten der Grundgesamtheit, <span class="math notranslate nohighlight">\(\rho\)</span>, ist, können wir <span class="math notranslate nohighlight">\(r\)</span> für einen Hypothesentest für <span class="math notranslate nohighlight">\(\rho\)</span> verwenden. Die Teststatistik für einen Korrelationstest hat eine <span class="math notranslate nohighlight">\(t\)</span>-Verteilung mit <span class="math notranslate nohighlight">\(n-2\)</span> Freiheitsgraden und kann wie folgt geschrieben werden</p>
+<div class="math notranslate nohighlight">
+\[t= \frac{r}{\sqrt{\frac{1-r^2}{n-2}}}\text{.}\]</div>
+<section id="der-t-test-zur-prufung-des-korrelationskoeffizienten-ein-beispiel">
+<h3>Der <span class="math notranslate nohighlight">\(t\)</span>-test zur Prüfung des Korrelationskoeffizienten: Ein Beispiel<a class="headerlink" href="#der-t-test-zur-prufung-des-korrelationskoeffizienten-ein-beispiel" title="Permalink to this heading">#</a></h3>
+<p>Um den <span class="math notranslate nohighlight">\(t\)</span>-Test für den Korrelationskoeffizienten zu üben, laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lese Datei students.csv als Dataframe ein; Indexspalte wird übersprungen</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz besteht aus <span class="math notranslate nohighlight">\(8239\)</span> Zeilen, von denen jede einen bestimmten Studenten repräsentiert, und <span class="math notranslate nohighlight">\(16\)</span> Spalten, von denen jede einer Variable/einem Merkmal entspricht, das sich auf diesen bestimmten Studenten bezieht. Diese selbsterklärenden Variablen sind: <em>stud_id, name, gender, age, height, weight, religion, nc_score, semester, major, minor, score1, score2, online_tutorial, graduated, salary.</em></p>
+<p>Um den <span class="math notranslate nohighlight">\(t\)</span>-Test für die Korrelation zu veranschaulichen, untersuchen wir die Beziehung zwischen den Variablen <code class="docutils literal notranslate"><span class="pre">score1</span></code> und <code class="docutils literal notranslate"><span class="pre">score2</span></code>, die das Ergebnis von zwei obligatorischen statistischen Prüfungen darstellen. <strong>Die Frage ist, ob es eine lineare Beziehung zwischen den Noten von zwei aufeinanderfolgenden statistischen Prüfungen gibt?</strong></p>
+</section>
+<section id="id1">
+<h3>Vorbereitung der Daten<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Wir beginnen mit der Datenvorbereitung.</p>
+<ul class="simple">
+<li><p>Wir unterteilen den Datensatz anhand der Variablen <code class="docutils literal notranslate"><span class="pre">score1</span></code> und <code class="docutils literal notranslate"><span class="pre">score2</span></code>. Durch Anwendung der Funktion <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> lassen wir alle <code class="docutils literal notranslate"><span class="pre">nan</span></code>-Werte im Datensatz aus.</p></li>
+<li><p>Dann ziehen wir aus jeder Teilmenge 50 Studierende und extrahieren die Variablen von Interesse.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="n">dropna</span><span class="p">()[[</span><span class="s2">&quot;score1&quot;</span><span class="p">,</span> <span class="s2">&quot;score2&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">score1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;score1&quot;</span><span class="p">]</span>
+<span class="n">score2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;score2&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zum Zweck der visuellen Kontrolle stellen wir die Stichprobe in Form eines Streudiagramms dar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeuge Streudiagramm</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">score1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">score2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;score1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;score2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;score2&#39;)
+</pre></div>
+</div>
+<img alt="../_images/4a9a3746e060994b49322cc881272649e4820d93f5db5a2be13782e1f03f1aff.png" src="../_images/4a9a3746e060994b49322cc881272649e4820d93f5db5a2be13782e1f03f1aff.png" />
+</div>
+</div>
+<p>Die visuelle Inspektion zeigt, dass eine positive lineare Beziehung zwischen den Variablen <code class="docutils literal notranslate"><span class="pre">score1</span></code> und <code class="docutils literal notranslate"><span class="pre">score2</span></code> besteht.</p>
+</section>
+<section id="id2">
+<h3>Überprüfung der Hypothesen<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Zur Durchführung des <span class="math notranslate nohighlight">\(t\)</span>-Tests für die Korrelation folgen wir dem schrittweisen Durchführungsverfahren für Hypothesentests. Der <span class="math notranslate nohighlight">\(t\)</span>-Test für die Korrelation folgt demselben schrittweisen Verfahren wie in den vorangegangenen Abschnitten beschrieben.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Schritt 1</p></td>
+<td><p>Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</p></td>
+</tr>
+<tr class="row-odd"><td><p>Schritt 2</p></td>
+<td><p>Legen Sie das Signifikanzniveau,<span class="math notranslate nohighlight">\(\alpha\)</span> fest</p></td>
+</tr>
+<tr class="row-even"><td><p>Schritt 3</p></td>
+<td><p>Berechnen Sie den Wert der Teststatistik</p></td>
+</tr>
+<tr class="row-odd"><td><p>Schritt 4</p></td>
+<td><p>Bestimmen Sie den p-Wert</p></td>
+</tr>
+<tr class="row-even"><td><p>Schritt 5</p></td>
+<td><p>Wenn <span class="math notranslate nohighlight">\(p \le \alpha\)</span>, <span class="math notranslate nohighlight">\(H_0\)</span> ablehnen; ansonsten <span class="math notranslate nohighlight">\(H_0\)</span> nicht ablehnen</p></td>
+</tr>
+<tr class="row-odd"><td><p>Schritt 6</p></td>
+<td><p>Interpretieren Sie das Ergebnis des Hypothesentests</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Schritt 1 : Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</strong></p>
+<p>Die Nullhypothese besagt, dass es keinen linearen Zusammenhang zwischen den Noten von zwei aufeinanderfolgenden Statistikprüfungen gibt.</p>
+<div class="math notranslate nohighlight">
+\[H_0: r  = 0\]</div>
+<p>Erinnern Sie sich daran, dass die Formulierung der Alternativhypothese vorgibt, ob wir einen zweiseitigen, einen links- oder einen rechtsseitigen Hypothesentest durchführen.</p>
+<p><strong>Alternative Hypothese</strong></p>
+<div class="math notranslate nohighlight">
+\[H_A: r \ne 0\]</div>
+<p>Diese Formulierung führt zu einem zweiseitigen Hypothesentest.</p>
+<p><strong>Schritt 2: Legen Sie das Signifikanzniveau,<span class="math notranslate nohighlight">\(\alpha\)</span> fest</strong></p>
+<div class="math notranslate nohighlight">
+\[\alpha = 0,01\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.01</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 3 und 4: Berechnen Sie den Wert der Teststatistik und den <span class="math notranslate nohighlight">\(p\)</span>-Wert</strong></p>
+<p>Zur Veranschaulichung berechnen wir die Teststatistik manuell in Python. Erinnern Sie sich an die obige Gleichungsform:</p>
+<div class="math notranslate nohighlight">
+\[t= \frac{r}{\sqrt{\frac{1-r^2}{n-2}}}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">score1</span><span class="p">)</span>
+
+<span class="c1"># Berechne Teststatistik</span>
+<span class="c1"># Berechne PearsonKorrelationskoefficient r</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">score1</span><span class="p">,</span> <span class="n">score2</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Teststatistik</span>
+<span class="n">tw</span> <span class="o">=</span> <span class="n">r</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">tw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.846357121994247
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der numerische Wert der Teststatistik ist <span class="math notranslate nohighlight">\(14,846357\)</span>.</p>
+<p>Um den <span class="math notranslate nohighlight">\(p\)</span>-Wert zu berechnen, wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">t.cdf()</span></code> an. Erinnern Sie sich daran, wie man die Freiheitsgrade berechnet:</p>
+<div class="math notranslate nohighlight">
+\[df = n - 2= 48\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne den p-Wert</span>
+<span class="n">df</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">score1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>
+
+<span class="c1"># zweiseitiger Test</span>
+<span class="n">p_upper</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">tw</span><span class="p">),</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">p_lower</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="nb">abs</span><span class="p">(</span><span class="n">tw</span><span class="p">),</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">p_upper</span> <span class="o">+</span> <span class="n">p_lower</span>
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4401962006630608e-19
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 5: Wenn <span class="math notranslate nohighlight">\(p \le \alpha , H_0\)</span> ablehnen; ansonsten <span class="math notranslate nohighlight">\(H_0\)</span> nicht ablehnen</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">&lt;=</span> <span class="n">alpha</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <span class="math notranslate nohighlight">\(p\)</span>-Wert ist kleiner als das angegebene Signifikanzniveau von <span class="math notranslate nohighlight">\(0,01\)</span>; wir verwerfen <span class="math notranslate nohighlight">\(H_0\)</span>. Die Testergebnisse sind statistisch signifikant auf dem <span class="math notranslate nohighlight">\(1 \%\)</span>-Niveau und liefern einen sehr starken Beweis gegen die Nullhypothese.</p>
+<p><strong>Schritt 6: Interpretieren Sie das Ergebnis des Hypothesentests</strong></p>
+<p><span class="math notranslate nohighlight">\(p=1,4401962 \cdot 10^{-19}\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(1 \%\)</span> lassen die Daten den Schluss zu, dass die Prüfungsnoten der Studenten linear korreliert sind.</p>
+</section>
+<section id="id3">
+<h3>Hypothesentests in Python<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>Wir haben soeben einen <span class="math notranslate nohighlight">\(t\)</span>-test zur Prüfung des Korrelationskoeffizienten in Python manuell durchgeführt. Wir können dasselbe in Python mit nur einer Zeile Code tun!</p>
+<p>Dazu wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">pearsonr()</span></code> an. Für die Funktion verwenden wir die zwei Vektoren, <code class="docutils literal notranslate"><span class="pre">score1</span></code> und <code class="docutils literal notranslate"><span class="pre">score2</span></code>, als Dateneingabe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">score1</span><span class="p">,</span> <span class="n">score2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Korrelationskoeffizient: </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p - Wert:                </span><span class="si">{</span><span class="n">p_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Korrelationskoeffizient: 0.906185403227985
+p - Wert:                1.440196200663062e-19
+</pre></div>
+</div>
+</div>
+</div>
+<p>Perfekt! Vergleichen Sie die Ausgabe der Funktion <code class="docutils literal notranslate"><span class="pre">pearsonr()</span></code> mit unserem Ergebnis von oben. Darüber hinaus gibt die Funktion den Pearson-Korrelationskoeffizienten für die Beispieldaten aus. Aus der Ausgabe der Funktion <code class="docutils literal notranslate"><span class="pre">pearsonr()</span></code> können wir schließen, dass die Daten bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(1 \%\)</span> sehr starke Hinweise darauf liefern, dass die Prüfungsnoten der Studenten linear korreliert sind.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ixianslab/srh-data-science",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Kapitel06"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="05_Chi_Quadrat_Tests.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chi-Quadrat-Tests</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="07_Wahrscheinlichkeitstabellen.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Wahrscheinlichkeits-Tabellen</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferenz-uber-die-steigung-der-t-test-des-regressionskoeffizienten">Inferenz über die Steigung - Der <span class="math notranslate nohighlight">\(t\)</span>-Test des Regressionskoeffizienten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intervall-schatzung-von-beta-1">Intervall-Schätzung von <span class="math notranslate nohighlight">\(\beta_1\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-t-test-des-regressionskoeffizienten-ein-beispiel">Der <span class="math notranslate nohighlight">\(t\)</span>-Test des Regressionskoeffizienten: Ein Beispiel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vorbereitung-der-daten">Vorbereitung der Daten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uberprufung-der-hypothesen">Überprüfung der Hypothesen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesentests-in-python">Hypothesentests in Python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inferenzstatistik-der-lineare-korrelationskoeffizienten">Inferenzstatistik - Der lineare Korrelationskoeffizienten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-t-test-zur-prufung-des-korrelationskoeffizienten-ein-beispiel">Der <span class="math notranslate nohighlight">\(t\)</span>-test zur Prüfung des Korrelationskoeffizienten: Ein Beispiel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Vorbereitung der Daten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Überprüfung der Hypothesen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Hypothesentests in Python</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ixians
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,2025 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Streuungsmaße &#8212; Modul Statistik und Machine Learning Modelle</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel01/03_Streuungsmaße';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Das Positionsmaß" href="04_Ma%C3%9Fe_der_Position.html" />
+    <link rel="prev" title="Maße der zentralen Tendenz" href="02_Ma%C3%9Fe_der_zentralen_Tendenz.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vorwort</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Vorwort.html">Vorwort</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Statistik</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel1_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_Deskriptive_Statistik.html">Deskriptive Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Ma%C3%9Fe_der_zentralen_Tendenz.html">Maße der zentralen Tendenz</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Streuungsmaße</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel2_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel3_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/01_stetige_Zufallsvariablen.html">Stetige Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/02_Die%20Normalverteilung.html">Die Normalverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/03_Die_kontinuierliche_gleichm%C3%A4%C3%9Fige_Verteilung.html">Die kontinuierliche gleichmäßige Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel6_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/01_Hypothesentests.html">Hypothesentests</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/02_Hypothesentests_Mittelwert_einer_Grundgesamtheit.html">Hypothesentests für den Mittelwert einer Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte.html">Hypothesentests für zwei Grundgesamtheitsmittelwerte</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/04_Standardabweichung_der_Grundgesamtheit.html">Inferenz für die Standardabweichung der Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/05_Chi_Quadrat_Tests.html">Chi-Quadrat-Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/06_Inferenz_Regression_und_Korrelation.html">Inferenzmethoden in Regression und Korrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/07_Wahrscheinlichkeitstabellen.html">Wahrscheinlichkeits-Tabellen</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Literaturverzeichnis.html">Literaturverzeichnis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel01/03_Streuungsmaße.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Kapitel01/03_Streuungsmaße.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Streuungsmaße</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianz-und-standardabweichung">Varianz und Standardabweichung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verwendung-der-standardabweichung">Verwendung der Standardabweichung</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tschebyscheff-theorem">Tschebyscheff-Theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#empirische-regel">Empirische Regel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-spannweite">Die Spannweite</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="streuungsmasze">
+<h1>Streuungsmaße<a class="headerlink" href="#streuungsmasze" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span><span class="p">,</span> <span class="n">gaussian_kde</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Maße der zentralen Tendenz, wie Mittelwert, Median und Modus, geben nicht das ganze Bild der Verteilung eines Datensatzes wieder. Zwei Datensätze mit identischem Mittelwert können völlig unterschiedliche Streuungen aufweisen. Die Streuung der Beobachtungswerte des einen Datensatzes kann viel größer oder kleiner sein als die des anderen Datensatzes. Daher ist der Mittelwert, Median oder Modus allein in der Regel kein ausreichendes Maß, um die Form der Verteilung eines Datensatzes aufzuzeigen. Wir benötigen auch ein Maß, das Informationen über die Variation zwischen den Datenwerten liefert. Diese Maße werden als <strong>Streuungsmaße</strong> bezeichnet. Die Maße der zentralen Tendenz und der Streuung ergeben zusammengenommen ein besseres Bild eines Datensatzes als die Maße der zentralen Tendenz allein (<span id="id1">[]</span> s.65).</p>
+<section id="varianz-und-standardabweichung">
+<h2>Varianz und Standardabweichung<a class="headerlink" href="#varianz-und-standardabweichung" title="Permalink to this heading">#</a></h2>
+<p>Die <strong>Varianz</strong> ist die Summe der quadrierten Abweichungen vom Mittelwert. Die Varianz für Populationsdaten wird mit <span class="math notranslate nohighlight">\(\sigma^2\)</span> bezeichnet (gelesen als Sigma-Quadrat), und die für Stichprobendaten berechnete Varianz wird mit <span class="math notranslate nohighlight">\(s^2\)</span> bezeichnet.</p>
+<div class="math notranslate nohighlight">
+\[ \sigma^2 = \frac{\sum_{i=1}^n (x_i - \mu)^2}{N} \]</div>
+<p>und
+$<span class="math notranslate nohighlight">\( s^2 = \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1} \)</span>$</p>
+<p>wobei <span class="math notranslate nohighlight">\(\sigma^2\)</span> die Varianz der Grundgesamtheit und <span class="math notranslate nohighlight">\(s^2\)</span> die Stichprobenvarianz ist. Die Größe <span class="math notranslate nohighlight">\(x_i-\mu\)</span> oder <span class="math notranslate nohighlight">\(x_i-\bar{x}\)</span> in den obigen Formeln wird als die Abweichung des <span class="math notranslate nohighlight">\(x_i\)</span>-Wertes <span class="math notranslate nohighlight">\((x_1,x_2, \dots ,x_n)\)</span> vom Mittelwert bezeichnet (<span id="id2">[]</span> s.64).</p>
+<p>Die <a href="https://de.wikipedia.org/wiki/Varianz_(Stochastik)">Standardabweichung</a> ist das gebräuchlichste Maß für die Streuung. Der Wert der Standardabweichung gibt an, wie eng die Werte eines Datensatzes um den Mittelwert herum gestreut sind. Im Allgemeinen zeigt ein niedriger Wert der Standardabweichung für einen Datensatz an, dass die Werte dieses Datensatzes über einen relativ kleineren Bereich um den Mittelwert herum verteilt sind. Im Gegensatz dazu zeigt ein größerer Wert der Standardabweichung für einen Datensatz an, dass die Werte dieses Datensatzes über einen relativ größeren Bereich um den Mittelwert herum gestreut sind (<span id="id3">[]</span> s.65).</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">TITLESIZE</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">SEED</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">SIZE</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">SIZE</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Geringe Abweichungen um den Mittelwert&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">TITLESIZE</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">SIZE</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Grosse Abweichungen um den Mittelwert&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">TITLESIZE</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">_ax</span> <span class="ow">in</span> <span class="n">ax</span><span class="p">:</span>
+    <span class="n">_ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+    <span class="n">_ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+    <span class="n">_ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+    <span class="n">_ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="n">_ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Daten&quot;</span><span class="p">,</span> <span class="s2">&quot;Mittelwert&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/cdfbe58fd2747940306f4090d85503e7259e91a608d960c3e5d605e958203f29.png" src="../_images/cdfbe58fd2747940306f4090d85503e7259e91a608d960c3e5d605e958203f29.png" />
+</div>
+</div>
+<p>Die Standardabweichung erhält man durch Ziehen der Quadratwurzel aus der <strong>Varianz</strong>. Folglich wird die für Grundgesamtheitsdaten berechnete Standardabweichung mit <span class="math notranslate nohighlight">\(\sigma\)</span> und die für Stichprobendaten berechnete Standardabweichung mit <span class="math notranslate nohighlight">\(s\)</span> bezeichnet.</p>
+<div class="math notranslate nohighlight">
+\[ \sigma = \sqrt{\frac{\sum_{i=1}^n (x_i - \mu)^2}{N}} \]</div>
+<p>und</p>
+<div class="math notranslate nohighlight">
+\[ s = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1}} \]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\sigma\)</span> die Standardabweichung der Grundgesamtheit und <span class="math notranslate nohighlight">\(s\)</span> die Standardabweichung der Stichprobe ist.</p>
+<p>Als Übung berechnen wir für einige numerische Variablen, die im <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz von Interesse sind, den Mittelwert, den Median, die Varianz und die Standardabweichung und stellen sie in einem Dataframe dar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lesen der Datei students.csv als Dataframe; nur die Spalten &quot;age&quot;, &quot;weight&quot;, &quot;height&quot; und &quot;nc_score&quot; Spalten werden eingelesen</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span>
+    <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;nc_score&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="c1"># Zeige die ersten 10 Werte</span>
+<span class="n">students</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>height</th>
+      <th>weight</th>
+      <th>nc_score</th>
+    </tr>
+    <tr>
+      <th>age</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>160</td>
+      <td>64.8</td>
+      <td>1.91</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>172</td>
+      <td>73.0</td>
+      <td>1.56</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>168</td>
+      <td>70.6</td>
+      <td>1.24</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>183</td>
+      <td>79.7</td>
+      <td>1.37</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>175</td>
+      <td>71.4</td>
+      <td>1.46</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>189</td>
+      <td>85.8</td>
+      <td>1.34</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>156</td>
+      <td>65.9</td>
+      <td>1.11</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>167</td>
+      <td>65.7</td>
+      <td>2.03</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>195</td>
+      <td>94.4</td>
+      <td>1.29</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>165</td>
+      <td>66.0</td>
+      <td>1.19</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Pandas verfügt über die Methode <code class="docutils literal notranslate"><span class="pre">agg</span></code>. Diese lässt uns sehr einfach verschiedene deskritptive Statisitken berechnen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">students</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">,</span> <span class="s2">&quot;var&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>height</th>
+      <th>weight</th>
+      <th>nc_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mean</th>
+      <td>171.380750</td>
+      <td>72.998131</td>
+      <td>2.166481</td>
+    </tr>
+    <tr>
+      <th>median</th>
+      <td>171.000000</td>
+      <td>71.800000</td>
+      <td>2.040000</td>
+    </tr>
+    <tr>
+      <th>var</th>
+      <td>122.711652</td>
+      <td>74.566017</td>
+      <td>0.658610</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>11.077529</td>
+      <td>8.635162</td>
+      <td>0.811548</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="verwendung-der-standardabweichung">
+<h3>Verwendung der Standardabweichung<a class="headerlink" href="#verwendung-der-standardabweichung" title="Permalink to this heading">#</a></h3>
+<p>Mit Hilfe des <strong>Mittelwerts</strong> und der <strong>Standardabweichung</strong> lässt sich der Anteil oder Prozentsatz der Gesamtbeobachtungen ermitteln, die in ein bestimmtes Intervall um den Mittelwert fallen.</p>
+<section id="tschebyscheff-theorem">
+<h4>Tschebyscheff-Theorem<a class="headerlink" href="#tschebyscheff-theorem" title="Permalink to this heading">#</a></h4>
+<p>Die <a href="https://de.wikipedia.org/wiki/Tschebyscheffsche_Ungleichung">Tschebyscheff Ungleichung</a> gibt eine untere Schranke für die Fläche unter einer Kurve zwischen zwei Punkten, die auf gegenüberliegenden Seiten des Mittelwerts und im gleichen Abstand vom Mittelwert liegen.</p>
+<blockquote>
+<div><p><strong>Für jede Zahl <span class="math notranslate nohighlight">\(k\)</span>, die größer als <span class="math notranslate nohighlight">\(1\)</span> ist, liegen mindestens <span class="math notranslate nohighlight">\(1-\frac{1}{k^2}\)</span> der Datenwerte innerhalb von <span class="math notranslate nohighlight">\(k\)</span> Standardabweichungen vom Mittelwert.</strong></p>
+</div></blockquote>
+<p>Lassen Sie uns Python verwenden, um ein Gefühl für den Tschebyscheff-Theorem zu bekommen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">chebyshev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="n">k</span><span class="p">,</span> <span class="s2">&quot;Prozent&quot;</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
+<span class="n">chebyshev</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>k</th>
+      <th>Prozent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.1</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.2</td>
+      <td>31.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.3</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.4</td>
+      <td>49.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1.5</td>
+      <td>56.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1.6</td>
+      <td>61.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1.7</td>
+      <td>65.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1.8</td>
+      <td>69.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1.9</td>
+      <td>72.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2.0</td>
+      <td>75.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2.1</td>
+      <td>77.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2.2</td>
+      <td>79.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2.3</td>
+      <td>81.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2.4</td>
+      <td>83.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2.5</td>
+      <td>84.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2.6</td>
+      <td>85.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2.7</td>
+      <td>86.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>2.8</td>
+      <td>87.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>2.9</td>
+      <td>88.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>3.0</td>
+      <td>89.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>3.1</td>
+      <td>90.0</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>3.2</td>
+      <td>90.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>3.3</td>
+      <td>91.0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>3.4</td>
+      <td>91.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>3.5</td>
+      <td>92.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>3.6</td>
+      <td>92.0</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>3.7</td>
+      <td>93.0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>3.8</td>
+      <td>93.0</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>3.9</td>
+      <td>93.0</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>4.0</td>
+      <td>94.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Um es in Worte zu fassen: Für <span class="math notranslate nohighlight">\(k=2\)</span> bedeutet das, dass mindestens <strong><span class="math notranslate nohighlight">\(75 \% \)</span></strong> der Datenwerte innerhalb von <strong>2 Standardabweichungen</strong> vom Mittelwert liegen.</p>
+<p>Stellen wir das Tschebyscheff-Theorem mit Python dar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">chebyshev</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Prozent&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Tschebyscheff-Theorem&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/imarevic/.local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py:1114: UserWarning: No data for colormapping provided via &#39;c&#39;. Parameters &#39;cmap&#39; will be ignored
+  scatter = ax.scatter(
+</pre></div>
+</div>
+<img alt="../_images/0fb17363ac1281cf96b0020ae71b41b5a1b9889f9080561f8d55403a25b93b76.png" src="../_images/0fb17363ac1281cf96b0020ae71b41b5a1b9889f9080561f8d55403a25b93b76.png" />
+</div>
+</div>
+<p>Das Theorem gilt sowohl für Stichproben- als auch für Grundgesamtheitsdaten. Die Tschebyscheffsche Ungleichung gilt für Verteilungen beliebiger Form. Sie kann jedoch nur für <span class="math notranslate nohighlight">\(k &gt; 1\)</span> verwendet werden. Denn wenn <span class="math notranslate nohighlight">\(k=1\)</span> ist, ist der Wert von <span class="math notranslate nohighlight">\(1-\frac{1}{k^2}\)</span> Null, und wenn <span class="math notranslate nohighlight">\(k &lt; 1\)</span> ist, ist der Wert von <span class="math notranslate nohighlight">\(1-\frac{1}{k^2}\)</span> negativ (<span id="id4">[]</span> s.304).</p>
+</section>
+<section id="empirische-regel">
+<h4>Empirische Regel<a class="headerlink" href="#empirische-regel" title="Permalink to this heading">#</a></h4>
+<p>Während die Tschebyscheffsche Ungleichung auf jede Art von Verteilung anwendbar ist, gilt die <strong>empirische Regel</strong> nur für eine bestimmte Art von Verteilung, die so genannte <strong>Gaußverteilung</strong> oder <strong>Normalverteilung</strong>. Es gibt 3 Regeln: <br> <br> Bei einer Normalverteilung sind</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(68 \%\)</span> der Beobachtungen innerhalb einer Standardabweichung des Mittelwerts.</p></li>
+<li><p><span class="math notranslate nohighlight">\(95 \%\)</span> der Beobachtungen innerhalb von zwei Standardabweichungen des Mittelwerts.</p></li>
+<li><p><span class="math notranslate nohighlight">\(99,7 \%\)</span> der Beobachtungen innerhalb von drei Standardabweichungen des Mittelwerts.</p></li>
+</ol>
+<p>Da wir inzwischen über genügend Hacking-Power verfügen, werden wir versuchen zu testen, ob die drei Regeln gültig sind.</p>
+<p><strong>(1) Erstens</strong> werden wir die Funktion <code class="docutils literal notranslate"><span class="pre">random.normal()</span></code> in Python erforschen, um normalverteilte Daten zu erzeugen, und</p>
+<p><strong>(2) Zweitens</strong> werden wir zu unserem <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz zurückkehren um diese Regeln an diesem Datensatz zu validieren.
+<br> <br> Die Normalverteilung gehört zur Familie der <a href="https://de.wikipedia.org/wiki/Wahrscheinlichkeitsma%C3%9F">stetigen Verteilungen</a>. In Python gibt es eine Vielzahl von Wahrscheinlichkeitsverteilungen <a href="https://docs.scipy.org/doc/scipy/reference/stats.html">(hier)</a>. Um Daten aus einer Normalverteilung zu erzeugen, kann man die Funktion <code class="docutils literal notranslate"><span class="pre">random.normal()</span></code> verwenden, die ein Zufallsvariablengenerator für die Normalverteilung ist.</p>
+<p>Mit der Funktion <code class="docutils literal notranslate"><span class="pre">np.random.normal(loc=0.0,</span> <span class="pre">scale=1.0)</span></code> können wir Zufallsvariablen aus einer Normalverteilung mit einem gegebenen Mittelwert (Standard ist <span class="math notranslate nohighlight">\(0\)</span>) und einer Standardabweichung (Standard ist <span class="math notranslate nohighlight">\(1\)</span>) entnehmen. Mit dem Argument <code class="docutils literal notranslate"><span class="pre">size</span></code> können wir die Anzahl der erzeugten Zufallsvariablen bestimmen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.35778736])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.56078453])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.08305124])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir können die Funktion ziemlich einfach bitten, hunderte oder tausende oder noch mehr (Pseudo-)Zufallszahlen zu ziehen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.05380205, -1.37766937, -0.93782504,  0.51503527,  0.51378595,
+        0.51504769,  3.85273149,  0.57089051,  1.13556564,  0.95400176])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.65139125, -0.31526924,  0.75896922, -0.77282521, -0.23681861,
+       -0.48536355,  0.08187414,  2.31465857, -1.86726519,  0.68626019,
+       -1.61271587, -0.47193187,  1.0889506 ,  0.06428002, -1.07774478,
+       -0.71530371,  0.67959775, -0.73036663,  0.21645859,  0.04557184,
+       -0.65160035,  2.14394409,  0.63391902, -2.02514259,  0.18645431,
+       -0.66178646,  0.85243333, -0.79252074, -0.11473644,  0.50498728,
+        0.86575519, -1.20029641, -0.33450124, -0.47494531, -0.65332923,
+        1.76545424,  0.40498171, -1.26088395,  0.91786195,  2.1221562 ,
+        1.03246526, -1.51936997, -0.48423407,  1.26691115, -0.70766947,
+        0.44381943,  0.77463405, -0.92693047, -0.05952536, -3.24126734,
+       -1.02438764, -0.25256815, -1.24778318,  1.6324113 , -1.43014138,
+       -0.44004449,  0.13074058,  1.44127329, -1.43586215,  1.16316375,
+        0.01023306, -0.98150865,  0.46210347,  0.1990597 , -0.60021688,
+        0.06980208, -0.3853136 ,  0.11351735,  0.66213067,  1.58601682,
+       -1.2378155 ,  2.13303337, -1.9520878 , -0.1517851 ,  0.58831721,
+        0.28099187, -0.62269952, -0.20812225, -0.49300093, -0.58936476,
+        0.8496021 ,  0.35701549, -0.6929096 ,  0.89959988,  0.30729952,
+        0.81286212,  0.62962884, -0.82899501, -0.56018104,  0.74729361,
+        0.61037027, -0.02090159,  0.11732738,  1.2776649 , -0.59157139,
+        0.54709738, -0.20219265, -0.2176812 ,  1.09877685,  0.82541635])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn wir ein Histogramm dieser Zahlen erstellen, sehen wir die namensgebende glockenförmige Verteilung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_norm</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>  <span class="c1"># bestimmt die Anzahl der Bins</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_norm</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Absolute Häufigkeit&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fda51c479b6b5dea3e435541b636026cf214195c18f1221f6f7af00881e355ad.png" src="../_images/fda51c479b6b5dea3e435541b636026cf214195c18f1221f6f7af00881e355ad.png" />
+</div>
+</div>
+<p>Wir kennen bereits den Mittelwert und die Standardabweichung der Werte in <code class="docutils literal notranslate"><span class="pre">y_norm</span></code>, da wir die Funktion <code class="docutils literal notranslate"><span class="pre">np.random.normal()</span></code> explizit mit <code class="docutils literal notranslate"><span class="pre">mean=0</span></code> und <code class="docutils literal notranslate"><span class="pre">sd=1</span></code> aufgerufen haben. Wir müssen also nur die Zahlen in <code class="docutils literal notranslate"><span class="pre">y_norm</span></code> zählen, die größer als <span class="math notranslate nohighlight">\(-1\)</span> bzw. kleiner als <span class="math notranslate nohighlight">\(1\)</span> und <span class="math notranslate nohighlight">\(2\)</span> bzw. <span class="math notranslate nohighlight">\(-2\)</span> und <span class="math notranslate nohighlight">\(3\)</span> bzw. <span class="math notranslate nohighlight">\(-3\)</span> sind, und sie zur Länge von <code class="docutils literal notranslate"><span class="pre">y_norm</span></code>, in unserem Fall <span class="math notranslate nohighlight">\(100.000\)</span>, in Beziehung setzen, um die drei oben genannten Regeln zu bestätigen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne Anzahl der Werte &lt; 1 - Anzahl der Werte &gt; -1 durch Gesamtanzahl</span>
+<span class="n">sd1</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">y_norm</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_norm</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_norm</span><span class="p">)</span>
+
+<span class="c1"># Berechne Anzahl der Werte &lt; 2 - Anzahl der Werte  &gt; -2 durch Gesamtanzahl</span>
+<span class="n">sd2</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">y_norm</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_norm</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_norm</span><span class="p">)</span>
+
+<span class="c1"># Berechne Anzahl der Werte &lt; 3 - Anzahl der Werte &gt; -3 durch Gesamtanzahl</span>
+<span class="n">sd3</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">y_norm</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_norm</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_norm</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sd1 :&quot;</span><span class="p">,</span> <span class="n">sd1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sd2 :&quot;</span><span class="p">,</span> <span class="n">sd2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sd3 :&quot;</span><span class="p">,</span> <span class="n">sd3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sd1 : 0.68143
+sd2 : 0.95444
+sd3 : 0.99737
+</pre></div>
+</div>
+</div>
+</div>
+<p>Perfekte Übereinstimmung! Die drei empirischen Regeln sind offensichtlich gültig. Um unsere Ergebnisse zu veranschaulichen, stellen wir das Histogramm erneut dar und fügen einige Anmerkungen hinzu. Bitte beachten Sie, dass wir in der <code class="docutils literal notranslate"><span class="pre">hist()</span></code>-Funktion das Argument <code class="docutils literal notranslate"><span class="pre">density=True</span></code> setzen. Dies hat zur Folge, dass das resultierende Histogramm nicht mehr die Zählungen auf der y-Achse anzeigt, sondern die <strong>Dichtewerte</strong> (normalisierte Zählung geteilt durch Bin-Breite), was bedeutet, dass sich die Balkenbereiche zu <span class="math notranslate nohighlight">\(1\)</span> summieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_norm</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Absolute Häufigkeit&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">e</span><span class="p">,</span> <span class="n">std</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">std</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">std</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f506d735750f73100155cc0b3da8b8c41895e7eb603741c1c21e7cf708e3b03b.png" src="../_images/f506d735750f73100155cc0b3da8b8c41895e7eb603741c1c21e7cf708e3b03b.png" />
+</div>
+</div>
+<p>Nun, lassen Sie uns an der <strong>zweiten</strong> Aufgabe arbeiten: Überprüfen Sie die drei empirischen Regeln anhand des <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatzes. Dazu müssen wir überprüfen, ob eine der numerischen Variablen im Studentendatensatz  normalverteilt ist. Wir beginnen mit der Extraktion numerischer Variablen von Interesse aus dem <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Dann zeichnen wir Histogramme und beurteilen, ob die Variable normalverteilt ist oder nicht. Zunächst überprüfen wir jedoch den Datensatz, indem wir die Funktion <code class="docutils literal notranslate"><span class="pre">head()</span></code> aufrufen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lesen der Datei students.csv als Dataframe;</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span>
+    <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;score1&quot;</span><span class="p">,</span> <span class="s2">&quot;score2&quot;</span><span class="p">,</span> <span class="s2">&quot;salary&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">students</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>score1</th>
+      <th>score2</th>
+      <th>salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>19</td>
+      <td>160</td>
+      <td>64.8</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>19</td>
+      <td>172</td>
+      <td>73.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22</td>
+      <td>168</td>
+      <td>70.6</td>
+      <td>45.0</td>
+      <td>46.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>19</td>
+      <td>183</td>
+      <td>79.7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>21</td>
+      <td>175</td>
+      <td>71.4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>19</td>
+      <td>189</td>
+      <td>85.8</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>21</td>
+      <td>156</td>
+      <td>65.9</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>21</td>
+      <td>167</td>
+      <td>65.7</td>
+      <td>58.0</td>
+      <td>62.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>18</td>
+      <td>195</td>
+      <td>94.4</td>
+      <td>57.0</td>
+      <td>67.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>18</td>
+      <td>165</td>
+      <td>66.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Um einen Überblick über die Form der Verteilung der einzelnen Variablen zu erhalten, verwenden wir die Methode <code class="docutils literal notranslate"><span class="pre">hist()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>  <span class="c1"># vereinfacht das iterieren durch die axes Objekte</span>
+<span class="n">titles</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="s2">&quot;Alter&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="s2">&quot;Grösse&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="s2">&quot;Gewicht&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;score1&quot;</span><span class="p">:</span> <span class="s2">&quot;Punkte1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;score2&quot;</span><span class="p">:</span> <span class="s2">&quot;Punkte2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;salary&quot;</span><span class="p">:</span> <span class="s2">&quot;Gehalt&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">e</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+    <span class="n">bins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ef5acfe6b367e8d1820ee764b99a1bdefeea89282c88bc8d06962baff1879000.png" src="../_images/ef5acfe6b367e8d1820ee764b99a1bdefeea89282c88bc8d06962baff1879000.png" />
+</div>
+</div>
+<p>Wir stellen sofort fest, dass einige Variablen positiv verzerrt sind, also schließen wir sie aus und behalten diejenigen, die normal verteilt zu sein scheinen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;salary&quot;</span><span class="p">]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>  <span class="c1"># vereinfacht das iterieren durch die axes Objekte</span>
+<span class="n">bins_fact</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;height&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;salary&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">e</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+    <span class="n">bins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">/</span> <span class="n">bins_fact</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="n">col</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a178c260461caefb52d2cb281d1ca8f39023be481e097334c13ad512633c3fe8.png" src="../_images/a178c260461caefb52d2cb281d1ca8f39023be481e097334c13ad512633c3fe8.png" />
+</div>
+</div>
+<p>Nun, sowohl die Variable <code class="docutils literal notranslate"><span class="pre">height</span></code> als auch die Variable <code class="docutils literal notranslate"><span class="pre">salary</span></code> scheinen mehr oder weniger normalverteilt zu sein. Es ist also eine Frage des Geschmacks, welche Variable man für die weitere Analyse auswählt. Für den Moment bleiben wir bei der Gehaltsvariable und überprüfen, ob die drei oben genannten empirischen Regeln gültig sind. Wir wechseln zu Python und validieren diese Regeln, indem wir zunächst den Mittelwert und die Standardabweichungen berechnen. Bitte beachten Sie, dass die Gehaltsvariable Fehlwerte enthält, die mit <code class="docutils literal notranslate"><span class="pre">NA</span></code> gekennzeichnet sind. Daher schließen wir zunächst alle <code class="docutils literal notranslate"><span class="pre">NA</span></code>-Werte aus, indem wir die Funktion <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> anwenden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary</span> <span class="o">=</span> <span class="n">students</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">salary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10      45254.11
+12      40552.79
+13      27007.03
+16      33969.16
+27      50617.64
+          ...   
+8228    33259.70
+8233    41028.24
+8234    36750.09
+8237    40112.04
+8238    45900.13
+Name: salary, Length: 1753, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mittelwert des Gehalts:             </span><span class="si">{</span><span class="n">salary</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;1 Standardabweichung des Gehalts:   </span><span class="si">{</span><span class="n">salary</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;2 Standardabweichungen des Gehalts: </span><span class="si">{</span><span class="mi">2</span> <span class="o">*</span> <span class="n">salary</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;3 Standardabweichungen des Gehalts: </span><span class="si">{</span><span class="mi">3</span> <span class="o">*</span> <span class="n">salary</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mittelwert des Gehalts:             42522.112253280095
+1 Standardabweichung des Gehalts:   10333.139991647347
+2 Standardabweichungen des Gehalts: 20666.279983294695
+3 Standardabweichungen des Gehalts: 30999.419974942044
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie in der obigen allgemeinen Beispielform zählen wir die Anzahl der Werte, die größer als <span class="math notranslate nohighlight">\(+1\)</span> s.d. bzw. kleiner als <span class="math notranslate nohighlight">\(-1\)</span> s.d. und <span class="math notranslate nohighlight">\(+2\)</span> s.d. bzw. <span class="math notranslate nohighlight">\(-2\)</span> s.d. und <span class="math notranslate nohighlight">\(+3\)</span> s.d. bzw. <span class="math notranslate nohighlight">\(-3\)</span> s.d. sind, und setzen sie in Beziehung zur Länge des Vektors, in unserem Fall <span class="math notranslate nohighlight">\(1753\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_mean</span> <span class="o">=</span> <span class="n">salary</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">salary_std</span> <span class="o">=</span> <span class="n">salary</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="n">sd1</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="nb">sum</span><span class="p">((</span><span class="n">salary</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">salary_mean</span> <span class="o">-</span> <span class="n">salary_std</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">salary</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">salary_mean</span> <span class="o">+</span> <span class="n">salary_std</span><span class="p">)))</span>
+    <span class="o">/</span> <span class="n">salary</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">sd2</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="nb">sum</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">salary</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">salary_mean</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">salary_std</span><span class="p">))</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">salary</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">salary_mean</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">salary_std</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="o">/</span> <span class="n">salary</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">)</span>
+
+
+<span class="n">sd3</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="nb">sum</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">salary</span> <span class="o">&gt;</span> <span class="p">(</span><span class="n">salary_mean</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">salary_std</span><span class="p">))</span>
+        <span class="o">&amp;</span> <span class="p">(</span><span class="n">salary</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">salary_mean</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">salary_std</span><span class="p">))</span>
+    <span class="p">)</span>
+    <span class="o">/</span> <span class="n">salary</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sd1 :&quot;</span><span class="p">,</span> <span class="n">sd1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sd2 :&quot;</span><span class="p">,</span> <span class="n">sd2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sd3 :&quot;</span><span class="p">,</span> <span class="n">sd3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sd1 : 0.6708499714774672
+sd2 : 0.9560752994865944
+sd3 : 0.9977181973759269
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wow, ziemlich nah dran! Offensichtlich zeigt die Gehaltsvariable eine starke Tendenz zur Unterstützung der so genannten empirischen Regel. Wir stellen das Histogramm für die Variable <code class="docutils literal notranslate"><span class="pre">salary</span></code> dar, um unseren Eindruck zu bestätigen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">salary</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">/</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">salary</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Absolute Häufigkeit&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Gehalt&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_mean</span> <span class="o">+</span> <span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">salary_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_mean</span> <span class="o">-</span> <span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">salary_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/07eb2ccd8c127843b0eb0d45b6ad1a278cc2d465425c86ee74c8779dda62a6e9.png" src="../_images/07eb2ccd8c127843b0eb0d45b6ad1a278cc2d465425c86ee74c8779dda62a6e9.png" />
+</div>
+</div>
+<p>Wir können nun unseren Visualisierungsansatz erweitern, indem wir die <strong>empirische Dichteschätzung</strong> mit der Funktion <code class="docutils literal notranslate"><span class="pre">scipy_kernel.evaluate()</span></code> grafisch darstellen und ihre Form überprüfen. Wir stellen die empirische Dichteschätzung als gestrichelte Linie dar, indem wir das <a href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html">(Linientyp-Argument)</a> <code class="docutils literal notranslate"><span class="pre">'-.'</span></code> und eine Linienbreite von <span class="math notranslate nohighlight">\(3\)</span> (Argument <code class="docutils literal notranslate"><span class="pre">linewidth=3.0</span></code>) setzen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">salary</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">/</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">salary</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Dichte&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Gehalt&quot;</span><span class="p">)</span>
+
+<span class="c1"># empirische Dichteschätzung</span>
+<span class="n">x_salary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">salary</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">salary</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">scipy_kernel</span> <span class="o">=</span> <span class="n">gaussian_kde</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+<span class="n">dens_emp</span> <span class="o">=</span> <span class="n">scipy_kernel</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_salary</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_salary</span><span class="p">,</span> <span class="n">dens_emp</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+
+<span class="c1"># Standardabweichungen</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_mean</span> <span class="o">+</span> <span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">salary_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_mean</span> <span class="o">-</span> <span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">salary_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3de20a7a38ec54e1898aa07060610bccdce500131cccb0da1095d1ccdad577e3.png" src="../_images/3de20a7a38ec54e1898aa07060610bccdce500131cccb0da1095d1ccdad577e3.png" />
+</div>
+</div>
+<p>Schließlich vergleichen wir unsere <strong>empirische Dichteschätzung</strong> mit der theoretischen <strong>Wahrscheinlichkeitsdichtefunktion</strong>, die auf dem tatsächlichen Mittelwert und der Standardabweichung der Daten <code class="docutils literal notranslate"><span class="pre">salary</span></code> basiert. Für einen besseren visuellen Vergleich wechseln wir zurück zu einer nicht eingefärbten Histogramm-Darstellung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">salary</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">/</span> <span class="mi">40</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">salary</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Dichte&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Gehalt&quot;</span><span class="p">)</span>
+
+<span class="c1"># empirische Dichteschätzung</span>
+<span class="n">x_salary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">salary</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">salary</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">scipy_kernel</span> <span class="o">=</span> <span class="n">gaussian_kde</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span>
+<span class="n">dens_emp</span> <span class="o">=</span> <span class="n">scipy_kernel</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_salary</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">x_salary</span><span class="p">,</span>
+    <span class="n">dens_emp</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span>
+    <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Empirische Dichteschätzung&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Wahrscheinlichkeitsdichtefunktion</span>
+<span class="n">pdf</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_salary</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">salary</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">scale</span><span class="o">=</span><span class="n">salary</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">x_salary</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Wahrscheinlichkeitsdichtefunktion&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Standardabweichungen</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_mean</span> <span class="o">+</span> <span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">salary_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_mean</span> <span class="o">-</span> <span class="p">(</span><span class="n">e</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">salary_std</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f03ea0b31c0&gt;
+</pre></div>
+</div>
+<img alt="../_images/24e59ffeaefd327d74090635347a0e6cdcc05c63ef99b00836cec6303ca85648.png" src="../_images/24e59ffeaefd327d74090635347a0e6cdcc05c63ef99b00836cec6303ca85648.png" />
+</div>
+</div>
+<p>Wir können daraus schließen, dass <code class="docutils literal notranslate"><span class="pre">salary</span></code> im Datensatz der <code class="docutils literal notranslate"><span class="pre">students</span></code> ungefähr normalverteilt ist. Die Grafik zeigt jedoch, dass die Verteilung der Gehaltsvariablen leicht linksschief ist. Dies ist an der Abweichung zwischen der <strong>empirischen Dichteschätzung</strong> und der <strong>Wahrscheinlichkeitsdichtefunktion</strong> zu erkennen.</p>
+</section>
+</section>
+</section>
+<section id="die-spannweite">
+<h2>Die Spannweite<a class="headerlink" href="#die-spannweite" title="Permalink to this heading">#</a></h2>
+<p>Die <strong>Spannweite</strong> als Maß für die Streuung ist einfach zu berechnen. Sie ergibt sich aus der Differenz zwischen dem größten und dem kleinsten Wert in einem Datensatz.</p>
+<div class="math notranslate nohighlight">
+\[\text{Range} = \text{größter Wert} - \text{kleinster Wert}\]</div>
+<p>Betrachten wir unseren <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Wir unterteilen den Datensatz so, dass er nur numerische Daten enthält.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>stud_id</th>
+      <th>name</th>
+      <th>gender</th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>religion</th>
+      <th>nc_score</th>
+      <th>semester</th>
+      <th>major</th>
+      <th>minor</th>
+      <th>score1</th>
+      <th>score2</th>
+      <th>online_tutorial</th>
+      <th>graduated</th>
+      <th>salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3599</th>
+      <td>255883</td>
+      <td>Morrison-Cook, Austin</td>
+      <td>Male</td>
+      <td>20</td>
+      <td>172</td>
+      <td>72.6</td>
+      <td>Other</td>
+      <td>1.67</td>
+      <td>4th</td>
+      <td>Mathematics and Statistics</td>
+      <td>Economics and Finance</td>
+      <td>91.0</td>
+      <td>87.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2081</th>
+      <td>686345</td>
+      <td>Lenahan, Kyle</td>
+      <td>Male</td>
+      <td>21</td>
+      <td>181</td>
+      <td>78.0</td>
+      <td>Other</td>
+      <td>1.38</td>
+      <td>2nd</td>
+      <td>Social Sciences</td>
+      <td>Economics and Finance</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>521</th>
+      <td>346731</td>
+      <td>Lee, Nicholas</td>
+      <td>Male</td>
+      <td>22</td>
+      <td>192</td>
+      <td>93.1</td>
+      <td>Catholic</td>
+      <td>1.27</td>
+      <td>5th</td>
+      <td>Environmental Sciences</td>
+      <td>Social Sciences</td>
+      <td>78.0</td>
+      <td>65.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>49068.50</td>
+    </tr>
+    <tr>
+      <th>5603</th>
+      <td>963305</td>
+      <td>Kramer, David</td>
+      <td>Male</td>
+      <td>56</td>
+      <td>170</td>
+      <td>72.6</td>
+      <td>Orthodox</td>
+      <td>2.14</td>
+      <td>5th</td>
+      <td>Environmental Sciences</td>
+      <td>Mathematics and Statistics</td>
+      <td>72.0</td>
+      <td>71.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>42606.35</td>
+    </tr>
+    <tr>
+      <th>3670</th>
+      <td>124687</td>
+      <td>Than, Jonathan</td>
+      <td>Male</td>
+      <td>22</td>
+      <td>172</td>
+      <td>72.4</td>
+      <td>Protestant</td>
+      <td>1.79</td>
+      <td>4th</td>
+      <td>Environmental Sciences</td>
+      <td>Mathematics and Statistics</td>
+      <td>62.0</td>
+      <td>69.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>49004.73</td>
+    </tr>
+    <tr>
+      <th>5375</th>
+      <td>696262</td>
+      <td>Macasinag, Paulo</td>
+      <td>Male</td>
+      <td>20</td>
+      <td>197</td>
+      <td>94.3</td>
+      <td>Catholic</td>
+      <td>3.41</td>
+      <td>6th</td>
+      <td>Political Science</td>
+      <td>Environmental Sciences</td>
+      <td>51.0</td>
+      <td>47.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>39442.80</td>
+    </tr>
+    <tr>
+      <th>2317</th>
+      <td>452190</td>
+      <td>Briseno, Alisha</td>
+      <td>Female</td>
+      <td>63</td>
+      <td>162</td>
+      <td>68.0</td>
+      <td>Catholic</td>
+      <td>2.19</td>
+      <td>2nd</td>
+      <td>Mathematics and Statistics</td>
+      <td>Environmental Sciences</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4839</th>
+      <td>955228</td>
+      <td>Thapa, Richard</td>
+      <td>Male</td>
+      <td>23</td>
+      <td>175</td>
+      <td>76.0</td>
+      <td>Other</td>
+      <td>2.48</td>
+      <td>1st</td>
+      <td>Mathematics and Statistics</td>
+      <td>Environmental Sciences</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1285</th>
+      <td>854649</td>
+      <td>Duling, Joshua Ian</td>
+      <td>Male</td>
+      <td>61</td>
+      <td>170</td>
+      <td>70.3</td>
+      <td>Protestant</td>
+      <td>1.54</td>
+      <td>&gt;6th</td>
+      <td>Economics and Finance</td>
+      <td>Mathematics and Statistics</td>
+      <td>64.0</td>
+      <td>69.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>582922</td>
+      <td>Valenciano-Poffenbarger, Quincie</td>
+      <td>Female</td>
+      <td>19</td>
+      <td>175</td>
+      <td>76.8</td>
+      <td>Catholic</td>
+      <td>2.19</td>
+      <td>1st</td>
+      <td>Social Sciences</td>
+      <td>Mathematics and Statistics</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Wir sind also an den Kategorien <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">height</span></code>, <code class="docutils literal notranslate"><span class="pre">weight</span></code> und <code class="docutils literal notranslate"><span class="pre">nc_score</span></code> interessiert. Wir verwenden die Methoden <code class="docutils literal notranslate"><span class="pre">min()</span></code> und <code class="docutils literal notranslate"><span class="pre">max()</span></code>, um das Minimum und Maximum der ausgewählten Variablen zu berechnen. Erneut greifen wir auf die <code class="docutils literal notranslate"><span class="pre">agg</span></code>-Methode zurück.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;nc_score&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">])</span>
+<span class="n">summary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>nc_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>min</th>
+      <td>18</td>
+      <td>135</td>
+      <td>51.4</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>64</td>
+      <td>206</td>
+      <td>116.0</td>
+      <td>4.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Um nun die Spannweite für jede Variable zu berechnen, müssen wir nur eine Zeile von der anderen abziehen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Spannweite&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">summary</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">]</span>
+<span class="n">summary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>nc_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>min</th>
+      <td>18.0</td>
+      <td>135.0</td>
+      <td>51.4</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>64.0</td>
+      <td>206.0</td>
+      <td>116.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>Spannweite</th>
+      <td>46.0</td>
+      <td>71.0</td>
+      <td>64.6</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Die Spannweite hat, wie der Mittelwert, den Nachteil, dass sie durch Ausreißer beeinflusst wird. Daher ist die Spannweite kein gutes Streuungsmaß für einen Datensatz, der Ausreißer enthält. Ein weiterer Nachteil der Verwendung der Spannweite als Streuungsmaß ist, dass ihre Berechnung nur auf zwei Werten basiert: Dem größten und dem kleinsten. Alle anderen Werte in einem Datensatz werden bei der Berechnung der Spanne ignoriert. Daher ist die Spannweite oftmals kein sehr zufriedenstellendes Maß für die Streuung (<span id="id5">[]</span> s.62).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ixianslab/srh-data-science",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Kapitel01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_Ma%C3%9Fe_der_zentralen_Tendenz.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Maße der zentralen Tendenz</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_Ma%C3%9Fe_der_Position.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Das Positionsmaß</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianz-und-standardabweichung">Varianz und Standardabweichung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verwendung-der-standardabweichung">Verwendung der Standardabweichung</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tschebyscheff-theorem">Tschebyscheff-Theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#empirische-regel">Empirische Regel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#die-spannweite">Die Spannweite</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ixians
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

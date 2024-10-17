@@ -1,0 +1,2018 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Maße für die Relation zwischen Variablen &#8212; Modul Statistik und Machine Learning Modelle</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel01/05_Maße_der_Relation_zwischen_Variablen';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Übungsaufgaben" href="../Aufgaben/Kapitel01/Aufgaben.html" />
+    <link rel="prev" title="Das Positionsmaß" href="04_Ma%C3%9Fe_der_Position.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vorwort</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Vorwort.html">Vorwort</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Statistik</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel1_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_Deskriptive_Statistik.html">Deskriptive Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Ma%C3%9Fe_der_zentralen_Tendenz.html">Maße der zentralen Tendenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Maße für die Relation zwischen Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel2_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel3_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/01_stetige_Zufallsvariablen.html">Stetige Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/02_Die%20Normalverteilung.html">Die Normalverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/03_Die_kontinuierliche_gleichm%C3%A4%C3%9Fige_Verteilung.html">Die kontinuierliche gleichmäßige Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel6_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/01_Hypothesentests.html">Hypothesentests</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/02_Hypothesentests_Mittelwert_einer_Grundgesamtheit.html">Hypothesentests für den Mittelwert einer Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte.html">Hypothesentests für zwei Grundgesamtheitsmittelwerte</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/04_Standardabweichung_der_Grundgesamtheit.html">Inferenz für die Standardabweichung der Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/05_Chi_Quadrat_Tests.html">Chi-Quadrat-Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/06_Inferenz_Regression_und_Korrelation.html">Inferenzmethoden in Regression und Korrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/07_Wahrscheinlichkeitstabellen.html">Wahrscheinlichkeits-Tabellen</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Literaturverzeichnis.html">Literaturverzeichnis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel01/05_Maße_der_Relation_zwischen_Variablen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Kapitel01/05_Maße_der_Relation_zwischen_Variablen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Maße für die Relation zwischen Variablen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianz">Kovarianz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelation">Korrelation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-produkt-moment-korrelationskoeffizient">Pearson-Produkt-Moment-Korrelationskoeffizient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelationskoeffizient-nach-pearson-ein-beispiel">Korrelationskoeffizient nach Pearson: Ein Beispiel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rangkorrelationskoeffizient-nach-spearman">Rangkorrelationskoeffizient nach Spearman</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman-s-rangkorrelationskoeffizient-ein-beispiel">Spearman’s Rangkorrelationskoeffizient: Ein Beispiel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kontingenzkoeffizient">Kontingenzkoeffizient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-chi-2-statistik">Berechnung der <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-des-kontingenzkoeffizienten-c">Berechnung des Kontingenzkoeffizienten <span class="math notranslate nohighlight">\(C\)</span></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="masze-fur-die-relation-zwischen-variablen">
+<h1>Maße für die Relation zwischen Variablen<a class="headerlink" href="#masze-fur-die-relation-zwischen-variablen" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In den vorangegangenen Abschnitten haben wir uns hauptsächlich auf eine einzelne Variable, die Beschreibung einer Verteilung und die Berechnung von zusammenfassenden Statistiken konzentriert. Statistiken, die eine einzelne Variable beschreiben, werden als <a href="https://de.wikipedia.org/wiki/Univariat">univariate Statistiken</a> bezeichnet. Untersucht man die Beziehung zwischen zwei Variablen, spricht man von <a href="https://de.wikipedia.org/wiki/Univariat#Verwendung_in_der_Mathematik">bivariater Statistik</a>. Wenn die Beziehungen zwischen mehreren Variablen gleichzeitig untersucht werden, spricht man von <a href="https://de.wikipedia.org/wiki/Multivariate_Verfahren">multivariaten Statistiken</a>. <strong>Maße für die Relation</strong> zwischen Variablen bieten die Möglichkeit, die Größe der Verknüpfung zwischen zwei Variablen zusammenzufassen.</p>
+<section id="kovarianz">
+<h2>Kovarianz<a class="headerlink" href="#kovarianz" title="Permalink to this heading">#</a></h2>
+<p>Die <a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)">Kovarianz</a> ist ein Maß für die gemeinsame Variabilität von zwei Variablen. Die Kovarianz kann jeden Wert im Intervall <span class="math notranslate nohighlight">\(]-\infty \ \)</span>,<span class="math notranslate nohighlight">\( \ +\infty[\)</span> annehmen.</p>
+<p>Die Kovarianz ist positiv, wenn die größeren/kleineren Werte der einen Variablen hauptsächlich mit den größeren/kleineren Werten der anderen Variablen übereinstimmen. Die Kovarianz ist negativ, wenn die Variablen tendenziell ein entgegengesetztes Verhalten zeigen. Die Kovarianz ist negativ, wenn die größeren Werte der einen Variablen hauptsächlich mit den kleineren Werten der anderen Variablen übereinstimmen.</p>
+<p>Die Kovarianz, <span class="math notranslate nohighlight">\(s_{xy}\)</span>
+wird durch die folgende Gleichung berechnet</p>
+<div class="math notranslate nohighlight">
+\[s_{xy} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{n-1}\]</div>
+<p>Die <strong>normalisierte Version der Kovarianz</strong> wird <strong>Korrelationskoeffizient</strong> genannt, dessen Größe die Stärke einer linearen Beziehung zwischen zwei Variablen angibt.</p>
+</section>
+<section id="korrelation">
+<h2>Korrelation<a class="headerlink" href="#korrelation" title="Permalink to this heading">#</a></h2>
+<section id="pearson-produkt-moment-korrelationskoeffizient">
+<h3>Pearson-Produkt-Moment-Korrelationskoeffizient<a class="headerlink" href="#pearson-produkt-moment-korrelationskoeffizient" title="Permalink to this heading">#</a></h3>
+<p>Die Korrelation ist eine weit verbreitete Methode zur Untersuchung der Beziehung zwischen <strong>quantitativen Variablen</strong>. Die am häufigsten verwendete Statistik ist der <strong>lineare Korrelationskoeffizient</strong> <span class="math notranslate nohighlight">\(r\)</span>, der zu Ehren seines Entwicklers, <a href="https://de.wikipedia.org/wiki/Karl_Pearson">Karl Pearson</a>, auch als <a href="https://de.wikipedia.org/wiki/Korrelationskoeffizient">Pearson-Produkt-Moment-Korrelationskoeffizient</a> bekannt ist. Er ist gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[ r = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2} \sqrt{ \sum_{i=1}^n (y_i - \bar{y})^2}} = \frac{s_{xy}}{s_x s_y}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(s_{xy}\)</span> die Kovarianz von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> und <span class="math notranslate nohighlight">\(s_x\)</span> und <span class="math notranslate nohighlight">\(s_y\)</span> die Standardabweichung von <span class="math notranslate nohighlight">\(x\)</span> bzw. <span class="math notranslate nohighlight">\(y\)</span> sind. Durch Division durch die Standardabweichungen der Stichprobe, <span class="math notranslate nohighlight">\(s_x\)</span> und <span class="math notranslate nohighlight">\(s_y\)</span>, wird der lineare Korrelationskoeffizient, <span class="math notranslate nohighlight">\(r\)</span>, skalenunabhängig und nimmt Werte zwischen <span class="math notranslate nohighlight">\(-1\)</span> und <span class="math notranslate nohighlight">\(1\)</span> an.</p>
+<p>Der lineare Korrelationskoeffizient misst die Stärke der linearen Beziehung zwischen zwei Variablen. Liegt <span class="math notranslate nohighlight">\(r\)</span> nahe bei <span class="math notranslate nohighlight">\(\pm 1\)</span>, sind die beiden Variablen stark korreliert, und in einem Streudiagramm liegen die Datenpunkte um eine Linie herum. Liegt <span class="math notranslate nohighlight">\(r\)</span> weit von <span class="math notranslate nohighlight">\(\pm 1\)</span> entfernt, sind die Datenpunkte weiter gestreut. Liegt <span class="math notranslate nohighlight">\(r\)</span> nahe bei <span class="math notranslate nohighlight">\(0\)</span>, sind die Datenpunkte im Wesentlichen um eine horizontale Linie gestreut, was darauf hindeutet, dass es fast keine lineare Beziehung zwischen den Variablen gibt.</p>
+<p><img alt="Alt-Text" src="../_images/pearson.png" /></p>
+<p>Eine interessante Eigenschaft von <span class="math notranslate nohighlight">\(r\)</span> ist, dass sein Vorzeichen die Steigung der linearen Beziehung zwischen zwei Variablen widerspiegelt. Ein positiver Wert von <span class="math notranslate nohighlight">\(r\)</span> deutet darauf hin, dass die Variablen <strong>positiv linear korreliert</strong> sind, was bedeutet, dass <span class="math notranslate nohighlight">\(y\)</span> tendenziell linear zunimmt, wenn <span class="math notranslate nohighlight">\(x\)</span> zunimmt. Ein negativer Wert von <span class="math notranslate nohighlight">\(r\)</span> deutet darauf hin, dass die Variablen <strong>negativ linear korreliert</strong> sind, was bedeutet, dass <span class="math notranslate nohighlight">\(y\)</span> tendenziell linear abnimmt, wenn <span class="math notranslate nohighlight">\(x\)</span> zunimmt.</p>
+<p>Es gibt keine eindeutige Klassifizierungsregel für die Größe einer linearen Beziehung zwischen zwei Variablen. Die folgende Tabelle kann jedoch als Faustregel für den Umgang mit den numerischen Werten des Pearson-Produkt-Moment-Korrelationskoeffizienten dienen.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>starke lineare Korrelation</p></td>
+<td><p><span class="math notranslate nohighlight">\(r &gt; 0,9\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>mittlere lineare Korrelation</p></td>
+<td><p><span class="math notranslate nohighlight">\(0,7 &lt; r \le 0,9\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>schwache lineare Korrelation</p></td>
+<td><p><span class="math notranslate nohighlight">\(0,5 &lt; r \le 0,7\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>keine oder zweifelhafte lineare Korrelation</p></td>
+<td><p><span class="math notranslate nohighlight">\(0 &lt; r \le 0,5\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Die Pearson-Korrelation setzt voraus, dass die Variablen annähernd normalverteilt sind, und sie ist bei Vorhandensein von Ausreißern nicht robust.</p>
+<p>In einem späteren Abschnitt über lineare Regression wird das Bestimmtheitsmaß, <span class="math notranslate nohighlight">\(R^2\)</span>
+ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine enge Beziehung zwischen <span class="math notranslate nohighlight">\(R^2\)</span> und dem linearen Korrelationskoeffizienten <span class="math notranslate nohighlight">\(r\)</span>. Das Bestimmtheitsmaß <span class="math notranslate nohighlight">\(R^2\)</span> ist gleich dem Quadrat des linearen Korrelationskoeffizienten <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\text{Determinationskoeffizient} (R^2) = r^2\]</div>
+</section>
+<section id="korrelationskoeffizient-nach-pearson-ein-beispiel">
+<h3>Korrelationskoeffizient nach Pearson: Ein Beispiel<a class="headerlink" href="#korrelationskoeffizient-nach-pearson-ein-beispiel" title="Permalink to this heading">#</a></h3>
+<p>Um ein Gefühl dafür zu bekommen, berechnen wir den Pearson-Produkt-Moment-Korrelationskoeffizienten in einem Beispiel. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz in unseren Arbeitsbereich (Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Einlesen der Daten als Dataframe</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz besteht aus <span class="math notranslate nohighlight">\(8239\)</span> Zeilen, von denen jede einen bestimmten Studenten repräsentiert, und <span class="math notranslate nohighlight">\(16\)</span> Spalten, von denen jede einer Variable/einem Merkmal entspricht, das sich auf diesen bestimmten Studenten bezieht. Diese selbsterklärenden Variablen sind: <em>stud_id, name, gender, age, height, weight, religion, nc_score, semester, major, minor, score1, score2, online_tutorial, graduated, salary</em>.</p>
+<p>In diesem Beispiel wird <strong>die lineare Beziehung zwischen dem Gewicht und der Größe der Studenten</strong> untersucht. Dazu wählen wir zufällig <span class="math notranslate nohighlight">\(37\)</span> Studenten aus und extrahieren die Variablen <code class="docutils literal notranslate"><span class="pre">height</span></code> und <code class="docutils literal notranslate"><span class="pre">weight</span></code> aus dem Datensatz.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wähle zufällige Stichprobe n=37 aus ohne doppelt auszuwählen</span>
+<span class="n">students_sample</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">37</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Lese height und weight der Probe aus dem dataframe in Listen ein</span>
+<span class="n">height_sample</span> <span class="o">=</span> <span class="n">students_sample</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span>
+<span class="n">weight_sample</span> <span class="o">=</span> <span class="n">students_sample</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">height_sample</span><span class="p">,</span> <span class="n">weight_sample</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Körpergrösse&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Gewicht&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5af3254190400147c13b66c94172a16cfef186c41939cfa5b15e46d0cf5f43bc.png" src="../_images/5af3254190400147c13b66c94172a16cfef186c41939cfa5b15e46d0cf5f43bc.png" />
+</div>
+</div>
+<p>Das Streudiagramm zeigt, dass eine lineare Beziehung zwischen den beiden betrachteten Variablen besteht. Für diese Übung berechnen wir den linearen Korrelationskoeffizienten zunächst von Hand und wenden dann die <code class="docutils literal notranslate"><span class="pre">np.corrcoef()</span></code>-Funktion in Python an. Wir erinnern uns an die Gleichung von oben</p>
+<div class="math notranslate nohighlight">
+\[ r = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2} \sqrt{ \sum_{i=1}^n (y_i - \bar{y})^2}} = \frac{s_{xy}}{s_x s_y}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_xy</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">height_sample</span> <span class="o">-</span> <span class="n">height_sample</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">*</span> <span class="p">(</span><span class="n">weight_sample</span> <span class="o">-</span> <span class="n">weight_sample</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="p">)</span>
+<span class="n">sx_sy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">((</span><span class="n">height_sample</span> <span class="o">-</span> <span class="n">height_sample</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+    <span class="nb">sum</span><span class="p">((</span><span class="n">weight_sample</span> <span class="o">-</span> <span class="n">weight_sample</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">s_xy</span> <span class="o">/</span> <span class="n">sx_sy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9295600715108283
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zur Überprüfung des Ergebnisses berechnen wir das Verhältnis der Kovarianz von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> und die Standardabweichung von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ r = \frac{s_{xy}}{s_x s_y} \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne Kovarianz zwischen height_sample und weight_sample</span>
+<span class="n">s_xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">height_sample</span><span class="p">,</span> <span class="n">weight_sample</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Berechne Standardabweichung für height_sample und weight_sample</span>
+<span class="n">std_height_sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">height_sample</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">std_weight_sample</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">weight_sample</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Berechne Pearsonkorrelationskoeffizienten</span>
+<span class="n">s_xy</span> <span class="o">/</span> <span class="p">(</span><span class="n">std_height_sample</span> <span class="o">*</span> <span class="n">std_weight_sample</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.929560071510828
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zum Schluss wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">np.corrcoef</span></code> an, die im <code class="docutils literal notranslate"><span class="pre">numpy</span></code> Modul enthalten ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">weight_sample</span><span class="p">,</span> <span class="n">height_sample</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9295600715108281
+</pre></div>
+</div>
+</div>
+</div>
+<p>Perfekt! Die vier Berechnungen ergeben genau das gleiche Ergebnis! Der lineare Korrelationskoeffizient beträgt <span class="math notranslate nohighlight">\(r=0,9296\)</span>. Daraus können wir schließen, dass es einen starken linearen Zusammenhang zwischen der Größe und dem Gewicht eines Studenten gibt.</p>
+<p>Natürlich ist eine Korrelationsanalyse nicht auf zwei Variablen beschränkt. Dank statistischer Softwarepakete, wie Python, können wir eine paarweise Korrelationsanalyse für mehr als zwei Variablen durchführen. Lassen Sie uns zunächst den Datensatz vorbereiten. Für eine bessere Visualisierung ziehen wir <span class="math notranslate nohighlight">\(100\)</span> zufällig ausgewählte Studenten aus dem <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Dann wählen wir eine numerische Variablen aus, um eine Korrelationsanalyse durchzuführen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wähle zufällige Stichprobe n=100 aus ohne Zurücklegen auszuwählen</span>
+<span class="n">students_sample</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="c1"># Wähle nur numerische Variablen aus</span>
+<span class="n">students_sample</span> <span class="o">=</span> <span class="n">students_sample</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="s2">&quot;number&quot;</span><span class="p">)</span>
+
+<span class="n">students_sample</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>nc_score</th>
+      <th>score1</th>
+      <th>score2</th>
+      <th>online_tutorial</th>
+      <th>graduated</th>
+      <th>salary</th>
+    </tr>
+    <tr>
+      <th>stud_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>210967</th>
+      <td>18</td>
+      <td>159</td>
+      <td>67.1</td>
+      <td>1.15</td>
+      <td>57.0</td>
+      <td>49.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>133917</th>
+      <td>22</td>
+      <td>173</td>
+      <td>71.7</td>
+      <td>3.50</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>947965</th>
+      <td>22</td>
+      <td>172</td>
+      <td>71.0</td>
+      <td>1.51</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>861418</th>
+      <td>21</td>
+      <td>155</td>
+      <td>61.9</td>
+      <td>1.81</td>
+      <td>55.0</td>
+      <td>50.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>206456</th>
+      <td>24</td>
+      <td>162</td>
+      <td>69.6</td>
+      <td>2.89</td>
+      <td>78.0</td>
+      <td>79.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>729441</th>
+      <td>34</td>
+      <td>167</td>
+      <td>70.4</td>
+      <td>1.13</td>
+      <td>60.0</td>
+      <td>57.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>33208.01</td>
+    </tr>
+    <tr>
+      <th>681278</th>
+      <td>21</td>
+      <td>158</td>
+      <td>60.8</td>
+      <td>1.03</td>
+      <td>55.0</td>
+      <td>52.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>397699</th>
+      <td>23</td>
+      <td>172</td>
+      <td>69.4</td>
+      <td>1.83</td>
+      <td>69.0</td>
+      <td>67.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>37854.66</td>
+    </tr>
+    <tr>
+      <th>152166</th>
+      <td>20</td>
+      <td>163</td>
+      <td>62.8</td>
+      <td>1.74</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>635788</th>
+      <td>22</td>
+      <td>167</td>
+      <td>69.6</td>
+      <td>1.22</td>
+      <td>47.0</td>
+      <td>47.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>33318.30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Offensichtlich enthalten einige Variablen fehlende Werte, die als <span class="math notranslate nohighlight">\(NaN\)</span> bezeichnet werden. Wir können diese Werte aus der Analyse ausschließen, indem wir die Methode <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> hinzufügen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Entferne Spalten die NaN enthalten</span>
+<span class="n">students_sample_clean</span> <span class="o">=</span> <span class="n">students_sample</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;any&quot;</span><span class="p">)</span>
+<span class="n">students_sample_clean</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>nc_score</th>
+      <th>score1</th>
+      <th>score2</th>
+      <th>online_tutorial</th>
+      <th>graduated</th>
+      <th>salary</th>
+    </tr>
+    <tr>
+      <th>stud_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>193855</th>
+      <td>20</td>
+      <td>181</td>
+      <td>80.1</td>
+      <td>2.20</td>
+      <td>50.0</td>
+      <td>53.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>25706.96</td>
+    </tr>
+    <tr>
+      <th>618746</th>
+      <td>18</td>
+      <td>178</td>
+      <td>80.0</td>
+      <td>3.14</td>
+      <td>44.0</td>
+      <td>41.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>40899.32</td>
+    </tr>
+    <tr>
+      <th>163772</th>
+      <td>23</td>
+      <td>163</td>
+      <td>65.4</td>
+      <td>1.90</td>
+      <td>76.0</td>
+      <td>67.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>28235.06</td>
+    </tr>
+    <tr>
+      <th>462072</th>
+      <td>23</td>
+      <td>172</td>
+      <td>76.5</td>
+      <td>1.25</td>
+      <td>64.0</td>
+      <td>68.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>47556.44</td>
+    </tr>
+    <tr>
+      <th>635788</th>
+      <td>22</td>
+      <td>167</td>
+      <td>69.6</td>
+      <td>1.22</td>
+      <td>47.0</td>
+      <td>47.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>33318.30</td>
+    </tr>
+    <tr>
+      <th>225865</th>
+      <td>20</td>
+      <td>177</td>
+      <td>75.4</td>
+      <td>2.11</td>
+      <td>72.0</td>
+      <td>70.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>50078.33</td>
+    </tr>
+    <tr>
+      <th>679734</th>
+      <td>19</td>
+      <td>173</td>
+      <td>70.5</td>
+      <td>1.86</td>
+      <td>69.0</td>
+      <td>76.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>43441.64</td>
+    </tr>
+    <tr>
+      <th>643038</th>
+      <td>24</td>
+      <td>184</td>
+      <td>85.1</td>
+      <td>3.42</td>
+      <td>71.0</td>
+      <td>77.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>41028.24</td>
+    </tr>
+    <tr>
+      <th>768607</th>
+      <td>22</td>
+      <td>192</td>
+      <td>86.1</td>
+      <td>1.41</td>
+      <td>68.0</td>
+      <td>71.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>36291.58</td>
+    </tr>
+    <tr>
+      <th>834001</th>
+      <td>21</td>
+      <td>144</td>
+      <td>55.0</td>
+      <td>3.42</td>
+      <td>49.0</td>
+      <td>57.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>33726.58</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Die Methode <code class="docutils literal notranslate"><span class="pre">corr()</span></code> liefert eine schöne Tabelle, auch <strong>Korrelationsmatrix</strong> genannt, mit den paarweisen Pearsonschen Korrelationskoeffizienten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">students_sample_clean</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>height</th>
+      <th>weight</th>
+      <th>nc_score</th>
+      <th>score1</th>
+      <th>score2</th>
+      <th>online_tutorial</th>
+      <th>graduated</th>
+      <th>salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>age</th>
+      <td>1.000000</td>
+      <td>-0.021219</td>
+      <td>0.046222</td>
+      <td>-0.277334</td>
+      <td>0.132991</td>
+      <td>0.073143</td>
+      <td>0.037136</td>
+      <td>NaN</td>
+      <td>-0.146958</td>
+    </tr>
+    <tr>
+      <th>height</th>
+      <td>-0.021219</td>
+      <td>1.000000</td>
+      <td>0.955495</td>
+      <td>-0.031163</td>
+      <td>-0.041360</td>
+      <td>-0.181769</td>
+      <td>-0.155009</td>
+      <td>NaN</td>
+      <td>0.467934</td>
+    </tr>
+    <tr>
+      <th>weight</th>
+      <td>0.046222</td>
+      <td>0.955495</td>
+      <td>1.000000</td>
+      <td>0.073386</td>
+      <td>-0.078268</td>
+      <td>-0.176928</td>
+      <td>-0.165820</td>
+      <td>NaN</td>
+      <td>0.473708</td>
+    </tr>
+    <tr>
+      <th>nc_score</th>
+      <td>-0.277334</td>
+      <td>-0.031163</td>
+      <td>0.073386</td>
+      <td>1.000000</td>
+      <td>-0.185161</td>
+      <td>-0.037330</td>
+      <td>-0.048404</td>
+      <td>NaN</td>
+      <td>0.037957</td>
+    </tr>
+    <tr>
+      <th>score1</th>
+      <td>0.132991</td>
+      <td>-0.041360</td>
+      <td>-0.078268</td>
+      <td>-0.185161</td>
+      <td>1.000000</td>
+      <td>0.860207</td>
+      <td>0.131912</td>
+      <td>NaN</td>
+      <td>0.165573</td>
+    </tr>
+    <tr>
+      <th>score2</th>
+      <td>0.073143</td>
+      <td>-0.181769</td>
+      <td>-0.176928</td>
+      <td>-0.037330</td>
+      <td>0.860207</td>
+      <td>1.000000</td>
+      <td>0.381767</td>
+      <td>NaN</td>
+      <td>-0.038099</td>
+    </tr>
+    <tr>
+      <th>online_tutorial</th>
+      <td>0.037136</td>
+      <td>-0.155009</td>
+      <td>-0.165820</td>
+      <td>-0.048404</td>
+      <td>0.131912</td>
+      <td>0.381767</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>-0.325214</td>
+    </tr>
+    <tr>
+      <th>graduated</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>salary</th>
+      <td>-0.146958</td>
+      <td>0.467934</td>
+      <td>0.473708</td>
+      <td>0.037957</td>
+      <td>0.165573</td>
+      <td>-0.038099</td>
+      <td>-0.325214</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Eine Tabelle ist eine schöne Darstellung für eine Korrelationsanalyse, aber eine Abbildung würde natürlich die Interpretierbarkeit verbessern. Das Modul <a class="reference external" href="https://seaborn.pydata.org/">seaborn</a> bietet die Funktion <code class="docutils literal notranslate"><span class="pre">pairplot</span></code> zur Darstellung von Korrelationsmatrizen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeuge Pair Plot</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">students_sample_clean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x73fe03d53d60&gt;
+</pre></div>
+</div>
+<img alt="../_images/108d182b6e8f328825fcf222fb0a95ad72a321f7e0e9479c736c05f3693c9b0c.png" src="../_images/108d182b6e8f328825fcf222fb0a95ad72a321f7e0e9479c736c05f3693c9b0c.png" />
+</div>
+</div>
+<p>Es fällt sofort auf, dass die Mehrzahl der Variablen nicht linear korreliert zu sein scheint. Im Gegensatz dazu scheinen die Variablenpaare <code class="docutils literal notranslate"><span class="pre">height</span></code> und <code class="docutils literal notranslate"><span class="pre">weight</span></code> sowie <code class="docutils literal notranslate"><span class="pre">score1</span></code> und <code class="docutils literal notranslate"><span class="pre">score2</span></code> positiv korreliert zu sein.</p>
+</section>
+<section id="rangkorrelationskoeffizient-nach-spearman">
+<h3>Rangkorrelationskoeffizient nach Spearman<a class="headerlink" href="#rangkorrelationskoeffizient-nach-spearman" title="Permalink to this heading">#</a></h3>
+<p>Der Rangkorrelationskoeffizient nach Spearman (<span id="id1">[]</span> s.133), auch bekannt als Spearmans <span class="math notranslate nohighlight">\(\rho\)</span>, ist ein nichtparametrischer Rangkorrelationskoeffizient. Er wurde von <a href="https://de.wikipedia.org/wiki/Charles_Spearman">Charles Spearman</a> entwickelt und ist eine Alternative zum Produkt-Moment-Korrelationskoeffizienten von Pearson. Der Spearman <span class="math notranslate nohighlight">\(\rho\)</span> Rangkorrelationskoeffizient wird für Stichprobendaten mit <span class="math notranslate nohighlight">\(r_s\)</span> und für Grundgesamtheitsdaten mit <span class="math notranslate nohighlight">\(\rho_s\)</span> bezeichnet (Mann 2012). Der Korrelationskoeffizient bewertet die monotone Beziehung zwischen zwei Variablen und liegt zwischen <span class="math notranslate nohighlight">\(-1\)</span> und <span class="math notranslate nohighlight">\(1\)</span>. Er beschreibt die lineare Korrelation zwischen den Rängen der Daten zu den Variablen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span>. Die Spearman-Korrelation ist hoch, wenn die Variablen einen ähnlichen Rang haben, und niedrig, wenn die Variablen einen ungleichen Rang haben.</p>
+<p>Um <span class="math notranslate nohighlight">\(r_s\)</span> zu berechnen, werden die Daten für jede Variable, <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span>, getrennt eingestuft. Die Differenz zwischen jedem Paar von Rängen bezeichnen wir mit <span class="math notranslate nohighlight">\(d\)</span>. Für eine gegebene bivariate Sequenz <span class="math notranslate nohighlight">\((x_1,y_1),(x_2,y_2), \dots,(x_n,y_n)\)</span> ist Spearmans <span class="math notranslate nohighlight">\(r_s\)</span> gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[ r_s = 1 - \frac{6 \sum_{i=1}^n (r_{xi} - r_{yi})^2}{n(n^2 -1)} \]</div>
+<p>wobei <span class="math notranslate nohighlight">\(r_{xi}=Rank(x_i)\)</span> , <span class="math notranslate nohighlight">\(r_{yi}=Rank(y_i)\)</span> , und <span class="math notranslate nohighlight">\(n\)</span>
+die Stichprobengröße ist.</p>
+<p>Im Gegensatz zum linearen Korrelationskoeffizienten von Pearson ist der lineare Koeffizient von Spearman sowohl für quantitative als auch für ordinale Variablen geeignet. Außerdem sind rangbasierte Korrelationen nicht von der Normalverteilungsannahme abhängig und resistenter gegenüber Ausreißern (<span id="id2">[]</span> s.135).</p>
+</section>
+<section id="spearman-s-rangkorrelationskoeffizient-ein-beispiel">
+<h3>Spearman’s Rangkorrelationskoeffizient: Ein Beispiel<a class="headerlink" href="#spearman-s-rangkorrelationskoeffizient-ein-beispiel" title="Permalink to this heading">#</a></h3>
+<p>Betrachten wir ein Beispiel. Die Bevölkerung einer Gemeinde an einem Fluss ist der Meinung, dass der jüngste Anstieg der Abflussspitzen auf die Abholzung durch ein Holzunternehmen in den letzten Jahren zurückzuführen ist. Wir berechnen den Spearman’schen Rangkorrelationskoeffizienten, um festzustellen, ob es eine Korrelation zwischen dem Spitzenabfluss und dem Anteil der abgeholzten Fläche im Wassereinzugsgebiet gibt (Daten geändert nach <a href=https://www.routledge.com/Modeling-Hydrologic-Change-Statistical-Methods/McCuen/p/book/9781566706001>McCuen 2003, S. 112</a>).</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Jahr</p></th>
+<th class="text-center head"><p>Abflussspitzen <span class="math notranslate nohighlight">\((m^3s^{-1})\)</span></p></th>
+<th class="text-center head"><p>abgeholzten Fläche (%)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1982</p></td>
+<td class="text-center"><p>227</p></td>
+<td class="text-center"><p>53</p></td>
+</tr>
+<tr class="row-odd"><td><p>1983</p></td>
+<td class="text-center"><p>249</p></td>
+<td class="text-center"><p>56</p></td>
+</tr>
+<tr class="row-even"><td><p>1984</p></td>
+<td class="text-center"><p>210</p></td>
+<td class="text-center"><p>57</p></td>
+</tr>
+<tr class="row-odd"><td><p>1985</p></td>
+<td class="text-center"><p>190</p></td>
+<td class="text-center"><p>58</p></td>
+</tr>
+<tr class="row-even"><td><p>1986</p></td>
+<td class="text-center"><p>314</p></td>
+<td class="text-center"><p>55</p></td>
+</tr>
+<tr class="row-odd"><td><p>1987</p></td>
+<td class="text-center"><p>345</p></td>
+<td class="text-center"><p>54</p></td>
+</tr>
+<tr class="row-even"><td><p>1988</p></td>
+<td class="text-center"><p>161</p></td>
+<td class="text-center"><p>51</p></td>
+</tr>
+<tr class="row-odd"><td><p>1989</p></td>
+<td class="text-center"><p>266</p></td>
+<td class="text-center"><p>50</p></td>
+</tr>
+<tr class="row-even"><td><p>1990</p></td>
+<td class="text-center"><p>402</p></td>
+<td class="text-center"><p>49</p></td>
+</tr>
+<tr class="row-odd"><td><p>1991</p></td>
+<td class="text-center"><p>215</p></td>
+<td class="text-center"><p>47</p></td>
+</tr>
+<tr class="row-even"><td><p>1992</p></td>
+<td class="text-center"><p>164</p></td>
+<td class="text-center"><p>46</p></td>
+</tr>
+<tr class="row-odd"><td><p>1993</p></td>
+<td class="text-center"><p>405</p></td>
+<td class="text-center"><p>44</p></td>
+</tr>
+<tr class="row-even"><td><p>1994</p></td>
+<td class="text-center"><p>328</p></td>
+<td class="text-center"><p>43</p></td>
+</tr>
+<tr class="row-odd"><td><p>1995</p></td>
+<td class="text-center"><p>294</p></td>
+<td class="text-center"><p>42</p></td>
+</tr>
+</tbody>
+</table>
+<p>Lassen Sie uns unsere Datenvektoren konstruieren. Wir ordnen die Abflusswerte der Variablen <code class="docutils literal notranslate"><span class="pre">Q</span></code> und die abgeholzte Fläche der Variablen <code class="docutils literal notranslate"><span class="pre">logged</span></code> zu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeuge Listen Q, logged</span>
+<span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="mi">227</span><span class="p">,</span> <span class="mi">249</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">314</span><span class="p">,</span> <span class="mi">345</span><span class="p">,</span> <span class="mi">161</span><span class="p">,</span> <span class="mi">266</span><span class="p">,</span> <span class="mi">402</span><span class="p">,</span> <span class="mi">215</span><span class="p">,</span> <span class="mi">164</span><span class="p">,</span> <span class="mi">405</span><span class="p">,</span> <span class="mi">328</span><span class="p">,</span> <span class="mi">294</span><span class="p">]</span>
+<span class="n">logged</span> <span class="o">=</span> <span class="p">[</span><span class="mi">53</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">42</span><span class="p">]</span>
+
+<span class="c1"># Erzeuge Dataframe aus Q und logged</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;Q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot;Logged&quot;</span><span class="p">:</span> <span class="n">logged</span><span class="p">})</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Q</th>
+      <th>Logged</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>227</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>249</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>210</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>190</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>314</td>
+      <td>55</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>345</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>161</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>266</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>402</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>215</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>164</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>405</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>328</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>294</td>
+      <td>42</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Zunächst berechnen wir den Spearman’schen Rangkorrelationskoeffizienten per Hand. Erinnern Sie sich an die Gleichung</p>
+<div class="math notranslate nohighlight">
+\[ r_s = 1 - \frac{6 \sum_{i=1}^n (r_{xi} - r_{yi})^2}{n(n^2 -1)} \]</div>
+<p>wobei <span class="math notranslate nohighlight">\(r_{xi}=Rang(x_i)\)</span> , <span class="math notranslate nohighlight">\(r_{yi}=Rang(y_i)\)</span> , und <span class="math notranslate nohighlight">\(n\)</span> der Stichprobenumfang ist. Wir verwenden die Methode <code class="docutils literal notranslate"><span class="pre">rank()</span></code>, um den Rang für die Werte jeder Variablen zu berechnen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rs</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span>
+    <span class="mi">6</span>
+    <span class="o">*</span> <span class="nb">sum</span><span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">rank</span><span class="p">()[</span><span class="s2">&quot;Q&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">rank</span><span class="p">()[</span><span class="s2">&quot;Logged&quot;</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<span class="p">)</span>
+<span class="n">rs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.34065934065934056
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternativ können wir auch die Funktion <code class="docutils literal notranslate"><span class="pre">corr()</span></code> in Python verwenden und das Argument <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">'spearman'</span></code> hinzufügen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;spearman&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Q</th>
+      <th>Logged</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Q</th>
+      <td>1.000000</td>
+      <td>-0.340659</td>
+    </tr>
+    <tr>
+      <th>Logged</th>
+      <td>-0.340659</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Der Rangkorrelationskoeffizient von Spearman ist nichts anderes als der lineare Korrelationskoeffizient von Pearson für die gerankten Daten. Das Ergebnis der folgenden Codezelle sollte mit den vorherigen Ergebnissen übereinstimmen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rank</span><span class="p">()</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Q</th>
+      <th>Logged</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Q</th>
+      <td>1.000000</td>
+      <td>-0.340659</td>
+    </tr>
+    <tr>
+      <th>Logged</th>
+      <td>-0.340659</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Perfekt, wir erhielten das gleiche Ergebnis durch alle drei Berechnungen, die einen Spearman’s Rangkorrelationskoeffizienten von <span class="math notranslate nohighlight">\(r_s = -0,34\)</span> ergeben. Die Ergebnisse deuten darauf hin, dass es keine bis eine schwache negative Korrelation zwischen dem Spitzenabfluss und der Einschlagsfläche gibt. Mit anderen Worten, der Abfluss nimmt tendenziell ab, wenn die Abholzungsfläche zunimmt. Die Wahrnehmung der Bevölkerung kann also durch unsere statistische Analyse nicht bestätigt werden. Es wird empfohlen, einen statistischen Test durchzuführen, um festzustellen, ob das Ergebnis statistisch signifikant ist oder ob die Abweichung nur zufällig ist. Weitere Informationen finden Sie in den Abschnitten über <em>Hypothesentests</em>.</p>
+</section>
+</section>
+<section id="kontingenzkoeffizient">
+<h2>Kontingenzkoeffizient<a class="headerlink" href="#kontingenzkoeffizient" title="Permalink to this heading">#</a></h2>
+<p>Der <strong>Kontingenzkoeffizient</strong> <span class="math notranslate nohighlight">\(C\)</span> ist ein <span class="math notranslate nohighlight">\(\chi ^2\)</span>-basiertes Maß für die Assoziation von kategorialen Daten. Er stützt sich auf den <a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Test"><span class="math notranslate nohighlight">\(\chi ^2\)</span>-Test auf Unabhängigkeit</a>. Die <span class="math notranslate nohighlight">\(\chi ^2\)</span> Statistik ermöglicht es zu beurteilen, ob eine statistische Beziehung zwischen den Variablen in den <a href="https://de.wikipedia.org/wiki/Kontingenztafel">Kontingenztabellen</a> (auch bekannt als Kontingenztafeln oder Kreuztabellen) besteht oder nicht. In dieser Art von Tabellen wird die Verteilung der Variablen in einem Matrixformat dargestellt.</p>
+<p>Für die Berechnung des <strong>Kontingenzkoeffizienten</strong> <span class="math notranslate nohighlight">\(C\)</span>
+zu berechnen, müssen wir die <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik im Voraus bestimmen.</p>
+<section id="berechnung-der-chi-2-statistik">
+<h3>Berechnung der <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik<a class="headerlink" href="#berechnung-der-chi-2-statistik" title="Permalink to this heading">#</a></h3>
+<p>Die <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik ist gegeben durch
+$<span class="math notranslate nohighlight">\(\chi^2= \sum{\frac{(O-E)^2}{E}}\text{,}\)</span>$</p>
+<p>wobei <span class="math notranslate nohighlight">\(O\)</span> für die beobachtete Häufigkeit und <span class="math notranslate nohighlight">\(E\)</span> für die erwartete Häufigkeit steht. Bitte beachten Sie, dass <span class="math notranslate nohighlight">\(\frac{(O-E)^2}{E}\)</span> für jede Zelle ausgewertet und dann aufsummiert wird.</p>
+<p>Anhand eines Beispiels soll die Berechnung der <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik auf der Grundlage kategorialer Beobachtungsdaten näher erläutert werden. Nehmen wir eine Prüfung am Ende des Semesters. Es gibt drei Gruppen von Studierenden: Die Studierenden haben entweder bestanden, nicht bestanden oder nicht an der Prüfung teilgenommen. Außerdem wird die Anzahl der Übungen, die jeder einzelne Studierende während des Semesters absolviert hat, in vier Gruppen eingeteilt: Keine, weniger als die Hälfte <span class="math notranslate nohighlight">\((\lt 0,5)\)</span>, mehr als die Hälfte <span class="math notranslate nohighlight">\((\ge 0,5)\)</span>, alle.</p>
+<p>Die resultierende Kontingenztabelle sieht wie folgt aus:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="text-center head"><p>Keine</p></th>
+<th class="text-center head"><p><span class="math notranslate nohighlight">\(&lt;0,5\)</span></p></th>
+<th class="text-center head"><p><span class="math notranslate nohighlight">\(\geq 0,5\)</span></p></th>
+<th class="text-center head"><p>Alle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>erfolgreich</p></td>
+<td class="text-center"><p>12</p></td>
+<td class="text-center"><p>13</p></td>
+<td class="text-center"><p>24</p></td>
+<td class="text-center"><p>14</p></td>
+</tr>
+<tr class="row-odd"><td><p>nicht erfolgreich</p></td>
+<td class="text-center"><p>22</p></td>
+<td class="text-center"><p>11</p></td>
+<td class="text-center"><p>8</p></td>
+<td class="text-center"><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>nicht teilgenommen</p></td>
+<td class="text-center"><p>11</p></td>
+<td class="text-center"><p>14</p></td>
+<td class="text-center"><p>6</p></td>
+<td class="text-center"><p>7</p></td>
+</tr>
+</tbody>
+</table>
+<p>Zunächst konstruieren wir ein <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> Objekt und geben ihm den Namen <code class="docutils literal notranslate"><span class="pre">obs</span></code>, um uns daran zu erinnern, dass diese Daten der beobachteten Häufigkeit entsprechen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeuge neues Dataframe obs</span>
+<span class="n">col1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;erfolgreich&quot;</span><span class="p">,</span> <span class="s2">&quot;nicht erfolgreich&quot;</span><span class="p">,</span> <span class="s2">&quot;nicht teilgenommen&quot;</span><span class="p">]</span>
+<span class="n">col2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+<span class="n">col3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">]</span>
+<span class="n">col4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">col5</span> <span class="o">=</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+
+<span class="n">obs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;Keine&quot;</span><span class="p">:</span> <span class="n">col2</span><span class="p">,</span> <span class="s2">&quot;&lt;0.5&quot;</span><span class="p">:</span> <span class="n">col3</span><span class="p">,</span> <span class="s2">&quot;&gt;0.5&quot;</span><span class="p">:</span> <span class="n">col4</span><span class="p">,</span> <span class="s2">&quot;Alle&quot;</span><span class="p">:</span> <span class="n">col5</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">col1</span>
+<span class="p">)</span>
+<span class="n">obs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Keine</th>
+      <th>&lt;0.5</th>
+      <th>&gt;0.5</th>
+      <th>Alle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>erfolgreich</th>
+      <td>12</td>
+      <td>13</td>
+      <td>24</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>nicht erfolgreich</th>
+      <td>22</td>
+      <td>11</td>
+      <td>8</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>nicht teilgenommen</th>
+      <td>11</td>
+      <td>14</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Perfekt, jetzt haben wir eine ordentliche Darstellung unserer Daten in Python. Allerdings fehlt noch ein Teil, um eine Kontingenztabelle zu vervollständigen. Die Zeilensummen und Spaltensummen.</p>
+<p>Es gibt mehrere Möglichkeiten, die Zeilen- und Spaltensummen in Python zu berechnen. Unter anderem kann man die Funktion <code class="docutils literal notranslate"><span class="pre">sum(df,</span> <span class="pre">axis=0,1)</span></code> verwenden. Die Funktion benötigt zwei Argumente, die Daten und eine Zahl, die angibt, ob die Daten zeilen- oder spaltenweise vorliegen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne Zeilen/Spaltensumme</span>
+<span class="n">columnsum</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">rowsum</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Spaltensummen: </span><span class="si">{</span><span class="n">columnsum</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Zeilensummen:  </span><span class="si">{</span><span class="n">rowsum</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Spaltensummen: [45 38 38 27]
+Zeilensummen:  [63 47 38]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Setzt man alle Teile zusammen, sieht die Kontingenztabelle wie folgt aus:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="text-center head"><p>Keine</p></th>
+<th class="text-center head"><p><span class="math notranslate nohighlight">\(&lt;0,5\)</span></p></th>
+<th class="text-center head"><p><span class="math notranslate nohighlight">\(\geq 0,5\)</span></p></th>
+<th class="text-center head"><p>Alle</p></th>
+<th class="text-center head"><p>Zeilensumme</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>erfolgreich</p></td>
+<td class="text-center"><p>12</p></td>
+<td class="text-center"><p>13</p></td>
+<td class="text-center"><p>24</p></td>
+<td class="text-center"><p>14</p></td>
+<td class="text-center"><p>63</p></td>
+</tr>
+<tr class="row-odd"><td><p>nicht erfolgreich</p></td>
+<td class="text-center"><p>22</p></td>
+<td class="text-center"><p>11</p></td>
+<td class="text-center"><p>8</p></td>
+<td class="text-center"><p>6</p></td>
+<td class="text-center"><p>47</p></td>
+</tr>
+<tr class="row-even"><td><p>nicht teilgenommen</p></td>
+<td class="text-center"><p>11</p></td>
+<td class="text-center"><p>14</p></td>
+<td class="text-center"><p>6</p></td>
+<td class="text-center"><p>7</p></td>
+<td class="text-center"><p>38</p></td>
+</tr>
+<tr class="row-odd"><td><p>Spaltensumme</p></td>
+<td class="text-center"><p>45</p></td>
+<td class="text-center"><p>38</p></td>
+<td class="text-center"><p>38</p></td>
+<td class="text-center"><p>27</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Toll, jetzt haben wir eine Tabelle mit den beobachteten Häufigkeiten. Im nächsten Schritt berechnen wir die erwarteten Häufigkeiten. Um die erwarteten Häufigkeiten <span class="math notranslate nohighlight">\((E)\)</span> zu berechnen, wenden wir diese Gleichung an:</p>
+<div class="math notranslate nohighlight">
+\[E = \frac{R\times C}{n} \text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(R\)</span> die Zeilensumme, <span class="math notranslate nohighlight">\(C\)</span> die Spaltensumme und <span class="math notranslate nohighlight">\(n\)</span> der Stichprobenumfang ist. Bitte beachten Sie, dass wir die erwartete Häufigkeit für jeden einzelnen Tabelleneintrag berechnen müssen, d. h. wir müssen <span class="math notranslate nohighlight">\(3 \times 4=12\)</span> Berechnungen durchführen. Auch hier bietet Python mehrere Möglichkeiten, diese Aufgabe zu lösen. Man kann eine verschachtelte for-Schleife bauen, um jede Zelle zu durchlaufen und die Berechnungen schrittweise durchzuführen, das ist definitiv in Ordnung! Wir können aber auch die vektorisierte und damit viel schnellere Funktion <code class="docutils literal notranslate"><span class="pre">outer()</span></code> in Kombination mit der Funktion <code class="docutils literal notranslate"><span class="pre">sum()</span></code> verwenden. Wir weisen das Ergebnis einer Variablen mit der Bezeichnung <code class="docutils literal notranslate"><span class="pre">exp</span></code> zu, um uns daran zu erinnern, dass diese Tabelle den erwarteten Häufigkeiten entspricht.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">columnsum</span><span class="p">,</span> <span class="n">rowsum</span><span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">columnsum</span><span class="p">)</span>
+<span class="n">exp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[19.15540541, 14.29054054, 11.55405405],
+       [16.17567568, 12.06756757,  9.75675676],
+       [16.17567568, 12.06756757,  9.75675676],
+       [11.49324324,  8.57432432,  6.93243243]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im nächsten Schritt erstellen wir aus den Ergebnissen einen Dataframe der dieselbe Spalten- und Zeilenanzahl, denseben Index und dieslelben Spaltennamen hat wie der <code class="docutils literal notranslate"><span class="pre">obs</span></code> Dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">exp</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">obs</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">obs</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">exp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Keine</th>
+      <th>&lt;0.5</th>
+      <th>&gt;0.5</th>
+      <th>Alle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>erfolgreich</th>
+      <td>19.155405</td>
+      <td>16.175676</td>
+      <td>16.175676</td>
+      <td>11.493243</td>
+    </tr>
+    <tr>
+      <th>nicht erfolgreich</th>
+      <td>14.290541</td>
+      <td>12.067568</td>
+      <td>12.067568</td>
+      <td>8.574324</td>
+    </tr>
+    <tr>
+      <th>nicht teilgenommen</th>
+      <td>11.554054</td>
+      <td>9.756757</td>
+      <td>9.756757</td>
+      <td>6.932432</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Im nächsten Schritt berechnen wir schließlich die <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik. Erinnern Sie sich an die Gleichung:</p>
+<div class="math notranslate nohighlight">
+\[\chi^2= \sum{\frac{(O-E)^2}{E}}\text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(O\)</span> für die beobachtete Häufigkeit und <span class="math notranslate nohighlight">\(E\)</span> für die erwartete Häufigkeit steht.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne chisqVal</span>
+<span class="n">chisqVal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(((</span><span class="n">obs</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">exp</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">exp</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">chisqVal</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.344387665138406
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="berechnung-des-kontingenzkoeffizienten-c">
+<h3>Berechnung des Kontingenzkoeffizienten <span class="math notranslate nohighlight">\(C\)</span><a class="headerlink" href="#berechnung-des-kontingenzkoeffizienten-c" title="Permalink to this heading">#</a></h3>
+<p>Der Kontingenzkoeffizient, bezeichnet als <span class="math notranslate nohighlight">\(C^∗\)</span>, passt die <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik um den Stichprobenumfang <span class="math notranslate nohighlight">\((n)\)</span> an. Er kann wie folgt geschrieben werden</p>
+<div class="math notranslate nohighlight">
+\[ C^*=\sqrt{\frac{\chi^2}{n+\chi^2}}\text{,} \]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\chi ^2\)</span> der <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik entspricht und <span class="math notranslate nohighlight">\(n\)</span> die Anzahl der Beobachtungen bezeichnet. Wenn keine Beziehung zwischen zwei Variablen besteht, ist <span class="math notranslate nohighlight">\(C^∗=0\)</span>. Der Kontingenzkoeffizient <span class="math notranslate nohighlight">\(C^∗\)</span> kann Werte <span class="math notranslate nohighlight">\(\gt 1\)</span> nicht überschreiten, aber der Kontingenzkoeffizient kann kleiner als <span class="math notranslate nohighlight">\(1\)</span> sein, selbst wenn zwei Variablen perfekt miteinander verbunden sind. Dies ist nicht so wünschenswert, daher wird <span class="math notranslate nohighlight">\(C^∗\)</span> so angepasst, dass er maximal <span class="math notranslate nohighlight">\(1\)</span> erreicht, wenn in einer Tabelle mit einer beliebigen Anzahl von Zeilen und Spalten ein vollständiger Zusammenhang besteht. Daher berechnen wir <span class="math notranslate nohighlight">\(C^{∗}_{max}\)</span>, das ist</p>
+<div class="math notranslate nohighlight">
+\[ C^*_{max}=\sqrt{\frac{k-1}{k}}\text{,} \]</div>
+<p>wobei <span class="math notranslate nohighlight">\(k\)</span> die Anzahl der Zeilen oder die Anzahl der Spalten ist, je nachdem, welcher Wert kleiner ist, <span class="math notranslate nohighlight">\(k=min(\text{Zeilen,Spalten})\)</span>. Dann wird der bereinigte Kontingenzkoeffizient wie folgt berechnet</p>
+<div class="math notranslate nohighlight">
+\[ C=\frac{C^*}{C^*_{max}}=\sqrt\frac{k \cdot \chi^2}{(k-1)(n+\chi^2)} \]</div>
+<p>Im obigen Abschnitt wurde die <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik der Variablen <code class="docutils literal notranslate"><span class="pre">chisqVal</span></code> zugeordnet und als <span class="math notranslate nohighlight">\(17,3443877\)</span> berechnet. Nun setzen wir diesen Wert in die Gleichung für den Kontingenzkoeffizienten <span class="math notranslate nohighlight">\(C^∗\)</span> ein.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C_star</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">chisqVal</span> <span class="o">/</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">columnsum</span><span class="p">)</span> <span class="o">+</span> <span class="n">chisqVal</span><span class="p">))</span>
+<span class="n">C_star</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3238804670641156
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Kontingenzkoeffizient <span class="math notranslate nohighlight">\(C^∗\)</span> beläuft sich auf <span class="math notranslate nohighlight">\(0,3238805\)</span>.</p>
+<p>Nun wenden wir die Gleichung für den bereinigten Kontingenzkoeffizienten, <span class="math notranslate nohighlight">\(C\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="n">obs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">obs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">k</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="n">k</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C_star_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">C_star</span> <span class="o">/</span> <span class="n">C_star_max</span>
+<span class="n">C</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.39667094098068806
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der bereinigte Kontingenzkoeffizient <span class="math notranslate nohighlight">\(C\)</span> wird mit <span class="math notranslate nohighlight">\(0,3966709\)</span> bewertet. Zur Erinnerung: Der Kontingenzkoeffizient reicht von <span class="math notranslate nohighlight">\(0\)</span> bis <span class="math notranslate nohighlight">\(1\)</span>. Ein Kontingenzkoeffizient von <span class="math notranslate nohighlight">\(0,4\)</span> deutet nicht auf einen starken Zusammenhang zwischen den Prüfungsergebnissen und der Bereitschaft der Studierenden hin, die Übungen während des Semesters zu bearbeiten.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ixianslab/srh-data-science",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Kapitel01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_Ma%C3%9Fe_der_Position.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Das Positionsmaß</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Aufgaben/Kapitel01/Aufgaben.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Übungsaufgaben</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kovarianz">Kovarianz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelation">Korrelation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pearson-produkt-moment-korrelationskoeffizient">Pearson-Produkt-Moment-Korrelationskoeffizient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelationskoeffizient-nach-pearson-ein-beispiel">Korrelationskoeffizient nach Pearson: Ein Beispiel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rangkorrelationskoeffizient-nach-spearman">Rangkorrelationskoeffizient nach Spearman</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spearman-s-rangkorrelationskoeffizient-ein-beispiel">Spearman’s Rangkorrelationskoeffizient: Ein Beispiel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kontingenzkoeffizient">Kontingenzkoeffizient</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-chi-2-statistik">Berechnung der <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-des-kontingenzkoeffizienten-c">Berechnung des Kontingenzkoeffizienten <span class="math notranslate nohighlight">\(C\)</span></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ixians
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

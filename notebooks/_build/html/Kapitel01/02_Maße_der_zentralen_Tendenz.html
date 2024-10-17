@@ -1,0 +1,1680 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Maße der zentralen Tendenz &#8212; Modul Statistik und Machine Learning Modelle</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel01/02_Maße_der_zentralen_Tendenz';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Streuungsmaße" href="03_Streuungsma%C3%9Fe.html" />
+    <link rel="prev" title="Deskriptive Statistik" href="01_Deskriptive_Statistik.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vorwort</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Vorwort.html">Vorwort</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Statistik</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel1_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_Deskriptive_Statistik.html">Deskriptive Statistik</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Maße der zentralen Tendenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel2_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel3_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/01_stetige_Zufallsvariablen.html">Stetige Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/02_Die%20Normalverteilung.html">Die Normalverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/03_Die_kontinuierliche_gleichm%C3%A4%C3%9Fige_Verteilung.html">Die kontinuierliche gleichmäßige Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel6_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/01_Hypothesentests.html">Hypothesentests</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/02_Hypothesentests_Mittelwert_einer_Grundgesamtheit.html">Hypothesentests für den Mittelwert einer Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte.html">Hypothesentests für zwei Grundgesamtheitsmittelwerte</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/04_Standardabweichung_der_Grundgesamtheit.html">Inferenz für die Standardabweichung der Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/05_Chi_Quadrat_Tests.html">Chi-Quadrat-Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/06_Inferenz_Regression_und_Korrelation.html">Inferenzmethoden in Regression und Korrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel06/07_Wahrscheinlichkeitstabellen.html">Wahrscheinlichkeits-Tabellen</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Literaturverzeichnis.html">Literaturverzeichnis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel01/02_Maße_der_zentralen_Tendenz.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Kapitel01/02_Maße_der_zentralen_Tendenz.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Maße der zentralen Tendenz</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-mittelwert">Der Mittelwert</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-arithmethische-mittelwert">Der arithmethische Mittelwert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-geometrische-mittel">Das geometrische Mittel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-harmonische-mittelwert">Der harmonische Mittelwert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-gewichtete-mittelwert">Der gewichtete Mittelwert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-gewichtete-geometrische-mittelwert">Der gewichtete geometrische Mittelwert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-gewichtete-harmonische-mittelwert">Der gewichtete harmonische Mittelwert</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-median">Der Median</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-modalwert">Der Modalwert</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="masze-der-zentralen-tendenz">
+<h1>Maße der zentralen Tendenz<a class="headerlink" href="#masze-der-zentralen-tendenz" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um ein Gefühl für einen Datensatz zu bekommen, kann er durch numerische Streuungsmaße beschrieben werden. Es gibt drei Hauptmaße für die <strong>zentrale Tendenz</strong>: den <strong>Mittelwert</strong>, den <strong>Median</strong> und den <strong>Modalwert</strong>; es gibt jedoch auch andere Maße für die zentrale Tendenz, wie z. B. das <strong>harmonische Mittel</strong>, das <strong>gewichtete Mittel</strong> und das <strong>geometrische Mittel</strong>, um nur einige zu nennen.</p>
+<section id="der-mittelwert">
+<h2>Der Mittelwert<a class="headerlink" href="#der-mittelwert" title="Permalink to this heading">#</a></h2>
+<section id="der-arithmethische-mittelwert">
+<h3>Der arithmethische Mittelwert<a class="headerlink" href="#der-arithmethische-mittelwert" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\text{Mittelwert} = \frac{\text{Summe aller Werte}}{\text{Anzahl aller Werte}}\]</div>
+<p>Das für Stichprobendaten berechnete arithmetische Mittel wird mit <span class="math notranslate nohighlight">\(\bar{x}\)</span> (gelesen als “x strich”) bezeichnet, und das Mittel für Grundgesamtheitsdaten wird mit <span class="math notranslate nohighlight">\(\mu\)</span> (griechischer Buchstabe mu) bezeichnet. Der Mittelwert kann also durch die folgenden Gleichungen ausgedrückt werden:</p>
+<div class="math notranslate nohighlight">
+\[\bar{x}=\frac{1}{n} \cdot \sum_{i=1}^n x_i\]</div>
+<p>oder</p>
+<div class="math notranslate nohighlight">
+\[\mu=\frac{1}{N} \cdot \sum_{i=1}^N x_i\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\sum_{i=1}^n x_i\)</span> die Summe aller Werte <span class="math notranslate nohighlight">\((x_1,x_2,...,x_n)\)</span>, <span class="math notranslate nohighlight">\(N\)</span> der Umfang der Grundgesamtheit und <span class="math notranslate nohighlight">\(n\)</span> der Stichprobenumfang ist.
+Betrachten wir die Variable <code class="docutils literal notranslate"><span class="pre">height</span></code> im Datensatz <code class="docutils literal notranslate"><span class="pre">students</span></code> und berechnen wir ihr arithmetisches Mittel. Beachten Sie, dass es sich bei dem <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz um eine <em>Stichprobe</em> und <strong>nicht</strong> um die Grundgesamtheit aller Studenten handelt. Daher berechnen wir <span class="math notranslate nohighlight">\(\bar{x}\)</span>, den Stichprobenmittelwert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># Wende Funktion mean() auf Spalte &#39;height&#39; an und speicher Ergebnis in height_mean</span>
+<span class="n">height_mean</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mittelwert der Körpergöße der Studenten: </span><span class="si">{</span><span class="n">height_mean</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mittelwert der Körpergöße der Studenten: 171.38075009103048
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="das-geometrische-mittel">
+<h3>Das geometrische Mittel<a class="headerlink" href="#das-geometrische-mittel" title="Permalink to this heading">#</a></h3>
+<p>Bei der Untersuchung von Phänomenen wie der Inflation oder der Bevölkerungsentwicklung, die mit periodischen Zu- oder Abnahmen einhergehen (so genannte Veränderungsraten), ist das <strong>geometrische Mittel</strong> besser geeignet, um die durchschnittliche Veränderung über den gesamten Untersuchungszeitraum zu ermitteln. Um das geometrische Mittel einer Folge von <span class="math notranslate nohighlight">\(n\)</span> Werten <span class="math notranslate nohighlight">\(x_1,x_2,\dots,x_n \)</span> zu berechnen, werden diese miteinander multipliziert und dann die <span class="math notranslate nohighlight">\(n\)</span>-te Wurzel aus diesem Produkt ermittelt.</p>
+<div class="math notranslate nohighlight">
+\[ \bar{x}_{geo}=\sqrt{x_1\cdot x_2 \cdots  x_n}\]</div>
+<p>was umgeschrieben werden kann als</p>
+<div class="math notranslate nohighlight">
+\[ \bar{x}_{geo} = \sqrt{x_1\cdot x_2 \cdots  x_n} = (\prod_{i=1}^n x_i)^{\frac{1}{n}} = \sqrt[n]{\prod_{i=1}^n x_i}\]</div>
+<p>Lassen Sie uns das an einem Beispiel verdeutlichen: <br>
+Wir betrachten die jährlichen Wachstumsraten eines Schwarmes von Honigbienen über einen Zeitraum von <span class="math notranslate nohighlight">\(5\)</span> Jahren. Diese Veränderungsraten sind: <span class="math notranslate nohighlight">\(14 \%\)</span>, <span class="math notranslate nohighlight">\(26 \%\)</span>, <span class="math notranslate nohighlight">\(16 \%\)</span>, <span class="math notranslate nohighlight">\(-38 \%\)</span>, <span class="math notranslate nohighlight">\(-6 \%\)</span>. Außerdem wissen wir, dass sich zu Beginn des Beobachtungszeitraums <span class="math notranslate nohighlight">\(5.000\)</span> Bienen im Schwarm befunden haben. Wir suchen nach der mittleren Rate der Populationsveränderung. <br>
+Zunächst schreiben wir unsere Wachstumsraten in eine Liste.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="o">-</span><span class="mi">38</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun wenden wir wider besseres Wissens das arithmetische Mittel an: <br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wir verwenden die Funktion `mean()` im Paket `numpy`.</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Die mittlere Änderungsrate der Bienenpopulation ist </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bees</span><span class="p">)</span><span class="si">}</span><span class="s2"> Prozent&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die mittlere Änderungsrate der Bienenpopulation ist 2.4 Prozent
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das arithmetische Mittel zeigt, dass der Schwarm über den Zeitraum von fünf Jahren wächst! Wir sind skeptisch und berechnen das jährliche Wachstum des Bienenschwarms explizit. Zunächst wandeln wir die angegebenen Prozentsätze in relative Wachstumsraten um (<code class="docutils literal notranslate"><span class="pre">bees_growth_rel</span></code>), und dann berechnen wir einfach den Stand der Bienenpopulation, indem wir die Veränderungsraten nacheinander mit der Anzahl der Bienen multiplizieren, von der wir wissen, dass sie zu Beginn der Erhebung <span class="math notranslate nohighlight">\(5.000\)</span> betrug.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bees:       &quot;</span><span class="p">,</span> <span class="n">bees</span><span class="p">)</span>
+<span class="c1"># Initialisiere leere Liste bees_growth_rel und Indexvariable i</span>
+<span class="n">bees_growth_rel</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">bees</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bees rates: &quot;</span><span class="p">,</span> <span class="n">bees_growth_rel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bees:        [14, 26, 16, -38, -6]
+bees rates:  [1.14, 1.26, 1.16, 0.62, 0.94]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop</span> <span class="o">=</span> <span class="mi">5000</span>
+<span class="k">for</span> <span class="n">rate</span> <span class="ow">in</span> <span class="n">bees_growth_rel</span><span class="p">:</span>
+    <span class="n">pop</span> <span class="o">=</span> <span class="n">pop</span> <span class="o">*</span> <span class="n">rate</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Nach einem relativen Wachstum von </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2"> erreicht die Population einen Wert von </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">pop</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nach einem relativen Wachstum von 1.14 erreicht die Population einen Wert von 5700.0
+Nach einem relativen Wachstum von 1.26 erreicht die Population einen Wert von 7182.0
+Nach einem relativen Wachstum von 1.16 erreicht die Population einen Wert von 8331.0
+Nach einem relativen Wachstum von 0.62 erreicht die Population einen Wert von 5165.0
+Nach einem relativen Wachstum von 0.94 erreicht die Population einen Wert von 4855.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wow, was für eine Überraschung! Offensichtlich stimmt da etwas nicht! Wir hatten erwartet, dass der Schwarm im Laufe der Zeit im Durchschnitt zunehmen würde. Wir haben jedoch einen Rückgang der absoluten Zahl der Bienen berechnet!</p>
+<p>Versuchen wir es mit dem geometrischen Mittel. Zum Glück gibt es in Python vordefinierte Funktionspakete für Berechnung von Streuungsmaßen. Diese können durch <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">statistics</span></code> verwendet werden. Die Funktion für das geometrische Mittel heisst <code class="docutils literal notranslate"><span class="pre">geometric_mean()</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span><span class="o">.</span><span class="n">geometric_mean</span><span class="p">(</span><span class="n">bees_growth_rel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9941469529781075
+</pre></div>
+</div>
+</div>
+</div>
+<p>Großartig! Das geometrische Mittel zeigt, dass die Zahl der Arten im Laufe der Zeit mit einer durchschnittlichen Rate von <span class="math notranslate nohighlight">\(0,994\)</span> abnimmt, was <span class="math notranslate nohighlight">\(-0,006 \% \)</span> entspricht. Wir überprüfen dies, indem wir <span class="math notranslate nohighlight">\(5.000\)</span> Bienen (die anfängliche Anzahl der Bienen im Schwarm) mal <span class="math notranslate nohighlight">\(0,994\)</span> für jedes Jahr nehmen; dies ergibt <span class="math notranslate nohighlight">\(4.971\)</span> Bienen nach dem ersten Jahr, <span class="math notranslate nohighlight">\(4.942\)</span> nach dem zweiten Jahr, <span class="math notranslate nohighlight">\(4.913\)</span> nach dem dritten Jahr, <span class="math notranslate nohighlight">\(4.884\)</span> nach dem vierten Jahr und <span class="math notranslate nohighlight">\(4.855\)</span> nach dem fünften Jahr der Beobachtung. Eine perfekte Übereinstimmung! Im Gegensatz zum arithmetischen Mittel gibt das geometrische Mittel die Entwicklung im Vergleich zum Vorjahr nicht zu hoch an! <br> <br></p>
+</section>
+<section id="der-harmonische-mittelwert">
+<h3>Der harmonische Mittelwert<a class="headerlink" href="#der-harmonische-mittelwert" title="Permalink to this heading">#</a></h3>
+<p>Der <strong>harmonische Mittelwert</strong> eignet sich am besten für die Ermittlung des Durchschnitts von inversen Größen wie Geschwindigkeit (km/h) oder Bevölkerungsdichte (pop/km2).</p>
+<p>Betrachten Sie das folgende Beispiel:
+Die Entfernung zwischen Ihrem Haus und dem nächsten See beträgt <span class="math notranslate nohighlight">\(40\)</span> km. Sie sind mit einer Geschwindigkeit von <span class="math notranslate nohighlight">\(20\)</span> km pro Stunde zum See gefahren und mit einer Geschwindigkeit von <span class="math notranslate nohighlight">\(80\)</span> km pro Stunde nach Hause zurückgekehrt. Wie hoch war die Durchschnittsgeschwindigkeit während der gesamten Fahrt?
+Berechnen wir zunächst das arithmetische Mittel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialisiere Liste speed_arithmetic</span>
+<span class="n">speed_arithmetic</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">speed_arithmetic</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das arithmetische Mittel der beiden Geschwindigkeiten, mit denen Sie gefahren sind, beträgt <span class="math notranslate nohighlight">\(50\)</span> km pro Stunde. Dies ist jedoch nicht die richtige Durchschnittsgeschwindigkeit. Es lässt die Tatsache außer Acht, dass Sie mit <span class="math notranslate nohighlight">\(20\)</span> km/h viel länger gefahren sind als mit <span class="math notranslate nohighlight">\(80\)</span> km/h. Um die richtige Durchschnittsgeschwindigkeit zu ermitteln, müssen wir stattdessen das harmonische Mittel berechnen.</p>
+<p>Das harmonische Mittel <span class="math notranslate nohighlight">\(\bar{x}_h\)</span>für die positiven reellen Zahlen <span class="math notranslate nohighlight">\(x_1,x_2,...,x_n\)</span> ist definiert durch</p>
+<div class="math notranslate nohighlight">
+\[\bar{x}_h = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \cdots + \frac{1}{x_n}} = \frac{n}{\sum_{i=1}^{n}\frac{1}{x_i}} \ \  x_i \gt 0, \ \  \forall \ \ i \ \ \]</div>
+<p>Wir können die vordefinierte Funktion <code class="docutils literal notranslate"><span class="pre">harmonic_mean</span></code> aus dem Packet <code class="docutils literal notranslate"><span class="pre">statistics</span></code> verwenden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+<span class="n">st</span><span class="o">.</span><span class="n">harmonic_mean</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aber ist dieses Ergebnis korrekt? Wir versuchen das Ergebnis nachzuvollziehen. Im obigen Beispiel beträgt die Entfernung zwischen dem See und Ihrem Haus <span class="math notranslate nohighlight">\(40\)</span> km. Die Fahrt von A nach B mit einer Geschwindigkeit von <span class="math notranslate nohighlight">\(20\)</span> km/h dauert also <span class="math notranslate nohighlight">\(2\)</span> Stunden. Die Fahrt von B nach A mit einer Geschwindigkeit von <span class="math notranslate nohighlight">\(80\)</span> km/h dauert <span class="math notranslate nohighlight">\(0,5\)</span> Stunden. Die Gesamtzeit für die Rundstrecke von <span class="math notranslate nohighlight">\(2 \times 40\)</span> km beträgt <span class="math notranslate nohighlight">\(2,5\)</span> Stunden. Die Durchschnittsgeschwindigkeit beträgt dann <span class="math notranslate nohighlight">\(\frac{80}{2,5}=32\)</span>.</p>
+</section>
+<section id="der-gewichtete-mittelwert">
+<h3>Der gewichtete Mittelwert<a class="headerlink" href="#der-gewichtete-mittelwert" title="Permalink to this heading">#</a></h3>
+<p>Es gibt Anwendungen, bei denen bestimmte Werte in einem Datensatz als wichtiger angesehen werden können als andere. Im Allgemeinen gilt für eine Folge von <span class="math notranslate nohighlight">\(n\)</span> Datenwerten <span class="math notranslate nohighlight">\(x_1,x_2,...,x_n\)</span> und ihren entsprechenden Gewichten <span class="math notranslate nohighlight">\(w_1,w_2,...,w_n\)</span>, ist das gewichtete (arithmetische) Mittel <span class="math notranslate nohighlight">\(\bar{x}_w\)</span> gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[ \bar{x}_w = \frac{\sum_{i=1}^n w_i x_i}{\sum_{i=1}^n w_i} \]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\sum_{i=1}^n w_i x_i\)</span> durch Multiplikation jedes Datenwertes mit seinem Gewicht und anschließender Addition der Produkte ermittelt wird. <br> <br> Um die Noten der Studenten in einem Kurs zu ermitteln, kann ein Dozent beispielsweise der Abschlussprüfung eine dreimal so hohe Gewichtung zuweisen wie den anderen Prüfungen. Ermitteln wir den gewichteten Mittelwert für einen Studenten, der in den ersten beiden Prüfungen <span class="math notranslate nohighlight">\(45\)</span> und <span class="math notranslate nohighlight">\(68\)</span> Punkte und in der Abschlussprüfung <span class="math notranslate nohighlight">\(74\)</span> Punkte erzielt hat.</p>
+<p>Wir berechnen as gewichtete Mittel indem wir die Funktion <code class="docutils literal notranslate"><span class="pre">np.average()</span></code> anwenden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialisiere Liste scores, weights_scores und leere Liste weighted</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">74</span><span class="p">]</span>
+<span class="n">weights_scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights_scores</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>67.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Verglichen mit dem nicht gewichteten Mittelwert ergibt sich ein anderes Ergebnis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>62.333333333333336
+</pre></div>
+</div>
+</div>
+</div>
+<p>Bitte beachten Sie, dass die Gewichtung der Eingabewerte ein Prinzip ist, das auch auf andere Mittelwertmaße anwendbar ist. Zum Beispiel können wir die Eingangsvariable für die Berechnung des geometrischen Mittels gewichten.</p>
+</section>
+<section id="der-gewichtete-geometrische-mittelwert">
+<h3>Der gewichtete geometrische Mittelwert<a class="headerlink" href="#der-gewichtete-geometrische-mittelwert" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\bar{x}_{geo_w}= (\prod_{i=1}^n {x_i}^{w_i})^{1/\sum_{i=1}^n w_i}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(x_1,x_2,\dots x_n\)</span> den Datenwerten und <span class="math notranslate nohighlight">\(w_1,w_2,\dots w_n\)</span> den Gewichten entsprechen.</p>
+<p>Wir greifen auf die Implementierung des gewichteten geometrischen Mittelwerts im <a class="reference external" href="https://scipy.org/">Scipy</a> Modul zurück.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gmean</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir berechnen das Beispiel des Bienenschwarms aus dem obigen Abschnitt erneut. Wir erinnern uns, dass wir im obigen Beispiel einen Bienenschwarm über <span class="math notranslate nohighlight">\(5\)</span> Jahre beobachtet und die Veränderungsraten der Bienenpopulation notiert haben. Die jährlichen Veränderungsraten waren <span class="math notranslate nohighlight">\(1,14 \ \)</span>,<span class="math notranslate nohighlight">\( \  1,26 \ \)</span>,<span class="math notranslate nohighlight">\( \  1,16 \ \)</span>,<span class="math notranslate nohighlight">\( \  0,62 \ \)</span>,<span class="math notranslate nohighlight">\( \  0,94\)</span>, was <span class="math notranslate nohighlight">\(x_1, x_2,...x_n\)</span> entspricht. Um das Ergebnis von oben zu reproduzieren, setzen wir alle Gewichte <span class="math notranslate nohighlight">\(w_1,w_2,\dots w_n\)</span> auf <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights_bees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">gmean</span><span class="p">(</span><span class="n">bees_growth_rel</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights_bees</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9941469529781075
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gmean</span><span class="p">(</span><span class="n">bees_growth_rel</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights_bees</span><span class="p">)</span> <span class="o">==</span> <span class="n">gmean</span><span class="p">(</span><span class="n">bees_growth_rel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Korrekt, wir erhalten das gleiche Ergebnis!
+Falls wir nun jedes konsekutive Element mehr gewichten wollen, können wir die Gewichte auf z.B. <span class="math notranslate nohighlight">\([1, 2, 3, 4]\)</span> setzen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights_bees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">gmean</span><span class="p">(</span><span class="n">bees_growth_rel</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights_bees</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9241626141253284
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="der-gewichtete-harmonische-mittelwert">
+<h3>Der gewichtete harmonische Mittelwert<a class="headerlink" href="#der-gewichtete-harmonische-mittelwert" title="Permalink to this heading">#</a></h3>
+<p>Schließlich werden wir eine eigene gewichtete harmonische Mittelwertfunktion implementieren. <br> <br> Das gewichtete harmonische Mittel <span class="math notranslate nohighlight">\(\bar{x}\)</span> für die positiven reellen Zahlen <span class="math notranslate nohighlight">\(x_1,x_2,\dots,x_n\)</span> ist durch die folgende Gleichung definiert:</p>
+<div class="math notranslate nohighlight">
+\[ \bar{x}_{hw} = \frac{w_1+w_2 + \cdots + w_n}{\frac{w_1}{x_1} + \frac{w_2}{x_2} + \cdots  + \frac{w_n}{x_n}} = \frac{\sum_{i=1}^n w_i}{\sum_{i=1}^n\frac{w_i}{x_i}} ,\  x_i \gt 0, \ \forall \ \ i \ \ \]</div>
+<p>Implementieren wir die Funktion des gewichteten harmonischen Mittels in Python. Die Kodierung ist einfach, aber um die Funktionalität unserer Funktion des gewichteten harmonischen Mittels zu erweitern, fügen wir eine <code class="docutils literal notranslate"><span class="pre">if</span></code>-Anweisung ein. Diese <code class="docutils literal notranslate"><span class="pre">if</span></code>-Anweisung im Code normalisiert die Gewichte, wenn die Gewichte nicht in Proportionen angegeben sind. Wenn die <code class="docutils literal notranslate"><span class="pre">if</span></code>-Anweisung ausgeführt wird, geben wir ein Benutzer-Feedback aus, andernfalls erfolgt keine Rückmeldung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definiere Funktion my_weighted_harmonic_mean</span>
+<span class="k">def</span> <span class="nf">my_weighted_harmonic_mean1</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Die Gewichte werden normalisiert&quot;</span><span class="p">)</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">weights</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weights</span> <span class="o">/</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lassen Sie uns unser <code class="docutils literal notranslate"><span class="pre">my_weighted_harmonic_mean</span></code> an einem recht komplexen Datensatz ausprobieren. Der Datensatz <code class="docutils literal notranslate"><span class="pre">cities</span></code> besteht aus allen Landeshauptstädten Deutschlands, ihrer Bevölkerungszahl und ihrer Fläche. Ziel ist es, die mittlere Bevölkerungsdichte für die Landeshauptstädte Deutschlands zu berechnen. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">cities.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/cities.csv">hier</a> herunterladen. Die Daten werden von dieser <a href="https://www.bundeslaenderdeutschland.de/landeshauptstaedte/">Website</a> abgerufen.</p>
+<p>Zunächst laden wir den Datensatz, geben ihm einen passenden Namen und schauen ihn uns an.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/cities.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>state</th>
+      <th>area_km2</th>
+      <th>pop.size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Berlin</td>
+      <td>Land Berlin</td>
+      <td>891.85</td>
+      <td>3415100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bremen</td>
+      <td>Freie Hansestadt Bremen</td>
+      <td>325.42</td>
+      <td>546450</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Dresden</td>
+      <td>Freistaat Sachsen</td>
+      <td>328.31</td>
+      <td>525100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Düsseldorf</td>
+      <td>Land Nordrhein-Westfalen</td>
+      <td>217.41</td>
+      <td>593682</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Erfurt</td>
+      <td>Freistaat Thüringen</td>
+      <td>269.17</td>
+      <td>203480</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Hamburg</td>
+      <td>Freie und Hansestadt Hamburg</td>
+      <td>755.26</td>
+      <td>1751780</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Hannover</td>
+      <td>Land Niedersachsen</td>
+      <td>204.14</td>
+      <td>514130</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Kiel</td>
+      <td>Land Schleswig-Holstein</td>
+      <td>118.60</td>
+      <td>239860</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Magdeburg</td>
+      <td>Land Sachsen-Anhalt</td>
+      <td>200.97</td>
+      <td>229924</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Mainz</td>
+      <td>Land Rheinland-Pfalz</td>
+      <td>97.76</td>
+      <td>202750</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>München</td>
+      <td>Freistaat Bayern</td>
+      <td>310.71</td>
+      <td>1388300</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Potsdam</td>
+      <td>Land Brandenburg</td>
+      <td>187.27</td>
+      <td>159450</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Saarbrücken</td>
+      <td>Saarland</td>
+      <td>167.07</td>
+      <td>176990</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Schwerin</td>
+      <td>Land Mecklenburg-Vorpommern</td>
+      <td>130.46</td>
+      <td>91260</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Stuttgart</td>
+      <td>Land Baden-Württemberg</td>
+      <td>207.36</td>
+      <td>597939</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Wiesbaden</td>
+      <td>Land Hessen</td>
+      <td>203.90</td>
+      <td>272630</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Zweitens erstellen wir eine neue Spalte und berechnen die Bevölkerungsdichte (Einwohner pro Quadratkilometer) und speichern das Ergebniss in der Spalte <code class="docutils literal notranslate"><span class="pre">density</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;density&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;pop.size&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;area_km2&quot;</span><span class="p">]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>state</th>
+      <th>area_km2</th>
+      <th>pop.size</th>
+      <th>density</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Berlin</td>
+      <td>Land Berlin</td>
+      <td>891.85</td>
+      <td>3415100</td>
+      <td>3829.231373</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bremen</td>
+      <td>Freie Hansestadt Bremen</td>
+      <td>325.42</td>
+      <td>546450</td>
+      <td>1679.214554</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Dresden</td>
+      <td>Freistaat Sachsen</td>
+      <td>328.31</td>
+      <td>525100</td>
+      <td>1599.403003</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Düsseldorf</td>
+      <td>Land Nordrhein-Westfalen</td>
+      <td>217.41</td>
+      <td>593682</td>
+      <td>2730.702360</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Erfurt</td>
+      <td>Freistaat Thüringen</td>
+      <td>269.17</td>
+      <td>203480</td>
+      <td>755.953487</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Hamburg</td>
+      <td>Freie und Hansestadt Hamburg</td>
+      <td>755.26</td>
+      <td>1751780</td>
+      <td>2319.439663</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Hannover</td>
+      <td>Land Niedersachsen</td>
+      <td>204.14</td>
+      <td>514130</td>
+      <td>2518.516704</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Kiel</td>
+      <td>Land Schleswig-Holstein</td>
+      <td>118.60</td>
+      <td>239860</td>
+      <td>2022.428331</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Magdeburg</td>
+      <td>Land Sachsen-Anhalt</td>
+      <td>200.97</td>
+      <td>229924</td>
+      <td>1144.071254</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Mainz</td>
+      <td>Land Rheinland-Pfalz</td>
+      <td>97.76</td>
+      <td>202750</td>
+      <td>2073.956628</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>München</td>
+      <td>Freistaat Bayern</td>
+      <td>310.71</td>
+      <td>1388300</td>
+      <td>4468.153584</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Potsdam</td>
+      <td>Land Brandenburg</td>
+      <td>187.27</td>
+      <td>159450</td>
+      <td>851.444439</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Saarbrücken</td>
+      <td>Saarland</td>
+      <td>167.07</td>
+      <td>176990</td>
+      <td>1059.376309</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Schwerin</td>
+      <td>Land Mecklenburg-Vorpommern</td>
+      <td>130.46</td>
+      <td>91260</td>
+      <td>699.524759</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Stuttgart</td>
+      <td>Land Baden-Württemberg</td>
+      <td>207.36</td>
+      <td>597939</td>
+      <td>2883.579282</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Wiesbaden</td>
+      <td>Land Hessen</td>
+      <td>203.90</td>
+      <td>272630</td>
+      <td>1337.076999</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Drittens berechnen wir das Gewicht für jede Stadt entsprechend der Bevölkerungszahl und speichern das Ergebniss in der Spalte <code class="docutils literal notranslate"><span class="pre">cities_pop_weight</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cities_pop_weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;pop.size&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;pop.size&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>state</th>
+      <th>area_km2</th>
+      <th>pop.size</th>
+      <th>density</th>
+      <th>cities_pop_weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Berlin</td>
+      <td>Land Berlin</td>
+      <td>891.85</td>
+      <td>3415100</td>
+      <td>3829.231373</td>
+      <td>0.313058</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bremen</td>
+      <td>Freie Hansestadt Bremen</td>
+      <td>325.42</td>
+      <td>546450</td>
+      <td>1679.214554</td>
+      <td>0.050092</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Dresden</td>
+      <td>Freistaat Sachsen</td>
+      <td>328.31</td>
+      <td>525100</td>
+      <td>1599.403003</td>
+      <td>0.048135</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Düsseldorf</td>
+      <td>Land Nordrhein-Westfalen</td>
+      <td>217.41</td>
+      <td>593682</td>
+      <td>2730.702360</td>
+      <td>0.054422</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Erfurt</td>
+      <td>Freistaat Thüringen</td>
+      <td>269.17</td>
+      <td>203480</td>
+      <td>755.953487</td>
+      <td>0.018653</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Hamburg</td>
+      <td>Freie und Hansestadt Hamburg</td>
+      <td>755.26</td>
+      <td>1751780</td>
+      <td>2319.439663</td>
+      <td>0.160584</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Hannover</td>
+      <td>Land Niedersachsen</td>
+      <td>204.14</td>
+      <td>514130</td>
+      <td>2518.516704</td>
+      <td>0.047130</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Kiel</td>
+      <td>Land Schleswig-Holstein</td>
+      <td>118.60</td>
+      <td>239860</td>
+      <td>2022.428331</td>
+      <td>0.021988</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Magdeburg</td>
+      <td>Land Sachsen-Anhalt</td>
+      <td>200.97</td>
+      <td>229924</td>
+      <td>1144.071254</td>
+      <td>0.021077</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Mainz</td>
+      <td>Land Rheinland-Pfalz</td>
+      <td>97.76</td>
+      <td>202750</td>
+      <td>2073.956628</td>
+      <td>0.018586</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>München</td>
+      <td>Freistaat Bayern</td>
+      <td>310.71</td>
+      <td>1388300</td>
+      <td>4468.153584</td>
+      <td>0.127264</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Potsdam</td>
+      <td>Land Brandenburg</td>
+      <td>187.27</td>
+      <td>159450</td>
+      <td>851.444439</td>
+      <td>0.014617</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Saarbrücken</td>
+      <td>Saarland</td>
+      <td>167.07</td>
+      <td>176990</td>
+      <td>1059.376309</td>
+      <td>0.016224</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Schwerin</td>
+      <td>Land Mecklenburg-Vorpommern</td>
+      <td>130.46</td>
+      <td>91260</td>
+      <td>699.524759</td>
+      <td>0.008366</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Stuttgart</td>
+      <td>Land Baden-Württemberg</td>
+      <td>207.36</td>
+      <td>597939</td>
+      <td>2883.579282</td>
+      <td>0.054812</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Wiesbaden</td>
+      <td>Land Hessen</td>
+      <td>203.90</td>
+      <td>272630</td>
+      <td>1337.076999</td>
+      <td>0.024992</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nun wenden wir unsere Implementierung des gewichteten harmonischen Mittels <code class="docutils literal notranslate"><span class="pre">my_weighted_harmonic_mean</span></code> an und vergleichen es mit dem arithmetischen Mittel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wir verwenden die Spalte &quot;cities_pop_weight&quot; als Gewichte. Hier ist keine Normalisierung notwending.</span>
+<span class="n">my_weighted_harmonic_mean1</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;density&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cities_pop_weight&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2363.437731548685
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jetzt testen wir die Funktionalität unserer Funktion, indem wir <code class="docutils literal notranslate"><span class="pre">pop.size</span></code> als Eingabeparameter angeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wir verwenden die Spalte &quot;pop.size&quot; als Gewichte. Ein Normalisierung ist notwending.</span>
+<span class="n">my_weighted_harmonic_mean1</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;density&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;pop.size&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Die Gewichte werden normalisiert
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2363.437731548685
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wunderbar, die Funktion funktioniert wie erwartet. Die Ergebnisse sind identisch. Wir können daraus schließen, dass die durchschnittliche Bevölkerungsdichte in den Landeshauptstädten Deutschlands etwa <span class="math notranslate nohighlight">\(2.363\)</span> Einwohner/km<span class="math notranslate nohighlight">\(^2\)</span> beträgt.</p>
+<p>Zum Vergleich können wir das arithmetische Mittel der Bevölkerungsdichte berechnen. Dieses würde uns hier ein weniger exaktes Ergebnis liefern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;density&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1998.2545454902418
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="der-median">
+<h2>Der Median<a class="headerlink" href="#der-median" title="Permalink to this heading">#</a></h2>
+<p>Ein weiteres sehr wichtiges Maß für die zentrale Tendenz ist der <strong>Median</strong>. Der Median von Messwerten ist der Wert des mittleren Terms in einem Datensatz, der in aufsteigender Reihenfolge geordnet wurde. Der Median unterteilt also einen geordneten Datensatz <strong>in zwei gleiche Teile</strong>.
+Die Berechnung des Medians besteht aus den folgenden zwei Schritten:</p>
+<ol class="arabic simple">
+<li><p>Ordnen Sie den Datensatz in aufsteigender Reihenfolge.</p></li>
+<li><p>Finden Sie den mittleren Term. Der Wert dieses Terms ist der Median.</p></li>
+</ol>
+<p>Wenn die Anzahl der Beobachtungen in einem Datensatz ungerade ist, wird der Median durch den Wert des mittleren Terms in den geordneten Daten bestimmt. Ist die Anzahl der Beobachtungen jedoch gerade, so wird der Median durch den Durchschnitt der Werte der beiden mittleren Terme bestimmt (<span id="id1">[]</span> s.52). <br> <br> Lassen Sie uns den Median für die Variable <code class="docutils literal notranslate"><span class="pre">age</span></code> des <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatzes auswerten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="s2">&quot;bo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7af588cc4340&gt;]
+</pre></div>
+</div>
+<img alt="../_images/b31847729ac5e27c048c2790df1a1ba98bdc8ca648c6f1d569ed296250960589.png" src="../_images/b31847729ac5e27c048c2790df1a1ba98bdc8ca648c6f1d569ed296250960589.png" />
+</div>
+</div>
+<p>Wenn wir die Variable <code class="docutils literal notranslate"><span class="pre">age</span></code> plotten, erkennen wir sofort, dass es einige Studenten gibt, die viel älter sind als der Rest der Studenten. Lassen Sie uns den Median berechnen…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Median des Alters der Studenten:     </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mittelwert des Alters der Studenten: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Median des Alters der Studenten:     21.0
+Mittelwert des Alters der Studenten: 22.541570578953756
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zur Veranschaulichung fügen wir nun den Median und das arithmetische Mittel in das Streudiagramm ein.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Median&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;arithmetisches Mittel&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7af588d9e860&gt;
+</pre></div>
+</div>
+<img alt="../_images/bcdf49f81909c8ad5acf1a22808303635eb47d7f00e4bcd52dbb50513209be51.png" src="../_images/bcdf49f81909c8ad5acf1a22808303635eb47d7f00e4bcd52dbb50513209be51.png" />
+</div>
+</div>
+<p>Noch deutlicher veranschaulicht ein Histogram den Sachverhalt, dass das arithmetische Mittel stark durch Extremwerte und Ausreisser beeinflusst wird, der Median hingegen nicht. Daher wird der Median als Maß für die zentrale Tendenz bei Datensätzen, die Ausreißer enthalten, dem Mittelwert vorgezogen (<span id="id2">[]</span> s.54).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">nunique</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Median&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">age</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;arithmetisches Mittel&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7af588befd90&gt;
+</pre></div>
+</div>
+<img alt="../_images/96007c9d6f521b17fc34aeac17b7afc5445716830099910cbc40a619a75f6e3a.png" src="../_images/96007c9d6f521b17fc34aeac17b7afc5445716830099910cbc40a619a75f6e3a.png" />
+</div>
+</div>
+</section>
+<section id="der-modalwert">
+<h2>Der Modalwert<a class="headerlink" href="#der-modalwert" title="Permalink to this heading">#</a></h2>
+<p>In der Statistik stellt der <strong>Modus</strong> den häufigsten Wert in einem Datensatz dar. Der Modalwert ist also der Wert, der in einem Datensatz mit der größten Häufigkeit auftritt <em>(<span id="id3">[]</span> s. 53)</em>. In Bezug auf die graphische Häufigkeitsverteilung entspricht der Modus dem Scheitelpunkt bzw. den Scheitelpunkten des Diagramms. Ein großes Manko des Modus ist, dass ein Datensatz keinen oder mehr als einen Modalwert haben kann, während er nur einen Mittelwert und nur einen Median hat. Ein Datensatz, bei dem jeder Wert nur einmal vorkommt, hat zum Beispiel keinen Modus. Ein Datensatz, bei dem nur ein Wert mit der größten Häufigkeit vorkommt, hat nur einen Modus. Der Datensatz wird in diesem Fall als <strong>unimodal</strong> bezeichnet. Ein Datensatz mit zwei Werten, die am häufigsten vorkommen, hat zwei Modi. Die Verteilung wird in diesem Fall als <strong>bimodal</strong> bezeichnet. Wenn mehr als zwei Werte in einem Datensatz am häufigsten vorkommen, dann enthält der Datensatz mehr als zwei Modi und wird als <strong>multimodal</strong> bezeichnet (<span id="id4">[]</span> s. 81,83).</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="n">x_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">TITELSIZE</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">COLOR</span> <span class="o">=</span> <span class="s2">&quot;k&quot;</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]:</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sd</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">y_axis</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y_axis</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLOR</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y_axis</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLOR</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;unimodal&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">TITELSIZE</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">16</span><span class="p">)]:</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sd</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">y_axis</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y_axis</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLOR</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y_axis</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLOR</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;bimodal&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">TITELSIZE</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">22</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]:</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sd</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">y_axis</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y_axis</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLOR</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y_axis</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLOR</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;multimodal&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">TITELSIZE</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">_ax</span> <span class="ow">in</span> <span class="n">ax</span><span class="p">:</span>
+    <span class="n">_ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/86a729b26583843787b17e51abf27181f7e6e73ecd0bd15a11490f7e6584598b.png" src="../_images/86a729b26583843787b17e51abf27181f7e6e73ecd0bd15a11490f7e6584598b.png" />
+</div>
+</div>
+<p>Anders als der Mittelwert und der Median kann der Modus für quantitative (numerische) und qualitative (kategoriale) Daten verwendet werden. Python verfügt über eine vordefinierte Funktion <code class="docutils literal notranslate"><span class="pre">mode()</span></code> zur Berechnung des Modus im Paket <code class="docutils literal notranslate"><span class="pre">statistics</span></code>. Wir verwenden diese um den Modalwert aller Spaltenwerte des <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatzes zu berechnen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;religion&quot;</span><span class="p">,</span> <span class="s2">&quot;nc_score&quot;</span><span class="p">,</span> <span class="s2">&quot;semester&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Der Modalwert der Spalte &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; ist &#39;</span><span class="si">{</span><span class="n">st</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">])</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Modalwert der Spalte &#39;gender&#39; ist &#39;Male&#39;.
+Der Modalwert der Spalte &#39;age&#39; ist &#39;21&#39;.
+Der Modalwert der Spalte &#39;religion&#39; ist &#39;Catholic&#39;.
+Der Modalwert der Spalte &#39;nc_score&#39; ist &#39;1.18&#39;.
+Der Modalwert der Spalte &#39;semester&#39; ist &#39;1st&#39;.
+Der Modalwert der Spalte &#39;height&#39; ist &#39;174&#39;.
+Der Modalwert der Spalte &#39;weight&#39; ist &#39;67.1&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ixianslab/srh-data-science",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Kapitel01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_Deskriptive_Statistik.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Deskriptive Statistik</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_Streuungsma%C3%9Fe.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Streuungsmaße</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-mittelwert">Der Mittelwert</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-arithmethische-mittelwert">Der arithmethische Mittelwert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#das-geometrische-mittel">Das geometrische Mittel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-harmonische-mittelwert">Der harmonische Mittelwert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-gewichtete-mittelwert">Der gewichtete Mittelwert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-gewichtete-geometrische-mittelwert">Der gewichtete geometrische Mittelwert</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-gewichtete-harmonische-mittelwert">Der gewichtete harmonische Mittelwert</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-median">Der Median</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-modalwert">Der Modalwert</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ixians
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

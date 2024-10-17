@@ -1,0 +1,125 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Vorwort
+    chapters:
+    - file: Vorwort
+  - caption: Einführung in die Statistik
+    chapters:
+    - file: Lernziele/Kapitel1_Lernziele
+    - file: Kapitel01/01_Deskriptive_Statistik
+    - file: Kapitel01/02_Maße_der_zentralen_Tendenz
+    - file: Kapitel01/03_Streuungsmaße
+    - file: Kapitel01/04_Maße_der_Position
+    - file: Kapitel01/05_Maße_der_Relation_zwischen_Variablen
+    - file: Aufgaben/Kapitel01/Aufgaben
+      sections:
+      - file: Aufgaben/Kapitel01/pandas
+      - file: Aufgaben/Kapitel01/Pandas_Dataframes
+      - file: Aufgaben/Kapitel01/Fuenf_Punkte
+      - file: Aufgaben/Kapitel01/Arithmetisches_Mittel
+  - caption: Diskrete Zufallsvariablen
+    chapters: 
+    - file: Lernziele/Kapitel2_Lernziele
+    - file: Kapitel02/01_Diskrete_Zufallsvariablen
+    - file: Kapitel02/02_Die_Binomialverteilung
+    - file: Kapitel02/03_Die_Poisson_Verteilung
+    - file: Aufgaben/Kapitel02/Aufgaben
+      sections:
+      - file: Aufgaben/Kapitel02/Hewert
+      - file: Aufgaben/Kapitel02/Normierung
+      - file: Aufgaben/Kapitel02/binomial
+  - caption: Stetige Zufallsvariablen
+    chapters: 
+    - file: Lernziele/Kapitel3_Lernziele
+    - file: Kapitel03/01_stetige_Zufallsvariablen
+    - file: Kapitel03/02_Die Normalverteilung
+    - file: Kapitel03/03_Die_kontinuierliche_gleichmäßige_Verteilung
+    - file: Kapitel03/04_Die_Student_t_Verteilung
+    - file: Kapitel03/05_Die_Chi_Quadrat_Verteilung
+    - file: Kapitel03/06_Die_F_Verteilung
+    - file: Aufgaben/Kapitel03/Aufgaben
+      sections:
+      - file: Aufgaben/Kapitel03/PDF
+      - file: Aufgaben/Kapitel03/689599_Regel
+      - file: Aufgaben/Kapitel03/Normalverteilung
+  - caption: Der Zentrale Grenzwertsatz
+    chapters:   
+    - file: Lernziele/Kapitel4_Lernziele
+    - file: Kapitel04/01_Zentraler_Grenzwertsatz
+    - file: Aufgaben/Kapitel04/Aufgaben
+      sections:
+      - file: Aufgaben/Kapitel04/CLT
+      - file: Aufgaben/Kapitel04/Schaetzfehler
+      - file: Aufgaben/Kapitel04/Wuerfel
+      - file: Aufgaben/Kapitel04/Test_auf_Normalverteilung
+  - caption: Inferenzstatistik und Konfidenzintervalle
+    chapters:   
+    - file: Lernziele/Kapitel5_Lernziele
+    - file: Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle
+    - file: Aufgaben/Kapitel05/Aufgaben
+      sections:
+      - file: Aufgaben/Kapitel05/Konfidenzintervall
+      - file: Aufgaben/Kapitel05/Punkschaetzer
+      - file: Aufgaben/Kapitel05/Punkt_Intervall
+  - caption: Hypothesentests
+    chapters:   
+    - file: Lernziele/Kapitel6_Lernziele
+    - file: Kapitel06/01_Hypothesentests
+    - file: Kapitel06/02_Hypothesentests_Mittelwert_einer_Grundgesamtheit
+    - file: Kapitel06/03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte
+    - file: Kapitel06/04_Standardabweichung_der_Grundgesamtheit
+    - file: Kapitel06/05_Chi_Quadrat_Tests
+    - file: Kapitel06/06_Inferenz_Regression_und_Korrelation
+    - file: Kapitel06/07_Wahrscheinlichkeitstabellen
+    - file: Aufgaben/Kapitel06/Aufgaben
+      sections:
+      - file: Aufgaben/Kapitel06/Fehler_1ter_2ter_Art
+      - file: Aufgaben/Kapitel06/hypo_unabhSt
+      - file: Aufgaben/Kapitel06/pooled_t
+  - caption: Varianzanalyse - ANOVA
+    chapters:   
+    - file: Lernziele/Kapitel7_Lernziele
+    - file: Kapitel07/01_Analyse_der_Varianz_ANOVA
+    - file: Aufgaben/Kapitel07/Aufgaben
+      sections:
+      - file: Aufgaben/Kapitel07/ANOVA_basics
+      - file: Aufgaben/Kapitel07/Einfache_ANOVA
+      - file: Aufgaben/Kapitel07/Bonferroni
+  - caption: Lineare Regression
+    chapters:  
+    - file: Lernziele/Kapitel8_Lernziele
+    - file: Kapitel08/01_Lineare_Regression
+    - file: Kapitel08/02_Polynomiale_Regression
+    - file: Aufgaben/Kapitel08/Aufgaben
+      sections:
+      - file: Aufgaben/Kapitel08/LinReg_basics
+      - file: Aufgaben/Kapitel08/LineareReg
+      - file: Aufgaben/Kapitel08/PolyReg
+  - caption: Logistische Regression
+    chapters:   
+    - file: Lernziele/Kapitel9_Lernziele
+    - file: Kapitel09/01_Logistische_Regression
+    - file: Aufgaben/Kapitel09/Aufgaben
+      sections:
+      - file: Aufgaben/Kapitel09/LogReg_basics
+      - file: Aufgaben/Kapitel09/logit_funktion
+      - file: Aufgaben/Kapitel09/logodds
+      - file: Aufgaben/Kapitel09/logregmodell
+  - caption: Entscheidungsbäume
+    chapters:   
+    - file: Lernziele/Kapitel10_Lernziele
+    - file: Kapitel10/01_DecisionTrees
+    - file: Kapitel10/02_BaggingBoosting
+    - file: Kapitel10/03_RandomForest
+    - file: Aufgaben/Kapitel10/Aufgaben
+      sections:
+      - file: Aufgaben/Kapitel10/decision_trees
+      - file: Aufgaben/Kapitel10/bagging_and_random_forests
+  - caption: Literaturverzeichnis
+    chapters:
+    - file:  Literaturverzeichnis
+

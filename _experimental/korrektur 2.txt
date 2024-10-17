@@ -1,0 +1,299 @@
+Allgemein: Literaturverzeichnis , namen vertauscht
+
+Kapitel 1 
+
+(Deskriptive Statistik)
+
+Zitat für Matrix :  [Lang, 2005] -> cite:t und klammern setzen [OK]
+
+
+(Maße der zentralen Tendenz)
+
+Messwerte statt Meßwerte -> Meßwert handelt es sich um eine veraltete Schreibweise von Messwert, die seit der Reform 1996 nicht mehr korrekt ist. [OK]
+
+
+(Streuungsmaße)
+
+
+falsch gerendert : und die für Stichprobendaten berechnete Standardabweichung mit [OK]
+
+falsch gerendert : Die Spannweite als Maß für die Streuung# [OK]
+
+(Das Positionsmaß)
+
+Fahrmeir et al. [2016] -> Klammern fehlen [OK]
+
+(Maße für die Relation zwischen Variablen)
+
+falsch gerendert : Werten des Pearson-Produkt-Moment-Korrelationskoeffizienten dienen. [OK]
+
+stud.id als Link -> stud_id [OK]
+
+Kapitel 2
+
+(Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen)
+
+
+falsch gerendert : Berechnen wir den Erwartungswert (Mittelwert) für dieses Experiment. [OK]
+
+(Die Binomialverteilung)
+
+(Die Poisson-Verteilung)
+
+falsch gerendert : Wie im früheren Beispiel “Jahrhunderthochwasser” [OK]
+
+übungsbeispiele:
+
+bsp:Häufigkeiten und Erwartungswert
+
+Lösungen nicht versteckt
+
+bsp:Normierung
+
+Lösungen nicht versteckt
+
+bsp:Binomialverteilung
+
+$$ fehlt bei Zahlen [OK]
+
+?? dübel statt Tübel
+
+Abstand : unbrauchbareTübel. [OK]
+
+Kapitel 3
+
+(Stetige Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen)
+
+falsch gerendert : Man beachte, dass das Intervall [OK]
+
+(Die Normalverteilung)
+
+z zu $z$ : Allerdings müssen wir vorsichtig sein auf welchen Bereich der Fläche unter der Normalverteilung wir uns beziehen [OK]
+
+z-Score zu $z$-Score : Allerdings müssen wir vorsichtig sein auf welchen Bereich der Fläche unter der Normalverteilung wir uns beziehen [OK]
+
+in Überschrift Bestimmung des z-Wertes, bei bekannter Fläche unter der Normalverteilungskurve -> z zu $z$ [OK]
+
+Das bedeutet, dass bei einem z-Wert -> z zu $z$ [OK]
+
+95% aller Werte rechts davon -> $95 \%$ aller Werte rechts davon [OK]
+
+falsch gerendert : Nun gehen wir den zweiten Ansatz durch, bei dem wir den Schritt
+
+(Die kontinuierliche gleichmäßige Verteilung)
+
+(Die Student t-Verteilung)
+
+Überschrift : Die Student t-Verteilung -> Die Studentsche $t$-Verteilung [wont work for headers]
+
+Grundlegende Eigenschaften von t-Kurven -> Grundlegende Eigenschaften von $t$-Kurven [wont work for headers]
+
+Die Studentsche-t-Verteilung in Python -> Die Studentsche-$t$-Verteilung in Python [wont work for headers]
+
+# generate random values from t distribution with df=6 and sample size=10 -> Generiere Zufallswerte der t Verteilung mit df = 29 und Stichprobengrösse = 30 [OK]
+
+Generiere Zufallswerte der t Verteilung mit df = 9999 und Stichprobengrösse = 10000 [OK]
+
+(Die Chi-Quadrat-Verteilung)
+
+# Plotte t-Verteilung -> Plotte Chi-Quadrat-Verteilung [OK]
+
+(Die F-Verteilung)
+
+Überschrift : Die F-Verteilung -> Die $F$-Verteilung [wont work]
+
+Kapitel 4 
+
+(Der zentrale Grenzwertsatz)
+
+kommt 2mal vor 1mal streichen ? : [OK]
+
+Form der Stichprobenverteilung  [OK]
+
+Die Form der Stichprobenverteilung bezieht sich auf die beiden folgenden Fälle :
+
+    Die Grundgesamtheit, aus der die Stichproben gezogen werden, ist normalverteilt.
+
+    Die Grundgesamtheit, aus der die Stichproben gezogen werden, ist nicht normalverteilt.
+
+
+
+
+Übungsbeispiele:
+
+bsp:Würfelexperiment [ok]
+
+$$ fehlt bei zahlen [ok]
+
+Kapitel 5
+
+(Inferenzstatistik und Konfidenzintervalle)
+
+$$ fehlt : Datensatz besteht aus 8239 Zeilen, von denen jede einen bestimmten Studenten repräsentiert, und 16 Spalten, [OK]
+
+Kapitel 6
+
+(Hypothesentests)
+
+graphik programmcode verstecken : Bei einem zweiseitigen Test wird die Nullhypothese abgelehnt, wenn die Teststatistik entweder zu klein oder zu groß ist. Der Ablehnungsbereich für einen solchen Test besteht also aus zwei Teilen: einem links und einem rechts. [OK]
+
+graphik programmcode verstecken : Bei einem linksseitigen Test wird die Nullhypothese abgelehnt, wenn die Teststatistik zu klein ist. Der Ablehnungsbereich für einen solchen Test besteht also aus einem Teil, der links von der Mitte liegt. [OK]
+
+graphik programmcode verstecken : Bei einem rechtsseitigen Test wird die Nullhypothese abgelehnt, wenn die Teststatistik zu groß ist. Der Ablehnungsbereich für einen solchen Test besteht also aus einem Teil, der sich rechts von der Mitte befindet. [OK]
+
+(Hypothesentests für den Mittelwert einer Grundgesamtheit) [OK]
+
+graphik programmcode verstecken : in den Ablehnungsbereich? Beachten Sie, dass es sich um einen zweiseitigen Test handelt, d. h. wir werten die obere und die untere Grenze aus.
+
+graphik programmcode verstecken : 
+ax.annotate(
+    r"$z$",
+    xy=(z, 0.01),
+    xytext=(z, 0.07),
+    # textcoords="data",
+    arrowprops=dict(headwidth=15, headlength=10, width=4, color="blue"),
+    size=19,
+    color="blue",
+    horizontalalignment="center",
+
+graphik programmcode verstecken :
+ax.annotate(
+    r"$\alpha$",
+    xy=(2, 0.02),
+    xytext=(2.4, 0.1),
+    # textcoords="data",
+    arrowprops=dict(headwidth=15, headlength=30, width=4, color="k"),
+    size=19,
+)
+
+(Hypothesentests für zwei Grundgesamtheitsmittelwerte)
+
+Zitat (Weiss 2010) -> ersetzen oder rausnehmen ? [OK]
+
+
+
+(Inferenz für die Standardabweichung der Grundgesamtheit)
+
+
+Graphik Programm code verstecken ? : gesamtes unterkapitel [OK]
+
+(Chi-Quadrat-Tests)
+
+Diese Schlussfolgerungsmethoden beruhen auf der Chi-Quadrat-Verteilung -> Diese Schlussfolgerungsmethoden beruhen auf der Chi-Quadrat-Verteilung () und werden daher als -Tests bezeichnet. [OK]
+
+Graphik Programm code verstecken ? : gesamtes unterkapitel [OK]
+
+(Inferenzmethoden in Regression und Korrelation)
+
+Graphik Programm code verstecken ? : gesamtes unterkapitel
+
+normale tabelle statt markdown tabelle ? : schrittweisen Verfahren wie in den vorangegangenen Abschnitten beschrieben.
+
+Übungsbeispiele :
+
+bsp:Hypothesentest - unabhängige Stichproben : fragen 1,2,3 zu eins zusammenfassen ; frage 2 ist : Berechnen Sie den kritischen Wert (entweder mit Python oder Wahrscheinlichkeitstabelle) bei einem Signifikanzniveau . Wird abgelehnt? 
+
+Teile der Lösung sichtbar [OK]
+
+bsp:2-Stichproben-t-Test: punkt 3 (Interpretieren Sie das Ergebnis) streichen [OK]
+
+Kapitel 7
+
+(Varianzanalyse - ANOVA)
+
+falsch gerendert : Aufbau einer solchen Tabelle ist unten dargestellt.[OK]
+
+Übungsbeispiele :
+
+bsp:Einfaktorielle ANOVA Grundbegriffe :  Frage 1 streichen [OK]
+
+bsp:Einfaktorielle ANOVA : Daten werden nicht angezeigt; Tabelle rausnehmen; Benutzen Sie für Schritte und die Funktion f_oneway() die Sie mit from scipy.stats import f_oneway importieren können ersetzen durch Benutzen Sie dafür die Funktion `f_oneway()` die Sie mit `from scipy.stats import f_oneway` importieren können [OK]
+
+bsp:Bonferroni Korrektur : Interpretieren Sie das Ergebnos - streichen; Daten werden nicht angezeigt; Teile der Lösung sichtbar [OK]
+
+Kapitel 8
+
+(Lineare Regression)
+
+$$ fehlt : Datensatz besteht aus 8239 Zeilen, von denen jede einen bestimmten Studenten repräsentiert, und 16 Spalten,  [OK]
+
+link für Prognosebänder rausnehmen (Zitat reicht) : genannten Prognosebänder [OK]
+
+(Polynomiale Regression)
+
+Daher setzen wir dieses Beispiel mit einem neuen Datensatz von $60$ Beobachtungen fort. -> $150$ Beobachtungen [OK]
+
+Beobachtungen gelernt haben -> Beobachtungen trainiert/erstellt haben [OK]
+
+Übungsbeispiele :
+
+bsp:Lineare Regression - Grundbegriffe -> Lösung fehlt [OK]
+
+bsp:Polynomiale Regression -> für die folgenden Daten (dat_x,dat_y) : statt dat_x,dat_y nur x,y [OK]
+
+Kapitel 9
+
+(Logistische Regression)
+
+iterativ neu gewichtete kleinste Quadrate -> Link rausnehmen [OK]
+
+falsch gerendert : Erinnern wir uns an die Gleichung für das Regressionsmodell von oben: [OK]
+
+Übungsbeispiele :
+
+bsp:Logistische Regression - Grundbegriffe -> Lösung fehlt [OK]
+
+bsp:Logistische Funktion -> falsch gerendert : Logit Funktion in logistische Funktion einsetzen [OK]
+
+bsp:Odds und Log-Odds -> Lösung fehlt; faslch gerendert : die Log-Odds gleich [OK]
+
+bsp:Einfaches logistisches Regressionsmodell -> Angabe seltsam (transponiert ?!) [OK]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

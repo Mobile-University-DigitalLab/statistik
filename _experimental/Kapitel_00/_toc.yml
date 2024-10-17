@@ -1,0 +1,19 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Lernziele
+    chapters:
+    - file: 00_Lernziele
+  - caption: Kapitel XXX
+    chapters:
+    - file: 01_getting_started
+  - caption: Übungsaufgaben
+    chapters:
+    - file: 90_Aufgaben
+  - caption: Literaturverzeichnis
+    chapters:
+    - file:  99_Literaturverzeichnis
+

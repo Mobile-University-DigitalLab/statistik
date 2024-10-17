@@ -1,0 +1,1986 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Chi-Quadrat-Tests &#8212; Modul Statistik und Machine Learning Modelle</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel06/05_Chi_Quadrat_Tests';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Inferenzmethoden in Regression und Korrelation" href="06_Inferenz_Regression_und_Korrelation.html" />
+    <link rel="prev" title="Inferenz für die Standardabweichung der Grundgesamtheit" href="04_Standardabweichung_der_Grundgesamtheit.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vorwort</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Vorwort.html">Vorwort</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Statistik</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel1_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/01_Deskriptive_Statistik.html">Deskriptive Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/02_Ma%C3%9Fe_der_zentralen_Tendenz.html">Maße der zentralen Tendenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel2_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel3_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/01_stetige_Zufallsvariablen.html">Stetige Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/02_Die%20Normalverteilung.html">Die Normalverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/03_Die_kontinuierliche_gleichm%C3%A4%C3%9Fige_Verteilung.html">Die kontinuierliche gleichmäßige Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel6_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_Hypothesentests.html">Hypothesentests</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="02_Hypothesentests_Mittelwert_einer_Grundgesamtheit.html">Hypothesentests für den Mittelwert einer Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte.html">Hypothesentests für zwei Grundgesamtheitsmittelwerte</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="04_Standardabweichung_der_Grundgesamtheit.html">Inferenz für die Standardabweichung der Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chi-Quadrat-Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Inferenz_Regression_und_Korrelation.html">Inferenzmethoden in Regression und Korrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Wahrscheinlichkeitstabellen.html">Wahrscheinlichkeits-Tabellen</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Literaturverzeichnis.html">Literaturverzeichnis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel06/05_Chi_Quadrat_Tests.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Kapitel06/05_Chi_Quadrat_Tests.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chi-Quadrat-Tests</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-2-verteilung"><span class="math notranslate nohighlight">\(\chi^2\)</span>-Verteilung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-quadrat-test-auf-anpassungsgute">Chi-Quadrat-Test auf Anpassungsgüte</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-2-anpassungstest-ein-beispiel"><span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest: Ein Beispiel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vorbereitung-der-daten">Vorbereitung der Daten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uberprufung-der-hypothesen">Überprüfung der Hypothesen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesentests-in-python">Hypothesentests in Python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-chi-quadrat-unabhangigkeitstest">Der Chi-Quadrat-Unabhängigkeitstest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-2-unabhangigkeitstest"><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-2-unabhangigkeitstest-ein-beispiel"><span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest: Ein Beispiel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Vorbereitung der Daten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Überprüfung der Hypothesen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Hypothesentests in Python</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chi-quadrat-tests">
+<h1>Chi-Quadrat-Tests<a class="headerlink" href="#chi-quadrat-tests" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2</span><span class="p">,</span> <span class="n">chisquare</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Neben Inferenzverfahren für Hypothesentests für Grundgesamtheitsparameter wie den Mittelwert <span class="math notranslate nohighlight">\(\mu\)</span> und die Standardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span> gibt es statistische Verfahren, um Rückschlüsse auf die Verteilung einer Variablen zu ziehen. Diese Schlussfolgerungsmethoden beruhen auf der Chi-Quadrat-Verteilung (<span class="math notranslate nohighlight">\(\chi^2\)</span>) und werden daher als <span class="math notranslate nohighlight">\(\chi^2\)</span>-Tests bezeichnet.</p>
+<p>Im folgenden Abschnitt werden der <strong>Chi-Quadrat-Anpassungstest</strong>, ein Hypothesentest, der angewandt wird, um Rückschlüsse auf die Verteilung einer Variablen zu ziehen, und der <strong>Chi-Quadrat-Unabhängigkeitstest</strong>, ein Hypothesentest, der angewandt wird, um zu entscheiden, ob ein Zusammenhang zwischen zwei Variablen einer Grundgesamtheit besteht, erörtert.</p>
+<section id="chi-2-verteilung">
+<h2><span class="math notranslate nohighlight">\(\chi^2\)</span>-Verteilung<a class="headerlink" href="#chi-2-verteilung" title="Permalink to this heading">#</a></h2>
+<p><strong>Grundlegende Eigenschaften von <span class="math notranslate nohighlight">\(\chi^2\)</span>-Kurven (<span id="id1"></span> s.279)</strong></p>
+<ul class="simple">
+<li><p>Die Gesamtfläche unter einer <span class="math notranslate nohighlight">\(\chi^2\)</span>-Kurve ist gleich <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
+<li><p>Eine <span class="math notranslate nohighlight">\(\chi^2\)</span>-Kurve beginnt bei <span class="math notranslate nohighlight">\(0\)</span> auf der horizontalen Achse und erstreckt sich unendlich weit nach rechts, wobei sie sich der horizontalen Achse nähert, diese aber nie berührt.</p></li>
+<li><p>Eine <span class="math notranslate nohighlight">\(\chi^2\)</span>-Kurve ist rechtsschief.</p></li>
+<li><p>Mit zunehmender Anzahl von Freiheitsgraden sehen <span class="math notranslate nohighlight">\(\chi^2\)</span>- Kurven zunehmend wie normale Kurven aus.</p></li>
+</ul>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">_df</span> <span class="ow">in</span> <span class="n">df</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">chi2</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">_df</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;df=</span><span class="si">{</span><span class="n">_df</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+    <span class="s2">&quot;$\chi^2$-Warscheinlichkeitsdichtefunktion mit unterschiedlichen Freiheitsgraden (df)&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x743924e91900&gt;
+</pre></div>
+</div>
+<img alt="../_images/84444ce8af16eee08dc0189bf37691a1dcdba538c2461685e3b64eaa764ee06a.png" src="../_images/84444ce8af16eee08dc0189bf37691a1dcdba538c2461685e3b64eaa764ee06a.png" />
+</div>
+</details>
+</div>
+</section>
+<section id="chi-quadrat-test-auf-anpassungsgute">
+<h2>Chi-Quadrat-Test auf Anpassungsgüte<a class="headerlink" href="#chi-quadrat-test-auf-anpassungsgute" title="Permalink to this heading">#</a></h2>
+<p>Der <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest</strong> wird angewandt, um Hypothesentests über die Verteilung einer qualitativen (kategorialen) Variable oder einer diskreten quantitativen Variable, die nur endlich viele mögliche Werte hat, durchzuführen.</p>
+<p>Die grundlegende Logik des <span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest besteht darin, die Häufigkeiten von zwei Variablen zu vergleichen. Wir vergleichen die <strong>beobachteten Häufigkeiten</strong> einer Stichprobe mit den <strong>erwarteten Häufigkeiten</strong>.</p>
+<p>Betrachten wir ein einfaches Beispiel:</p>
+<p>Am <span class="math notranslate nohighlight">\(22\)</span>. September <span class="math notranslate nohighlight">\(2013\)</span> fand in Deutschland die <a href="https://de.wikipedia.org/wiki/Bundestagswahl_2013">Bundestagswahl <span class="math notranslate nohighlight">\(2013\)</span></a> statt. Mehr als <span class="math notranslate nohighlight">\(44\)</span> Millionen Menschen gingen zur Wahl. <span class="math notranslate nohighlight">\(41,5 \%\)</span> der deutschen Wähler entschieden sich für die Christlich Demokratische Union (CDU) und <span class="math notranslate nohighlight">\(25,7 \%\)</span> für die Sozialdemokratische Partei (SPD). Der Einfachheit halber fassen wir den verbleibenden Prozentsatz der Stimmen (<span class="math notranslate nohighlight">\(32,8 \%\)</span>) als Sonstige zusammen.</p>
+<p>Auf der Grundlage dieser Daten können wir eine Häufigkeitstabelle erstellen.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Partei</p></th>
+<th class="text-center head"><p>Prozent</p></th>
+<th class="text-center head"><p>Relative Häufigkeit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CDU</p></td>
+<td class="text-center"><p>41,5</p></td>
+<td class="text-center"><p>0,415</p></td>
+</tr>
+<tr class="row-odd"><td><p>SPD</p></td>
+<td class="text-center"><p>25,7</p></td>
+<td class="text-center"><p>0,257</p></td>
+</tr>
+<tr class="row-even"><td><p>Sonstige</p></td>
+<td class="text-center"><p>32,8</p></td>
+<td class="text-center"><p>0,328</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td class="text-center"><p>100</p></td>
+<td class="text-center"><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>Die dritte Spalte der obigen Tabelle entspricht den <strong>relativen Häufigkeiten</strong> in der deutschen Bevölkerung/Wählerschaft. Für diese Übung nehmen wir eine Zufallsstichprobe. Wir befragen <span class="math notranslate nohighlight">\(123\)</span> Studierende der FU Berlin nach ihrer Parteizugehörigkeit und halten die folgenden Antworten fest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CDU&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Sonstige&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SPD&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im nächsten Schritt zählen wir das Auftreten der einzelnen Kategorien (Parteien) in unserer Stichprobe. Diese Größen sind die <strong>beobachteten Häufigkeiten</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">l</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">sample</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">sample</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;SPD: 26&#39;, &#39;Sonstige: 40&#39;, &#39;CDU: 57&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im nächsten Schritt berechnen wir die <strong>erwartete Häufigkeit</strong> (<span class="math notranslate nohighlight">\(E\)</span>) für jede Kategorie.</p>
+<div class="math notranslate nohighlight">
+\[E = n \times p\text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(n\)</span> der Stichprobenumfang und <span class="math notranslate nohighlight">\(p\)</span> die entsprechende relative Häufigkeit aus der obigen Tabelle ist.</p>
+<div class="math notranslate nohighlight">
+\[E_{CDU} = n\times p = 123 \times 0,415 = 51,045\]</div>
+<div class="math notranslate nohighlight">
+\[E_{SPD} = n\times p = 123 \times 0,257 = 31,611\]</div>
+<div class="math notranslate nohighlight">
+\[E_{Sonstige} = n\times p = 123 \times 0,382 = 46,986\]</div>
+<p>Beachten Sie, dass es sich zwar um einzelne Zählungen handelt, die durch ganzzahlige Werte dargestellt werden, die <strong>erwartete Häufigkeit</strong>, <span class="math notranslate nohighlight">\(E\)</span> eine Fließkommazahl ist. Das ist in Ordnung.</p>
+<p>Nun werden die <strong>beobachteten Häufigkeiten</strong> und die <strong>erwarteten Häufigkeiten</strong> in einer Tabelle zusammengeführt.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Partei</p></th>
+<th class="text-center head"><p>Beobachtete Häufigkeit</p></th>
+<th class="text-center head"><p>Erwartete Häufigkeit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CDU</p></td>
+<td class="text-center"><p>57</p></td>
+<td class="text-center"><p>51,045</p></td>
+</tr>
+<tr class="row-odd"><td><p>SPD</p></td>
+<td class="text-center"><p>26</p></td>
+<td class="text-center"><p>31,611</p></td>
+</tr>
+<tr class="row-even"><td><p>Sonstige</p></td>
+<td class="text-center"><p>40</p></td>
+<td class="text-center"><p>46,986</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td class="text-center"><p>123</p></td>
+<td class="text-center"><p>129,642</p></td>
+</tr>
+</tbody>
+</table>
+<p>Großartig! Sobald wir die erwarteten Häufigkeiten kennen, müssen wir auf zwei Annahmen prüfen. Erstens müssen wir sicherstellen, dass alle erwarteten Häufigkeiten <span class="math notranslate nohighlight">\(1\)</span> oder größer sind, und zweitens, dass höchstens <span class="math notranslate nohighlight">\(20 \%\)</span> der erwarteten Häufigkeiten kleiner als <span class="math notranslate nohighlight">\(5\)</span> sind. Durch einen Blick auf die Tabelle können wir bestätigen, dass beide Annahmen erfüllt sind.</p>
+<p>Jetzt haben wir alle Zutaten, die wir brauchen, außer der Teststatistik, um einen <span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest durchzuführen.</p>
+<p>Die <span class="math notranslate nohighlight">\(\chi^2\)</span> Teststatistik für die Anpassungsgüte ist gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[\chi^2=\sum \frac{(O-E)^2}{E}\text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(O\)</span> den beobachteten Häufigkeiten und <span class="math notranslate nohighlight">\(E\)</span> den erwarteten Häufigkeiten entspricht. Die Teststatistik <span class="math notranslate nohighlight">\(\chi^2\)</span> approximiert eine <em>Chi-Quadrat</em>-Verteilung, wenn die Nullhypothese wahr ist. Die Zahl der Freiheitsgrade ist um <span class="math notranslate nohighlight">\(1\)</span> kleiner als die Zahl der möglichen Werte (Kategorien) für die betrachtete Variable.</p>
+<div class="math notranslate nohighlight">
+\[df = c-1\]</div>
+<p>Ausgehend von den in der obigen Tabelle angegebenen beobachteten und erwarteten Häufigkeiten lässt sich der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Wert relativ einfach berechnen. Um das Berechnungsverfahren jedoch übersichtlicher zu gestalten, haben wir alle erforderlichen Berechnungsschritte in einer Tabelle zusammengefasst.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Partei</p></th>
+<th class="text-center head"><p>Beobachtete Häufigkeit</p></th>
+<th class="text-center head"><p>Erwartete Häufigkeit</p></th>
+<th class="text-center head"><p>Differenz <span class="math notranslate nohighlight">\(O-E\)</span></p></th>
+<th class="text-center head"><p>Quadrat der Differenz <span class="math notranslate nohighlight">\((O-E)^2\)</span></p></th>
+<th class="text-center head"><p><span class="math notranslate nohighlight">\(\chi^2\)</span> Zwischensumme <span class="math notranslate nohighlight">\((O-E)^2 / E\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CDU</p></td>
+<td class="text-center"><p>57</p></td>
+<td class="text-center"><p>51,045</p></td>
+<td class="text-center"><p>5,955</p></td>
+<td class="text-center"><p>35,462025</p></td>
+<td class="text-center"><p>0,6947208</p></td>
+</tr>
+<tr class="row-odd"><td><p>SPD</p></td>
+<td class="text-center"><p>26</p></td>
+<td class="text-center"><p>31,611</p></td>
+<td class="text-center"><p>-5,611</p></td>
+<td class="text-center"><p>31,483321</p></td>
+<td class="text-center"><p>0,9959609</p></td>
+</tr>
+<tr class="row-even"><td><p>Sonstige</p></td>
+<td class="text-center"><p>40</p></td>
+<td class="text-center"><p>46,986</p></td>
+<td class="text-center"><p>-6,986</p></td>
+<td class="text-center"><p>48,804196</p></td>
+<td class="text-center"><p>1,0386965</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td class="text-center"><p>123</p></td>
+<td class="text-center"><p>129,642</p></td>
+<td class="text-center"><p>-6,642</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>In unserem Beispiel ergibt die <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik für die Anpassungsgüte den Wert</p>
+<div class="math notranslate nohighlight">
+\[\chi^2=\sum \frac{(O-E)^2}{E} \approx2,729\]</div>
+<p>Wenn die Nullhypothese wahr ist, sind die beobachtete und die erwartete Häufigkeit ungefähr gleich. Dies führt zu einem kleinen Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik und unterstützt somit <span class="math notranslate nohighlight">\(H_0\)</span>. Ist der Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik jedoch groß, liefern die Daten Beweise gegen <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
+<section id="chi-2-anpassungstest-ein-beispiel">
+<h3><span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest: Ein Beispiel<a class="headerlink" href="#chi-2-anpassungstest-ein-beispiel" title="Permalink to this heading">#</a></h3>
+<p>Um praktische Erfahrungen zu sammeln, wenden wir den <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstest in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lese Datei students.csv als Dataframe ein; Indexspalte wird übersprungen</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz besteht aus <span class="math notranslate nohighlight">\(8239\)</span> Zeilen, von denen jede einen bestimmten Studenten repräsentiert, und <span class="math notranslate nohighlight">\(16\)</span> Spalten, von denen jede einer Variable/einem Merkmal entspricht, das sich auf diesen bestimmten Studenten bezieht. Diese selbsterklärenden Variablen sind: <em>stud_id, name, gender, age, height, weight, religion, nc_score, semester, major, minor, score1, score2, online_tutorial, graduated, salary.</em></p>
+<p>Es sei daran erinnert, dass <span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstests für qualitative (kategoriale) Variablen oder diskrete quantitative Variablen angewendet werden. Der <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz enthält mehrere kategoriale Variablen, wie z. B. <code class="docutils literal notranslate"><span class="pre">gender</span></code>, <code class="docutils literal notranslate"><span class="pre">religion</span></code>, <code class="docutils literal notranslate"><span class="pre">major</span></code>, <code class="docutils literal notranslate"><span class="pre">minor</span></code> und <code class="docutils literal notranslate"><span class="pre">graduated</span></code>.</p>
+<p>Um den <span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest zu veranschaulichen, untersuchen wir, ob die Religion unter den Studierenden gleichmäßig verteilt ist, verglichen mit der Verteilung der Religion in der Bevölkerung der Europäischen Union. Die Daten auf kontinentaler Ebene stammen aus dem Bericht “Discrimination in the EU in <span class="math notranslate nohighlight">\(2012\)</span>” (<a href="https://europa.eu/eurobarometer/api/archives/ebs/ebs_393_en.pdf">European Union: European Commission, Special Eurobarometer, <span class="math notranslate nohighlight">\(393\)</span>, p. <span class="math notranslate nohighlight">\(233\)</span></a>). Der Bericht enthält Daten für <span class="math notranslate nohighlight">\(8\)</span> Kategorien: <span class="math notranslate nohighlight">\(48 \%\)</span> der Menschen werden als Katholiken, <span class="math notranslate nohighlight">\(16 \%\)</span> als Nichtgläubige/Agnostiker, <span class="math notranslate nohighlight">\(12 \%\)</span> als Protestanten, <span class="math notranslate nohighlight">\(8 \%\)</span> als Orthodoxe, <span class="math notranslate nohighlight">\(7 \%\)</span> als Atheisten, <span class="math notranslate nohighlight">\(4 \%\)</span> als sonstige Christen, <span class="math notranslate nohighlight">\(3 \%\)</span> als sonstige Religion/keine Angabe und <span class="math notranslate nohighlight">\(2 \%\)</span> als Muslime eingestuft. Zum besseren Verständnis stellen wir die Daten in Form eines Tortendiagramms dar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeuge Pie chart</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">48</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">mylabels</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Katholiken&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Nichtgläubige/Agnostiker&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Protestanten&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Orthodoxe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Atheisten&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sonstige Christen&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sonstige Religion/keine Angabe&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Muslime&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">mylabels</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">labeldistance</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">rotatelabels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/13609288c4a538d41e83b30b4932007985a964905f7ab181f5a8b6cf2576d004.png" src="../_images/13609288c4a538d41e83b30b4932007985a964905f7ab181f5a8b6cf2576d004.png" />
+</div>
+</div>
+</section>
+<section id="vorbereitung-der-daten">
+<h3>Vorbereitung der Daten<a class="headerlink" href="#vorbereitung-der-daten" title="Permalink to this heading">#</a></h3>
+<p>Wir beginnen mit der Datenexploration und der Datenaufbereitung.</p>
+<p>Zunächst wollen wir wissen, welche Kategorien im Datensatz vorhanden sind. Dazu wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">unique()</span></code> an, die die einzelnen Spaltennamen (Kategorien) ausgibt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">students</span><span class="p">[</span><span class="s2">&quot;religion&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Muslim&#39;, &#39;Other&#39;, &#39;Protestant&#39;, &#39;Catholic&#39;, &#39;Orthodox&#39;],
+      dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Offensichtlich gibt es in den <em>Studenten</em>daten <span class="math notranslate nohighlight">\(5\)</span> weniger Kategorien, im Vergleich zu den <span class="math notranslate nohighlight">\(8\)</span> Kategorien, die im EU-Bericht angegeben sind. Um Vergleiche anstellen zu können, kodieren wir die Kategorien der Religionsvariable um, um schließlich <span class="math notranslate nohighlight">\(5\)</span> Kategorien zu erhalten: “Katholisch”, “Muslimisch”, “Orthodox”, “Protestantisch” und “Sonstige”. Achten Sie bei diesem Schritt darauf, dass Sie die Kategorien nicht verwechseln!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lege Kategorien zusammen</span>
+<span class="n">raw_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;Other&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">16</span> <span class="o">+</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;Catholic&quot;</span><span class="p">,</span> <span class="mi">48</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Protestant&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Orthodox&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Muslim&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Religion&quot;</span><span class="p">,</span> <span class="s2">&quot;absoulte Häufigkeit&quot;</span><span class="p">])</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;relative Häufigkeit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;absoulte Häufigkeit&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Religion&quot;</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>absoulte Häufigkeit</th>
+      <th>relative Häufigkeit</th>
+    </tr>
+    <tr>
+      <th>Religion</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Other</th>
+      <td>30</td>
+      <td>0.30</td>
+    </tr>
+    <tr>
+      <th>Catholic</th>
+      <td>48</td>
+      <td>0.48</td>
+    </tr>
+    <tr>
+      <th>Protestant</th>
+      <td>12</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <th>Orthodox</th>
+      <td>8</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <th>Muslim</th>
+      <td>2</td>
+      <td>0.02</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Nun nehmen wir eine Zufallsstichprobe. Wir wählen <span class="math notranslate nohighlight">\(256\)</span> Studenten nach dem Zufallsprinzip aus und zählen mit der Funktion <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> die Anzahl der Studenten in jeder bestimmten Kategorie der Variablen <code class="docutils literal notranslate"><span class="pre">religion</span></code>. Wir erinnern uns, dass diese Menge den <strong>beobachteten Häufigkeiten</strong> entspricht.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">students_sample</span> <span class="o">=</span> <span class="n">students</span><span class="p">[</span><span class="s2">&quot;religion&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sample_frequencies</span> <span class="o">=</span> <span class="n">students_sample</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">sample_frequencies</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Other         85
+Catholic      77
+Protestant    60
+Orthodox      27
+Muslim         7
+Name: religion, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit einer einzigen Code-Zeile fügen wir die beobachteten Häufigkeiten in <code class="docutils literal notranslate"><span class="pre">data</span></code> ein, den <code class="docutils literal notranslate"><span class="pre">dataframe</span></code>, den wir oben konstruiert haben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;beobachtete Häufigkeit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample_frequencies</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>absoulte Häufigkeit</th>
+      <th>relative Häufigkeit</th>
+      <th>beobachtete Häufigkeit</th>
+    </tr>
+    <tr>
+      <th>Religion</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Other</th>
+      <td>30</td>
+      <td>0.30</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>Catholic</th>
+      <td>48</td>
+      <td>0.48</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <th>Protestant</th>
+      <td>12</td>
+      <td>0.12</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>Orthodox</th>
+      <td>8</td>
+      <td>0.08</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>Muslim</th>
+      <td>2</td>
+      <td>0.02</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Im nächsten Schritt berechnen wir die erwarteten Häufigkeiten. Erinnern Sie sich an die Gleichung:</p>
+<div class="math notranslate nohighlight">
+\[E = n \times p\]</div>
+<p>Wir fügen die erwarteten Häufigkeiten als neue Spalte in <code class="docutils literal notranslate"><span class="pre">data</span></code> ein.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;erwartete Häufigkeit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;relative Häufigkeit&quot;</span><span class="p">]</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>absoulte Häufigkeit</th>
+      <th>relative Häufigkeit</th>
+      <th>beobachtete Häufigkeit</th>
+      <th>erwartete Häufigkeit</th>
+    </tr>
+    <tr>
+      <th>Religion</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Other</th>
+      <td>30</td>
+      <td>0.30</td>
+      <td>85</td>
+      <td>76.80</td>
+    </tr>
+    <tr>
+      <th>Catholic</th>
+      <td>48</td>
+      <td>0.48</td>
+      <td>77</td>
+      <td>122.88</td>
+    </tr>
+    <tr>
+      <th>Protestant</th>
+      <td>12</td>
+      <td>0.12</td>
+      <td>60</td>
+      <td>30.72</td>
+    </tr>
+    <tr>
+      <th>Orthodox</th>
+      <td>8</td>
+      <td>0.08</td>
+      <td>27</td>
+      <td>20.48</td>
+    </tr>
+    <tr>
+      <th>Muslim</th>
+      <td>2</td>
+      <td>0.02</td>
+      <td>7</td>
+      <td>5.12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Sobald wir die erwarteten Häufigkeiten kennen, müssen wir zwei Annahmen überprüfen. Erstens müssen wir sicherstellen, dass alle erwarteten Häufigkeiten <span class="math notranslate nohighlight">\(1\)</span> oder größer sind, und zweitens, dass höchstens <span class="math notranslate nohighlight">\(20 \%\)</span> der erwarteten Häufigkeiten kleiner als <span class="math notranslate nohighlight">\(5\)</span> sind. Durch einen Blick auf die Tabelle können wir bestätigen, dass beide Annahmen erfüllt sind.</p>
+<p>Perfekt, jetzt sind wir fertig! Der Datensatz ist bereit für die Analyse mit dem <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstest zu analysieren. Erinnern Sie sich an die Frage, an der wir interessiert sind: <strong>Ist die Religion unter den Studierenden gleichmäßig verteilt, verglichen mit der Verteilung der Religion in der Bevölkerung der Europäischen Union?</strong></p>
+</section>
+<section id="uberprufung-der-hypothesen">
+<h3>Überprüfung der Hypothesen<a class="headerlink" href="#uberprufung-der-hypothesen" title="Permalink to this heading">#</a></h3>
+<p>Zur Durchführung des <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstests folgen wir dem schrittweisen Durchführungsverfahren für Hypothesentests. Der <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstest folgt demselben schrittweisen Verfahren wie Hypothesentests für den Grundgesamtheitsmittelwert.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l}
+\hline
+\ \text{Schritt 1}  &amp; \text{Geben Sie die Nullhypothese } H_0 \text{ und alternative Hypothese } H_A \text{ an.}\\
+\ \text{Schritt 2}  &amp; \text{Legen Sie das Signifikanzniveau, } \alpha\text{ fest.} \\
+\ \text{Schritt 3}  &amp; \text{Berechnen Sie den Wert der Teststatistik.} \\
+\ \text{Schritt 4} &amp;\text{Bestimmen Sie den p-Wert.} \\
+\ \text{Schritt 5} &amp; \text{Wenn} \ p \le \alpha \text{, } H_0 \text{ ablehnen } \text{; ansonsten } H_0 \text{ nicht ablehnen} \text{.} \\
+\ \text{Schritt 6} &amp;\text{Interpretieren Sie das Ergebnis des Hypothesentests.} \\
+\hline 
+\end{array}
+\end{split}\]</div>
+<p><strong>Schritt 1 : Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</strong></p>
+<p>Die Nullhypothese besagt, dass die Religion unter den Studenten gleich verteilt ist, verglichen mit der Verteilung der Religion in der Bevölkerung der Europäischen Union.</p>
+<p><span class="math notranslate nohighlight">\(H_0:\text{Die Variable hat die angegebene Verteilung}\)</span></p>
+<p><strong>Alternative Hypothese</strong></p>
+<p><span class="math notranslate nohighlight">\(H_A:\text{Die Variable hat nicht die angegebene Verteilung}\)</span></p>
+<p><strong>Schritt 2: Legen Sie das Signifikanzniveau,<span class="math notranslate nohighlight">\(\alpha\)</span> fest</strong></p>
+<div class="math notranslate nohighlight">
+\[\alpha = 0,01\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.01</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 3 und 4: Berechnen Sie den Wert der Teststatistik und den <span class="math notranslate nohighlight">\(p\)</span>-Wert</strong></p>
+<p>Zur Veranschaulichung berechnen wir die Teststatistik manuell in Python. Erinnern Sie sich an die Gleichung für die Teststatistik von oben:</p>
+<div class="math notranslate nohighlight">
+\[\chi^2=\sum \frac{(O-E)^2}{E}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne Teststatistik</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;beobachtete Häufigkeit&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;erwartete Häufigkeit&quot;</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="o">/</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;erwartete Häufigkeit&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">x2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>48.679361979166664
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der numerische Wert der Teststatistik beträgt <span class="math notranslate nohighlight">\(\approx 48,67936\)</span>.</p>
+<p>Um den <span class="math notranslate nohighlight">\(p\)</span>-Wert zu berechnen, verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">chi2.cdf()</span></code>. Erinnern Sie sich daran, wie man die Freiheitsgrade berechnet:</p>
+<div class="math notranslate nohighlight">
+\[df = (c - 1)\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne df</span>
+<span class="n">df</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c1"># Berechne p-Wert</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.811017529549072e-10
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 5: Wenn <span class="math notranslate nohighlight">\(p \le \alpha , H_0\)</span> ablehnen; ansonsten <span class="math notranslate nohighlight">\(H_0\)</span> nicht ablehnen</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">&lt;=</span> <span class="n">alpha</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <span class="math notranslate nohighlight">\(p\)</span>-Wert ist kleiner als das angegebene Signifikanzniveau von <span class="math notranslate nohighlight">\(0,01\)</span>; wir verwerfen <span class="math notranslate nohighlight">\(H_0\)</span>. Die Testergebnisse sind statistisch signifikant auf dem <span class="math notranslate nohighlight">\(1 \%\)</span>-Niveau und liefern einen sehr starken Beweis gegen die Nullhypothese.</p>
+<p><strong>Schritt 6: Interpretieren Sie das Ergebnis des Hypothesentests</strong></p>
+<p><span class="math notranslate nohighlight">\(p=6,8110175 \cdot 10^{-10}\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(1 \%\)</span> lassen die Daten den Schluss zu, dass die Religionsverteilung unter den Studenten von der Religionsverteilung der Bevölkerung der Europäischen Union abweicht.</p>
+</section>
+<section id="hypothesentests-in-python">
+<h3>Hypothesentests in Python<a class="headerlink" href="#hypothesentests-in-python" title="Permalink to this heading">#</a></h3>
+<p>Wir haben gerade einen <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstest in Python manuell durchgeführt. Sehr cool, aber jetzt wiederholen wir dieses Beispiel und nutzen die Python-Maschinerie, um das gleiche Ergebnis wie oben mit nur einer Zeile Code zu erhalten!</p>
+<p>Für die Durchführung eines <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungsgüte-Test in Python durchzuführen, verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">chisquare()</span></code>. Wir geben zwei Vektoren als Daten ein: <code class="docutils literal notranslate"><span class="pre">data['beobachtete</span> <span class="pre">Häufigkeit']</span></code> und <code class="docutils literal notranslate"><span class="pre">data['erwartete</span> <span class="pre">Häufigkeit']</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Führe Chi-Square Goodness of Fit Test durch</span>
+<span class="n">chisquare</span><span class="p">(</span><span class="n">f_obs</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;beobachtete Häufigkeit&quot;</span><span class="p">],</span> <span class="n">f_exp</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;erwartete Häufigkeit&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Power_divergenceResult(statistic=48.679361979166664, pvalue=6.811017529549072e-10)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es hat gut funktioniert! Vergleichen Sie die Ausgabe der Funktion <code class="docutils literal notranslate"><span class="pre">chisquare()</span></code> mit unserem Ergebnis von oben. Auch hier können wir feststellen, dass die Daten bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(1 \%\)</span> sehr starke Hinweise darauf liefern, dass sich die Religionsverteilung unter den Schülern von der Religionsverteilung der Bevölkerung der Europäischen Union unterscheidet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># Load the &quot;autoreload&quot; extension</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="c1"># always reload modules</span>
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="c1"># black formatter for jupyter notebooks</span>
+<span class="c1"># %load_ext nb_black</span>
+<span class="c1"># black formatter for jupyter lab</span>
+<span class="o">%</span><span class="k">load_ext</span> lab_black
+
+<span class="o">%</span><span class="k">run</span> ../../src/notebook_env.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
+The lab_black extension is already loaded. To reload it, use:
+  %reload_ext lab_black
+
+---------------------------------
+Working on the host: imarevic-pc
+
+---------------------------------
+Python version: 3.10.9 | packaged by conda-forge | (main, Feb  2 2023, 20:20:04) [GCC 11.3.0]
+
+---------------------------------
+Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 864x432 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="der-chi-quadrat-unabhangigkeitstest">
+<h2>Der Chi-Quadrat-Unabhängigkeitstest<a class="headerlink" href="#der-chi-quadrat-unabhangigkeitstest" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2</span><span class="p">,</span> <span class="n">chi2_contingency</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <strong><span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest</strong> ist eine inferentielle Methode, um zu entscheiden, ob ein Zusammenhang zwischen zwei Variablen besteht. Ähnlich wie bei anderen Hypothesentests besagt die Nullhypothese, dass die beiden Variablen nicht miteinander verbunden sind. Im Gegensatz dazu besagt die Alternativhypothese, dass die beiden Variablen miteinander verbunden sind.</p>
+<p>Es sei daran erinnert, dass statistisch <strong>abhängige Variablen</strong> als <strong>assoziierte Variablen</strong> bezeichnet werden. Im Gegensatz dazu werden nicht-assoziierte Variablen als statistisch unabhängige Variablen bezeichnet. Erinnern Sie sich auch an das Konzept der <a href="https://de.wikipedia.org/wiki/Kontingenztafel">Kontingenztabellen</a> (auch als Zwei-Wege-Tabellen oder Kreuztabellen bezeichnet), in denen die Häufigkeitsverteilungen von bivariaten Daten dargestellt werden.</p>
+<section id="chi-2-unabhangigkeitstest">
+<h3><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstest<a class="headerlink" href="#chi-2-unabhangigkeitstest" title="Permalink to this heading">#</a></h3>
+<p>Die Grundidee des <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstests</strong> besteht darin, die <strong>beobachteten Häufigkeiten</strong> in einer Kontingenztabelle mit den <strong>erwarteten Häufigkeiten</strong> zu vergleichen, unter der Annahme das die Nullhypothese der Nicht-Assoziation wahr ist. Die erwartete Häufigkeit für jede Zelle einer Kontingenztabelle ist gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[E = \frac{R\times C}{n} \text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(R\)</span> die Zeilensumme ist, <span class="math notranslate nohighlight">\(C\)</span> die Spaltensumme und <span class="math notranslate nohighlight">\(n\)</span> der Stichprobenumfang ist.</p>
+<p>Lassen Sie uns zum besseren Verständnis ein Beispiel konstruieren. Wir betrachten eine Exit Poll in Form einer Kontingenztabelle, die das Alter von <span class="math notranslate nohighlight">\(n=1189\)</span> Personen in den Kategorien <span class="math notranslate nohighlight">\(18-29\)</span>, <span class="math notranslate nohighlight">\(30-44\)</span>, <span class="math notranslate nohighlight">\(45-64\)</span> und <span class="math notranslate nohighlight">\(\gt 65\)</span> Jahre und ihre politische Zugehörigkeit, d. h. “Konservativ”, “Sozialistisch” und “Andere” aufgliedert. Diese Tabelle entspricht den beobachteten Häufigkeiten.</p>
+<p><strong>Beobachtete Häufigkeiten:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{|l|c|}
+\hline
+\ &amp; \text{Konservativ} &amp; \text{Sozialistisch} &amp; \text{Andere} &amp; \text{Insgesamt} \\
+\hline
+\ \text{18-29}  &amp; 141 &amp; 68 &amp; 4 &amp; 213\\
+\ \text{30-44}  &amp; 179 &amp; 159 &amp; 7 &amp; 345\\
+\ \text{45-64} &amp; 220 &amp; 216 &amp; 4 &amp; 440\\
+\ \text{65 &amp; älter} &amp; 86 &amp; 101 &amp; 4 &amp; 191\\
+\hline 
+\  \text{Insgesamt} &amp; 626 &amp; 544 &amp; 19 &amp; 1189\\
+\hline 
+\end{array}
+\end{split}\]</div>
+<p>Auf der Grundlage der oben genannten Gleichung berechnen wir die erwartete Häufigkeit für jede Zelle.</p>
+<p><strong>Erwartete Häufigkeiten:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{|l|c|}
+\hline
+\ &amp; \text{Konservativ} &amp; \text{Sozialistisch} &amp; \text{Andere} &amp; \text{Insgesamt} \\
+\hline
+\ \text{18-29}  &amp; \frac{213 \times 626 }{1189} \approx 112,14 &amp; \frac{213 \times 544 }{1189} \approx97,45 &amp; \frac{213 \times 19 }{1189} \approx3,4 &amp; 213\\
+\ \text{30-44}  &amp; \frac{345 \times 626 }{1189} \approx181,64 &amp;\frac{345 \times 544 }{1189} \approx 157,85 &amp; \frac{345 \times 19 }{1189} \approx5,51 &amp; 345\\
+\ \text{45-64} &amp; \frac{440 \times 626 }{1189} \approx231,66 &amp; \frac{440 \times 544 }{1189} \approx201,31 &amp;\frac{440 \times 19 }{1189} \approx 7,03 &amp; 440\\
+\ \text{65 &amp; älter} &amp;\frac{191 \times 626 }{1189} \approx 100,56 &amp;\frac{191 \times 544 }{1189} \approx 87,39 &amp; \frac{191 \times 19 }{1189} \approx3,05 &amp; 191\\
+\hline 
+\ \text{Insgesamt} &amp; 626 &amp; 544 &amp; 19 &amp; 1189\\
+\hline 
+\end{array}
+\end{split}\]</div>
+<p>Sobald wir die erwarteten Häufigkeiten kennen, müssen wir zwei Annahmen überprüfen. Erstens müssen wir sicherstellen, dass alle erwarteten Häufigkeiten <span class="math notranslate nohighlight">\(1\)</span> oder größer sind, und zweitens, dass höchstens <span class="math notranslate nohighlight">\(20 \%\)</span> der erwarteten Häufigkeiten kleiner als <span class="math notranslate nohighlight">\(5\)</span> sind. Ein Blick auf die Tabelle bestätigt, dass beide Annahmen erfüllt sind.</p>
+<p>Der eigentliche Vergleich erfolgt auf der Grundlage der <span class="math notranslate nohighlight">\(\chi^2\)</span> Teststatistik für die beobachtete Häufigkeit und die erwartete Häufigkeit. Die -Teststatistik folgt der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Verteilung und ist gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[\chi^2= \sum{\frac{(O-E)^2}{E}}\text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(O\)</span> für die beobachtete Häufigkeit und <span class="math notranslate nohighlight">\(E\)</span> für die erwartete Häufigkeit steht. Bitte beachten Sie, dass <span class="math notranslate nohighlight">\(\frac{(O-E)^2}{E}\)</span> für jede Zelle ausgewertet und dann aufsummiert wird.</p>
+<p>Die Anzahl der Freiheitsgrade ist gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[df = (r-1) \times (c-1)\text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(r\)</span> und <span class="math notranslate nohighlight">\(c\)</span> die Anzahl der möglichen Werte für die beiden betrachteten Variablen sind.</p>
+<p>Übertragen auf das obige Beispiel führt dies zu einem etwas langen Ausdruck, der der Kürze halber nur für die erste und die letzte Zeile der interessierenden Kontingenztafeln angegeben wird.</p>
+<div class="math notranslate nohighlight">
+\[\chi^2 = \frac{(141 - 112,14)^2}{112,14} + \frac{(68 - 97,45)^2}{97,45} + \frac{(4 - 3,4)^2}{3,4}  + \cdots + \frac{(86 - 100,56)^2}{100,56} + \frac{(101 - 87,39)^2}{87,39} + \frac{(4 - 3,05)^2}{3,05}\]</div>
+<p>Wenn die Nullhypothese wahr ist, sind die beobachtete und die erwartete Häufigkeit ungefähr gleich, was zu einem kleinen Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik führt und somit <span class="math notranslate nohighlight">\(H_0\)</span> unterstützt. Ist der Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik jedoch groß, liefern die Daten Beweise gegen <span class="math notranslate nohighlight">\(H_0\)</span>. In den nächsten Abschnitten wird weiter erörtert, wie der Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik im Rahmen der Hypothesentests zu bewerten ist.</p>
+</section>
+<section id="chi-2-unabhangigkeitstest-ein-beispiel">
+<h3><span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest: Ein Beispiel<a class="headerlink" href="#chi-2-unabhangigkeitstest-ein-beispiel" title="Permalink to this heading">#</a></h3>
+<p>Um praktische Erfahrungen zu sammeln, wenden wir den <span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lese Datei students.csv als Dataframe ein; Indexspalte wird übersprungen</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz besteht aus <span class="math notranslate nohighlight">\(8239\)</span> Zeilen, von denen jede einen bestimmten Studenten repräsentiert, und <span class="math notranslate nohighlight">\(16\)</span> Spalten, von denen jede einer Variable/einem Merkmal entspricht, das sich auf diesen bestimmten Studenten bezieht. Diese selbsterklärenden Variablen sind: <em>stud_id, name, gender, age, height, weight, religion, nc_score, semester, major, minor, score1, score2, online_tutorial, graduated, salary.</em></p>
+<p>In dieser Übung wollen wir untersuchen, <strong>ob es einen Zusammenhang zwischen den Variablen <code class="docutils literal notranslate"><span class="pre">gender</span></code> und <code class="docutils literal notranslate"><span class="pre">major</span></code> gibt, oder mit anderen Worten, wir wollen wissen, ob männliche Studenten andere Studienfächer bevorzugen als weibliche Studenten.</strong></p>
+</section>
+<section id="id2">
+<h3>Vorbereitung der Daten<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Wir beginnen mit der Datenaufbereitung. Da wir nicht den gesamten Datensatz von <span class="math notranslate nohighlight">\(8239\)</span> Einträgen bearbeiten wollen, wählen wir zufällig <span class="math notranslate nohighlight">\(865\)</span> Studenten aus dem Datensatz aus. Der erste Schritt der Datenvorbereitung besteht darin, die interessierenden Daten in Form einer Kontingenztabelle darzustellen. Pandas bietet die Funktion <code class="docutils literal notranslate"><span class="pre">crosstab()</span></code>, die diese Aufgabe übernehmen wird.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">865</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;major&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>gender</th>
+      <th>Female</th>
+      <th>Male</th>
+    </tr>
+    <tr>
+      <th>major</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Biology</th>
+      <td>89</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>Economics and Finance</th>
+      <td>55</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <th>Environmental Sciences</th>
+      <td>99</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>Mathematics and Statistics</th>
+      <td>39</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <th>Political Science</th>
+      <td>112</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>Social Sciences</th>
+      <td>70</td>
+      <td>29</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Außerdem bestimmen wir die Spaltensummen und die Zeilensummen. Python bietet das Argument <code class="docutils literal notranslate"><span class="pre">margins</span> <span class="pre">=</span> <span class="pre">True</span></code>, das die Zeilensummen und die Spaltensummen für uns hinzufügt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">observed_frequencies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;major&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">],</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">observed_frequencies</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>gender</th>
+      <th>Female</th>
+      <th>Male</th>
+      <th>All</th>
+    </tr>
+    <tr>
+      <th>major</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Biology</th>
+      <td>89</td>
+      <td>65</td>
+      <td>154</td>
+    </tr>
+    <tr>
+      <th>Economics and Finance</th>
+      <td>55</td>
+      <td>79</td>
+      <td>134</td>
+    </tr>
+    <tr>
+      <th>Environmental Sciences</th>
+      <td>99</td>
+      <td>96</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <th>Mathematics and Statistics</th>
+      <td>39</td>
+      <td>92</td>
+      <td>131</td>
+    </tr>
+    <tr>
+      <th>Political Science</th>
+      <td>112</td>
+      <td>40</td>
+      <td>152</td>
+    </tr>
+    <tr>
+      <th>Social Sciences</th>
+      <td>70</td>
+      <td>29</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>All</th>
+      <td>464</td>
+      <td>401</td>
+      <td>865</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Im nächsten Schritt konstruieren wir die <strong>erwarteten Häufigkeiten</strong>. Erinnern Sie sich an die Gleichung von oben:</p>
+<div class="math notranslate nohighlight">
+\[E = \frac{R\times C}{n} \text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(R\)</span> die Zeilensumme ist, <span class="math notranslate nohighlight">\(C\)</span> die Spaltensumme und <span class="math notranslate nohighlight">\(n\)</span> der Stichprobenumfang ist.</p>
+<p>Wir berechnen die erwarteten Häufigkeiten mit der Numpy-Funktion <code class="docutils literal notranslate"><span class="pre">outer</span></code>. Das Ergebnis wandeln wir dann in eine Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> um.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rows</span> <span class="o">=</span> <span class="n">observed_frequencies</span><span class="p">[</span><span class="s2">&quot;All&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="n">observed_frequencies</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;All&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">observed_frequencies</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="s2">&quot;All&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expected_frequencies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">observed_frequencies</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="n">observed_frequencies</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expected_frequencies</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>gender</th>
+      <th>Female</th>
+      <th>Male</th>
+      <th>All</th>
+    </tr>
+    <tr>
+      <th>major</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Biology</th>
+      <td>82.608092</td>
+      <td>71.391908</td>
+      <td>154.0</td>
+    </tr>
+    <tr>
+      <th>Economics and Finance</th>
+      <td>71.879769</td>
+      <td>62.120231</td>
+      <td>134.0</td>
+    </tr>
+    <tr>
+      <th>Environmental Sciences</th>
+      <td>104.601156</td>
+      <td>90.398844</td>
+      <td>195.0</td>
+    </tr>
+    <tr>
+      <th>Mathematics and Statistics</th>
+      <td>70.270520</td>
+      <td>60.729480</td>
+      <td>131.0</td>
+    </tr>
+    <tr>
+      <th>Political Science</th>
+      <td>81.535260</td>
+      <td>70.464740</td>
+      <td>152.0</td>
+    </tr>
+    <tr>
+      <th>Social Sciences</th>
+      <td>53.105202</td>
+      <td>45.894798</td>
+      <td>99.0</td>
+    </tr>
+    <tr>
+      <th>All</th>
+      <td>464.000000</td>
+      <td>401.000000</td>
+      <td>865.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Sobald wir die erwarteten Häufigkeiten kennen, müssen wir zwei Annahmen überprüfen. Erstens müssen wir sicherstellen, dass alle erwarteten Häufigkeiten <span class="math notranslate nohighlight">\(1\)</span> oder größer sind, und zweitens, dass höchstens <span class="math notranslate nohighlight">\(20 \%\)</span> der erwarteten Häufigkeiten kleiner als <span class="math notranslate nohighlight">\(5\)</span> sind. Durch einen Blick auf die Tabelle können wir bestätigen, dass beide Annahmen erfüllt sind.</p>
+<p>Jetzt haben wir alle Daten, die wir für einen <span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest durchzuführen.</p>
+</section>
+<section id="id3">
+<h3>Überprüfung der Hypothesen<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>Zur Durchführung des <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstests</strong> folgen wir dem Verfahren der schrittweisen Durchführung von Hypothesentests. Der <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstest</strong> folgt demselben schrittweisen Verfahren wie in den vorangegangenen Abschnitten beschrieben.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l}
+\hline
+\ \text{Schritt 1}  &amp; \text{Geben Sie die Nullhypothese } H_0 \text{ und alternative Hypothese } H_A \text{ an.}\\
+\ \text{Schritt 2}  &amp; \text{Legen Sie das Signifikanzniveau, } \alpha\text{ fest.} \\
+\ \text{Schritt 3}  &amp; \text{Berechnen Sie den Wert der Teststatistik.} \\
+\ \text{Schritt 4} &amp;\text{Bestimmen Sie den p-Wert.} \\
+\ \text{Schritt 5} &amp; \text{Wenn} \ p \le \alpha \text{, } H_0 \text{ ablehnen } \text{; ansonsten } H_0 \text{ nicht ablehnen} \text{.} \\
+\ \text{Schritt 6} &amp;\text{Interpretieren Sie das Ergebnis des Hypothesentests.} \\
+\hline 
+\end{array}
+\end{split}\]</div>
+<p><strong>Schritt 1 : Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</strong></p>
+<p>Die Nullhypothese besagt, dass es keinen Zusammenhang zwischen dem Geschlecht und dem Hauptstudienfach der Studierenden gibt.</p>
+<div class="math notranslate nohighlight">
+\[H_0:\text{Kein Zusammenhang zwischen Geschlecht und Studienschwerpunkt}\]</div>
+<p><strong>Alternative Hypothese</strong></p>
+<div class="math notranslate nohighlight">
+\[H_A:\text{Es gibt einen Zusammenhang zwischen dem Geschlecht und dem Hauptstudienfach}\]</div>
+<p><strong>Schritt 2: Legen Sie das Signifikanzniveau,<span class="math notranslate nohighlight">\(\alpha\)</span> fest</strong></p>
+<div class="math notranslate nohighlight">
+\[\alpha = 0,05\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 3 und 4: Berechnen Sie den Wert der Teststatistik und den <span class="math notranslate nohighlight">\(p\)</span>-Wert</strong></p>
+<p>Zur Veranschaulichung berechnen wir die Teststatistik manuell in Python. Erinnern Sie sich an die Gleichung für die Teststatistik von oben:</p>
+<div class="math notranslate nohighlight">
+\[\chi^2= \sum{\frac{(O-E)^2}{E}}\text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(O\)</span> für die beobachtete Häufigkeit und <span class="math notranslate nohighlight">\(E\)</span> für die erwartete Häufigkeit steht.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chi_2</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">((</span><span class="n">observed_frequencies</span> <span class="o">-</span> <span class="n">expected_frequencies</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">expected_frequencies</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">chi_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>76.42971653913816
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der numerische Wert der Teststatistik beträgt <span class="math notranslate nohighlight">\(\approx 76,43\)</span>.</p>
+<p>Um den <span class="math notranslate nohighlight">\(p\)</span>-Wert zu berechnen, verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">chi2.cdf()</span></code>. Erinnern Sie sich daran, wie man die Freiheitsgrade berechnet:</p>
+<div class="math notranslate nohighlight">
+\[df = (r-1) \times (c-1)\text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(r\)</span> und <span class="math notranslate nohighlight">\(c\)</span> die Anzahl der möglichen Werte für die beiden betrachteten Variablen sind.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">observed_frequencies</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;All&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
+    <span class="n">observed_frequencies</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;All&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">chi2</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">chi_2</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.678888864647207e-15
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 5: Wenn <span class="math notranslate nohighlight">\(p \le \alpha , H_0\)</span> ablehnen; ansonsten <span class="math notranslate nohighlight">\(H_0\)</span> nicht ablehnen</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">&lt;=</span> <span class="n">alpha</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <span class="math notranslate nohighlight">\(p\)</span>-Wert ist kleiner als das angegebene Signifikanzniveau von <span class="math notranslate nohighlight">\(0,05\)</span>; wir verwerfen <span class="math notranslate nohighlight">\(H_0\)</span>. Die Testergebnisse sind statistisch signifikant auf dem <span class="math notranslate nohighlight">\(5 \%\)</span>-Niveau und liefern einen sehr starken Beweis gegen die Nullhypothese.</p>
+<p><strong>Schritt 6: Interpretieren Sie das Ergebnis des Hypothesentests</strong></p>
+<p><span class="math notranslate nohighlight">\(p=4,67888886 \cdot 10^{-15}\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> lassen die Daten den Schluss zu, dass es einen Zusammenhang zwischen dem Geschlecht und dem Hauptstudienfach gibt</p>
+</section>
+<section id="id4">
+<h3>Hypothesentests in Python<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<p>Wir haben gerade einen <span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest manuell durchgeführt. Wir können dasselbe in Python mit nur einer Zeile Code tun!</p>
+<p>Dazu wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">chi2_contingency()</span></code> an. Wir achten darauf die Spalte und die Reihe <code class="docutils literal notranslate"><span class="pre">All</span></code> zu exkludieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">chi2_contingency</span><span class="p">(</span>
+    <span class="n">observed_frequencies</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;All&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p- Wert :&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Freiheitsgrade :&quot;</span><span class="p">,</span> <span class="n">dof</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;chi^2 :&quot;</span><span class="p">,</span> <span class="n">stat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p- Wert : 4.6788888646472395e-15
+Freiheitsgrade : 5
+chi^2 : 76.42971653913814
+</pre></div>
+</div>
+</div>
+</div>
+<p>Perfekt! Vergleichen Sie die Ausgabe der Funktion <code class="docutils literal notranslate"><span class="pre">chi2_contingency()</span></code> mit unserem Ergebnis von oben. Auch hier können wir zu dem Schluss kommen, dass die Daten bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> sehr starke Anhaltspunkte dafür liefern, dass es einen Zusammenhang zwischen dem Geschlecht und dem Hauptstudienfach gibt.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ixianslab/srh-data-science",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Kapitel06"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_Standardabweichung_der_Grundgesamtheit.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Inferenz für die Standardabweichung der Grundgesamtheit</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06_Inferenz_Regression_und_Korrelation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Inferenzmethoden in Regression und Korrelation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-2-verteilung"><span class="math notranslate nohighlight">\(\chi^2\)</span>-Verteilung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-quadrat-test-auf-anpassungsgute">Chi-Quadrat-Test auf Anpassungsgüte</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-2-anpassungstest-ein-beispiel"><span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest: Ein Beispiel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vorbereitung-der-daten">Vorbereitung der Daten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uberprufung-der-hypothesen">Überprüfung der Hypothesen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesentests-in-python">Hypothesentests in Python</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-chi-quadrat-unabhangigkeitstest">Der Chi-Quadrat-Unabhängigkeitstest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-2-unabhangigkeitstest"><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-2-unabhangigkeitstest-ein-beispiel"><span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest: Ein Beispiel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Vorbereitung der Daten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Überprüfung der Hypothesen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Hypothesentests in Python</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ixians
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/home/imarevic/anaconda3/envs/srh/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/home/imarevic/anaconda3/envs/srh/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/imarevic/anaconda3/envs/srh/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/imarevic/anaconda3/envs/srh/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/imarevic/anaconda3/envs/srh/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/imarevic/anaconda3/envs/srh/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/home/imarevic/anaconda3/envs/srh/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/imarevic/anaconda3/envs/srh/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+dat_x = np.array([0,  1,  2,  3,  4,  5,  6,   7,   8,   9,   10])
+dat_y = np.array([1,  6,  17, 34, 57, 86, 121, 162, 209, 262, 321])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<cell line: 1>[0;34m()[0m
+[0;32m----> 1[0m dat_x [38;5;241m=[39m [43mnp[49m[38;5;241m.[39marray([[38;5;241m0[39m,  [38;5;241m1[39m,  [38;5;241m2[39m,  [38;5;241m3[39m,  [38;5;241m4[39m,  [38;5;241m5[39m,  [38;5;241m6[39m,   [38;5;241m7[39m,   [38;5;241m8[39m,   [38;5;241m9[39m,   [38;5;241m10[39m])
+[1;32m      2[0m dat_y [38;5;241m=[39m np[38;5;241m.[39marray([[38;5;241m1[39m,  [38;5;241m6[39m,  [38;5;241m17[39m, [38;5;241m34[39m, [38;5;241m57[39m, [38;5;241m86[39m, [38;5;241m121[39m, [38;5;241m162[39m, [38;5;241m209[39m, [38;5;241m262[39m, [38;5;241m321[39m])
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+

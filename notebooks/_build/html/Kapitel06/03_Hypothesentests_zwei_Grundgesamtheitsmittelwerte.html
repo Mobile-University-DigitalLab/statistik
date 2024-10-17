@@ -1,0 +1,1696 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Hypothesentests für zwei Grundgesamtheitsmittelwerte &#8212; Modul Statistik und Machine Learning Modelle</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel06/03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Inferenz für die Standardabweichung der Grundgesamtheit" href="04_Standardabweichung_der_Grundgesamtheit.html" />
+    <link rel="prev" title="Hypothesentests für den Mittelwert einer Grundgesamtheit" href="02_Hypothesentests_Mittelwert_einer_Grundgesamtheit.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vorwort</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Vorwort.html">Vorwort</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Statistik</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel1_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/01_Deskriptive_Statistik.html">Deskriptive Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/02_Ma%C3%9Fe_der_zentralen_Tendenz.html">Maße der zentralen Tendenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel2_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel3_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/01_stetige_Zufallsvariablen.html">Stetige Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/02_Die%20Normalverteilung.html">Die Normalverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/03_Die_kontinuierliche_gleichm%C3%A4%C3%9Fige_Verteilung.html">Die kontinuierliche gleichmäßige Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel6_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_Hypothesentests.html">Hypothesentests</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="02_Hypothesentests_Mittelwert_einer_Grundgesamtheit.html">Hypothesentests für den Mittelwert einer Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hypothesentests für zwei Grundgesamtheitsmittelwerte</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="04_Standardabweichung_der_Grundgesamtheit.html">Inferenz für die Standardabweichung der Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_Chi_Quadrat_Tests.html">Chi-Quadrat-Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Inferenz_Regression_und_Korrelation.html">Inferenzmethoden in Regression und Korrelation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Wahrscheinlichkeitstabellen.html">Wahrscheinlichkeits-Tabellen</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Literaturverzeichnis.html">Literaturverzeichnis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel06/03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Kapitel06/03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Hypothesentests für zwei Grundgesamtheitsmittelwerte</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Hypothesentests für zwei Grundgesamtheitsmittelwerte</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-approx-s-2">Inferenz für zwei Grundgesamtheitsmittelwerte bei unabhängigen Stichproben; <span class="math notranslate nohighlight">\(s_1 \approx s_2\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervall-schatzung-von-mu-1-mu-2">Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_1-\mu_2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-zweistichproben-t-test-fur-unabhangige-stichproben-engl-pooled-t-test-ein-beispiel">Der Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben (engl. pooled <span class="math notranslate nohighlight">\(t\)</span>-Test): Ein Beispiel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorbereitung-der-daten">Vorbereitung der Daten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uberprufung-der-hypothesen">Überprüfung der Hypothesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesentests-in-python">Hypothesentests in Python</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-ne-s-2">Inferenz für zwei Grundgesamtheitsmittelwerte bei unabhängigen Stichproben; <span class="math notranslate nohighlight">\(s_1 \ne s_2\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_1 - \mu_2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-welch-s-t-test-ein-beispiel">Der Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test: Ein Beispiel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Vorbereitung der Daten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Überprüfung der Hypothesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Hypothesentests in Python</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-gepaarten-stichproben">Inferenz für zwei Grundgesamtheitsmittelwerte bei gepaarten Stichproben</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervall-schatzung-von-mu-d">Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_d\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-2-stichproben-t-test-fur-gepaarte-abhangige-stichproben-ein-beispiel">Der <span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test für gepaarte (abhängige) Stichproben: Ein Beispiel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Vorbereitung der Daten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Überprüfung der Hypothesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Hypothesentests in Python</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="hypothesentests-fur-zwei-grundgesamtheitsmittelwerte">
+<h1>Hypothesentests für zwei Grundgesamtheitsmittelwerte<a class="headerlink" href="#hypothesentests-fur-zwei-grundgesamtheitsmittelwerte" title="Permalink to this heading">#</a></h1>
+<hr class="docutils" />
+<p>Bisher haben wir uns auf Hypothesentests für den Mittelwert einer Grundgesamtheit konzentriert. In vielen Anwendungen wollen wir jedoch die Mittelwerte von zwei oder mehr Grundgesamtheiten vergleichen. In den folgenden Abschnitten werden Schlussfolgerungsverfahren für den Vergleich der Mittelwerte von zwei Grundgesamtheiten erörtert. Daher müssen wir zunächst zwischen Stichproben aus zwei <a href="https://de.wikipedia.org/wiki/Stochastisch_unabh%C3%A4ngige_Ereignisse">unabhängigen</a> Populationen und Stichproben aus nicht unabhängigen Populationen unterscheiden, die als <a href="https://de.wikipedia.org/wiki/Zufallsstichprobe#Abh%C3%A4ngige_und_unabh%C3%A4ngige_Stichproben">abhängige</a> Stichproben bezeichnet werden.</p>
+<p>In den folgenden Abschnitten werden die Parameter und die Statistiken von Population <span class="math notranslate nohighlight">\(1\)</span> und Population <span class="math notranslate nohighlight">\(2\)</span> mit dem Index <span class="math notranslate nohighlight">\(1\)</span> bzw. <span class="math notranslate nohighlight">\(2\)</span> bezeichnet. Somit sind <span class="math notranslate nohighlight">\(\mu_1\)</span> und <span class="math notranslate nohighlight">\(\sigma_1\)</span> die Populationsparameter der Population <span class="math notranslate nohighlight">\(1\)</span> und <span class="math notranslate nohighlight">\(\mu_2\)</span> und <span class="math notranslate nohighlight">\(\sigma_2\)</span> die der Population <span class="math notranslate nohighlight">\(2\)</span>. Analog dazu sind <span class="math notranslate nohighlight">\(\bar{x}_1, s_1\)</span> und <span class="math notranslate nohighlight">\(n_1\)</span> der Stichprobenmittelwert, die Stichprobenstandardabweichung und der Stichprobenumfang der Grundgesamtheit <span class="math notranslate nohighlight">\(1\)</span>, während <span class="math notranslate nohighlight">\(\bar{x}_2, s_2\)</span> und <span class="math notranslate nohighlight">\(n_2\)</span> der aus der Grundgesamtheit <span class="math notranslate nohighlight">\(2\)</span> gezogenen Stichprobe entsprechen.</p>
+<p>Für unabhängige Stichproben mit dem Umfang <span class="math notranslate nohighlight">\(n_1\)</span> und <span class="math notranslate nohighlight">\(n_2\)</span> der Grundgesamtheit <span class="math notranslate nohighlight">\(1\)</span> und der Grundgesamtheit <span class="math notranslate nohighlight">\(2\)</span> ist der Mittelwert aller möglichen Unterschiede zwischen den beiden Stichprobenmittelwerten gleich dem Unterschied zwischen den beiden Grundgesamtheitsmittelwerten.</p>
+<div class="math notranslate nohighlight">
+\[\mu_{\bar x_1 -\bar x_2} = \mu_1-\mu_2\]</div>
+<p>Außerdem ist die Standardabweichung aller möglichen Unterschiede zwischen den beiden Stichprobenmittelwerten gleich der Quadratwurzel aus der Summe der Varianzen der Grundgesamtheit, jeweils dividiert durch den entsprechenden Stichprobenumfang.</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{\bar x_1 -\bar x_2} = \sqrt{\frac{\sigma^2_1}{n_1} + \frac{\sigma^2_1}{n_2}}\]</div>
+<p>Eine normalverteilte Variable oder ein ausreichend großer Stichprobenumfang (man denke an den <a href="https://de.wikipedia.org/wiki/Zentraler_Grenzwertsatz">zentralen Grenzwertsatz</a>) führt dazu, dass die Differenz der Stichprobenmittelwerte (<span class="math notranslate nohighlight">\(\bar{x}_1-\bar{x}_2\)</span>) ebenfalls normalverteilt ist.</p>
+<p>Die Hypothesentestverfahren für zwei Grundgesamtheitsmittelwerte sind im Grunde dieselben wie für einen Grundgesamtheitsmittelwert. Bitte beachten Sie, dass wir uns in den folgenden Abschnitten auf den <span class="math notranslate nohighlight">\(p\)</span>-Wert-Ansatz konzentrieren und nicht mehr auf den kritischen Wert-Ansatz eingehen. Daher wird das Hypothesentestverfahren leicht überarbeitet. Das schrittweise Vorgehen bei Hypothesentests ist wie folgt zusammengefasst</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{l}
+\hline
+\ \text{Schritt 1}  &amp; \text{Geben Sie die Nullhypothese } H_0 \text{ und alternative Hypothese } H_A \text{ an.}\\
+\ \text{Schritt 2}  &amp; \text{Legen Sie das Signifikanzniveau, } \alpha\text{ fest.} \\
+\ \text{Schritt 3}  &amp; \text{Berechnen Sie den Wert der Teststatistik.} \\
+\ \text{Schritt 4} &amp;\text{P-Wert-Ansatz: Bestimmen Sie den p-Wert.} \\
+\ \text{Schritt 5b} &amp; \text{P-Wert-Ansatz: Wenn } p\le \alpha \text{, } H_0 \text{ ablehnen } \text{; ansonsten } H_0 \text{ nicht ablehnen} \text{.} \\
+\ \text{Schritt 6} &amp;\text{Interpretieren Sie das Ergebnis des Hypothesentests.} \\
+\hline
+\end{array}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># Load the &quot;autoreload&quot; extension</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="c1"># always reload modules</span>
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="c1"># black formatter for jupyter notebooks</span>
+<span class="c1"># %load_ext nb_black</span>
+<span class="c1"># black formatter for jupyter lab</span>
+<span class="o">%</span><span class="k">load_ext</span> lab_black
+
+<span class="o">%</span><span class="k">run</span> ../../src/notebook_env.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>---------------------------------
+Working on the host: imarevic-pc
+
+---------------------------------
+Python version: 3.10.9 | packaged by conda-forge | (main, Feb  2 2023, 20:20:04) [GCC 11.3.0]
+
+---------------------------------
+Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-approx-s-2">
+<h1>Inferenz für zwei Grundgesamtheitsmittelwerte bei unabhängigen Stichproben; <span class="math notranslate nohighlight">\(s_1 \approx s_2\)</span><a class="headerlink" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-approx-s-2" title="Permalink to this heading">#</a></h1>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span><span class="p">,</span> <span class="n">ttest_ind</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">smi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In diesem Abschnitt führen wir einen Hypothesentest für die Mittelwerte von zwei Grundgesamtheiten durch. Wir gehen davon aus, dass die Standardabweichungen (<span class="math notranslate nohighlight">\(s_1,s_2\)</span>) der beiden Grundgesamtheiten gleich, aber unbekannt sind. Wenn wir jedoch <span class="math notranslate nohighlight">\(\sigma\)</span> und die Differenz der Stichprobenmittelwerte (<span class="math notranslate nohighlight">\(\bar{x}_1-\bar{x}_2\)</span>) kennen würden, könnte die Teststatistik wie folgt geschrieben werden.</p>
+<div class="math notranslate nohighlight">
+\[z = \frac{(\bar x_1 - \bar x_2)-(\mu_1-\mu_2)}{\sigma \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}\]</div>
+<p>In fast allen realen Anwendungen kennen wir <span class="math notranslate nohighlight">\(\sigma\)</span> jedoch nicht. Daher müssen wir es im Voraus schätzen. Das geht am besten, wenn man die Stichprobenvarianzen <span class="math notranslate nohighlight">\(s^2_1\)</span> und <span class="math notranslate nohighlight">\(s^2_2\)</span> als zwei Schätzungen für <span class="math notranslate nohighlight">\(\sigma^2\)</span> betrachtet. Durch Zusammenfassen der beiden Stichprobenabweichungen und Gewichtung nach dem Stichprobenumfang ergibt sich der Schätzwert für <span class="math notranslate nohighlight">\(\sigma^2\)</span> wie folgt</p>
+<div class="math notranslate nohighlight">
+\[s_g^2 = \frac{(n_1-1)s_1^2 + (n_2-1)s_2^2 }{n_1+n_2-2}\text{,}\]</div>
+<p>und durch Ziehen der Quadratwurzel erhalten wir</p>
+<div class="math notranslate nohighlight">
+\[s_g = \sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2 }{n_1+n_2-2}}\text{,}\]</div>
+<p>Die Größe <span class="math notranslate nohighlight">\(s_g\)</span> wird als <a href="https://de.wikipedia.org/wiki/Zweistichproben-t-Test#Zweistichproben-t-Test_f%C3%BCr_unabh%C3%A4ngige_Stichproben">gewichtete Stichprobenstandardabweichung</a> bezeichnet (engl. pooled), wobei der tiefgestellte Index <span class="math notranslate nohighlight">\(g\)</span> für <strong>gewichtet</strong> steht.</p>
+<p>Die Ersetzung von <span class="math notranslate nohighlight">\(\sigma\)</span> in der obigen Gleichung durch seine Schätzung <span class="math notranslate nohighlight">\(s_g\)</span> ergibt</p>
+<div class="math notranslate nohighlight">
+\[t =  \frac{(\bar x_1 - \bar x_2)-(\mu_1-\mu_2)}{s_g \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}\]</div>
+<p>Der Nenner der Gleichung <span class="math notranslate nohighlight">\(s_g \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}\)</span> ist der Schätzer der Standardabweichung von <span class="math notranslate nohighlight">\(\bar{x}_1-\bar{x}_2\)</span>, der wie folgt geschrieben werden kann</p>
+<div class="math notranslate nohighlight">
+\[s_{\bar x_1 - \bar x_2} = s_g \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}\]</div>
+<p>Bitte beachten Sie, dass die Gleichung für die Teststatistik <span class="math notranslate nohighlight">\(t\)</span> einer <span class="math notranslate nohighlight">\(t\)</span>-Verteilung folgt. Die Freiheitsgrade (<span class="math notranslate nohighlight">\(df\)</span>) sind gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[df = n_1+n_2-2\]</div>
+<section id="intervall-schatzung-von-mu-1-mu-2">
+<h2>Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_1-\mu_2\)</span><a class="headerlink" href="#intervall-schatzung-von-mu-1-mu-2" title="Permalink to this heading">#</a></h2>
+<p>Das <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span>-Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu_1-\mu_2\)</span> ist gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[(\bar x_1 - \bar x_2) \pm t \times s_g \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\text{,}\]</div>
+<p>wobei sich der Wert von <span class="math notranslate nohighlight">\(t\)</span> aus der <span class="math notranslate nohighlight">\(t\)</span>-Verteilung für das gegebene Konfidenzniveau und <span class="math notranslate nohighlight">\(n_1+n_2-2\)</span> Freiheitsgrade ergibt.</p>
+</section>
+<section id="der-zweistichproben-t-test-fur-unabhangige-stichproben-engl-pooled-t-test-ein-beispiel">
+<h2>Der Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben (engl. pooled <span class="math notranslate nohighlight">\(t\)</span>-Test): Ein Beispiel<a class="headerlink" href="#der-zweistichproben-t-test-fur-unabhangige-stichproben-engl-pooled-t-test-ein-beispiel" title="Permalink to this heading">#</a></h2>
+<p>Python ermöglicht es uns, einen <strong>Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben</strong> durchzuführen, indem wir die Funktion <code class="docutils literal notranslate"><span class="pre">ttest_ind()</span></code> um das Argument <code class="docutils literal notranslate"><span class="pre">equal_var</span> <span class="pre">=</span> <span class="pre">True</span></code> erweitern.</p>
+<p>Um den Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test zu üben, laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und weisen Sie ihm einen geeigneten Namen zu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lese Datei students.csv als Dataframe ein; Indexspalte wird übersprungen</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz besteht aus <span class="math notranslate nohighlight">\(8239\)</span> Zeilen, von denen jede einen bestimmten Studenten repräsentiert, und <span class="math notranslate nohighlight">\(16\)</span> Spalten, von denen jede einer Variable/einem Merkmal entspricht, das sich auf diesen bestimmten Studenten bezieht. Diese selbsterklärenden Variablen sind: <em>stud_id, Name, Geschlecht, Alter, Größe, Gewicht, Religion, nc_score, Semester, Hauptfach, Nebenfach, score1, score2, online_tutorial, graduated, salary</em>.</p>
+<p>Um den Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben zu veranschaulichen, untersuchen wir das mittlere Jahresgehalt (in Euro) der Absolventen. Die erste Grundgesamtheit besteht aus männlichen Studenten und die zweite aus weiblichen Studenten. <strong>Die Frage ist, ob es einen Unterschied im mittleren Jahresgehalt der Absolventen in Bezug auf das Geschlecht gibt?</strong></p>
+</section>
+<section id="vorbereitung-der-daten">
+<h2>Vorbereitung der Daten<a class="headerlink" href="#vorbereitung-der-daten" title="Permalink to this heading">#</a></h2>
+<p>Wir beginnen mit der Datenaufbereitung.</p>
+<ul class="simple">
+<li><p>Wir unterteilen den Datensatz anhand der binären Variable <code class="docutils literal notranslate"><span class="pre">graduated</span></code>, die angibt, ob der Student seinen Abschluss bereits gemacht hat. Die ganze Zahl <span class="math notranslate nohighlight">\(1\)</span> steht für “abgeschlossen”, <span class="math notranslate nohighlight">\(0\)</span>
+bedeutet, dass der Schüler seinen Abschluss noch nicht gemacht hat.</p></li>
+<li><p>Dann teilen wir den Datensatz nach Geschlecht auf (männlich und weiblich).</p></li>
+<li><p>Dann ziehen wir aus jeder Teilmenge <span class="math notranslate nohighlight">\(50\)</span> weibliche und <span class="math notranslate nohighlight">\(50\)</span> männliche Studenten und extrahieren die Variable von Interesse, das mittlere Jahresgehalt (in Euro), das in der Spalte Gehalt gespeichert ist. Diese beiden Vektoren ordnen wir den Variablen <code class="docutils literal notranslate"><span class="pre">male_sample</span></code> und <code class="docutils literal notranslate"><span class="pre">female_sample</span></code> zu.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="n">male</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">students</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Male&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="s2">&quot;graduated&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">female</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">students</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Female&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="s2">&quot;graduated&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)]</span>
+
+<span class="n">male_sample</span> <span class="o">=</span> <span class="n">male</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">female_sample</span> <span class="o">=</span> <span class="n">female</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Außerdem prüfen wir ob die Daten normalverteilt sind, indem wir ein Normalwahrscheinlichkeitsdiagramm erstellen, das oft als <a href="https://de.wikipedia.org/wiki/Quantil-Quantil-Diagramm">Q-Q-Diagramm</a> bezeichnet wird. Wenn die Variable normalverteilt ist, sollte das Q-Q-Diagramm ungefähr linear sein.</p>
+<p>In Python können wir die Funktion <code class="docutils literal notranslate"><span class="pre">qqplot()</span></code> verwenden, um Q-Q-Plots zu erstellen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeuge Q-Q Plot</span>
+<span class="n">qqp</span> <span class="o">=</span> <span class="n">smi</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">male_sample</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">qqp</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Q-Q-Diagramm : Studenten(männlich)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Theoretische Quantillen&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Stichproben Quantillen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Stichproben Quantillen&#39;)
+</pre></div>
+</div>
+<img alt="../_images/1722b25450ec901664f1ed40a341185c31bc03a4ed8944121826a5ac3bbdcb8e.png" src="../_images/1722b25450ec901664f1ed40a341185c31bc03a4ed8944121826a5ac3bbdcb8e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeuge Q-Q Plot</span>
+<span class="n">qqp</span> <span class="o">=</span> <span class="n">smi</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">female_sample</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">qqp</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Q-Q-Diagramm : Studenten(weiblich)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Stichproben Quantillen&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Theoretische Quantillen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Theoretische Quantillen&#39;)
+</pre></div>
+</div>
+<img alt="../_images/4d98d81289e8e5c9a01cd0098feea544e43ddc66e22034a83b36bfb8ac0d5227.png" src="../_images/4d98d81289e8e5c9a01cd0098feea544e43ddc66e22034a83b36bfb8ac0d5227.png" />
+</div>
+</div>
+<p>Wir sehen, dass die Stichprobendaten etwas Rauschen beinhalten sind, aber sie sind immer noch ungefähr normalverteilt. Die Abweichung von der Geraden im oberen und unteren Teil deutet darauf hin, dass die Wahrscheinlichkeitsverteilung leicht schief ist.</p>
+<p>Außerdem prüfen wir, ob die Standardabweichungen der beiden Grundgesamtheiten ungefähr gleich sind. Als Faustregel gilt, dass die Bedingung gleicher Standardabweichungen der Grundgesamtheit erfüllt ist, wenn das Verhältnis der größeren zur kleineren Standardabweichung der Stichprobe kleiner als <span class="math notranslate nohighlight">\(2\)</span> ist. Gehen wir davon aus, dass die Daten des <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatzes eine gute Annäherung an die Grundgesamtheit darstellen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne Standardabweichung</span>
+<span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">male</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9653.18969182546
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne Standardabweichung</span>
+<span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">female</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7723.490231798204
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne Verhältnis</span>
+<span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">male</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">female</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2498481129790953
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Verhältnis liegt bei etwa <span class="math notranslate nohighlight">\(1,249\)</span>, so dass wir zu dem Schluss kommen, dass das Kriterium der gleichen Standardabweichungen der Bevölkerung erfüllt ist. Eine einfache Visualisierungstechnik zur Bewertung der Streuung einer Variablen ist die Darstellung eines Boxplots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Stichprobendaten&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">male</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">],</span> <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">female</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">],</span> <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Jährliches Einkommen in EUR&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Jährliches Einkommen in EUR&#39;)
+</pre></div>
+</div>
+<img alt="../_images/ac1c680f91efe7c34b3520a9e0dd893cbe74d247d591ffe0f2dea98c2a6ac1ce.png" src="../_images/ac1c680f91efe7c34b3520a9e0dd893cbe74d247d591ffe0f2dea98c2a6ac1ce.png" />
+</div>
+</div>
+</section>
+<section id="uberprufung-der-hypothesen">
+<h2>Überprüfung der Hypothesen<a class="headerlink" href="#uberprufung-der-hypothesen" title="Permalink to this heading">#</a></h2>
+<p>Wir führen den Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben durch, indem wir das schrittweise Durchführungsverfahren für Hypothesentests befolgen.</p>
+<p><strong>Schritt 1 : Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</strong></p>
+<p>Die Nullhypothese besagt, dass das durchschnittliche Jahresgehalt der männlichen Absolventen (<span class="math notranslate nohighlight">\(μ_1\)</span>) gleich dem durchschnittlichen Jahresgehalt der weiblichen Absolventen (<span class="math notranslate nohighlight">\(μ_2\)</span>) ist.</p>
+<div class="math notranslate nohighlight">
+\[H_0: \quad \mu_1 = \mu_2\]</div>
+<p>Es sei daran erinnert, dass die Formulierung der Alternativhypothese vorgibt, ob wir einen zweiseitigen, einen links- oder einen rechtsseitigen Hypothesentest durchführen. Wir wollen prüfen, ob das Gehalt der männlichen Absolventen (<span class="math notranslate nohighlight">\(μ_1\)</span>) höher ist als das durchschnittliche Jahresgehalt der weiblichen Absolventen (<span class="math notranslate nohighlight">\(μ_2\)</span>), daher wird die Alternativhypothese wie folgt formuliert</p>
+<p><strong>Alternative Hypothese</strong></p>
+<div class="math notranslate nohighlight">
+\[H_A: \quad \mu_1 &gt; \mu_2\]</div>
+<p>Aus dieser Formulierung ergibt sich ein rechtsseitiger Hypothesentest.</p>
+<p><strong>Schritt 2: Legen Sie das Signifikanzniveau,<span class="math notranslate nohighlight">\(\alpha\)</span> fest</strong></p>
+<div class="math notranslate nohighlight">
+\[\alpha = 0,01\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.01</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 3 und 4: Berechnen Sie den Wert der Teststatistik und den <span class="math notranslate nohighlight">\(p\)</span>-Wert</strong></p>
+<p>Zur Veranschaulichung berechnen wir die Teststatistik manuell in Python. Erinnern Sie sich an die Gleichung für die Teststatistik von oben.</p>
+<div class="math notranslate nohighlight">
+\[t =  \frac{(\bar x_1 - \bar x_2)-(\mu_1-\mu_2)}{s_g \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}\]</div>
+<p>Wenn <span class="math notranslate nohighlight">\(H_0\)</span> wahr ist, dann ist <span class="math notranslate nohighlight">\(\mu_1-\mu_2=0\)</span> und somit vereinfacht sich die Gleichung zu</p>
+<div class="math notranslate nohighlight">
+\[t =  \frac{(\bar x_1 - \bar x_2)}{s_g \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}\text{,}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(s_z\)</span> gleich</p>
+<div class="math notranslate nohighlight">
+\[s_g = \sqrt{\frac{(n_1-1)s_1^2 + (n_2-1)s_2^2 }{n_1+n_2-2}}\]</div>
+<p>ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne Teststatistik</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">male_sample</span><span class="p">)</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">female_sample</span><span class="p">)</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">male_sample</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">female_sample</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x1_bar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">male_sample</span><span class="p">)</span>
+<span class="n">x2_bar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">female_sample</span><span class="p">)</span>
+
+<span class="n">sg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">n1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">s1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">n2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">s2</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">tw</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1_bar</span> <span class="o">-</span> <span class="n">x2_bar</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">sg</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">n1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">n2</span><span class="p">))</span>
+<span class="n">tw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.591470501655584
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der numerische Wert der Teststatistik ist <span class="math notranslate nohighlight">\(5,59147\)</span>.</p>
+<p>Um den <span class="math notranslate nohighlight">\(p\)</span>-Wert zu berechnen, wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">t.cdf()</span></code> an. Erinnern Sie sich daran, wie man die Freiheitsgrade berechnet.</p>
+<div class="math notranslate nohighlight">
+\[df = n_1+n_2-2 = 50 + 50 - 2 = 98\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne den p-Wert</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">tw</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0169262409931434e-07
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 5: Wenn <span class="math notranslate nohighlight">\(p \le \alpha , H_0\)</span> ablehnen; ansonsten <span class="math notranslate nohighlight">\(H_0\)</span> nicht ablehnen</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">&lt;=</span> <span class="n">alpha</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <span class="math notranslate nohighlight">\(p\)</span>-Wert ist kleiner als das angegebene Signifikanzniveau von <span class="math notranslate nohighlight">\(0,01\)</span>; wir verwerfen <span class="math notranslate nohighlight">\(H_0\)</span>. Die Testergebnisse sind statistisch signifikant auf dem <span class="math notranslate nohighlight">\(1 \%\)</span>-Niveau und liefern einen sehr starken Beweis gegen die Nullhypothese.</p>
+<p><strong>Schritt 6: Interpretieren Sie das Ergebnis des Hypothesentests</strong></p>
+<p><span class="math notranslate nohighlight">\(p=1,0169 \cdot 10^{-7}\)</span>; Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(1 \%\)</span> lassen die Daten den Schluss zu, dass das Durchschnittsgehalt männlicher Studenten höher ist als das Durchschnittsgehalt weiblicher Studenten.</p>
+</section>
+<section id="hypothesentests-in-python">
+<h2>Hypothesentests in Python<a class="headerlink" href="#hypothesentests-in-python" title="Permalink to this heading">#</a></h2>
+<p>Wir haben soeben manuell einen Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben in Python durchgeführt. Bitte beachten Sie jedoch, dass wir die volle Leistungsfähigkeit von Python nutzen können, um das gleiche Ergebnis wie oben in nur einer Zeile Code zu erhalten!</p>
+<p>Um einen Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben in Python durchzuführen, verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">ttest_ind()</span></code>. Wir geben zwei Vektoren als Dateneingabe an und setzen <code class="docutils literal notranslate"><span class="pre">equal_var=True</span></code>, um explizit anzugeben, dass wir die gepoolte Version des <span class="math notranslate nohighlight">\(t\)</span>-Tests anwenden, und wir setzen das Argument <code class="docutils literal notranslate"><span class="pre">alternative</span></code> auf <code class="docutils literal notranslate"><span class="pre">alternative=greater</span></code>, um <span class="math notranslate nohighlight">\(H_A\)</span> widerzuspiegeln: <span class="math notranslate nohighlight">\(\mu1 \gt \mu2\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">male_sample</span><span class="p">,</span> <span class="n">female_sample</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;greater&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=5.591470501655584, pvalue=1.0169262412759705e-07)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ein großer Erfolg! Vergleichen Sie die Ausgabe der Funktion <code class="docutils literal notranslate"><span class="pre">ttest_ind()</span></code> mit unserem Ergebnis von oben. Sie stimmen perfekt überein! Auch hier können wir schlussfolgern, dass bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(1 \%\)</span> die Daten einen sehr starken Hinweis darauf liefern, dass das Durchschnittsgehalt der männlichen Absolventen höher ist als das der weiblichen Absolventen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># Load the &quot;autoreload&quot; extension</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="c1"># always reload modules</span>
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="c1"># black formatter for jupyter notebooks</span>
+<span class="c1"># %load_ext nb_black</span>
+<span class="c1"># black formatter for jupyter lab</span>
+<span class="o">%</span><span class="k">load_ext</span> lab_black
+
+<span class="o">%</span><span class="k">run</span> ../../src/notebook_env.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
+The lab_black extension is already loaded. To reload it, use:
+  %reload_ext lab_black
+
+---------------------------------
+Working on the host: imarevic-pc
+
+---------------------------------
+Python version: 3.10.9 | packaged by conda-forge | (main, Feb  2 2023, 20:20:04) [GCC 11.3.0]
+
+---------------------------------
+Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 864x432 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-ne-s-2">
+<h1>Inferenz für zwei Grundgesamtheitsmittelwerte bei unabhängigen Stichproben; <span class="math notranslate nohighlight">\(s_1 \ne s_2\)</span><a class="headerlink" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-ne-s-2" title="Permalink to this heading">#</a></h1>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span><span class="p">,</span> <span class="n">ttest_ind</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">smi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In den Fällen, in denen die Mittelwerte zweier Grundgesamtheiten getestet werden sollen und die Standardabweichungen zwischen den beiden Grundgesamtheiten unterschiedlich sind, wird der so genannte <strong>nicht gepoolte <span class="math notranslate nohighlight">\(t\)</span>-Test</strong> oder <a href="https://de.wikipedia.org/wiki/Zweistichproben-t-Test#Welch-Test"><strong>Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test</strong></a> angewendet.</p>
+<p>Der <strong>Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test</strong> ist dem <strong><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben</strong> sehr ähnlich, mit Ausnahme der Teststatistik <span class="math notranslate nohighlight">\(t\)</span>
+und bei der Berechnung der Freiheitsgrade (<span class="math notranslate nohighlight">\(df\)</span>). Die Teststatistik nutzt nicht <span class="math notranslate nohighlight">\(s_g\)</span>, die gewichtete Standardabweichung, und wird geschrieben als</p>
+<div class="math notranslate nohighlight">
+\[t =  \frac{(\bar x_1 - \bar x_2)}{ \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}\text{.}\]</div>
+<p>Der Nenner der obigen Gleichung ist der Schätzer der Standardabweichung von <span class="math notranslate nohighlight">\(\bar x_1 - \bar x_2\)</span> und gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[s_{\bar x_1 - \bar x_2} = \sqrt{\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}}\text{.}\]</div>
+<p>Die Teststatistik <span class="math notranslate nohighlight">\(t\)</span> folgt einer <span class="math notranslate nohighlight">\(t\)</span>-Verteilung und die Freiheitsgrade (<span class="math notranslate nohighlight">\(df\)</span>) sind gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[df=\frac{\left(\frac{s_1^2}{n_1}+\frac{s_1^2}{n_2}\right)^2}{\frac{\left(\frac{s_1^2}{n_1}\right)^2}{n_1-1}+\frac{\left(\frac{s_2^2}{n_2}\right)^2}{n_2-1}}\text{.}\]</div>
+<p>Runden Sie die Freiheitsgrade auf die nächste ganze Zahl ab, wenn Sie Wahrscheinlichkeitstabellen verwenden.</p>
+<p>Der <strong>nicht gepoolte <span class="math notranslate nohighlight">\(t\)</span>-Test</strong> ist robust gegenüber mäßigen Verstößen gegen die Normalverteilungsannahme, aber er ist weniger robust gegenüber Ausreißern (<span id="id1"></span> s.403).</p>
+<section id="id2">
+<h2>Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_1 - \mu_2\)</span><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>Das <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span>-Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu_1-\mu_2\)</span> ist</p>
+<div class="math notranslate nohighlight">
+\[(\bar x_1 - \bar x_2) \pm t^* \times  \sqrt{\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}}\]</div>
+<p>wobei der Wert von <span class="math notranslate nohighlight">\(t\)</span> aus der <span class="math notranslate nohighlight">\(t\)</span>-Verteilung für das gegebene Konfidenzniveau ermittelt wird. Die Freiheitsgrade (<span class="math notranslate nohighlight">\(df\)</span>) und die Standardabweichung (<span class="math notranslate nohighlight">\(s_{\bar x_1 - \bar x_2}\)</span>) ergeben sich aus der obigen Gleichung.</p>
+</section>
+<section id="der-welch-s-t-test-ein-beispiel">
+<h2>Der Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test: Ein Beispiel<a class="headerlink" href="#der-welch-s-t-test-ein-beispiel" title="Permalink to this heading">#</a></h2>
+<p>Um praktische Erfahrungen zu sammeln, wenden wir den Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lese Datei students.csv als Dataframe ein; Indexspalte wird übersprungen</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz besteht aus <span class="math notranslate nohighlight">\(8239\)</span> Zeilen, von denen jede einen bestimmten Studenten repräsentiert, und <span class="math notranslate nohighlight">\(16\)</span> Spalten, von denen jede einer Variable/einem Merkmal entspricht, das sich auf diesen bestimmten Studenten bezieht. Diese selbsterklärenden Variablen sind: <em>stud_id, Name, Geschlecht, Alter, Größe, Gewicht, Religion, nc_score, Semester, Hauptfach, Nebenfach, score1, score2, online_tutorial, graduated, salary</em>.</p>
+<p>Zur Veranschaulichung des <strong>nicht gepoolten <span class="math notranslate nohighlight">\(t\)</span>-Tests</strong> untersuchen wir das mittlere Jahresgehalt (in Euro) von Absolventinnen in Abhängigkeit von ihrem Studienfach. Die erste Grundgesamtheit besteht aus Studentinnen mit dem Hauptfach Politikwissenschaft und die zweite Grundgesamtheit aus Studentinnen mit dem Hauptfach Sozialwissenschaften. Wir wollen testen, <strong>ob es einen Unterschied im mittleren Gehalt dieser beiden Gruppen gibt.</strong></p>
+</section>
+<section id="id3">
+<h2>Vorbereitung der Daten<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>Wir beginnen mit der Datenaufbereitung.</p>
+<ul class="simple">
+<li><p>Wir unterteilen den Datensatz anhand der Variablen <code class="docutils literal notranslate"><span class="pre">gender</span></code> und <code class="docutils literal notranslate"><span class="pre">graduated</span></code>.</p></li>
+<li><p>Dann unterteilen wir die Teilmenge in Absolventen der Politikwissenschaften und der Sozialwissenschaften (Variable <code class="docutils literal notranslate"><span class="pre">major</span></code>).</p></li>
+<li><p>Dann ziehen wir aus jeder Gruppe <span class="math notranslate nohighlight">\(50\)</span> Studenten und extrahieren die Variable von Interesse, das mittlere Jahresgehalt (in Euro), das in der Spalte <code class="docutils literal notranslate"><span class="pre">salary</span></code> gespeichert ist. Wir ordnen diese beiden Vektoren den Variablen <code class="docutils literal notranslate"><span class="pre">PS</span></code> und <code class="docutils literal notranslate"><span class="pre">SS</span></code> zu.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">female_graduates</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="s2">&quot;graduated&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">students</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Female&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">subset_PS</span> <span class="o">=</span> <span class="n">female_graduates</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">female_graduates</span><span class="p">[</span><span class="s2">&quot;major&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Political Science&quot;</span><span class="p">]</span>
+<span class="n">subset_SS</span> <span class="o">=</span> <span class="n">female_graduates</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">female_graduates</span><span class="p">[</span><span class="s2">&quot;major&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Social Sciences&quot;</span><span class="p">]</span>
+
+<span class="n">PS</span> <span class="o">=</span> <span class="n">subset_PS</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SS</span> <span class="o">=</span> <span class="n">subset_SS</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Außerdem überprüfen wir, ob die Daten normalverteilt sind, indem wir ein Q-Q-Diagramm erstellen. In Python können wir die Funktion <code class="docutils literal notranslate"><span class="pre">qqplot()</span></code> verwenden, um Q-Q-Plots zu erstellen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeuge Q-Q Plot</span>
+<span class="n">qqp</span> <span class="o">=</span> <span class="n">smi</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">PS</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">qqp</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+    <span class="s2">&quot;Q-Q-Diagramm für Absolventinnen </span><span class="se">\n</span><span class="s2"> der Politikwissenschaft (Stichprobendaten)&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Theoretische Quantillen&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Stichproben Quantillen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Stichproben Quantillen&#39;)
+</pre></div>
+</div>
+<img alt="../_images/c22fdb6a5209666e7bbe5fe9a5013b5f4a1642f21d5a22d7c74b047743e486fb.png" src="../_images/c22fdb6a5209666e7bbe5fe9a5013b5f4a1642f21d5a22d7c74b047743e486fb.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeuge Q-Q Plot</span>
+<span class="n">qqp2</span> <span class="o">=</span> <span class="n">smi</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">SS</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">qqp2</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+    <span class="s2">&quot;Q-Q-Diagramm für Absolventinnen </span><span class="se">\n</span><span class="s2"> der Sozialwissenschaft (Stichprobendaten)&quot;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Theoretische Quantillen&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Stichproben Quantillen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Stichproben Quantillen&#39;)
+</pre></div>
+</div>
+<img alt="../_images/ee66aef6393dc272bff84100cc50923f46ccd3a7133aa872ed8ac91f57866c93.png" src="../_images/ee66aef6393dc272bff84100cc50923f46ccd3a7133aa872ed8ac91f57866c93.png" />
+</div>
+</div>
+<p>Wir sehen, dass die Daten beider Stichproben ungefähr auf einer Geraden liegen.</p>
+<p>Gehen wir davon aus, dass die Daten des <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatzes eine gute Annäherung an die Grundgesamtheit darstellen. Dann können wir visuell überprüfen, ob sich die Standardabweichungen der beiden Grundgesamtheiten tatsächlich voneinander unterscheiden, indem wir ein Boxplot aufzeichnen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Stichprobendaten&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Sozialwissenschaften&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Politikwissenschaften&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Jährliches Gehalt in EUR&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">subset_PS</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">],</span> <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">subset_SS</span><span class="p">[</span><span class="s2">&quot;salary&quot;</span><span class="p">],</span> <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;whiskers&#39;: [&lt;matplotlib.lines.Line2D at 0x7246a6982ce0&gt;,
+  &lt;matplotlib.lines.Line2D at 0x7246a6980a30&gt;],
+ &#39;caps&#39;: [&lt;matplotlib.lines.Line2D at 0x7246a69eeb00&gt;,
+  &lt;matplotlib.lines.Line2D at 0x7246a69eec50&gt;],
+ &#39;boxes&#39;: [&lt;matplotlib.lines.Line2D at 0x7246a6982d40&gt;],
+ &#39;medians&#39;: [&lt;matplotlib.lines.Line2D at 0x7246a69eeef0&gt;],
+ &#39;fliers&#39;: [&lt;matplotlib.lines.Line2D at 0x7246a69ef190&gt;],
+ &#39;means&#39;: []}
+</pre></div>
+</div>
+<img alt="../_images/0ec4bd47cacb95eea5f0322526a756adae036c9c607df575fe8b3b51157933c1.png" src="../_images/0ec4bd47cacb95eea5f0322526a756adae036c9c607df575fe8b3b51157933c1.png" />
+</div>
+</div>
+<p>Auf der Grundlage des grafischen Auswertungsansatzes kommen wir zu dem Schluss, dass die Daten annähernd normalverteilt sind und dass die Standardabweichungen voneinander abweichen.</p>
+</section>
+<section id="id4">
+<h2>Überprüfung der Hypothesen<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>Erinnern Sie sich an die Forschungsfrage. <strong>Lassen die Daten den Schluss zu, dass sich das mittlere Jahresgehalt von Absolventinnen mit einem Hauptfach in Politikwissenschaft vom mittleren Jahresgehalt von Absolventinnen mit einem Hauptfach in Sozialwissenschaften unterscheidet?</strong></p>
+<p>Um den nicht zusammengefassten <span class="math notranslate nohighlight">\(t\)</span>-Test durchzuführen, folgen wir dem schrittweisen Durchführungsverfahren für Hypothesentests.</p>
+<p><strong>Schritt 1 : Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</strong></p>
+<p>Die Nullhypothese besagt, dass das durchschnittliche Jahresgehalt von Absolventinnen mit dem Hauptfach Politikwissenschaft (<span class="math notranslate nohighlight">\(\mu_1\)</span>) gleich dem durchschnittlichen Jahresgehalt von Absolventinnen mit dem Hauptfach Sozialwissenschaften (<span class="math notranslate nohighlight">\(\mu_2\)</span>) ist.</p>
+<div class="math notranslate nohighlight">
+\[H_0: \quad \mu_1 = \mu_2\]</div>
+<p><strong>Alternative Hypothese</strong></p>
+<div class="math notranslate nohighlight">
+\[H_A: \quad \mu_1 \ne \mu_2\]</div>
+<p>Diese Formulierung führt zu einem zweiseitigen Hypothesentest.</p>
+<p><strong>Schritt 2: Legen Sie das Signifikanzniveau,<span class="math notranslate nohighlight">\(\alpha\)</span> fest</strong></p>
+<div class="math notranslate nohighlight">
+\[\alpha = 0,05\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 3 und 4: Berechnen Sie den Wert der Teststatistik und den <span class="math notranslate nohighlight">\(p\)</span>-Wert</strong></p>
+<p>Zur Veranschaulichung berechnen wir die Teststatistik manuell in Python. Wir erinnern uns an die Gleichungen für die Teststatistik von oben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne die Teststatistik</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">PS</span><span class="p">)</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">SS</span><span class="p">)</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">PS</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">SS</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x1_bar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">PS</span><span class="p">)</span>
+<span class="n">x2_bar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">SS</span><span class="p">)</span>
+
+<span class="n">tw</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1_bar</span> <span class="o">-</span> <span class="n">x2_bar</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s1</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">s2</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n2</span><span class="p">))</span>
+<span class="n">tw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.054456171492353
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der numerische Wert der Teststatistik ist <span class="math notranslate nohighlight">\(3,05446\)</span>.</p>
+<p>Um den <span class="math notranslate nohighlight">\(p\)</span>-Wert zu berechnen, wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">t.cdf()</span></code> an. Erinnern Sie sich daran, wie man die Freiheitsgrade berechnet.</p>
+<div class="math notranslate nohighlight">
+\[df=\frac{\left(\frac{s_1^2}{n_1}+\frac{s_1^2}{n_2}\right)^2}{\frac{\left(\frac{s_1^2}{n_1}\right)^2}{n_1-1}+\frac{\left(\frac{s_2^2}{n_2}\right)^2}{n_2-1}}\text{,}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne df</span>
+<span class="n">df_numerator</span> <span class="o">=</span> <span class="p">(</span><span class="n">s1</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n1</span> <span class="o">+</span> <span class="n">s2</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">df_denominator</span> <span class="o">=</span> <span class="p">(</span><span class="n">s1</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n1</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">n1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">s2</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">n2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="n">n2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df_numerator</span> <span class="o">/</span> <span class="n">df_denominator</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>81.31178520706362
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne p-Wert</span>
+<span class="c1"># wir verwenden einen zweiseitigen Test</span>
+<span class="n">upper</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">tw</span><span class="p">),</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">lower</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="o">-</span><span class="nb">abs</span><span class="p">(</span><span class="n">tw</span><span class="p">),</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">upper</span> <span class="o">+</span> <span class="n">lower</span>
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0030479813074539763
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 5: Wenn <span class="math notranslate nohighlight">\(p \le \alpha , H_0\)</span> ablehnen; ansonsten <span class="math notranslate nohighlight">\(H_0\)</span> nicht ablehnen</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">&lt;=</span> <span class="n">alpha</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <span class="math notranslate nohighlight">\(p\)</span>-Wert ist kleiner als das angegebene Signifikanzniveau von <span class="math notranslate nohighlight">\(0,05\)</span>; wir verwerfen <span class="math notranslate nohighlight">\(H_0\)</span>. Die Testergebnisse sind statistisch signifikant auf dem <span class="math notranslate nohighlight">\(5 \%\)</span>-Niveau und liefern einen sehr starken Beweis gegen die Nullhypothese.</p>
+<p><strong>Schritt 6: Interpretieren Sie das Ergebnis des Hypothesentests</strong></p>
+<p><span class="math notranslate nohighlight">\(p=0,003047987\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> lassen die Daten den Schluss zu, dass sich das durchschnittliche Jahresgehalt von Absolventinnen der Politikwissenschaft vom durchschnittlichen Jahresgehalt von Absolventinnen der Sozialwissenschaften unterscheidet.</p>
+</section>
+<section id="id5">
+<h2>Hypothesentests in Python<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<p>Wir haben gerade einen Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test in Python manuell durchgeführt. Jetzt nutzen wir die volle Leistung  von Python, um das gleiche Ergebnis wie oben mit nur einer Zeile Code zu erhalten!</p>
+<p>Um einen Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test in Python durchzuführen, verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">ttest_ind()</span></code>. Wir geben zwei Vektoren als Dateneingabe an und setzen <code class="docutils literal notranslate"><span class="pre">equal_var</span> <span class="pre">=</span> <span class="pre">False</span></code>, um explizit anzugeben, dass wir die nicht gepoolte Version des <span class="math notranslate nohighlight">\(t\)</span>-Tests anwenden. Das Argument <code class="docutils literal notranslate"><span class="pre">alternative</span></code> muss nicht gesetzt werden, da der Standardwert unserer Alternativhypothese entspricht <span class="math notranslate nohighlight">\(H_A: \; \mu_1 \ne \mu_2\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">PS</span><span class="p">,</span> <span class="n">SS</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=3.0544561714923537, pvalue=0.0030479813074539563)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Stark! Vergleichen Sie die Ausgabe der Funktion <code class="docutils literal notranslate"><span class="pre">ttest_ind()</span></code> mit unserem Ergebnis von oben. Sie stimmen perfekt überein! Auch hier können wir schlussfolgern, dass die Daten bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> einen sehr starken Hinweis darauf liefern, dass sich das durchschnittliche Jahresgehalt von Absolventinnen der Politikwissenschaft vom durchschnittlichen Jahresgehalt von Absolventinnen der Sozialwissenschaften unterscheidet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># Load the &quot;autoreload&quot; extension</span>
+<span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="c1"># always reload modules</span>
+<span class="o">%</span><span class="k">autoreload</span> 2
+<span class="c1"># black formatter for jupyter notebooks</span>
+<span class="c1"># %load_ext nb_black</span>
+<span class="c1"># black formatter for jupyter lab</span>
+<span class="o">%</span><span class="k">load_ext</span> lab_black
+
+<span class="o">%</span><span class="k">run</span> ../../src/notebook_env.py
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
+The lab_black extension is already loaded. To reload it, use:
+  %reload_ext lab_black
+
+---------------------------------
+Working on the host: imarevic-pc
+
+---------------------------------
+Python version: 3.10.9 | packaged by conda-forge | (main, Feb  2 2023, 20:20:04) [GCC 11.3.0]
+
+---------------------------------
+Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 864x432 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-gepaarten-stichproben">
+<h1>Inferenz für zwei Grundgesamtheitsmittelwerte bei gepaarten Stichproben<a class="headerlink" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-gepaarten-stichproben" title="Permalink to this heading">#</a></h1>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">t</span><span class="p">,</span> <span class="n">ttest_rel</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">smi</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenden wir uns nun einem Hypothesentestverfahren für die Differenz zwischen zwei Grundgesamtheitsmittelwerte zu, wenn die Stichproben <strong>abhängig</strong> sind. Wenn beispielsweise zwei Datenwerte aus derselben Quelle (oder demselben Teilsystem) stammen, werden diese als <strong>gepaarte</strong> oder <strong>abhängige</strong> Stichproben bezeichnet.</p>
+<p>Sehr häufig werden diese Verfahren für die <strong>Before-After-Control-Impact (BACI)</strong> eingesetzt. Stellen Sie sich einen Fall vor, in dem Sie die Wirksamkeit eines Filtersystems zur Entfernung von Luftschadstoffen, die von einer Fabrik freigesetzt werden, bewerten sollen. In diesem Fall besteht eine Grundgesamtheit aus Messungen der Luftqualität vor der Einführung oder Erneuerung des Filtersystems und die andere Grundgesamtheit aus Messungen der Luftqualität nach der Installation des neuen Filtersystems. In diesem Fall hat man es mit gepaarten Stichproben zu tun, da die beiden Datensätze von derselben Quelle, der Fabrik, erhoben werden.</p>
+<p>Bei gepaarten Stichproben wird die Differenz zwischen den Datenwerten der beiden Stichproben mit <span class="math notranslate nohighlight">\(d\)</span> bezeichnet, oft auch als <strong>gepaarte Differenz</strong> bezeichnet. Beachten Sie, dass der Stichprobenumfang <span class="math notranslate nohighlight">\(n\)</span> für jede Stichprobe gleich ist. Der Mittelwert der gepaarten Differenzen für die Stichproben wird als <span class="math notranslate nohighlight">\(\bar d\)</span> bezeichnet.</p>
+<div class="math notranslate nohighlight">
+\[\bar d = \frac{\sum d}{n}\]</div>
+<p>Die Standardabweichung der gepaarten Unterschiede für zwei Stichproben, <span class="math notranslate nohighlight">\(s_d\)</span>, wird wie folgt berechnet</p>
+<div class="math notranslate nohighlight">
+\[s_d = \sqrt{\frac{\sum d^2 - \frac{(\sum d)^2}{n}}{n-1}}\]</div>
+<p>Angenommen, die gepaarte Differenzvariable <span class="math notranslate nohighlight">\(d\)</span> ist normalverteilt, dann wird die <a href="https://de.wikipedia.org/wiki/Zweistichproben-t-Test#Zweistichproben-t-Test_f%C3%BCr_abh%C3%A4ngige_Stichproben">gepaarte <span class="math notranslate nohighlight">\(t\)</span>-Statistik</a> wie folgt ausgedrückt</p>
+<div class="math notranslate nohighlight">
+\[t= \frac{\bar d - (\mu_1-\mu_2)}{\frac{s_d}{\sqrt{n}}}\text{,}\]</div>
+<p>was sich vereinfacht zu</p>
+<div class="math notranslate nohighlight">
+\[t= \frac{\bar d}{\frac{s_d}{\sqrt{n}}}\text{,}\]</div>
+<p>wenn <span class="math notranslate nohighlight">\(\mu_1-\mu_2 = 0\)</span>. Die Teststatistik <span class="math notranslate nohighlight">\(t\)</span> für gepaarte Stichproben folgt einer <span class="math notranslate nohighlight">\(t\)</span>-Verteilung mit <span class="math notranslate nohighlight">\(df=n-1\)</span>.</p>
+<section id="intervall-schatzung-von-mu-d">
+<h2>Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_d\)</span><a class="headerlink" href="#intervall-schatzung-von-mu-d" title="Permalink to this heading">#</a></h2>
+<p>Das <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span>-Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu_d\)</span> ist</p>
+<div class="math notranslate nohighlight">
+\[\bar d \pm t \times \frac{s_d}{\sqrt{n}}\]</div>
+<p>wobei sich der Wert von <span class="math notranslate nohighlight">\(t\)</span> aus der <span class="math notranslate nohighlight">\(t\)</span>-Verteilung für das gegebene Konfidenzniveau und <span class="math notranslate nohighlight">\(n-1\)</span> Freiheitsgrade ergibt.</p>
+</section>
+<section id="der-2-stichproben-t-test-fur-gepaarte-abhangige-stichproben-ein-beispiel">
+<h2>Der <span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test für gepaarte (abhängige) Stichproben: Ein Beispiel<a class="headerlink" href="#der-2-stichproben-t-test-fur-gepaarte-abhangige-stichproben-ein-beispiel" title="Permalink to this heading">#</a></h2>
+<p>Um praktische Erfahrungen zu sammeln, wenden wir den <strong>gepaarten <span class="math notranslate nohighlight">\(t\)</span>-Test</strong> in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lese Datei students.csv als Dataframe ein; Indexspalte wird übersprungen</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz besteht aus <span class="math notranslate nohighlight">\(8239\)</span> Zeilen, von denen jede einen bestimmten Studenten repräsentiert, und <span class="math notranslate nohighlight">\(16\)</span> Spalten, von denen jede einer Variable/einem Merkmal entspricht, das sich auf diesen bestimmten Studenten bezieht. Diese selbsterklärenden Variablen sind: <em>stud_id, name, gender, age, height, weight, religion, nc_score, semester, major, minor, score1, score2, online_tutorial, graduated, salary.</em></p>
+<p>Um den gepaarten <span class="math notranslate nohighlight">\(t\)</span>-Test für abhängige Stichproben zu veranschaulichen, <strong>interessieren wir uns für die Frage, ob ein Online-Tutorium zum Erlernen von Statistik den Studenten hilft, ihre Noten zu verbessern</strong>. Es gibt drei Variablen im Datensatz der Studenten, die von Interesse sind. Die Variable <code class="docutils literal notranslate"><span class="pre">online_tutorial</span></code> ist eine binäre Variable, die den Wert <span class="math notranslate nohighlight">\(1\)</span> annimmt, wenn der Student das Online-Tutorium zum Thema Statistik absolviert hat, und ansonsten den Wert <span class="math notranslate nohighlight">\(0\)</span>. Die Variablen <code class="docutils literal notranslate"><span class="pre">score1</span></code> und <code class="docutils literal notranslate"><span class="pre">score2</span></code> geben die Noten (<span class="math notranslate nohighlight">\(0-100\)</span>) für zwei Klausuren in Mathematik und Statistik an. Je höher der Wert ist, desto besser hat der jeweilige Studierende abgeschnitten. Bitte beachten Sie, dass die erste Prüfung stattfindet, bevor die Studierenden das Online-Tutorium zum Thema Statistik besucht haben. Die Teilnahme am Online-Tutorium zur Statistik ist nicht verpflichtend, die beiden Prüfungen sind jedoch für alle Studierenden obligatorisch. Die erste Prüfung (<code class="docutils literal notranslate"><span class="pre">score1</span></code>) findet zu Beginn des <span class="math notranslate nohighlight">\(3\)</span>. Semesters statt, die zweite Prüfung (<code class="docutils literal notranslate"><span class="pre">score2</span></code>) am Ende des <span class="math notranslate nohighlight">\(3\)</span>. Semesters.</p>
+<p>Im Wesentlichen sind zwei Forschungsfragen von Interesse. <strong>Erstens wollen wir untersuchen, ob die Gruppe der Studierenden, die das Online-Tutorial zum Statistiklernen besucht hat, in der zweiten Prüfung besser abschneidet als in den ersten Prüfungen. Zweitens wird untersucht, wie die Gruppe der Studierenden, die nicht am Online-Tutorium für Statistik teilgenommen hat, bei beiden Prüfungen abgeschnitten hat.</strong></p>
+</section>
+<section id="id6">
+<h2>Vorbereitung der Daten<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>Wir beginnen mit der ersten Forschungsfrage und konzentrieren uns auf die Studierenden, die das Online-Tutorial zum Thema Statistik besucht haben.</p>
+<p>Für die Datenaufbereitung unterteilen wir den Datensatz anhand der Variable <code class="docutils literal notranslate"><span class="pre">online_tutorial</span></code>, die angibt, ob der Studierende das Tutorium besucht hat oder nicht (<span class="math notranslate nohighlight">\(1\)</span>=ja, <span class="math notranslate nohighlight">\(0\)</span>=nein). Dann ziehen wir eine Zufallsstichprobe von <span class="math notranslate nohighlight">\(65\)</span> Studenten aus dem Datensatz und extrahieren die beiden Variablen von Interesse, <code class="docutils literal notranslate"><span class="pre">score1</span></code> und <code class="docutils literal notranslate"><span class="pre">score2</span></code>. Wir speichern jede von ihnen in einem Vektor mit den Namen <code class="docutils literal notranslate"><span class="pre">score1_sample</span></code> und <code class="docutils literal notranslate"><span class="pre">score2_sample</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tutorial</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">students</span><span class="p">[</span><span class="s2">&quot;online_tutorial&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">65</span>
+<span class="n">score1_sample</span> <span class="o">=</span> <span class="n">tutorial</span><span class="p">[</span><span class="s2">&quot;score1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">score2_sample</span> <span class="o">=</span> <span class="n">tutorial</span><span class="p">[</span><span class="s2">&quot;score2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nun berechnen wir die gepaarten Differenzen, <span class="math notranslate nohighlight">\(d\)</span>, und stellen sie dar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">score1_sample</span> <span class="o">-</span> <span class="n">score2_sample</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;ID&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Unterschied der &#39;Scores&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &quot;Unterschied der &#39;Scores&#39;&quot;)
+</pre></div>
+</div>
+<img alt="../_images/e0f7a1c4a01f1ae4ec50e697a50866bea062868047cf5594ce6c9b00eb58a366.png" src="../_images/e0f7a1c4a01f1ae4ec50e697a50866bea062868047cf5594ce6c9b00eb58a366.png" />
+</div>
+</div>
+<p>Das Diagramm sieht wie erwartet aus. Einige Studierende schneiden in der ersten Prüfung besser ab als in der zweiten Prüfung und umgekehrt.</p>
+<p>Um die Normalverteilungsannahme zu überprüfen, stützen wir uns wiederum auf eine visuelle Inspektion eines <a href="https://de.wikipedia.org/wiki/Quantil-Quantil-Diagramm">Q-Q-Plots</a>. Wenn die Variable normalverteilt ist, sollte das Q-Q-Diagramm ungefähr linear sein. In Python können wir die Funktion <code class="docutils literal notranslate"><span class="pre">qqplot()</span></code> verwenden, um Q-Q-Plots zu erstellen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Erzeuge Q-Q Plot</span>
+<span class="n">qqp</span> <span class="o">=</span> <span class="n">smi</span><span class="o">.</span><span class="n">qqplot</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">qqp</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Q-Q-Diagramm für Unterschiede </span><span class="se">\n</span><span class="s2"> in den Prüfungsergebnissen&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Theoretische Quantillen&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Stichproben Quantillen&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Stichproben Quantillen&#39;)
+</pre></div>
+</div>
+<img alt="../_images/fd75661c13b4530e09f4e6495c3ef32f9c6e24f9740244a24907a5e66cbc496d.png" src="../_images/fd75661c13b4530e09f4e6495c3ef32f9c6e24f9740244a24907a5e66cbc496d.png" />
+</div>
+</div>
+<p>Die Daten sind nicht sehr genau und etwas verrauscht, aber sie scheinen ungefähr normalverteilt zu sein.</p>
+<p>Wir berechnen weiter <span class="math notranslate nohighlight">\(\bar d\)</span> den Mittelwert der gepaarten Differenzen</p>
+<div class="math notranslate nohighlight">
+\[\bar d = \frac{\sum d}{n}\text{,}\]</div>
+<p>und <span class="math notranslate nohighlight">\(s_d\)</span>, die Standardabweichung der gepaarten Unterschiede für zwei Stichproben</p>
+<div class="math notranslate nohighlight">
+\[s_d = \sqrt{\frac{\sum d^2 - \frac{(\sum d)^2}{n}}{n-1}}\text{.}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># gepaarte Differenz</span>
+<span class="n">d_bar</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">d_bar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.7538461538461538
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standardabweichung</span>
+<span class="n">s_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="nb">sum</span><span class="p">(</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)))</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">s_d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.836391139947831
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id7">
+<h2>Überprüfung der Hypothesen<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p>Jetzt sind wir bereit, den <strong>gepaarten <span class="math notranslate nohighlight">\(t\)</span>-Test</strong> anzuwenden. Erinnern Sie sich an unsere erste Forschungsfrage: <strong>Lassen die Daten den Schluss zu, dass sich die durchschnittlichen Prüfungsergebnisse verbessern, wenn die Studierenden ein Online-Tutorial zum Thema Statistik besuchen?</strong></p>
+<p>Wir folgen dem schrittweisen Implementierungsverfahren für Hypothesentests.</p>
+<p><strong>Schritt 1 : Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</strong></p>
+<p>Die Nullhypothese besagt, dass es keinen Unterschied im Mittelwert der Prüfungsnoten der einen Prüfung im Vergleich zur anderen gibt.</p>
+<div class="math notranslate nohighlight">
+\[H_0: \quad \mu_1 = \mu_2\]</div>
+<p>Erinnern Sie sich daran, dass die Formulierung der Alternativhypothese vorgibt, ob wir einen zweiseitigen, einen links- oder einen rechtsseitigen Hypothesentest durchführen.</p>
+<p><strong>Alternative Hypothese</strong></p>
+<div class="math notranslate nohighlight">
+\[H_A: \quad \mu_1 &lt; \mu_2\]</div>
+<p>Diese Formulierung führt zu einem linksseitigen Hypothesentest und besagt, dass die Studenten im Durchschnitt bei der zweiten Prüfung besser abschneiden.</p>
+<p><strong>Schritt 2: Legen Sie das Signifikanzniveau,<span class="math notranslate nohighlight">\(\alpha\)</span> fest</strong></p>
+<div class="math notranslate nohighlight">
+\[\alpha = 0,05\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 3 und 4: Berechnen Sie den Wert der Teststatistik und den <span class="math notranslate nohighlight">\(p\)</span>-Wert</strong></p>
+<p>Zur Veranschaulichung berechnen wir die Teststatistik manuell in Python. Erinnern Sie sich an die obige Gleichungsform:</p>
+<div class="math notranslate nohighlight">
+\[t= \frac{\bar d - (\mu_1-\mu_2)}{\frac{s_d}{\sqrt{n}}}\]</div>
+<p>Wenn <span class="math notranslate nohighlight">\(H_0\)</span> wahr ist, dann ist <span class="math notranslate nohighlight">\(μ_1-μ_2=0\)</span> und somit vereinfacht sich die Gleichung zu</p>
+<div class="math notranslate nohighlight">
+\[t= \frac{\bar d}{\frac{s_d}{\sqrt{n}}}\text{.}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne Teststatistik</span>
+
+<span class="c1"># gepaarte Differenz</span>
+<span class="n">d_bar</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+
+<span class="c1"># Standardabweichung</span>
+<span class="n">s_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="nb">sum</span><span class="p">(</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)))</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Teststatistik</span>
+<span class="n">tw</span> <span class="o">=</span> <span class="n">d_bar</span> <span class="o">/</span> <span class="p">(</span><span class="n">s_d</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)))</span>
+<span class="n">tw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.4227231184673745
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der numerische Wert der Teststatistik ist <span class="math notranslate nohighlight">\(-2,422723\)</span>.</p>
+<p>Um den <span class="math notranslate nohighlight">\(p\)</span>-Wert zu berechnen, wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">t.cdf()</span></code> an. Erinnern Sie sich daran, wie man die Freiheitsgrade berechnet.</p>
+<div class="math notranslate nohighlight">
+\[df = n - 1= 64\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Berechne p-Wert</span>
+<span class="n">df</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">tw</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.009122595661033035
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Schritt 5: Wenn <span class="math notranslate nohighlight">\(p \le \alpha , H_0\)</span> ablehnen; ansonsten <span class="math notranslate nohighlight">\(H_0\)</span> nicht ablehnen</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">&lt;=</span> <span class="n">alpha</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <span class="math notranslate nohighlight">\(p\)</span>-Wert ist kleiner als das angegebene Signifikanzniveau von <span class="math notranslate nohighlight">\(0,05\)</span>; wir verwerfen <span class="math notranslate nohighlight">\(H_0\)</span>. Die Testergebnisse sind statistisch signifikant auf dem <span class="math notranslate nohighlight">\(5 \%\)</span>-Niveau und liefern einen sehr starken Beweis gegen die Nullhypothese.</p>
+<p><strong>Schritt 6: Interpretieren Sie das Ergebnis des Hypothesentests</strong></p>
+<p><span class="math notranslate nohighlight">\(p=0,009123\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> lassen die Daten den Schluss zu, dass sich die Prüfungsnoten der Studierenden nach der Teilnahme an einem Online-Tutorium für Statistik verbessern.</p>
+</section>
+<section id="id8">
+<h2>Hypothesentests in Python<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<p>Wir haben soeben manuell einen gepaarten <span class="math notranslate nohighlight">\(t\)</span>-Test in Python durchgeführt. Das ist gut, aber jetzt nutzen wir die ganze Macht von Python, um das gleiche Ergebnis wie oben mit nur einer Zeile Code zu erhalten!</p>
+<p>Um einen gepaarten <span class="math notranslate nohighlight">\(t\)</span>-Test in Python durchzuführen, verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">ttest_rel()</span></code>. Wir geben zwei Vektoren als Dateneingabe an und wir setzen das Argument <code class="docutils literal notranslate"><span class="pre">alternative</span></code> auf <code class="docutils literal notranslate"><span class="pre">alternative</span> <span class="pre">=</span> <span class="pre">'less'</span></code>, um auf <span class="math notranslate nohighlight">\(HA:\mu_1 \lt \mu_2\)</span> zu testen</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">score1_sample</span><span class="p">,</span> <span class="n">score2_sample</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;less&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_relResult(statistic=-2.4227231184673745, pvalue=0.009122595661033035)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Großartig! Vergleichen Sie die Ausgabe der Funktion <code class="docutils literal notranslate"><span class="pre">ttest_rel()</span></code> mit unserem Ergebnis von oben. Sie stimmen perfekt überein! Auch hier können wir schlussfolgern, dass die Daten bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> einen sehr starken Hinweis darauf liefern, dass sich die Prüfungsnoten der Studenten nach der Teilnahme an einem Online-Tutorium für Statistik verbessern.</p>
+<p>Bevor wir fortfahren, muss noch eine Forschungsfrage beantwortet werden. Was ist, wenn es andere Gründe für die besseren Noten in der zweiten Prüfung gibt? Was ist, wenn die zweite Prüfung viel einfacher war? Was wäre, wenn die Studenten einen tollen Dozenten hatten und sich dadurch im Laufe des Semesters verbessert haben? Wir testen diese Hypothese, indem wir einen gepaarten <span class="math notranslate nohighlight">\(t\)</span>-Test durchführen, und zwar explizit für die Studierenden, die nicht am Online-Tutorium für Statistik teilgenommen haben. Da wir mit der Python-Maschinerie bestens vertraut sind, führen wir einen gepaarten <span class="math notranslate nohighlight">\(t\)</span>-Test mit nur wenigen Zeilen Code durch.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_tutorial</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">students</span><span class="p">[</span><span class="s2">&quot;online_tutorial&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">65</span>
+
+
+<span class="n">score1_no_tutorial</span> <span class="o">=</span> <span class="n">no_tutorial</span><span class="p">[</span><span class="s2">&quot;score1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">score2_no_tutorial</span> <span class="o">=</span> <span class="n">no_tutorial</span><span class="p">[</span><span class="s2">&quot;score2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># führe paired t-test durch</span>
+<span class="n">statistics</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">ttest_rel</span><span class="p">(</span>
+    <span class="n">score1_no_tutorial</span><span class="p">,</span> <span class="n">score2_no_tutorial</span><span class="p">,</span> <span class="n">nan_policy</span><span class="o">=</span><span class="s2">&quot;omit&quot;</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;less&quot;</span>
+<span class="p">)</span>
+<span class="n">ttest_rel</span><span class="p">(</span><span class="n">score1_no_tutorial</span><span class="p">,</span> <span class="n">score2_no_tutorial</span><span class="p">,</span> <span class="n">nan_policy</span><span class="o">=</span><span class="s2">&quot;omit&quot;</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;less&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_relResult(statistic=2.1307181194375913, pvalue=0.9771439852770387)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pvalue</span> <span class="o">&lt;=</span> <span class="n">alpha</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der <span class="math notranslate nohighlight">\(p\)</span>-Wert ist größer als das angegebene Signifikanzniveau von <span class="math notranslate nohighlight">\(0,05\)</span>; wir verwerfen <span class="math notranslate nohighlight">\(H_0\)</span> nicht. Die Testergebnisse sind auf dem <span class="math notranslate nohighlight">\(5 \%\)</span>-Niveau statistisch signifikant und liefern keinen ausreichenden Beweis gegen die Nullhypothese.</p>
+<p>Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> liefern die Daten keine ausreichende Evidenz für die Schlussfolgerung, dass sich die Prüfungsnoten der Studierenden, die nicht am Online-Tutorium teilgenommen haben, verbessert haben.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ixianslab/srh-data-science",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Kapitel06"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_Hypothesentests_Mittelwert_einer_Grundgesamtheit.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Hypothesentests für den Mittelwert einer Grundgesamtheit</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_Standardabweichung_der_Grundgesamtheit.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Inferenz für die Standardabweichung der Grundgesamtheit</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Hypothesentests für zwei Grundgesamtheitsmittelwerte</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-approx-s-2">Inferenz für zwei Grundgesamtheitsmittelwerte bei unabhängigen Stichproben; <span class="math notranslate nohighlight">\(s_1 \approx s_2\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervall-schatzung-von-mu-1-mu-2">Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_1-\mu_2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-zweistichproben-t-test-fur-unabhangige-stichproben-engl-pooled-t-test-ein-beispiel">Der Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben (engl. pooled <span class="math notranslate nohighlight">\(t\)</span>-Test): Ein Beispiel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vorbereitung-der-daten">Vorbereitung der Daten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uberprufung-der-hypothesen">Überprüfung der Hypothesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesentests-in-python">Hypothesentests in Python</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-ne-s-2">Inferenz für zwei Grundgesamtheitsmittelwerte bei unabhängigen Stichproben; <span class="math notranslate nohighlight">\(s_1 \ne s_2\)</span></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_1 - \mu_2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-welch-s-t-test-ein-beispiel">Der Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test: Ein Beispiel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Vorbereitung der Daten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Überprüfung der Hypothesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Hypothesentests in Python</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-gepaarten-stichproben">Inferenz für zwei Grundgesamtheitsmittelwerte bei gepaarten Stichproben</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intervall-schatzung-von-mu-d">Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_d\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-2-stichproben-t-test-fur-gepaarte-abhangige-stichproben-ein-beispiel">Der <span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test für gepaarte (abhängige) Stichproben: Ein Beispiel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Vorbereitung der Daten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Überprüfung der Hypothesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Hypothesentests in Python</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ixians
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

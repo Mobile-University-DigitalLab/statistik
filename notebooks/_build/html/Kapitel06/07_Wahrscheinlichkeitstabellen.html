@@ -1,0 +1,4731 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Wahrscheinlichkeits-Tabellen &#8212; Modul Statistik und Machine Learning Modelle</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel06/07_Wahrscheinlichkeitstabellen';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Übungsaufgaben" href="../Aufgaben/Kapitel06/Aufgaben.html" />
+    <link rel="prev" title="Inferenzmethoden in Regression und Korrelation" href="06_Inferenz_Regression_und_Korrelation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vorwort</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Vorwort.html">Vorwort</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Statistik</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel1_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/01_Deskriptive_Statistik.html">Deskriptive Statistik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/02_Ma%C3%9Fe_der_zentralen_Tendenz.html">Maße der zentralen Tendenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel01/05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel2_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel3_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/01_stetige_Zufallsvariablen.html">Stetige Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/02_Die%20Normalverteilung.html">Die Normalverteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/03_Die_kontinuierliche_gleichm%C3%A4%C3%9Fige_Verteilung.html">Die kontinuierliche gleichmäßige Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel6_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_Hypothesentests.html">Hypothesentests</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="02_Hypothesentests_Mittelwert_einer_Grundgesamtheit.html">Hypothesentests für den Mittelwert einer Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte.html">Hypothesentests für zwei Grundgesamtheitsmittelwerte</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="04_Standardabweichung_der_Grundgesamtheit.html">Inferenz für die Standardabweichung der Grundgesamtheit</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_Chi_Quadrat_Tests.html">Chi-Quadrat-Tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Inferenz_Regression_und_Korrelation.html">Inferenzmethoden in Regression und Korrelation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Wahrscheinlichkeits-Tabellen</a></li>
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Literaturverzeichnis.html">Literaturverzeichnis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel06/07_Wahrscheinlichkeitstabellen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Kapitel06/07_Wahrscheinlichkeitstabellen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Wahrscheinlichkeits-Tabellen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Wahrscheinlichkeits-Tabellen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#die-z-verteilung">Die <span class="math notranslate nohighlight">\(z\)</span>-Verteilung</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantilen-der-standard-normal-z-verteilung">Quantilen der Standard-Normal-(<span class="math notranslate nohighlight">\(z\)</span>)-Verteilung</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#die-t-verteilung">Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantilen-der-studentschen-t-verteilung">Quantilen der Studentschen t-Verteilung</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#die-chi-quadrat-verteilung">Die Chi-Quadrat-Verteilung</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-2-quantilen"><span class="math notranslate nohighlight">\(\chi^2\)</span>-Quantilen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#die-f-verteilung">Die <span class="math notranslate nohighlight">\(F\)</span>-Verteilung</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantilen-der-f-verteilung-alpha-5">Quantilen der <span class="math notranslate nohighlight">\(F\)</span>-Verteilung (<span class="math notranslate nohighlight">\(\alpha=5 \%\)</span>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantilen-der-f-verteilung-alpha-1">Quantilen der <span class="math notranslate nohighlight">\(F\)</span>-Verteilung (<span class="math notranslate nohighlight">\(\alpha=1\%\)</span>)</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="wahrscheinlichkeits-tabellen">
+<h1>Wahrscheinlichkeits-Tabellen<a class="headerlink" href="#wahrscheinlichkeits-tabellen" title="Permalink to this heading">#</a></h1>
+<hr class="docutils" />
+<p>Die folgenden Wahrscheinlichkeitsverteilungen werden behandelt:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(z\)</span>-Verteilung</p></li>
+<li><p><span class="math notranslate nohighlight">\(t\)</span>-Verteilung</p></li>
+<li><p><span class="math notranslate nohighlight">\(\chi^2\)</span>-Verteilung</p></li>
+<li><p><span class="math notranslate nohighlight">\(F\)</span>-Verteilung (<span class="math notranslate nohighlight">\(\alpha=1\)</span> und <span class="math notranslate nohighlight">\(\alpha=5\)</span>)</p></li>
+</ul>
+</section>
+<section id="die-z-verteilung">
+<h1>Die <span class="math notranslate nohighlight">\(z\)</span>-Verteilung<a class="headerlink" href="#die-z-verteilung" title="Permalink to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="quantilen-der-standard-normal-z-verteilung">
+<h2>Quantilen der Standard-Normal-(<span class="math notranslate nohighlight">\(z\)</span>)-Verteilung<a class="headerlink" href="#quantilen-der-standard-normal-z-verteilung" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\phi(-z) \rightarrow\)</span> unter Mittelwert</p></li>
+<li><p><span class="math notranslate nohighlight">\(\phi(z) \rightarrow\)</span> über Mittelwert</p></li>
+<li><p><span class="math notranslate nohighlight">\(D(z) \rightarrow\)</span> symmetrisches Intervall</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(z\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\phi(-z)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\phi(z)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(D(z)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>0,01</p></td>
+<td><p>0,496</p></td>
+<td><p>0,504</p></td>
+<td><p>0,007979</p></td>
+</tr>
+<tr class="row-even"><td><p>0,02</p></td>
+<td><p>0,492</p></td>
+<td><p>0,508</p></td>
+<td><p>0,01596</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,03</p></td>
+<td><p>0,488</p></td>
+<td><p>0,512</p></td>
+<td><p>0,02393</p></td>
+</tr>
+<tr class="row-even"><td><p>0,04</p></td>
+<td><p>0,484</p></td>
+<td><p>0,516</p></td>
+<td><p>0,03191</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,05</p></td>
+<td><p>0,4801</p></td>
+<td><p>0,5199</p></td>
+<td><p>0,03988</p></td>
+</tr>
+<tr class="row-even"><td><p>0,06</p></td>
+<td><p>0,4761</p></td>
+<td><p>0,5239</p></td>
+<td><p>0,04784</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,07</p></td>
+<td><p>0,4721</p></td>
+<td><p>0,5279</p></td>
+<td><p>0,05581</p></td>
+</tr>
+<tr class="row-even"><td><p>0,08</p></td>
+<td><p>0,4681</p></td>
+<td><p>0,5319</p></td>
+<td><p>0,06376</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,09</p></td>
+<td><p>0,4641</p></td>
+<td><p>0,5359</p></td>
+<td><p>0,07171</p></td>
+</tr>
+<tr class="row-even"><td><p>0,1</p></td>
+<td><p>0,4602</p></td>
+<td><p>0,5398</p></td>
+<td><p>0,07966</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,11</p></td>
+<td><p>0,4562</p></td>
+<td><p>0,5438</p></td>
+<td><p>0,08759</p></td>
+</tr>
+<tr class="row-even"><td><p>0,12</p></td>
+<td><p>0,4522</p></td>
+<td><p>0,5478</p></td>
+<td><p>0,09552</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,13</p></td>
+<td><p>0,4483</p></td>
+<td><p>0,5517</p></td>
+<td><p>0,1034</p></td>
+</tr>
+<tr class="row-even"><td><p>0,14</p></td>
+<td><p>0,4443</p></td>
+<td><p>0,5557</p></td>
+<td><p>0,1113</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,15</p></td>
+<td><p>0,4404</p></td>
+<td><p>0,5596</p></td>
+<td><p>0,1192</p></td>
+</tr>
+<tr class="row-even"><td><p>0,16</p></td>
+<td><p>0,4364</p></td>
+<td><p>0,5636</p></td>
+<td><p>0,1271</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,17</p></td>
+<td><p>0,4325</p></td>
+<td><p>0,5675</p></td>
+<td><p>0,135</p></td>
+</tr>
+<tr class="row-even"><td><p>0,18</p></td>
+<td><p>0,4286</p></td>
+<td><p>0,5714</p></td>
+<td><p>0,1428</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,19</p></td>
+<td><p>0,4247</p></td>
+<td><p>0,5753</p></td>
+<td><p>0,1507</p></td>
+</tr>
+<tr class="row-even"><td><p>0,2</p></td>
+<td><p>0,4207</p></td>
+<td><p>0,5793</p></td>
+<td><p>0,1585</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,21</p></td>
+<td><p>0,4168</p></td>
+<td><p>0,5832</p></td>
+<td><p>0,1663</p></td>
+</tr>
+<tr class="row-even"><td><p>0,22</p></td>
+<td><p>0,4129</p></td>
+<td><p>0,5871</p></td>
+<td><p>0,1741</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,23</p></td>
+<td><p>0,409</p></td>
+<td><p>0,591</p></td>
+<td><p>0,1819</p></td>
+</tr>
+<tr class="row-even"><td><p>0,24</p></td>
+<td><p>0,4052</p></td>
+<td><p>0,5948</p></td>
+<td><p>0,1897</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,25</p></td>
+<td><p>0,4013</p></td>
+<td><p>0,5987</p></td>
+<td><p>0,1974</p></td>
+</tr>
+<tr class="row-even"><td><p>0,26</p></td>
+<td><p>0,3974</p></td>
+<td><p>0,6026</p></td>
+<td><p>0,2051</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,27</p></td>
+<td><p>0,3936</p></td>
+<td><p>0,6064</p></td>
+<td><p>0,2128</p></td>
+</tr>
+<tr class="row-even"><td><p>0,28</p></td>
+<td><p>0,3897</p></td>
+<td><p>0,6103</p></td>
+<td><p>0,2205</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,29</p></td>
+<td><p>0,3859</p></td>
+<td><p>0,6141</p></td>
+<td><p>0,2282</p></td>
+</tr>
+<tr class="row-even"><td><p>0,3</p></td>
+<td><p>0,3821</p></td>
+<td><p>0,6179</p></td>
+<td><p>0,2358</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,31</p></td>
+<td><p>0,3783</p></td>
+<td><p>0,6217</p></td>
+<td><p>0,2434</p></td>
+</tr>
+<tr class="row-even"><td><p>0,32</p></td>
+<td><p>0,3745</p></td>
+<td><p>0,6255</p></td>
+<td><p>0,251</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,33</p></td>
+<td><p>0,3707</p></td>
+<td><p>0,6293</p></td>
+<td><p>0,2586</p></td>
+</tr>
+<tr class="row-even"><td><p>0,34</p></td>
+<td><p>0,3669</p></td>
+<td><p>0,6331</p></td>
+<td><p>0,2661</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,35</p></td>
+<td><p>0,3632</p></td>
+<td><p>0,6368</p></td>
+<td><p>0,2737</p></td>
+</tr>
+<tr class="row-even"><td><p>0,36</p></td>
+<td><p>0,3594</p></td>
+<td><p>0,6406</p></td>
+<td><p>0,2812</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,37</p></td>
+<td><p>0,3557</p></td>
+<td><p>0,6443</p></td>
+<td><p>0,2886</p></td>
+</tr>
+<tr class="row-even"><td><p>0,38</p></td>
+<td><p>0,352</p></td>
+<td><p>0,648</p></td>
+<td><p>0,2961</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,39</p></td>
+<td><p>0,3483</p></td>
+<td><p>0,6517</p></td>
+<td><p>0,3035</p></td>
+</tr>
+<tr class="row-even"><td><p>0,4</p></td>
+<td><p>0,3446</p></td>
+<td><p>0,6554</p></td>
+<td><p>0,3108</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,41</p></td>
+<td><p>0,3409</p></td>
+<td><p>0,6591</p></td>
+<td><p>0,3182</p></td>
+</tr>
+<tr class="row-even"><td><p>0,42</p></td>
+<td><p>0,3372</p></td>
+<td><p>0,6628</p></td>
+<td><p>0,3255</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,43</p></td>
+<td><p>0,3336</p></td>
+<td><p>0,6664</p></td>
+<td><p>0,3328</p></td>
+</tr>
+<tr class="row-even"><td><p>0,44</p></td>
+<td><p>0,33</p></td>
+<td><p>0,67</p></td>
+<td><p>0,3401</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,45</p></td>
+<td><p>0,3264</p></td>
+<td><p>0,6736</p></td>
+<td><p>0,3473</p></td>
+</tr>
+<tr class="row-even"><td><p>0,46</p></td>
+<td><p>0,3228</p></td>
+<td><p>0,6772</p></td>
+<td><p>0,3545</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,47</p></td>
+<td><p>0,3192</p></td>
+<td><p>0,6808</p></td>
+<td><p>0,3616</p></td>
+</tr>
+<tr class="row-even"><td><p>0,48</p></td>
+<td><p>0,3156</p></td>
+<td><p>0,6844</p></td>
+<td><p>0,3688</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,49</p></td>
+<td><p>0,3121</p></td>
+<td><p>0,6879</p></td>
+<td><p>0,3759</p></td>
+</tr>
+<tr class="row-even"><td><p>0,5</p></td>
+<td><p>0,3085</p></td>
+<td><p>0,6915</p></td>
+<td><p>0,3829</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,51</p></td>
+<td><p>0,305</p></td>
+<td><p>0,695</p></td>
+<td><p>0,3899</p></td>
+</tr>
+<tr class="row-even"><td><p>0,52</p></td>
+<td><p>0,3015</p></td>
+<td><p>0,6985</p></td>
+<td><p>0,3969</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,53</p></td>
+<td><p>0,2981</p></td>
+<td><p>0,7019</p></td>
+<td><p>0,4039</p></td>
+</tr>
+<tr class="row-even"><td><p>0,54</p></td>
+<td><p>0,2946</p></td>
+<td><p>0,7054</p></td>
+<td><p>0,4108</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,55</p></td>
+<td><p>0,2912</p></td>
+<td><p>0,7088</p></td>
+<td><p>0,4177</p></td>
+</tr>
+<tr class="row-even"><td><p>0,56</p></td>
+<td><p>0,2877</p></td>
+<td><p>0,7123</p></td>
+<td><p>0,4245</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,57</p></td>
+<td><p>0,2843</p></td>
+<td><p>0,7157</p></td>
+<td><p>0,4313</p></td>
+</tr>
+<tr class="row-even"><td><p>0,58</p></td>
+<td><p>0,281</p></td>
+<td><p>0,719</p></td>
+<td><p>0,4381</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,59</p></td>
+<td><p>0,2776</p></td>
+<td><p>0,7224</p></td>
+<td><p>0,4448</p></td>
+</tr>
+<tr class="row-even"><td><p>0,6</p></td>
+<td><p>0,2743</p></td>
+<td><p>0,7257</p></td>
+<td><p>0,4515</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,61</p></td>
+<td><p>0,2709</p></td>
+<td><p>0,7291</p></td>
+<td><p>0,4581</p></td>
+</tr>
+<tr class="row-even"><td><p>0,62</p></td>
+<td><p>0,2676</p></td>
+<td><p>0,7324</p></td>
+<td><p>0,4647</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,63</p></td>
+<td><p>0,2643</p></td>
+<td><p>0,7357</p></td>
+<td><p>0,4713</p></td>
+</tr>
+<tr class="row-even"><td><p>0,64</p></td>
+<td><p>0,2611</p></td>
+<td><p>0,7389</p></td>
+<td><p>0,4778</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,65</p></td>
+<td><p>0,2578</p></td>
+<td><p>0,7422</p></td>
+<td><p>0,4843</p></td>
+</tr>
+<tr class="row-even"><td><p>0,66</p></td>
+<td><p>0,2546</p></td>
+<td><p>0,7454</p></td>
+<td><p>0,4907</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,67</p></td>
+<td><p>0,2514</p></td>
+<td><p>0,7486</p></td>
+<td><p>0,4971</p></td>
+</tr>
+<tr class="row-even"><td><p>0,68</p></td>
+<td><p>0,2483</p></td>
+<td><p>0,7517</p></td>
+<td><p>0,5035</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,69</p></td>
+<td><p>0,2451</p></td>
+<td><p>0,7549</p></td>
+<td><p>0,5098</p></td>
+</tr>
+<tr class="row-even"><td><p>0,7</p></td>
+<td><p>0,242</p></td>
+<td><p>0,758</p></td>
+<td><p>0,5161</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,71</p></td>
+<td><p>0,2389</p></td>
+<td><p>0,7611</p></td>
+<td><p>0,5223</p></td>
+</tr>
+<tr class="row-even"><td><p>0,72</p></td>
+<td><p>0,2358</p></td>
+<td><p>0,7642</p></td>
+<td><p>0,5285</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,73</p></td>
+<td><p>0,2327</p></td>
+<td><p>0,7673</p></td>
+<td><p>0,5346</p></td>
+</tr>
+<tr class="row-even"><td><p>0,74</p></td>
+<td><p>0,2296</p></td>
+<td><p>0,7704</p></td>
+<td><p>0,5407</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,75</p></td>
+<td><p>0,2266</p></td>
+<td><p>0,7734</p></td>
+<td><p>0,5467</p></td>
+</tr>
+<tr class="row-even"><td><p>0,76</p></td>
+<td><p>0,2236</p></td>
+<td><p>0,7764</p></td>
+<td><p>0,5527</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,77</p></td>
+<td><p>0,2206</p></td>
+<td><p>0,7794</p></td>
+<td><p>0,5587</p></td>
+</tr>
+<tr class="row-even"><td><p>0,78</p></td>
+<td><p>0,2177</p></td>
+<td><p>0,7823</p></td>
+<td><p>0,5646</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,79</p></td>
+<td><p>0,2148</p></td>
+<td><p>0,7852</p></td>
+<td><p>0,5705</p></td>
+</tr>
+<tr class="row-even"><td><p>0,8</p></td>
+<td><p>0,2119</p></td>
+<td><p>0,7881</p></td>
+<td><p>0,5763</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,81</p></td>
+<td><p>0,209</p></td>
+<td><p>0,791</p></td>
+<td><p>0,5821</p></td>
+</tr>
+<tr class="row-even"><td><p>0,82</p></td>
+<td><p>0,2061</p></td>
+<td><p>0,7939</p></td>
+<td><p>0,5878</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,83</p></td>
+<td><p>0,2033</p></td>
+<td><p>0,7967</p></td>
+<td><p>0,5935</p></td>
+</tr>
+<tr class="row-even"><td><p>0,84</p></td>
+<td><p>0,2005</p></td>
+<td><p>0,7995</p></td>
+<td><p>0,5991</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,85</p></td>
+<td><p>0,1977</p></td>
+<td><p>0,8023</p></td>
+<td><p>0,6047</p></td>
+</tr>
+<tr class="row-even"><td><p>0,86</p></td>
+<td><p>0,1949</p></td>
+<td><p>0,8051</p></td>
+<td><p>0,6102</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,87</p></td>
+<td><p>0,1922</p></td>
+<td><p>0,8078</p></td>
+<td><p>0,6157</p></td>
+</tr>
+<tr class="row-even"><td><p>0,88</p></td>
+<td><p>0,1894</p></td>
+<td><p>0,8106</p></td>
+<td><p>0,6211</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,89</p></td>
+<td><p>0,1867</p></td>
+<td><p>0,8133</p></td>
+<td><p>0,6265</p></td>
+</tr>
+<tr class="row-even"><td><p>0,9</p></td>
+<td><p>0,1841</p></td>
+<td><p>0,8159</p></td>
+<td><p>0,6319</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,91</p></td>
+<td><p>0,1814</p></td>
+<td><p>0,8186</p></td>
+<td><p>0,6372</p></td>
+</tr>
+<tr class="row-even"><td><p>0,92</p></td>
+<td><p>0,1788</p></td>
+<td><p>0,8212</p></td>
+<td><p>0,6424</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,93</p></td>
+<td><p>0,1762</p></td>
+<td><p>0,8238</p></td>
+<td><p>0,6476</p></td>
+</tr>
+<tr class="row-even"><td><p>0,94</p></td>
+<td><p>0,1736</p></td>
+<td><p>0,8264</p></td>
+<td><p>0,6528</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,95</p></td>
+<td><p>0,1711</p></td>
+<td><p>0,8289</p></td>
+<td><p>0,6579</p></td>
+</tr>
+<tr class="row-even"><td><p>0,96</p></td>
+<td><p>0,1685</p></td>
+<td><p>0,8315</p></td>
+<td><p>0,6629</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,97</p></td>
+<td><p>0,166</p></td>
+<td><p>0,834</p></td>
+<td><p>0,668</p></td>
+</tr>
+<tr class="row-even"><td><p>0,98</p></td>
+<td><p>0,1635</p></td>
+<td><p>0,8365</p></td>
+<td><p>0,6729</p></td>
+</tr>
+<tr class="row-odd"><td><p>0,99</p></td>
+<td><p>0,1611</p></td>
+<td><p>0,8389</p></td>
+<td><p>0,6778</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0,1587</p></td>
+<td><p>0,8413</p></td>
+<td><p>0,6827</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,01</p></td>
+<td><p>0,1562</p></td>
+<td><p>0,8438</p></td>
+<td><p>0,6875</p></td>
+</tr>
+<tr class="row-even"><td><p>1,02</p></td>
+<td><p>0,1539</p></td>
+<td><p>0,8461</p></td>
+<td><p>0,6923</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,03</p></td>
+<td><p>0,1515</p></td>
+<td><p>0,8485</p></td>
+<td><p>0,697</p></td>
+</tr>
+<tr class="row-even"><td><p>1,04</p></td>
+<td><p>0,1492</p></td>
+<td><p>0,8508</p></td>
+<td><p>0,7017</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,05</p></td>
+<td><p>0,1469</p></td>
+<td><p>0,8531</p></td>
+<td><p>0,7063</p></td>
+</tr>
+<tr class="row-even"><td><p>1,06</p></td>
+<td><p>0,1446</p></td>
+<td><p>0,8554</p></td>
+<td><p>0,7109</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,07</p></td>
+<td><p>0,1423</p></td>
+<td><p>0,8577</p></td>
+<td><p>0,7154</p></td>
+</tr>
+<tr class="row-even"><td><p>1,08</p></td>
+<td><p>0,1401</p></td>
+<td><p>0,8599</p></td>
+<td><p>0,7199</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,09</p></td>
+<td><p>0,1379</p></td>
+<td><p>0,8621</p></td>
+<td><p>0,7243</p></td>
+</tr>
+<tr class="row-even"><td><p>1,1</p></td>
+<td><p>0,1357</p></td>
+<td><p>0,8643</p></td>
+<td><p>0,7287</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,11</p></td>
+<td><p>0,1335</p></td>
+<td><p>0,8665</p></td>
+<td><p>0,733</p></td>
+</tr>
+<tr class="row-even"><td><p>1,12</p></td>
+<td><p>0,1314</p></td>
+<td><p>0,8686</p></td>
+<td><p>0,7373</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,13</p></td>
+<td><p>0,1292</p></td>
+<td><p>0,8708</p></td>
+<td><p>0,7415</p></td>
+</tr>
+<tr class="row-even"><td><p>1,14</p></td>
+<td><p>0,1271</p></td>
+<td><p>0,8729</p></td>
+<td><p>0,7457</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,15</p></td>
+<td><p>0,1251</p></td>
+<td><p>0,8749</p></td>
+<td><p>0,7499</p></td>
+</tr>
+<tr class="row-even"><td><p>1,16</p></td>
+<td><p>0,123</p></td>
+<td><p>0,877</p></td>
+<td><p>0,754</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,17</p></td>
+<td><p>0,121</p></td>
+<td><p>0,879</p></td>
+<td><p>0,758</p></td>
+</tr>
+<tr class="row-even"><td><p>1,18</p></td>
+<td><p>0,119</p></td>
+<td><p>0,881</p></td>
+<td><p>0,762</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,19</p></td>
+<td><p>0,117</p></td>
+<td><p>0,883</p></td>
+<td><p>0,766</p></td>
+</tr>
+<tr class="row-even"><td><p>1,2</p></td>
+<td><p>0,1151</p></td>
+<td><p>0,8849</p></td>
+<td><p>0,7699</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,21</p></td>
+<td><p>0,1131</p></td>
+<td><p>0,8869</p></td>
+<td><p>0,7737</p></td>
+</tr>
+<tr class="row-even"><td><p>1,22</p></td>
+<td><p>0,1112</p></td>
+<td><p>0,8888</p></td>
+<td><p>0,7775</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,23</p></td>
+<td><p>0,1093</p></td>
+<td><p>0,8907</p></td>
+<td><p>0,7813</p></td>
+</tr>
+<tr class="row-even"><td><p>1,24</p></td>
+<td><p>0,1075</p></td>
+<td><p>0,8925</p></td>
+<td><p>0,785</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,25</p></td>
+<td><p>0,1056</p></td>
+<td><p>0,8944</p></td>
+<td><p>0,7887</p></td>
+</tr>
+<tr class="row-even"><td><p>1,26</p></td>
+<td><p>0,1038</p></td>
+<td><p>0,8962</p></td>
+<td><p>0,7923</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,27</p></td>
+<td><p>0,102</p></td>
+<td><p>0,898</p></td>
+<td><p>0,7959</p></td>
+</tr>
+<tr class="row-even"><td><p>1,28</p></td>
+<td><p>0,1003</p></td>
+<td><p>0,8997</p></td>
+<td><p>0,7995</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,29</p></td>
+<td><p>0,09853</p></td>
+<td><p>0,9015</p></td>
+<td><p>0,8029</p></td>
+</tr>
+<tr class="row-even"><td><p>1,3</p></td>
+<td><p>0,0968</p></td>
+<td><p>0,9032</p></td>
+<td><p>0,8064</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,31</p></td>
+<td><p>0,0951</p></td>
+<td><p>0,9049</p></td>
+<td><p>0,8098</p></td>
+</tr>
+<tr class="row-even"><td><p>1,32</p></td>
+<td><p>0,09342</p></td>
+<td><p>0,9066</p></td>
+<td><p>0,8132</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,33</p></td>
+<td><p>0,09176</p></td>
+<td><p>0,9082</p></td>
+<td><p>0,8165</p></td>
+</tr>
+<tr class="row-even"><td><p>1,34</p></td>
+<td><p>0,09012</p></td>
+<td><p>0,9099</p></td>
+<td><p>0,8198</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,35</p></td>
+<td><p>0,08851</p></td>
+<td><p>0,9115</p></td>
+<td><p>0,823</p></td>
+</tr>
+<tr class="row-even"><td><p>1,36</p></td>
+<td><p>0,08691</p></td>
+<td><p>0,9131</p></td>
+<td><p>0,8262</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,37</p></td>
+<td><p>0,08534</p></td>
+<td><p>0,9147</p></td>
+<td><p>0,8293</p></td>
+</tr>
+<tr class="row-even"><td><p>1,38</p></td>
+<td><p>0,08379</p></td>
+<td><p>0,9162</p></td>
+<td><p>0,8324</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,39</p></td>
+<td><p>0,08226</p></td>
+<td><p>0,9177</p></td>
+<td><p>0,8355</p></td>
+</tr>
+<tr class="row-even"><td><p>1,4</p></td>
+<td><p>0,08076</p></td>
+<td><p>0,9192</p></td>
+<td><p>0,8385</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,41</p></td>
+<td><p>0,07927</p></td>
+<td><p>0,9207</p></td>
+<td><p>0,8415</p></td>
+</tr>
+<tr class="row-even"><td><p>1,42</p></td>
+<td><p>0,0778</p></td>
+<td><p>0,9222</p></td>
+<td><p>0,8444</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,43</p></td>
+<td><p>0,07636</p></td>
+<td><p>0,9236</p></td>
+<td><p>0,8473</p></td>
+</tr>
+<tr class="row-even"><td><p>1,44</p></td>
+<td><p>0,07493</p></td>
+<td><p>0,9251</p></td>
+<td><p>0,8501</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,45</p></td>
+<td><p>0,07353</p></td>
+<td><p>0,9265</p></td>
+<td><p>0,8529</p></td>
+</tr>
+<tr class="row-even"><td><p>1,46</p></td>
+<td><p>0,07215</p></td>
+<td><p>0,9279</p></td>
+<td><p>0,8557</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,47</p></td>
+<td><p>0,07078</p></td>
+<td><p>0,9292</p></td>
+<td><p>0,8584</p></td>
+</tr>
+<tr class="row-even"><td><p>1,48</p></td>
+<td><p>0,06944</p></td>
+<td><p>0,9306</p></td>
+<td><p>0,8611</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,49</p></td>
+<td><p>0,06811</p></td>
+<td><p>0,9319</p></td>
+<td><p>0,8638</p></td>
+</tr>
+<tr class="row-even"><td><p>1,5</p></td>
+<td><p>0,06681</p></td>
+<td><p>0,9332</p></td>
+<td><p>0,8664</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,51</p></td>
+<td><p>0,06552</p></td>
+<td><p>0,9345</p></td>
+<td><p>0,869</p></td>
+</tr>
+<tr class="row-even"><td><p>1,52</p></td>
+<td><p>0,06426</p></td>
+<td><p>0,9357</p></td>
+<td><p>0,8715</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,53</p></td>
+<td><p>0,06301</p></td>
+<td><p>0,937</p></td>
+<td><p>0,874</p></td>
+</tr>
+<tr class="row-even"><td><p>1,54</p></td>
+<td><p>0,06178</p></td>
+<td><p>0,9382</p></td>
+<td><p>0,8764</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,55</p></td>
+<td><p>0,06057</p></td>
+<td><p>0,9394</p></td>
+<td><p>0,8789</p></td>
+</tr>
+<tr class="row-even"><td><p>1,56</p></td>
+<td><p>0,05938</p></td>
+<td><p>0,9406</p></td>
+<td><p>0,8812</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,57</p></td>
+<td><p>0,05821</p></td>
+<td><p>0,9418</p></td>
+<td><p>0,8836</p></td>
+</tr>
+<tr class="row-even"><td><p>1,58</p></td>
+<td><p>0,05705</p></td>
+<td><p>0,9429</p></td>
+<td><p>0,8859</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,59</p></td>
+<td><p>0,05592</p></td>
+<td><p>0,9441</p></td>
+<td><p>0,8882</p></td>
+</tr>
+<tr class="row-even"><td><p>1,6</p></td>
+<td><p>0,0548</p></td>
+<td><p>0,9452</p></td>
+<td><p>0,8904</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,61</p></td>
+<td><p>0,0537</p></td>
+<td><p>0,9463</p></td>
+<td><p>0,8926</p></td>
+</tr>
+<tr class="row-even"><td><p>1,62</p></td>
+<td><p>0,05262</p></td>
+<td><p>0,9474</p></td>
+<td><p>0,8948</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,63</p></td>
+<td><p>0,05155</p></td>
+<td><p>0,9484</p></td>
+<td><p>0,8969</p></td>
+</tr>
+<tr class="row-even"><td><p>1,64</p></td>
+<td><p>0,0505</p></td>
+<td><p>0,9495</p></td>
+<td><p>0,899</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,65</p></td>
+<td><p>0,04947</p></td>
+<td><p>0,9505</p></td>
+<td><p>0,9011</p></td>
+</tr>
+<tr class="row-even"><td><p>1,66</p></td>
+<td><p>0,04846</p></td>
+<td><p>0,9515</p></td>
+<td><p>0,9031</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,67</p></td>
+<td><p>0,04746</p></td>
+<td><p>0,9525</p></td>
+<td><p>0,9051</p></td>
+</tr>
+<tr class="row-even"><td><p>1,68</p></td>
+<td><p>0,04648</p></td>
+<td><p>0,9535</p></td>
+<td><p>0,907</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,69</p></td>
+<td><p>0,04551</p></td>
+<td><p>0,9545</p></td>
+<td><p>0,909</p></td>
+</tr>
+<tr class="row-even"><td><p>1,7</p></td>
+<td><p>0,04457</p></td>
+<td><p>0,9554</p></td>
+<td><p>0,9109</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,71</p></td>
+<td><p>0,04363</p></td>
+<td><p>0,9564</p></td>
+<td><p>0,9127</p></td>
+</tr>
+<tr class="row-even"><td><p>1,72</p></td>
+<td><p>0,04272</p></td>
+<td><p>0,9573</p></td>
+<td><p>0,9146</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,73</p></td>
+<td><p>0,04182</p></td>
+<td><p>0,9582</p></td>
+<td><p>0,9164</p></td>
+</tr>
+<tr class="row-even"><td><p>1,74</p></td>
+<td><p>0,04093</p></td>
+<td><p>0,9591</p></td>
+<td><p>0,9181</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,75</p></td>
+<td><p>0,04006</p></td>
+<td><p>0,9599</p></td>
+<td><p>0,9199</p></td>
+</tr>
+<tr class="row-even"><td><p>1,76</p></td>
+<td><p>0,0392</p></td>
+<td><p>0,9608</p></td>
+<td><p>0,9216</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,77</p></td>
+<td><p>0,03836</p></td>
+<td><p>0,9616</p></td>
+<td><p>0,9233</p></td>
+</tr>
+<tr class="row-even"><td><p>1,78</p></td>
+<td><p>0,03754</p></td>
+<td><p>0,9625</p></td>
+<td><p>0,9249</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,79</p></td>
+<td><p>0,03673</p></td>
+<td><p>0,9633</p></td>
+<td><p>0,9265</p></td>
+</tr>
+<tr class="row-even"><td><p>1,8</p></td>
+<td><p>0,03593</p></td>
+<td><p>0,9641</p></td>
+<td><p>0,9281</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,81</p></td>
+<td><p>0,03515</p></td>
+<td><p>0,9649</p></td>
+<td><p>0,9297</p></td>
+</tr>
+<tr class="row-even"><td><p>1,82</p></td>
+<td><p>0,03438</p></td>
+<td><p>0,9656</p></td>
+<td><p>0,9312</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,83</p></td>
+<td><p>0,03362</p></td>
+<td><p>0,9664</p></td>
+<td><p>0,9328</p></td>
+</tr>
+<tr class="row-even"><td><p>1,84</p></td>
+<td><p>0,03288</p></td>
+<td><p>0,9671</p></td>
+<td><p>0,9342</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,85</p></td>
+<td><p>0,03216</p></td>
+<td><p>0,9678</p></td>
+<td><p>0,9357</p></td>
+</tr>
+<tr class="row-even"><td><p>1,86</p></td>
+<td><p>0,03144</p></td>
+<td><p>0,9686</p></td>
+<td><p>0,9371</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,87</p></td>
+<td><p>0,03074</p></td>
+<td><p>0,9693</p></td>
+<td><p>0,9385</p></td>
+</tr>
+<tr class="row-even"><td><p>1,88</p></td>
+<td><p>0,03005</p></td>
+<td><p>0,9699</p></td>
+<td><p>0,9399</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,89</p></td>
+<td><p>0,02938</p></td>
+<td><p>0,9706</p></td>
+<td><p>0,9412</p></td>
+</tr>
+<tr class="row-even"><td><p>1,9</p></td>
+<td><p>0,02872</p></td>
+<td><p>0,9713</p></td>
+<td><p>0,9426</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,91</p></td>
+<td><p>0,02807</p></td>
+<td><p>0,9719</p></td>
+<td><p>0,9439</p></td>
+</tr>
+<tr class="row-even"><td><p>1,92</p></td>
+<td><p>0,02743</p></td>
+<td><p>0,9726</p></td>
+<td><p>0,9451</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,93</p></td>
+<td><p>0,0268</p></td>
+<td><p>0,9732</p></td>
+<td><p>0,9464</p></td>
+</tr>
+<tr class="row-even"><td><p>1,94</p></td>
+<td><p>0,02619</p></td>
+<td><p>0,9738</p></td>
+<td><p>0,9476</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,95</p></td>
+<td><p>0,02559</p></td>
+<td><p>0,9744</p></td>
+<td><p>0,9488</p></td>
+</tr>
+<tr class="row-even"><td><p>1,96</p></td>
+<td><p>0,025</p></td>
+<td><p>0,975</p></td>
+<td><p>0,95</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,97</p></td>
+<td><p>0,02442</p></td>
+<td><p>0,9756</p></td>
+<td><p>0,9512</p></td>
+</tr>
+<tr class="row-even"><td><p>1,98</p></td>
+<td><p>0,02385</p></td>
+<td><p>0,9761</p></td>
+<td><p>0,9523</p></td>
+</tr>
+<tr class="row-odd"><td><p>1,99</p></td>
+<td><p>0,0233</p></td>
+<td><p>0,9767</p></td>
+<td><p>0,9534</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0,02275</p></td>
+<td><p>0,9772</p></td>
+<td><p>0,9545</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,01</p></td>
+<td><p>0,02222</p></td>
+<td><p>0,9778</p></td>
+<td><p>0,9556</p></td>
+</tr>
+<tr class="row-even"><td><p>2,02</p></td>
+<td><p>0,02169</p></td>
+<td><p>0,9783</p></td>
+<td><p>0,9566</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,03</p></td>
+<td><p>0,02118</p></td>
+<td><p>0,9788</p></td>
+<td><p>0,9576</p></td>
+</tr>
+<tr class="row-even"><td><p>2,04</p></td>
+<td><p>0,02068</p></td>
+<td><p>0,9793</p></td>
+<td><p>0,9586</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,05</p></td>
+<td><p>0,02018</p></td>
+<td><p>0,9798</p></td>
+<td><p>0,9596</p></td>
+</tr>
+<tr class="row-even"><td><p>2,06</p></td>
+<td><p>0,0197</p></td>
+<td><p>0,9803</p></td>
+<td><p>0,9606</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,07</p></td>
+<td><p>0,01923</p></td>
+<td><p>0,9808</p></td>
+<td><p>0,9615</p></td>
+</tr>
+<tr class="row-even"><td><p>2,08</p></td>
+<td><p>0,01876</p></td>
+<td><p>0,9812</p></td>
+<td><p>0,9625</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,09</p></td>
+<td><p>0,01831</p></td>
+<td><p>0,9817</p></td>
+<td><p>0,9634</p></td>
+</tr>
+<tr class="row-even"><td><p>2,1</p></td>
+<td><p>0,01786</p></td>
+<td><p>0,9821</p></td>
+<td><p>0,9643</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,11</p></td>
+<td><p>0,01743</p></td>
+<td><p>0,9826</p></td>
+<td><p>0,9651</p></td>
+</tr>
+<tr class="row-even"><td><p>2,12</p></td>
+<td><p>0,017</p></td>
+<td><p>0,983</p></td>
+<td><p>0,966</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,13</p></td>
+<td><p>0,01659</p></td>
+<td><p>0,9834</p></td>
+<td><p>0,9668</p></td>
+</tr>
+<tr class="row-even"><td><p>2,14</p></td>
+<td><p>0,01618</p></td>
+<td><p>0,9838</p></td>
+<td><p>0,9676</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,15</p></td>
+<td><p>0,01578</p></td>
+<td><p>0,9842</p></td>
+<td><p>0,9684</p></td>
+</tr>
+<tr class="row-even"><td><p>2,16</p></td>
+<td><p>0,01539</p></td>
+<td><p>0,9846</p></td>
+<td><p>0,9692</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,17</p></td>
+<td><p>0,015</p></td>
+<td><p>0,985</p></td>
+<td><p>0,97</p></td>
+</tr>
+<tr class="row-even"><td><p>2,18</p></td>
+<td><p>0,01463</p></td>
+<td><p>0,9854</p></td>
+<td><p>0,9707</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,19</p></td>
+<td><p>0,01426</p></td>
+<td><p>0,9857</p></td>
+<td><p>0,9715</p></td>
+</tr>
+<tr class="row-even"><td><p>2,2</p></td>
+<td><p>0,0139</p></td>
+<td><p>0,9861</p></td>
+<td><p>0,9722</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,21</p></td>
+<td><p>0,01355</p></td>
+<td><p>0,9864</p></td>
+<td><p>0,9729</p></td>
+</tr>
+<tr class="row-even"><td><p>2,22</p></td>
+<td><p>0,01321</p></td>
+<td><p>0,9868</p></td>
+<td><p>0,9736</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,23</p></td>
+<td><p>0,01287</p></td>
+<td><p>0,9871</p></td>
+<td><p>0,9743</p></td>
+</tr>
+<tr class="row-even"><td><p>2,24</p></td>
+<td><p>0,01255</p></td>
+<td><p>0,9875</p></td>
+<td><p>0,9749</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,25</p></td>
+<td><p>0,01222</p></td>
+<td><p>0,9878</p></td>
+<td><p>0,9756</p></td>
+</tr>
+<tr class="row-even"><td><p>2,26</p></td>
+<td><p>0,01191</p></td>
+<td><p>0,9881</p></td>
+<td><p>0,9762</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,27</p></td>
+<td><p>0,0116</p></td>
+<td><p>0,9884</p></td>
+<td><p>0,9768</p></td>
+</tr>
+<tr class="row-even"><td><p>2,28</p></td>
+<td><p>0,0113</p></td>
+<td><p>0,9887</p></td>
+<td><p>0,9774</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,29</p></td>
+<td><p>0,01101</p></td>
+<td><p>0,989</p></td>
+<td><p>0,978</p></td>
+</tr>
+<tr class="row-even"><td><p>2,3</p></td>
+<td><p>0,01072</p></td>
+<td><p>0,9893</p></td>
+<td><p>0,9786</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,31</p></td>
+<td><p>0,01044</p></td>
+<td><p>0,9896</p></td>
+<td><p>0,9791</p></td>
+</tr>
+<tr class="row-even"><td><p>2,32</p></td>
+<td><p>0,01017</p></td>
+<td><p>0,9898</p></td>
+<td><p>0,9797</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,33</p></td>
+<td><p>0,009903</p></td>
+<td><p>0,9901</p></td>
+<td><p>0,9802</p></td>
+</tr>
+<tr class="row-even"><td><p>2,34</p></td>
+<td><p>0,009642</p></td>
+<td><p>0,9904</p></td>
+<td><p>0,9807</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,35</p></td>
+<td><p>0,009387</p></td>
+<td><p>0,9906</p></td>
+<td><p>0,9812</p></td>
+</tr>
+<tr class="row-even"><td><p>2,36</p></td>
+<td><p>0,009137</p></td>
+<td><p>0,9909</p></td>
+<td><p>0,9817</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,37</p></td>
+<td><p>0,008894</p></td>
+<td><p>0,9911</p></td>
+<td><p>0,9822</p></td>
+</tr>
+<tr class="row-even"><td><p>2,38</p></td>
+<td><p>0,008656</p></td>
+<td><p>0,9913</p></td>
+<td><p>0,9827</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,39</p></td>
+<td><p>0,008424</p></td>
+<td><p>0,9916</p></td>
+<td><p>0,9832</p></td>
+</tr>
+<tr class="row-even"><td><p>2,4</p></td>
+<td><p>0,008198</p></td>
+<td><p>0,9918</p></td>
+<td><p>0,9836</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,41</p></td>
+<td><p>0,007976</p></td>
+<td><p>0,992</p></td>
+<td><p>0,984</p></td>
+</tr>
+<tr class="row-even"><td><p>2,42</p></td>
+<td><p>0,00776</p></td>
+<td><p>0,9922</p></td>
+<td><p>0,9845</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,43</p></td>
+<td><p>0,007549</p></td>
+<td><p>0,9925</p></td>
+<td><p>0,9849</p></td>
+</tr>
+<tr class="row-even"><td><p>2,44</p></td>
+<td><p>0,007344</p></td>
+<td><p>0,9927</p></td>
+<td><p>0,9853</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,45</p></td>
+<td><p>0,007143</p></td>
+<td><p>0,9929</p></td>
+<td><p>0,9857</p></td>
+</tr>
+<tr class="row-even"><td><p>2,46</p></td>
+<td><p>0,006947</p></td>
+<td><p>0,9931</p></td>
+<td><p>0,9861</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,47</p></td>
+<td><p>0,006756</p></td>
+<td><p>0,9932</p></td>
+<td><p>0,9865</p></td>
+</tr>
+<tr class="row-even"><td><p>2,48</p></td>
+<td><p>0,006569</p></td>
+<td><p>0,9934</p></td>
+<td><p>0,9869</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,49</p></td>
+<td><p>0,006387</p></td>
+<td><p>0,9936</p></td>
+<td><p>0,9872</p></td>
+</tr>
+<tr class="row-even"><td><p>2,5</p></td>
+<td><p>0,00621</p></td>
+<td><p>0,9938</p></td>
+<td><p>0,9876</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,51</p></td>
+<td><p>0,006037</p></td>
+<td><p>0,994</p></td>
+<td><p>0,9879</p></td>
+</tr>
+<tr class="row-even"><td><p>2,52</p></td>
+<td><p>0,005868</p></td>
+<td><p>0,9941</p></td>
+<td><p>0,9883</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,53</p></td>
+<td><p>0,005703</p></td>
+<td><p>0,9943</p></td>
+<td><p>0,9886</p></td>
+</tr>
+<tr class="row-even"><td><p>2,54</p></td>
+<td><p>0,005543</p></td>
+<td><p>0,9945</p></td>
+<td><p>0,9889</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,55</p></td>
+<td><p>0,005386</p></td>
+<td><p>0,9946</p></td>
+<td><p>0,9892</p></td>
+</tr>
+<tr class="row-even"><td><p>2,56</p></td>
+<td><p>0,005234</p></td>
+<td><p>0,9948</p></td>
+<td><p>0,9895</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,57</p></td>
+<td><p>0,005085</p></td>
+<td><p>0,9949</p></td>
+<td><p>0,9898</p></td>
+</tr>
+<tr class="row-even"><td><p>2,58</p></td>
+<td><p>0,00494</p></td>
+<td><p>0,9951</p></td>
+<td><p>0,9901</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,59</p></td>
+<td><p>0,004799</p></td>
+<td><p>0,9952</p></td>
+<td><p>0,9904</p></td>
+</tr>
+<tr class="row-even"><td><p>2,6</p></td>
+<td><p>0,004661</p></td>
+<td><p>0,9953</p></td>
+<td><p>0,9907</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,61</p></td>
+<td><p>0,004527</p></td>
+<td><p>0,9955</p></td>
+<td><p>0,9909</p></td>
+</tr>
+<tr class="row-even"><td><p>2,62</p></td>
+<td><p>0,004396</p></td>
+<td><p>0,9956</p></td>
+<td><p>0,9912</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,63</p></td>
+<td><p>0,004269</p></td>
+<td><p>0,9957</p></td>
+<td><p>0,9915</p></td>
+</tr>
+<tr class="row-even"><td><p>2,64</p></td>
+<td><p>0,004145</p></td>
+<td><p>0,9959</p></td>
+<td><p>0,9917</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,65</p></td>
+<td><p>0,004025</p></td>
+<td><p>0,996</p></td>
+<td><p>0,992</p></td>
+</tr>
+<tr class="row-even"><td><p>2,66</p></td>
+<td><p>0,003907</p></td>
+<td><p>0,9961</p></td>
+<td><p>0,9922</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,67</p></td>
+<td><p>0,003793</p></td>
+<td><p>0,9962</p></td>
+<td><p>0,9924</p></td>
+</tr>
+<tr class="row-even"><td><p>2,68</p></td>
+<td><p>0,003681</p></td>
+<td><p>0,9963</p></td>
+<td><p>0,9926</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,69</p></td>
+<td><p>0,003573</p></td>
+<td><p>0,9964</p></td>
+<td><p>0,9929</p></td>
+</tr>
+<tr class="row-even"><td><p>2,7</p></td>
+<td><p>0,003467</p></td>
+<td><p>0,9965</p></td>
+<td><p>0,9931</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,71</p></td>
+<td><p>0,003364</p></td>
+<td><p>0,9966</p></td>
+<td><p>0,9933</p></td>
+</tr>
+<tr class="row-even"><td><p>2,72</p></td>
+<td><p>0,003264</p></td>
+<td><p>0,9967</p></td>
+<td><p>0,9935</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,73</p></td>
+<td><p>0,003167</p></td>
+<td><p>0,9968</p></td>
+<td><p>0,9937</p></td>
+</tr>
+<tr class="row-even"><td><p>2,74</p></td>
+<td><p>0,003072</p></td>
+<td><p>0,9969</p></td>
+<td><p>0,9939</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,75</p></td>
+<td><p>0,00298</p></td>
+<td><p>0,997</p></td>
+<td><p>0,994</p></td>
+</tr>
+<tr class="row-even"><td><p>2,76</p></td>
+<td><p>0,00289</p></td>
+<td><p>0,9971</p></td>
+<td><p>0,9942</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,77</p></td>
+<td><p>0,002803</p></td>
+<td><p>0,9972</p></td>
+<td><p>0,9944</p></td>
+</tr>
+<tr class="row-even"><td><p>2,78</p></td>
+<td><p>0,002718</p></td>
+<td><p>0,9973</p></td>
+<td><p>0,9946</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,79</p></td>
+<td><p>0,002635</p></td>
+<td><p>0,9974</p></td>
+<td><p>0,9947</p></td>
+</tr>
+<tr class="row-even"><td><p>2,8</p></td>
+<td><p>0,002555</p></td>
+<td><p>0,9974</p></td>
+<td><p>0,9949</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,81</p></td>
+<td><p>0,002477</p></td>
+<td><p>0,9975</p></td>
+<td><p>0,995</p></td>
+</tr>
+<tr class="row-even"><td><p>2,82</p></td>
+<td><p>0,002401</p></td>
+<td><p>0,9976</p></td>
+<td><p>0,9952</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,83</p></td>
+<td><p>0,002327</p></td>
+<td><p>0,9977</p></td>
+<td><p>0,9953</p></td>
+</tr>
+<tr class="row-even"><td><p>2,84</p></td>
+<td><p>0,002256</p></td>
+<td><p>0,9977</p></td>
+<td><p>0,9955</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,85</p></td>
+<td><p>0,002186</p></td>
+<td><p>0,9978</p></td>
+<td><p>0,9956</p></td>
+</tr>
+<tr class="row-even"><td><p>2,86</p></td>
+<td><p>0,002118</p></td>
+<td><p>0,9979</p></td>
+<td><p>0,9958</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,87</p></td>
+<td><p>0,002052</p></td>
+<td><p>0,9979</p></td>
+<td><p>0,9959</p></td>
+</tr>
+<tr class="row-even"><td><p>2,88</p></td>
+<td><p>0,001988</p></td>
+<td><p>0,998</p></td>
+<td><p>0,996</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,89</p></td>
+<td><p>0,001926</p></td>
+<td><p>0,9981</p></td>
+<td><p>0,9961</p></td>
+</tr>
+<tr class="row-even"><td><p>2,9</p></td>
+<td><p>0,001866</p></td>
+<td><p>0,9981</p></td>
+<td><p>0,9963</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,91</p></td>
+<td><p>0,001807</p></td>
+<td><p>0,9982</p></td>
+<td><p>0,9964</p></td>
+</tr>
+<tr class="row-even"><td><p>2,92</p></td>
+<td><p>0,00175</p></td>
+<td><p>0,9982</p></td>
+<td><p>0,9965</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,93</p></td>
+<td><p>0,001695</p></td>
+<td><p>0,9983</p></td>
+<td><p>0,9966</p></td>
+</tr>
+<tr class="row-even"><td><p>2,94</p></td>
+<td><p>0,001641</p></td>
+<td><p>0,9984</p></td>
+<td><p>0,9967</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,95</p></td>
+<td><p>0,001589</p></td>
+<td><p>0,9984</p></td>
+<td><p>0,9968</p></td>
+</tr>
+<tr class="row-even"><td><p>2,96</p></td>
+<td><p>0,001538</p></td>
+<td><p>0,9985</p></td>
+<td><p>0,9969</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,97</p></td>
+<td><p>0,001489</p></td>
+<td><p>0,9985</p></td>
+<td><p>0,997</p></td>
+</tr>
+<tr class="row-even"><td><p>2,98</p></td>
+<td><p>0,001441</p></td>
+<td><p>0,9986</p></td>
+<td><p>0,9971</p></td>
+</tr>
+<tr class="row-odd"><td><p>2,99</p></td>
+<td><p>0,001395</p></td>
+<td><p>0,9986</p></td>
+<td><p>0,9972</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>0,00135</p></td>
+<td><p>0,9987</p></td>
+<td><p>0,9973</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="die-t-verteilung">
+<h1>Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung<a class="headerlink" href="#die-t-verteilung" title="Permalink to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="quantilen-der-studentschen-t-verteilung">
+<h2>Quantilen der Studentschen t-Verteilung<a class="headerlink" href="#quantilen-der-studentschen-t-verteilung" title="Permalink to this heading">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Si</p></th>
+<th class="head"><p>0,75</p></th>
+<th class="head"><p>0,9</p></th>
+<th class="head"><p>0,95</p></th>
+<th class="head"><p>0,975</p></th>
+<th class="head"><p>0,99</p></th>
+<th class="head"><p>0,995</p></th>
+<th class="head"><p>0,999</p></th>
+<th class="head"><p>0,9995</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>df/Alpha</p></td>
+<td><p>0,25</p></td>
+<td><p>0,1</p></td>
+<td><p>0,05</p></td>
+<td><p>0,025</p></td>
+<td><p>0,01</p></td>
+<td><p>0,005</p></td>
+<td><p>0,001</p></td>
+<td><p>5e-04</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>3,08</p></td>
+<td><p>6,31</p></td>
+<td><p>12,71</p></td>
+<td><p>31,82</p></td>
+<td><p>63,66</p></td>
+<td><p>318,3</p></td>
+<td><p>636,6</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0,82</p></td>
+<td><p>1,89</p></td>
+<td><p>2,92</p></td>
+<td><p>4,3</p></td>
+<td><p>6,96</p></td>
+<td><p>9,92</p></td>
+<td><p>22,33</p></td>
+<td><p>31,6</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0,76</p></td>
+<td><p>1,64</p></td>
+<td><p>2,35</p></td>
+<td><p>3,18</p></td>
+<td><p>4,54</p></td>
+<td><p>5,84</p></td>
+<td><p>10,21</p></td>
+<td><p>12,92</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0,74</p></td>
+<td><p>1,53</p></td>
+<td><p>2,13</p></td>
+<td><p>2,78</p></td>
+<td><p>3,75</p></td>
+<td><p>4,6</p></td>
+<td><p>7,17</p></td>
+<td><p>8,61</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0,73</p></td>
+<td><p>1,48</p></td>
+<td><p>2,02</p></td>
+<td><p>2,57</p></td>
+<td><p>3,36</p></td>
+<td><p>4,03</p></td>
+<td><p>5,89</p></td>
+<td><p>6,87</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>0,72</p></td>
+<td><p>1,44</p></td>
+<td><p>1,94</p></td>
+<td><p>2,45</p></td>
+<td><p>3,14</p></td>
+<td><p>3,71</p></td>
+<td><p>5,21</p></td>
+<td><p>5,96</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>0,71</p></td>
+<td><p>1,41</p></td>
+<td><p>1,89</p></td>
+<td><p>2,36</p></td>
+<td><p>3</p></td>
+<td><p>3,5</p></td>
+<td><p>4,79</p></td>
+<td><p>5,41</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>0,71</p></td>
+<td><p>1,4</p></td>
+<td><p>1,86</p></td>
+<td><p>2,31</p></td>
+<td><p>2,9</p></td>
+<td><p>3,36</p></td>
+<td><p>4,5</p></td>
+<td><p>5,04</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>0,7</p></td>
+<td><p>1,38</p></td>
+<td><p>1,83</p></td>
+<td><p>2,26</p></td>
+<td><p>2,82</p></td>
+<td><p>3,25</p></td>
+<td><p>4,3</p></td>
+<td><p>4,78</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>0,7</p></td>
+<td><p>1,37</p></td>
+<td><p>1,81</p></td>
+<td><p>2,23</p></td>
+<td><p>2,76</p></td>
+<td><p>3,17</p></td>
+<td><p>4,14</p></td>
+<td><p>4,59</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>0,7</p></td>
+<td><p>1,36</p></td>
+<td><p>1,8</p></td>
+<td><p>2,2</p></td>
+<td><p>2,72</p></td>
+<td><p>3,11</p></td>
+<td><p>4,02</p></td>
+<td><p>4,44</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>0,7</p></td>
+<td><p>1,36</p></td>
+<td><p>1,78</p></td>
+<td><p>2,18</p></td>
+<td><p>2,68</p></td>
+<td><p>3,05</p></td>
+<td><p>3,93</p></td>
+<td><p>4,32</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>0,69</p></td>
+<td><p>1,35</p></td>
+<td><p>1,77</p></td>
+<td><p>2,16</p></td>
+<td><p>2,65</p></td>
+<td><p>3,01</p></td>
+<td><p>3,85</p></td>
+<td><p>4,22</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>0,69</p></td>
+<td><p>1,35</p></td>
+<td><p>1,76</p></td>
+<td><p>2,14</p></td>
+<td><p>2,62</p></td>
+<td><p>2,98</p></td>
+<td><p>3,79</p></td>
+<td><p>4,14</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>0,69</p></td>
+<td><p>1,34</p></td>
+<td><p>1,75</p></td>
+<td><p>2,13</p></td>
+<td><p>2,6</p></td>
+<td><p>2,95</p></td>
+<td><p>3,73</p></td>
+<td><p>4,07</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>0,69</p></td>
+<td><p>1,34</p></td>
+<td><p>1,75</p></td>
+<td><p>2,12</p></td>
+<td><p>2,58</p></td>
+<td><p>2,92</p></td>
+<td><p>3,69</p></td>
+<td><p>4,01</p></td>
+</tr>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p>0,69</p></td>
+<td><p>1,33</p></td>
+<td><p>1,74</p></td>
+<td><p>2,11</p></td>
+<td><p>2,57</p></td>
+<td><p>2,9</p></td>
+<td><p>3,65</p></td>
+<td><p>3,97</p></td>
+</tr>
+<tr class="row-even"><td><p>18</p></td>
+<td><p>0,69</p></td>
+<td><p>1,33</p></td>
+<td><p>1,73</p></td>
+<td><p>2,1</p></td>
+<td><p>2,55</p></td>
+<td><p>2,88</p></td>
+<td><p>3,61</p></td>
+<td><p>3,92</p></td>
+</tr>
+<tr class="row-odd"><td><p>19</p></td>
+<td><p>0,69</p></td>
+<td><p>1,33</p></td>
+<td><p>1,73</p></td>
+<td><p>2,09</p></td>
+<td><p>2,54</p></td>
+<td><p>2,86</p></td>
+<td><p>3,58</p></td>
+<td><p>3,88</p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>0,69</p></td>
+<td><p>1,33</p></td>
+<td><p>1,72</p></td>
+<td><p>2,09</p></td>
+<td><p>2,53</p></td>
+<td><p>2,85</p></td>
+<td><p>3,55</p></td>
+<td><p>3,85</p></td>
+</tr>
+<tr class="row-odd"><td><p>21</p></td>
+<td><p>0,69</p></td>
+<td><p>1,32</p></td>
+<td><p>1,72</p></td>
+<td><p>2,08</p></td>
+<td><p>2,52</p></td>
+<td><p>2,83</p></td>
+<td><p>3,53</p></td>
+<td><p>3,82</p></td>
+</tr>
+<tr class="row-even"><td><p>22</p></td>
+<td><p>0,69</p></td>
+<td><p>1,32</p></td>
+<td><p>1,72</p></td>
+<td><p>2,07</p></td>
+<td><p>2,51</p></td>
+<td><p>2,82</p></td>
+<td><p>3,5</p></td>
+<td><p>3,79</p></td>
+</tr>
+<tr class="row-odd"><td><p>23</p></td>
+<td><p>0,69</p></td>
+<td><p>1,32</p></td>
+<td><p>1,71</p></td>
+<td><p>2,07</p></td>
+<td><p>2,5</p></td>
+<td><p>2,81</p></td>
+<td><p>3,48</p></td>
+<td><p>3,77</p></td>
+</tr>
+<tr class="row-even"><td><p>24</p></td>
+<td><p>0,68</p></td>
+<td><p>1,32</p></td>
+<td><p>1,71</p></td>
+<td><p>2,06</p></td>
+<td><p>2,49</p></td>
+<td><p>2,8</p></td>
+<td><p>3,47</p></td>
+<td><p>3,75</p></td>
+</tr>
+<tr class="row-odd"><td><p>25</p></td>
+<td><p>0,68</p></td>
+<td><p>1,32</p></td>
+<td><p>1,71</p></td>
+<td><p>2,06</p></td>
+<td><p>2,49</p></td>
+<td><p>2,79</p></td>
+<td><p>3,45</p></td>
+<td><p>3,73</p></td>
+</tr>
+<tr class="row-even"><td><p>26</p></td>
+<td><p>0,68</p></td>
+<td><p>1,31</p></td>
+<td><p>1,71</p></td>
+<td><p>2,06</p></td>
+<td><p>2,48</p></td>
+<td><p>2,78</p></td>
+<td><p>3,43</p></td>
+<td><p>3,71</p></td>
+</tr>
+<tr class="row-odd"><td><p>27</p></td>
+<td><p>0,68</p></td>
+<td><p>1,31</p></td>
+<td><p>1,7</p></td>
+<td><p>2,05</p></td>
+<td><p>2,47</p></td>
+<td><p>2,77</p></td>
+<td><p>3,42</p></td>
+<td><p>3,69</p></td>
+</tr>
+<tr class="row-even"><td><p>28</p></td>
+<td><p>0,68</p></td>
+<td><p>1,31</p></td>
+<td><p>1,7</p></td>
+<td><p>2,05</p></td>
+<td><p>2,47</p></td>
+<td><p>2,76</p></td>
+<td><p>3,41</p></td>
+<td><p>3,67</p></td>
+</tr>
+<tr class="row-odd"><td><p>29</p></td>
+<td><p>0,68</p></td>
+<td><p>1,31</p></td>
+<td><p>1,7</p></td>
+<td><p>2,05</p></td>
+<td><p>2,46</p></td>
+<td><p>2,76</p></td>
+<td><p>3,4</p></td>
+<td><p>3,66</p></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>0,68</p></td>
+<td><p>1,31</p></td>
+<td><p>1,7</p></td>
+<td><p>2,04</p></td>
+<td><p>2,46</p></td>
+<td><p>2,75</p></td>
+<td><p>3,39</p></td>
+<td><p>3,65</p></td>
+</tr>
+<tr class="row-odd"><td><p>35</p></td>
+<td><p>0,68</p></td>
+<td><p>1,31</p></td>
+<td><p>1,69</p></td>
+<td><p>2,03</p></td>
+<td><p>2,44</p></td>
+<td><p>2,72</p></td>
+<td><p>3,34</p></td>
+<td><p>3,59</p></td>
+</tr>
+<tr class="row-even"><td><p>40</p></td>
+<td><p>0,68</p></td>
+<td><p>1,3</p></td>
+<td><p>1,68</p></td>
+<td><p>2,02</p></td>
+<td><p>2,42</p></td>
+<td><p>2,7</p></td>
+<td><p>3,31</p></td>
+<td><p>3,55</p></td>
+</tr>
+<tr class="row-odd"><td><p>45</p></td>
+<td><p>0,68</p></td>
+<td><p>1,3</p></td>
+<td><p>1,68</p></td>
+<td><p>2,01</p></td>
+<td><p>2,41</p></td>
+<td><p>2,69</p></td>
+<td><p>3,28</p></td>
+<td><p>3,52</p></td>
+</tr>
+<tr class="row-even"><td><p>50</p></td>
+<td><p>0,68</p></td>
+<td><p>1,3</p></td>
+<td><p>1,68</p></td>
+<td><p>2,01</p></td>
+<td><p>2,4</p></td>
+<td><p>2,68</p></td>
+<td><p>3,26</p></td>
+<td><p>3,5</p></td>
+</tr>
+<tr class="row-odd"><td><p>60</p></td>
+<td><p>0,68</p></td>
+<td><p>1,3</p></td>
+<td><p>1,67</p></td>
+<td><p>2</p></td>
+<td><p>2,39</p></td>
+<td><p>2,66</p></td>
+<td><p>3,23</p></td>
+<td><p>3,46</p></td>
+</tr>
+<tr class="row-even"><td><p>70</p></td>
+<td><p>0,68</p></td>
+<td><p>1,29</p></td>
+<td><p>1,67</p></td>
+<td><p>1,99</p></td>
+<td><p>2,38</p></td>
+<td><p>2,65</p></td>
+<td><p>3,21</p></td>
+<td><p>3,44</p></td>
+</tr>
+<tr class="row-odd"><td><p>80</p></td>
+<td><p>0,68</p></td>
+<td><p>1,29</p></td>
+<td><p>1,66</p></td>
+<td><p>1,99</p></td>
+<td><p>2,37</p></td>
+<td><p>2,64</p></td>
+<td><p>3,2</p></td>
+<td><p>3,42</p></td>
+</tr>
+<tr class="row-even"><td><p>90</p></td>
+<td><p>0,68</p></td>
+<td><p>1,29</p></td>
+<td><p>1,66</p></td>
+<td><p>1,99</p></td>
+<td><p>2,37</p></td>
+<td><p>2,63</p></td>
+<td><p>3,18</p></td>
+<td><p>3,4</p></td>
+</tr>
+<tr class="row-odd"><td><p>100</p></td>
+<td><p>0,68</p></td>
+<td><p>1,29</p></td>
+<td><p>1,66</p></td>
+<td><p>1,98</p></td>
+<td><p>2,36</p></td>
+<td><p>2,63</p></td>
+<td><p>3,17</p></td>
+<td><p>3,39</p></td>
+</tr>
+<tr class="row-even"><td><p>150</p></td>
+<td><p>0,68</p></td>
+<td><p>1,29</p></td>
+<td><p>1,66</p></td>
+<td><p>1,98</p></td>
+<td><p>2,35</p></td>
+<td><p>2,61</p></td>
+<td><p>3,15</p></td>
+<td><p>3,36</p></td>
+</tr>
+<tr class="row-odd"><td><p>200</p></td>
+<td><p>0,68</p></td>
+<td><p>1,29</p></td>
+<td><p>1,65</p></td>
+<td><p>1,97</p></td>
+<td><p>2,35</p></td>
+<td><p>2,6</p></td>
+<td><p>3,13</p></td>
+<td><p>3,34</p></td>
+</tr>
+<tr class="row-even"><td><p>300</p></td>
+<td><p>0,68</p></td>
+<td><p>1,28</p></td>
+<td><p>1,65</p></td>
+<td><p>1,97</p></td>
+<td><p>2,34</p></td>
+<td><p>2,59</p></td>
+<td><p>3,12</p></td>
+<td><p>3,32</p></td>
+</tr>
+<tr class="row-odd"><td><p>500</p></td>
+<td><p>0,67</p></td>
+<td><p>1,28</p></td>
+<td><p>1,65</p></td>
+<td><p>1,96</p></td>
+<td><p>2,33</p></td>
+<td><p>2,59</p></td>
+<td><p>3,11</p></td>
+<td><p>3,31</p></td>
+</tr>
+<tr class="row-even"><td><p>1000</p></td>
+<td><p>0,67</p></td>
+<td><p>1,28</p></td>
+<td><p>1,65</p></td>
+<td><p>1,96</p></td>
+<td><p>2,33</p></td>
+<td><p>2,58</p></td>
+<td><p>3,1</p></td>
+<td><p>3,3</p></td>
+</tr>
+<tr class="row-odd"><td><p>1e+09</p></td>
+<td><p>0,67</p></td>
+<td><p>1,28</p></td>
+<td><p>1,64</p></td>
+<td><p>1,96</p></td>
+<td><p>2,33</p></td>
+<td><p>2,58</p></td>
+<td><p>3,09</p></td>
+<td><p>3,29</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="die-chi-quadrat-verteilung">
+<h1>Die Chi-Quadrat-Verteilung<a class="headerlink" href="#die-chi-quadrat-verteilung" title="Permalink to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="chi-2-quantilen">
+<h2><span class="math notranslate nohighlight">\(\chi^2\)</span>-Quantilen<a class="headerlink" href="#chi-2-quantilen" title="Permalink to this heading">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Si</p></th>
+<th class="head"><p>0,01</p></th>
+<th class="head"><p>0,025</p></th>
+<th class="head"><p>0,05</p></th>
+<th class="head"><p>0,1</p></th>
+<th class="head"><p>0,25</p></th>
+<th class="head"><p>0,5</p></th>
+<th class="head"><p>0,75</p></th>
+<th class="head"><p>0,9</p></th>
+<th class="head"><p>0,95</p></th>
+<th class="head"><p>0,975</p></th>
+<th class="head"><p>0,99</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>df/Alpha</p></td>
+<td><p>0,99</p></td>
+<td><p>0,975</p></td>
+<td><p>0,95</p></td>
+<td><p>0,9</p></td>
+<td><p>0,75</p></td>
+<td><p>0,5</p></td>
+<td><p>0,25</p></td>
+<td><p>0,1</p></td>
+<td><p>0,05</p></td>
+<td><p>0,025</p></td>
+<td><p>0,01</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0,02</p></td>
+<td><p>0,1</p></td>
+<td><p>0,45</p></td>
+<td><p>1,32</p></td>
+<td><p>2,71</p></td>
+<td><p>3,84</p></td>
+<td><p>5,02</p></td>
+<td><p>6,63</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0,02</p></td>
+<td><p>0,05</p></td>
+<td><p>0,1</p></td>
+<td><p>0,21</p></td>
+<td><p>0,58</p></td>
+<td><p>1,39</p></td>
+<td><p>2,77</p></td>
+<td><p>4,61</p></td>
+<td><p>5,99</p></td>
+<td><p>7,38</p></td>
+<td><p>9,21</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0,11</p></td>
+<td><p>0,22</p></td>
+<td><p>0,35</p></td>
+<td><p>0,58</p></td>
+<td><p>1,21</p></td>
+<td><p>2,37</p></td>
+<td><p>4,11</p></td>
+<td><p>6,25</p></td>
+<td><p>7,81</p></td>
+<td><p>9,35</p></td>
+<td><p>11,34</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0,3</p></td>
+<td><p>0,48</p></td>
+<td><p>0,71</p></td>
+<td><p>1,06</p></td>
+<td><p>1,92</p></td>
+<td><p>3,36</p></td>
+<td><p>5,39</p></td>
+<td><p>7,78</p></td>
+<td><p>9,49</p></td>
+<td><p>11,14</p></td>
+<td><p>13,28</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0,55</p></td>
+<td><p>0,83</p></td>
+<td><p>1,15</p></td>
+<td><p>1,61</p></td>
+<td><p>2,67</p></td>
+<td><p>4,35</p></td>
+<td><p>6,63</p></td>
+<td><p>9,24</p></td>
+<td><p>11,07</p></td>
+<td><p>12,83</p></td>
+<td><p>15,09</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>0,87</p></td>
+<td><p>1,24</p></td>
+<td><p>1,64</p></td>
+<td><p>2,2</p></td>
+<td><p>3,45</p></td>
+<td><p>5,35</p></td>
+<td><p>7,84</p></td>
+<td><p>10,64</p></td>
+<td><p>12,59</p></td>
+<td><p>14,45</p></td>
+<td><p>16,81</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>1,24</p></td>
+<td><p>1,69</p></td>
+<td><p>2,17</p></td>
+<td><p>2,83</p></td>
+<td><p>4,25</p></td>
+<td><p>6,35</p></td>
+<td><p>9,04</p></td>
+<td><p>12,02</p></td>
+<td><p>14,07</p></td>
+<td><p>16,01</p></td>
+<td><p>18,48</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>1,65</p></td>
+<td><p>2,18</p></td>
+<td><p>2,73</p></td>
+<td><p>3,49</p></td>
+<td><p>5,07</p></td>
+<td><p>7,34</p></td>
+<td><p>10,22</p></td>
+<td><p>13,36</p></td>
+<td><p>15,51</p></td>
+<td><p>17,53</p></td>
+<td><p>20,09</p></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>2,09</p></td>
+<td><p>2,7</p></td>
+<td><p>3,33</p></td>
+<td><p>4,17</p></td>
+<td><p>5,9</p></td>
+<td><p>8,34</p></td>
+<td><p>11,39</p></td>
+<td><p>14,68</p></td>
+<td><p>16,92</p></td>
+<td><p>19,02</p></td>
+<td><p>21,67</p></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>2,56</p></td>
+<td><p>3,25</p></td>
+<td><p>3,94</p></td>
+<td><p>4,87</p></td>
+<td><p>6,74</p></td>
+<td><p>9,34</p></td>
+<td><p>12,55</p></td>
+<td><p>15,99</p></td>
+<td><p>18,31</p></td>
+<td><p>20,48</p></td>
+<td><p>23,21</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>3,05</p></td>
+<td><p>3,82</p></td>
+<td><p>4,57</p></td>
+<td><p>5,58</p></td>
+<td><p>7,58</p></td>
+<td><p>10,34</p></td>
+<td><p>13,7</p></td>
+<td><p>17,28</p></td>
+<td><p>19,68</p></td>
+<td><p>21,92</p></td>
+<td><p>24,72</p></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>3,57</p></td>
+<td><p>4,4</p></td>
+<td><p>5,23</p></td>
+<td><p>6,3</p></td>
+<td><p>8,44</p></td>
+<td><p>11,34</p></td>
+<td><p>14,85</p></td>
+<td><p>18,55</p></td>
+<td><p>21,03</p></td>
+<td><p>23,34</p></td>
+<td><p>26,22</p></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>4,11</p></td>
+<td><p>5,01</p></td>
+<td><p>5,89</p></td>
+<td><p>7,04</p></td>
+<td><p>9,3</p></td>
+<td><p>12,34</p></td>
+<td><p>15,98</p></td>
+<td><p>19,81</p></td>
+<td><p>22,36</p></td>
+<td><p>24,74</p></td>
+<td><p>27,69</p></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>4,66</p></td>
+<td><p>5,63</p></td>
+<td><p>6,57</p></td>
+<td><p>7,79</p></td>
+<td><p>10,17</p></td>
+<td><p>13,34</p></td>
+<td><p>17,12</p></td>
+<td><p>21,06</p></td>
+<td><p>23,68</p></td>
+<td><p>26,12</p></td>
+<td><p>29,14</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>5,23</p></td>
+<td><p>6,26</p></td>
+<td><p>7,26</p></td>
+<td><p>8,55</p></td>
+<td><p>11,04</p></td>
+<td><p>14,34</p></td>
+<td><p>18,25</p></td>
+<td><p>22,31</p></td>
+<td><p>25</p></td>
+<td><p>27,49</p></td>
+<td><p>30,58</p></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>5,81</p></td>
+<td><p>6,91</p></td>
+<td><p>7,96</p></td>
+<td><p>9,31</p></td>
+<td><p>11,91</p></td>
+<td><p>15,34</p></td>
+<td><p>19,37</p></td>
+<td><p>23,54</p></td>
+<td><p>26,3</p></td>
+<td><p>28,85</p></td>
+<td><p>32</p></td>
+</tr>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p>6,41</p></td>
+<td><p>7,56</p></td>
+<td><p>8,67</p></td>
+<td><p>10,09</p></td>
+<td><p>12,79</p></td>
+<td><p>16,34</p></td>
+<td><p>20,49</p></td>
+<td><p>24,77</p></td>
+<td><p>27,59</p></td>
+<td><p>30,19</p></td>
+<td><p>33,41</p></td>
+</tr>
+<tr class="row-even"><td><p>18</p></td>
+<td><p>7,01</p></td>
+<td><p>8,23</p></td>
+<td><p>9,39</p></td>
+<td><p>10,86</p></td>
+<td><p>13,68</p></td>
+<td><p>17,34</p></td>
+<td><p>21,6</p></td>
+<td><p>25,99</p></td>
+<td><p>28,87</p></td>
+<td><p>31,53</p></td>
+<td><p>34,81</p></td>
+</tr>
+<tr class="row-odd"><td><p>19</p></td>
+<td><p>7,63</p></td>
+<td><p>8,91</p></td>
+<td><p>10,12</p></td>
+<td><p>11,65</p></td>
+<td><p>14,56</p></td>
+<td><p>18,34</p></td>
+<td><p>22,72</p></td>
+<td><p>27,2</p></td>
+<td><p>30,14</p></td>
+<td><p>32,85</p></td>
+<td><p>36,19</p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>8,26</p></td>
+<td><p>9,59</p></td>
+<td><p>10,85</p></td>
+<td><p>12,44</p></td>
+<td><p>15,45</p></td>
+<td><p>19,34</p></td>
+<td><p>23,83</p></td>
+<td><p>28,41</p></td>
+<td><p>31,41</p></td>
+<td><p>34,17</p></td>
+<td><p>37,57</p></td>
+</tr>
+<tr class="row-odd"><td><p>21</p></td>
+<td><p>8,9</p></td>
+<td><p>10,28</p></td>
+<td><p>11,59</p></td>
+<td><p>13,24</p></td>
+<td><p>16,34</p></td>
+<td><p>20,34</p></td>
+<td><p>24,93</p></td>
+<td><p>29,62</p></td>
+<td><p>32,67</p></td>
+<td><p>35,48</p></td>
+<td><p>38,93</p></td>
+</tr>
+<tr class="row-even"><td><p>22</p></td>
+<td><p>9,54</p></td>
+<td><p>10,98</p></td>
+<td><p>12,34</p></td>
+<td><p>14,04</p></td>
+<td><p>17,24</p></td>
+<td><p>21,34</p></td>
+<td><p>26,04</p></td>
+<td><p>30,81</p></td>
+<td><p>33,92</p></td>
+<td><p>36,78</p></td>
+<td><p>40,29</p></td>
+</tr>
+<tr class="row-odd"><td><p>23</p></td>
+<td><p>10,2</p></td>
+<td><p>11,69</p></td>
+<td><p>13,09</p></td>
+<td><p>14,85</p></td>
+<td><p>18,14</p></td>
+<td><p>22,34</p></td>
+<td><p>27,14</p></td>
+<td><p>32,01</p></td>
+<td><p>35,17</p></td>
+<td><p>38,08</p></td>
+<td><p>41,64</p></td>
+</tr>
+<tr class="row-even"><td><p>24</p></td>
+<td><p>10,86</p></td>
+<td><p>12,4</p></td>
+<td><p>13,85</p></td>
+<td><p>15,66</p></td>
+<td><p>19,04</p></td>
+<td><p>23,34</p></td>
+<td><p>28,24</p></td>
+<td><p>33,2</p></td>
+<td><p>36,42</p></td>
+<td><p>39,36</p></td>
+<td><p>42,98</p></td>
+</tr>
+<tr class="row-odd"><td><p>25</p></td>
+<td><p>11,52</p></td>
+<td><p>13,12</p></td>
+<td><p>14,61</p></td>
+<td><p>16,47</p></td>
+<td><p>19,94</p></td>
+<td><p>24,34</p></td>
+<td><p>29,34</p></td>
+<td><p>34,38</p></td>
+<td><p>37,65</p></td>
+<td><p>40,65</p></td>
+<td><p>44,31</p></td>
+</tr>
+<tr class="row-even"><td><p>26</p></td>
+<td><p>12,2</p></td>
+<td><p>13,84</p></td>
+<td><p>15,38</p></td>
+<td><p>17,29</p></td>
+<td><p>20,84</p></td>
+<td><p>25,34</p></td>
+<td><p>30,43</p></td>
+<td><p>35,56</p></td>
+<td><p>38,89</p></td>
+<td><p>41,92</p></td>
+<td><p>45,64</p></td>
+</tr>
+<tr class="row-odd"><td><p>27</p></td>
+<td><p>12,88</p></td>
+<td><p>14,57</p></td>
+<td><p>16,15</p></td>
+<td><p>18,11</p></td>
+<td><p>21,75</p></td>
+<td><p>26,34</p></td>
+<td><p>31,53</p></td>
+<td><p>36,74</p></td>
+<td><p>40,11</p></td>
+<td><p>43,19</p></td>
+<td><p>46,96</p></td>
+</tr>
+<tr class="row-even"><td><p>28</p></td>
+<td><p>13,56</p></td>
+<td><p>15,31</p></td>
+<td><p>16,93</p></td>
+<td><p>18,94</p></td>
+<td><p>22,66</p></td>
+<td><p>27,34</p></td>
+<td><p>32,62</p></td>
+<td><p>37,92</p></td>
+<td><p>41,34</p></td>
+<td><p>44,46</p></td>
+<td><p>48,28</p></td>
+</tr>
+<tr class="row-odd"><td><p>29</p></td>
+<td><p>14,26</p></td>
+<td><p>16,05</p></td>
+<td><p>17,71</p></td>
+<td><p>19,77</p></td>
+<td><p>23,57</p></td>
+<td><p>28,34</p></td>
+<td><p>33,71</p></td>
+<td><p>39,09</p></td>
+<td><p>42,56</p></td>
+<td><p>45,72</p></td>
+<td><p>49,59</p></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>14,95</p></td>
+<td><p>16,79</p></td>
+<td><p>18,49</p></td>
+<td><p>20,6</p></td>
+<td><p>24,48</p></td>
+<td><p>29,34</p></td>
+<td><p>34,8</p></td>
+<td><p>40,26</p></td>
+<td><p>43,77</p></td>
+<td><p>46,98</p></td>
+<td><p>50,89</p></td>
+</tr>
+<tr class="row-odd"><td><p>35</p></td>
+<td><p>18,51</p></td>
+<td><p>20,57</p></td>
+<td><p>22,47</p></td>
+<td><p>24,8</p></td>
+<td><p>29,05</p></td>
+<td><p>34,34</p></td>
+<td><p>40,22</p></td>
+<td><p>46,06</p></td>
+<td><p>49,8</p></td>
+<td><p>53,2</p></td>
+<td><p>57,34</p></td>
+</tr>
+<tr class="row-even"><td><p>40</p></td>
+<td><p>22,16</p></td>
+<td><p>24,43</p></td>
+<td><p>26,51</p></td>
+<td><p>29,05</p></td>
+<td><p>33,66</p></td>
+<td><p>39,34</p></td>
+<td><p>45,62</p></td>
+<td><p>51,81</p></td>
+<td><p>55,76</p></td>
+<td><p>59,34</p></td>
+<td><p>63,69</p></td>
+</tr>
+<tr class="row-odd"><td><p>45</p></td>
+<td><p>25,9</p></td>
+<td><p>28,37</p></td>
+<td><p>30,61</p></td>
+<td><p>33,35</p></td>
+<td><p>38,29</p></td>
+<td><p>44,34</p></td>
+<td><p>50,98</p></td>
+<td><p>57,51</p></td>
+<td><p>61,66</p></td>
+<td><p>65,41</p></td>
+<td><p>69,96</p></td>
+</tr>
+<tr class="row-even"><td><p>50</p></td>
+<td><p>29,71</p></td>
+<td><p>32,36</p></td>
+<td><p>34,76</p></td>
+<td><p>37,69</p></td>
+<td><p>42,94</p></td>
+<td><p>49,33</p></td>
+<td><p>56,33</p></td>
+<td><p>63,17</p></td>
+<td><p>67,5</p></td>
+<td><p>71,42</p></td>
+<td><p>76,15</p></td>
+</tr>
+<tr class="row-odd"><td><p>60</p></td>
+<td><p>37,48</p></td>
+<td><p>40,48</p></td>
+<td><p>43,19</p></td>
+<td><p>46,46</p></td>
+<td><p>52,29</p></td>
+<td><p>59,33</p></td>
+<td><p>66,98</p></td>
+<td><p>74,4</p></td>
+<td><p>79,08</p></td>
+<td><p>83,3</p></td>
+<td><p>88,38</p></td>
+</tr>
+<tr class="row-even"><td><p>70</p></td>
+<td><p>45,44</p></td>
+<td><p>48,76</p></td>
+<td><p>51,74</p></td>
+<td><p>55,33</p></td>
+<td><p>61,7</p></td>
+<td><p>69,33</p></td>
+<td><p>77,58</p></td>
+<td><p>85,53</p></td>
+<td><p>90,53</p></td>
+<td><p>95,02</p></td>
+<td><p>100,4</p></td>
+</tr>
+<tr class="row-odd"><td><p>80</p></td>
+<td><p>53,54</p></td>
+<td><p>57,15</p></td>
+<td><p>60,39</p></td>
+<td><p>64,28</p></td>
+<td><p>71,14</p></td>
+<td><p>79,33</p></td>
+<td><p>88,13</p></td>
+<td><p>96,58</p></td>
+<td><p>101,9</p></td>
+<td><p>106,6</p></td>
+<td><p>112,3</p></td>
+</tr>
+<tr class="row-even"><td><p>90</p></td>
+<td><p>61,75</p></td>
+<td><p>65,65</p></td>
+<td><p>69,13</p></td>
+<td><p>73,29</p></td>
+<td><p>80,62</p></td>
+<td><p>89,33</p></td>
+<td><p>98,65</p></td>
+<td><p>107,6</p></td>
+<td><p>113,2</p></td>
+<td><p>118,1</p></td>
+<td><p>124,1</p></td>
+</tr>
+<tr class="row-odd"><td><p>100</p></td>
+<td><p>70,06</p></td>
+<td><p>74,22</p></td>
+<td><p>77,93</p></td>
+<td><p>82,36</p></td>
+<td><p>90,13</p></td>
+<td><p>99,33</p></td>
+<td><p>109,1</p></td>
+<td><p>118,5</p></td>
+<td><p>124,3</p></td>
+<td><p>129,6</p></td>
+<td><p>135,8</p></td>
+</tr>
+<tr class="row-even"><td><p>150</p></td>
+<td><p>112,7</p></td>
+<td><p>118</p></td>
+<td><p>122,7</p></td>
+<td><p>128,3</p></td>
+<td><p>138</p></td>
+<td><p>149,3</p></td>
+<td><p>161,3</p></td>
+<td><p>172,6</p></td>
+<td><p>179,6</p></td>
+<td><p>185,8</p></td>
+<td><p>193,2</p></td>
+</tr>
+<tr class="row-odd"><td><p>200</p></td>
+<td><p>156,4</p></td>
+<td><p>162,7</p></td>
+<td><p>168,3</p></td>
+<td><p>174,8</p></td>
+<td><p>186,2</p></td>
+<td><p>199,3</p></td>
+<td><p>213,1</p></td>
+<td><p>226</p></td>
+<td><p>234</p></td>
+<td><p>241,1</p></td>
+<td><p>249,4</p></td>
+</tr>
+<tr class="row-even"><td><p>300</p></td>
+<td><p>246</p></td>
+<td><p>253,9</p></td>
+<td><p>260,9</p></td>
+<td><p>269,1</p></td>
+<td><p>283,1</p></td>
+<td><p>299,3</p></td>
+<td><p>316,1</p></td>
+<td><p>331,8</p></td>
+<td><p>341,4</p></td>
+<td><p>349,9</p></td>
+<td><p>359,9</p></td>
+</tr>
+<tr class="row-odd"><td><p>500</p></td>
+<td><p>429,4</p></td>
+<td><p>439,9</p></td>
+<td><p>449,1</p></td>
+<td><p>459,9</p></td>
+<td><p>478,3</p></td>
+<td><p>499,3</p></td>
+<td><p>521</p></td>
+<td><p>540,9</p></td>
+<td><p>553,1</p></td>
+<td><p>563,9</p></td>
+<td><p>576,5</p></td>
+</tr>
+<tr class="row-even"><td><p>1000</p></td>
+<td><p>898,9</p></td>
+<td><p>914,3</p></td>
+<td><p>927,6</p></td>
+<td><p>943,1</p></td>
+<td><p>969,5</p></td>
+<td><p>999,3</p></td>
+<td><p>1030</p></td>
+<td><p>1058</p></td>
+<td><p>1075</p></td>
+<td><p>1090</p></td>
+<td><p>1107</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="die-f-verteilung">
+<h1>Die <span class="math notranslate nohighlight">\(F\)</span>-Verteilung<a class="headerlink" href="#die-f-verteilung" title="Permalink to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="quantilen-der-f-verteilung-alpha-5">
+<h2>Quantilen der <span class="math notranslate nohighlight">\(F\)</span>-Verteilung (<span class="math notranslate nohighlight">\(\alpha=5 \%\)</span>)<a class="headerlink" href="#quantilen-der-f-verteilung-alpha-5" title="Permalink to this heading">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+<th class="head"><p>8</p></th>
+<th class="head"><p>9</p></th>
+<th class="head"><p>10</p></th>
+<th class="head"><p>15</p></th>
+<th class="head"><p>20</p></th>
+<th class="head"><p>30</p></th>
+<th class="head"><p>40</p></th>
+<th class="head"><p>50</p></th>
+<th class="head"><p>100</p></th>
+<th class="head"><p>200</p></th>
+<th class="head"><p>1e+09</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>161,4</p></td>
+<td><p>199,5</p></td>
+<td><p>215,7</p></td>
+<td><p>224,6</p></td>
+<td><p>230,2</p></td>
+<td><p>234</p></td>
+<td><p>236,8</p></td>
+<td><p>238,9</p></td>
+<td><p>240,5</p></td>
+<td><p>241,9</p></td>
+<td><p>245,9</p></td>
+<td><p>248</p></td>
+<td><p>250,1</p></td>
+<td><p>251,1</p></td>
+<td><p>251,8</p></td>
+<td><p>253</p></td>
+<td><p>253,7</p></td>
+<td><p>254,3</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>18,51</p></td>
+<td><p>19</p></td>
+<td><p>19,16</p></td>
+<td><p>19,25</p></td>
+<td><p>19,3</p></td>
+<td><p>19,33</p></td>
+<td><p>19,35</p></td>
+<td><p>19,37</p></td>
+<td><p>19,38</p></td>
+<td><p>19,4</p></td>
+<td><p>19,43</p></td>
+<td><p>19,45</p></td>
+<td><p>19,46</p></td>
+<td><p>19,47</p></td>
+<td><p>19,48</p></td>
+<td><p>19,49</p></td>
+<td><p>19,49</p></td>
+<td><p>19,5</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>10,13</p></td>
+<td><p>9,55</p></td>
+<td><p>9,28</p></td>
+<td><p>9,12</p></td>
+<td><p>9,01</p></td>
+<td><p>8,94</p></td>
+<td><p>8,89</p></td>
+<td><p>8,85</p></td>
+<td><p>8,81</p></td>
+<td><p>8,79</p></td>
+<td><p>8,7</p></td>
+<td><p>8,66</p></td>
+<td><p>8,62</p></td>
+<td><p>8,59</p></td>
+<td><p>8,58</p></td>
+<td><p>8,55</p></td>
+<td><p>8,54</p></td>
+<td><p>8,53</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>7,71</p></td>
+<td><p>6,94</p></td>
+<td><p>6,59</p></td>
+<td><p>6,39</p></td>
+<td><p>6,26</p></td>
+<td><p>6,16</p></td>
+<td><p>6,09</p></td>
+<td><p>6,04</p></td>
+<td><p>6</p></td>
+<td><p>5,96</p></td>
+<td><p>5,86</p></td>
+<td><p>5,8</p></td>
+<td><p>5,75</p></td>
+<td><p>5,72</p></td>
+<td><p>5,7</p></td>
+<td><p>5,66</p></td>
+<td><p>5,65</p></td>
+<td><p>5,63</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>6,61</p></td>
+<td><p>5,79</p></td>
+<td><p>5,41</p></td>
+<td><p>5,19</p></td>
+<td><p>5,05</p></td>
+<td><p>4,95</p></td>
+<td><p>4,88</p></td>
+<td><p>4,82</p></td>
+<td><p>4,77</p></td>
+<td><p>4,74</p></td>
+<td><p>4,62</p></td>
+<td><p>4,56</p></td>
+<td><p>4,5</p></td>
+<td><p>4,46</p></td>
+<td><p>4,44</p></td>
+<td><p>4,41</p></td>
+<td><p>4,39</p></td>
+<td><p>4,36</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>5,99</p></td>
+<td><p>5,14</p></td>
+<td><p>4,76</p></td>
+<td><p>4,53</p></td>
+<td><p>4,39</p></td>
+<td><p>4,28</p></td>
+<td><p>4,21</p></td>
+<td><p>4,15</p></td>
+<td><p>4,1</p></td>
+<td><p>4,06</p></td>
+<td><p>3,94</p></td>
+<td><p>3,87</p></td>
+<td><p>3,81</p></td>
+<td><p>3,77</p></td>
+<td><p>3,75</p></td>
+<td><p>3,71</p></td>
+<td><p>3,69</p></td>
+<td><p>3,67</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>5,59</p></td>
+<td><p>4,74</p></td>
+<td><p>4,35</p></td>
+<td><p>4,12</p></td>
+<td><p>3,97</p></td>
+<td><p>3,87</p></td>
+<td><p>3,79</p></td>
+<td><p>3,73</p></td>
+<td><p>3,68</p></td>
+<td><p>3,64</p></td>
+<td><p>3,51</p></td>
+<td><p>3,44</p></td>
+<td><p>3,38</p></td>
+<td><p>3,34</p></td>
+<td><p>3,32</p></td>
+<td><p>3,27</p></td>
+<td><p>3,25</p></td>
+<td><p>3,23</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>5,32</p></td>
+<td><p>4,46</p></td>
+<td><p>4,07</p></td>
+<td><p>3,84</p></td>
+<td><p>3,69</p></td>
+<td><p>3,58</p></td>
+<td><p>3,5</p></td>
+<td><p>3,44</p></td>
+<td><p>3,39</p></td>
+<td><p>3,35</p></td>
+<td><p>3,22</p></td>
+<td><p>3,15</p></td>
+<td><p>3,08</p></td>
+<td><p>3,04</p></td>
+<td><p>3,02</p></td>
+<td><p>2,97</p></td>
+<td><p>2,95</p></td>
+<td><p>2,93</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>5,12</p></td>
+<td><p>4,26</p></td>
+<td><p>3,86</p></td>
+<td><p>3,63</p></td>
+<td><p>3,48</p></td>
+<td><p>3,37</p></td>
+<td><p>3,29</p></td>
+<td><p>3,23</p></td>
+<td><p>3,18</p></td>
+<td><p>3,14</p></td>
+<td><p>3,01</p></td>
+<td><p>2,94</p></td>
+<td><p>2,86</p></td>
+<td><p>2,83</p></td>
+<td><p>2,8</p></td>
+<td><p>2,76</p></td>
+<td><p>2,73</p></td>
+<td><p>2,71</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>4,96</p></td>
+<td><p>4,1</p></td>
+<td><p>3,71</p></td>
+<td><p>3,48</p></td>
+<td><p>3,33</p></td>
+<td><p>3,22</p></td>
+<td><p>3,14</p></td>
+<td><p>3,07</p></td>
+<td><p>3,02</p></td>
+<td><p>2,98</p></td>
+<td><p>2,85</p></td>
+<td><p>2,77</p></td>
+<td><p>2,7</p></td>
+<td><p>2,66</p></td>
+<td><p>2,64</p></td>
+<td><p>2,59</p></td>
+<td><p>2,56</p></td>
+<td><p>2,54</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>4,84</p></td>
+<td><p>3,98</p></td>
+<td><p>3,59</p></td>
+<td><p>3,36</p></td>
+<td><p>3,2</p></td>
+<td><p>3,09</p></td>
+<td><p>3,01</p></td>
+<td><p>2,95</p></td>
+<td><p>2,9</p></td>
+<td><p>2,85</p></td>
+<td><p>2,72</p></td>
+<td><p>2,65</p></td>
+<td><p>2,57</p></td>
+<td><p>2,53</p></td>
+<td><p>2,51</p></td>
+<td><p>2,46</p></td>
+<td><p>2,43</p></td>
+<td><p>2,4</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>4,75</p></td>
+<td><p>3,89</p></td>
+<td><p>3,49</p></td>
+<td><p>3,26</p></td>
+<td><p>3,11</p></td>
+<td><p>3</p></td>
+<td><p>2,91</p></td>
+<td><p>2,85</p></td>
+<td><p>2,8</p></td>
+<td><p>2,75</p></td>
+<td><p>2,62</p></td>
+<td><p>2,54</p></td>
+<td><p>2,47</p></td>
+<td><p>2,43</p></td>
+<td><p>2,4</p></td>
+<td><p>2,35</p></td>
+<td><p>2,32</p></td>
+<td><p>2,3</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>4,67</p></td>
+<td><p>3,81</p></td>
+<td><p>3,41</p></td>
+<td><p>3,18</p></td>
+<td><p>3,03</p></td>
+<td><p>2,92</p></td>
+<td><p>2,83</p></td>
+<td><p>2,77</p></td>
+<td><p>2,71</p></td>
+<td><p>2,67</p></td>
+<td><p>2,53</p></td>
+<td><p>2,46</p></td>
+<td><p>2,38</p></td>
+<td><p>2,34</p></td>
+<td><p>2,31</p></td>
+<td><p>2,26</p></td>
+<td><p>2,23</p></td>
+<td><p>2,21</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>4,6</p></td>
+<td><p>3,74</p></td>
+<td><p>3,34</p></td>
+<td><p>3,11</p></td>
+<td><p>2,96</p></td>
+<td><p>2,85</p></td>
+<td><p>2,76</p></td>
+<td><p>2,7</p></td>
+<td><p>2,65</p></td>
+<td><p>2,6</p></td>
+<td><p>2,46</p></td>
+<td><p>2,39</p></td>
+<td><p>2,31</p></td>
+<td><p>2,27</p></td>
+<td><p>2,24</p></td>
+<td><p>2,19</p></td>
+<td><p>2,16</p></td>
+<td><p>2,13</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>4,54</p></td>
+<td><p>3,68</p></td>
+<td><p>3,29</p></td>
+<td><p>3,06</p></td>
+<td><p>2,9</p></td>
+<td><p>2,79</p></td>
+<td><p>2,71</p></td>
+<td><p>2,64</p></td>
+<td><p>2,59</p></td>
+<td><p>2,54</p></td>
+<td><p>2,4</p></td>
+<td><p>2,33</p></td>
+<td><p>2,25</p></td>
+<td><p>2,2</p></td>
+<td><p>2,18</p></td>
+<td><p>2,12</p></td>
+<td><p>2,1</p></td>
+<td><p>2,07</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>4,49</p></td>
+<td><p>3,63</p></td>
+<td><p>3,24</p></td>
+<td><p>3,01</p></td>
+<td><p>2,85</p></td>
+<td><p>2,74</p></td>
+<td><p>2,66</p></td>
+<td><p>2,59</p></td>
+<td><p>2,54</p></td>
+<td><p>2,49</p></td>
+<td><p>2,35</p></td>
+<td><p>2,28</p></td>
+<td><p>2,19</p></td>
+<td><p>2,15</p></td>
+<td><p>2,12</p></td>
+<td><p>2,07</p></td>
+<td><p>2,04</p></td>
+<td><p>2,01</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>4,45</p></td>
+<td><p>3,59</p></td>
+<td><p>3,2</p></td>
+<td><p>2,96</p></td>
+<td><p>2,81</p></td>
+<td><p>2,7</p></td>
+<td><p>2,61</p></td>
+<td><p>2,55</p></td>
+<td><p>2,49</p></td>
+<td><p>2,45</p></td>
+<td><p>2,31</p></td>
+<td><p>2,23</p></td>
+<td><p>2,15</p></td>
+<td><p>2,1</p></td>
+<td><p>2,08</p></td>
+<td><p>2,02</p></td>
+<td><p>1,99</p></td>
+<td><p>1,96</p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>4,41</p></td>
+<td><p>3,55</p></td>
+<td><p>3,16</p></td>
+<td><p>2,93</p></td>
+<td><p>2,77</p></td>
+<td><p>2,66</p></td>
+<td><p>2,58</p></td>
+<td><p>2,51</p></td>
+<td><p>2,46</p></td>
+<td><p>2,41</p></td>
+<td><p>2,27</p></td>
+<td><p>2,19</p></td>
+<td><p>2,11</p></td>
+<td><p>2,06</p></td>
+<td><p>2,04</p></td>
+<td><p>1,98</p></td>
+<td><p>1,95</p></td>
+<td><p>1,92</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>4,38</p></td>
+<td><p>3,52</p></td>
+<td><p>3,13</p></td>
+<td><p>2,9</p></td>
+<td><p>2,74</p></td>
+<td><p>2,63</p></td>
+<td><p>2,54</p></td>
+<td><p>2,48</p></td>
+<td><p>2,42</p></td>
+<td><p>2,38</p></td>
+<td><p>2,23</p></td>
+<td><p>2,16</p></td>
+<td><p>2,07</p></td>
+<td><p>2,03</p></td>
+<td><p>2</p></td>
+<td><p>1,94</p></td>
+<td><p>1,91</p></td>
+<td><p>1,88</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>4,35</p></td>
+<td><p>3,49</p></td>
+<td><p>3,1</p></td>
+<td><p>2,87</p></td>
+<td><p>2,71</p></td>
+<td><p>2,6</p></td>
+<td><p>2,51</p></td>
+<td><p>2,45</p></td>
+<td><p>2,39</p></td>
+<td><p>2,35</p></td>
+<td><p>2,2</p></td>
+<td><p>2,12</p></td>
+<td><p>2,04</p></td>
+<td><p>1,99</p></td>
+<td><p>1,97</p></td>
+<td><p>1,91</p></td>
+<td><p>1,88</p></td>
+<td><p>1,84</p></td>
+</tr>
+<tr class="row-even"><td><p>22</p></td>
+<td><p>4,3</p></td>
+<td><p>3,44</p></td>
+<td><p>3,05</p></td>
+<td><p>2,82</p></td>
+<td><p>2,66</p></td>
+<td><p>2,55</p></td>
+<td><p>2,46</p></td>
+<td><p>2,4</p></td>
+<td><p>2,34</p></td>
+<td><p>2,3</p></td>
+<td><p>2,15</p></td>
+<td><p>2,07</p></td>
+<td><p>1,98</p></td>
+<td><p>1,94</p></td>
+<td><p>1,91</p></td>
+<td><p>1,85</p></td>
+<td><p>1,82</p></td>
+<td><p>1,78</p></td>
+</tr>
+<tr class="row-odd"><td><p>24</p></td>
+<td><p>4,26</p></td>
+<td><p>3,4</p></td>
+<td><p>3,01</p></td>
+<td><p>2,78</p></td>
+<td><p>2,62</p></td>
+<td><p>2,51</p></td>
+<td><p>2,42</p></td>
+<td><p>2,36</p></td>
+<td><p>2,3</p></td>
+<td><p>2,25</p></td>
+<td><p>2,11</p></td>
+<td><p>2,03</p></td>
+<td><p>1,94</p></td>
+<td><p>1,89</p></td>
+<td><p>1,86</p></td>
+<td><p>1,8</p></td>
+<td><p>1,77</p></td>
+<td><p>1,73</p></td>
+</tr>
+<tr class="row-even"><td><p>26</p></td>
+<td><p>4,23</p></td>
+<td><p>3,37</p></td>
+<td><p>2,98</p></td>
+<td><p>2,74</p></td>
+<td><p>2,59</p></td>
+<td><p>2,47</p></td>
+<td><p>2,39</p></td>
+<td><p>2,32</p></td>
+<td><p>2,27</p></td>
+<td><p>2,22</p></td>
+<td><p>2,07</p></td>
+<td><p>1,99</p></td>
+<td><p>1,9</p></td>
+<td><p>1,85</p></td>
+<td><p>1,82</p></td>
+<td><p>1,76</p></td>
+<td><p>1,73</p></td>
+<td><p>1,69</p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>4,2</p></td>
+<td><p>3,34</p></td>
+<td><p>2,95</p></td>
+<td><p>2,71</p></td>
+<td><p>2,56</p></td>
+<td><p>2,45</p></td>
+<td><p>2,36</p></td>
+<td><p>2,29</p></td>
+<td><p>2,24</p></td>
+<td><p>2,19</p></td>
+<td><p>2,04</p></td>
+<td><p>1,96</p></td>
+<td><p>1,87</p></td>
+<td><p>1,82</p></td>
+<td><p>1,79</p></td>
+<td><p>1,73</p></td>
+<td><p>1,69</p></td>
+<td><p>1,65</p></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>4,17</p></td>
+<td><p>3,32</p></td>
+<td><p>2,92</p></td>
+<td><p>2,69</p></td>
+<td><p>2,53</p></td>
+<td><p>2,42</p></td>
+<td><p>2,33</p></td>
+<td><p>2,27</p></td>
+<td><p>2,21</p></td>
+<td><p>2,16</p></td>
+<td><p>2,01</p></td>
+<td><p>1,93</p></td>
+<td><p>1,84</p></td>
+<td><p>1,79</p></td>
+<td><p>1,76</p></td>
+<td><p>1,7</p></td>
+<td><p>1,66</p></td>
+<td><p>1,62</p></td>
+</tr>
+<tr class="row-odd"><td><p>35</p></td>
+<td><p>4,12</p></td>
+<td><p>3,27</p></td>
+<td><p>2,87</p></td>
+<td><p>2,64</p></td>
+<td><p>2,49</p></td>
+<td><p>2,37</p></td>
+<td><p>2,29</p></td>
+<td><p>2,22</p></td>
+<td><p>2,16</p></td>
+<td><p>2,11</p></td>
+<td><p>1,96</p></td>
+<td><p>1,88</p></td>
+<td><p>1,79</p></td>
+<td><p>1,74</p></td>
+<td><p>1,7</p></td>
+<td><p>1,63</p></td>
+<td><p>1,6</p></td>
+<td><p>1,56</p></td>
+</tr>
+<tr class="row-even"><td><p>40</p></td>
+<td><p>4,08</p></td>
+<td><p>3,23</p></td>
+<td><p>2,84</p></td>
+<td><p>2,61</p></td>
+<td><p>2,45</p></td>
+<td><p>2,34</p></td>
+<td><p>2,25</p></td>
+<td><p>2,18</p></td>
+<td><p>2,12</p></td>
+<td><p>2,08</p></td>
+<td><p>1,92</p></td>
+<td><p>1,84</p></td>
+<td><p>1,74</p></td>
+<td><p>1,69</p></td>
+<td><p>1,66</p></td>
+<td><p>1,59</p></td>
+<td><p>1,55</p></td>
+<td><p>1,51</p></td>
+</tr>
+<tr class="row-odd"><td><p>50</p></td>
+<td><p>4,03</p></td>
+<td><p>3,18</p></td>
+<td><p>2,79</p></td>
+<td><p>2,56</p></td>
+<td><p>2,4</p></td>
+<td><p>2,29</p></td>
+<td><p>2,2</p></td>
+<td><p>2,13</p></td>
+<td><p>2,07</p></td>
+<td><p>2,03</p></td>
+<td><p>1,87</p></td>
+<td><p>1,78</p></td>
+<td><p>1,69</p></td>
+<td><p>1,63</p></td>
+<td><p>1,6</p></td>
+<td><p>1,52</p></td>
+<td><p>1,48</p></td>
+<td><p>1,44</p></td>
+</tr>
+<tr class="row-even"><td><p>70</p></td>
+<td><p>3,98</p></td>
+<td><p>3,13</p></td>
+<td><p>2,74</p></td>
+<td><p>2,5</p></td>
+<td><p>2,35</p></td>
+<td><p>2,23</p></td>
+<td><p>2,14</p></td>
+<td><p>2,07</p></td>
+<td><p>2,02</p></td>
+<td><p>1,97</p></td>
+<td><p>1,81</p></td>
+<td><p>1,72</p></td>
+<td><p>1,62</p></td>
+<td><p>1,57</p></td>
+<td><p>1,53</p></td>
+<td><p>1,45</p></td>
+<td><p>1,4</p></td>
+<td><p>1,35</p></td>
+</tr>
+<tr class="row-odd"><td><p>100</p></td>
+<td><p>3,94</p></td>
+<td><p>3,09</p></td>
+<td><p>2,7</p></td>
+<td><p>2,46</p></td>
+<td><p>2,31</p></td>
+<td><p>2,19</p></td>
+<td><p>2,1</p></td>
+<td><p>2,03</p></td>
+<td><p>1,97</p></td>
+<td><p>1,93</p></td>
+<td><p>1,77</p></td>
+<td><p>1,68</p></td>
+<td><p>1,57</p></td>
+<td><p>1,52</p></td>
+<td><p>1,48</p></td>
+<td><p>1,39</p></td>
+<td><p>1,34</p></td>
+<td><p>1,28</p></td>
+</tr>
+<tr class="row-even"><td><p>200</p></td>
+<td><p>3,89</p></td>
+<td><p>3,04</p></td>
+<td><p>2,65</p></td>
+<td><p>2,42</p></td>
+<td><p>2,26</p></td>
+<td><p>2,14</p></td>
+<td><p>2,06</p></td>
+<td><p>1,98</p></td>
+<td><p>1,93</p></td>
+<td><p>1,88</p></td>
+<td><p>1,72</p></td>
+<td><p>1,62</p></td>
+<td><p>1,52</p></td>
+<td><p>1,46</p></td>
+<td><p>1,41</p></td>
+<td><p>1,32</p></td>
+<td><p>1,26</p></td>
+<td><p>1,19</p></td>
+</tr>
+<tr class="row-odd"><td><p>1000</p></td>
+<td><p>3,85</p></td>
+<td><p>3</p></td>
+<td><p>2,61</p></td>
+<td><p>2,38</p></td>
+<td><p>2,22</p></td>
+<td><p>2,11</p></td>
+<td><p>2,02</p></td>
+<td><p>1,95</p></td>
+<td><p>1,89</p></td>
+<td><p>1,84</p></td>
+<td><p>1,68</p></td>
+<td><p>1,58</p></td>
+<td><p>1,47</p></td>
+<td><p>1,41</p></td>
+<td><p>1,36</p></td>
+<td><p>1,26</p></td>
+<td><p>1,19</p></td>
+<td><p>1,08</p></td>
+</tr>
+<tr class="row-even"><td><p>1e+09</p></td>
+<td><p>3,84</p></td>
+<td><p>3</p></td>
+<td><p>2,6</p></td>
+<td><p>2,37</p></td>
+<td><p>2,21</p></td>
+<td><p>2,1</p></td>
+<td><p>2,01</p></td>
+<td><p>1,94</p></td>
+<td><p>1,88</p></td>
+<td><p>1,83</p></td>
+<td><p>1,67</p></td>
+<td><p>1,57</p></td>
+<td><p>1,46</p></td>
+<td><p>1,39</p></td>
+<td><p>1,35</p></td>
+<td><p>1,24</p></td>
+<td><p>1,17</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="quantilen-der-f-verteilung-alpha-1">
+<h2>Quantilen der <span class="math notranslate nohighlight">\(F\)</span>-Verteilung (<span class="math notranslate nohighlight">\(\alpha=1\%\)</span>)<a class="headerlink" href="#quantilen-der-f-verteilung-alpha-1" title="Permalink to this heading">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+<th class="head"><p>7</p></th>
+<th class="head"><p>8</p></th>
+<th class="head"><p>9</p></th>
+<th class="head"><p>10</p></th>
+<th class="head"><p>15</p></th>
+<th class="head"><p>20</p></th>
+<th class="head"><p>30</p></th>
+<th class="head"><p>40</p></th>
+<th class="head"><p>50</p></th>
+<th class="head"><p>100</p></th>
+<th class="head"><p>200</p></th>
+<th class="head"><p>1e+09</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>4052</p></td>
+<td><p>5000</p></td>
+<td><p>5403</p></td>
+<td><p>5625</p></td>
+<td><p>5764</p></td>
+<td><p>5859</p></td>
+<td><p>5928</p></td>
+<td><p>5981</p></td>
+<td><p>6022</p></td>
+<td><p>6056</p></td>
+<td><p>6157</p></td>
+<td><p>6209</p></td>
+<td><p>6261</p></td>
+<td><p>6287</p></td>
+<td><p>6303</p></td>
+<td><p>6334</p></td>
+<td><p>6350</p></td>
+<td><p>6366</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>98,5</p></td>
+<td><p>99</p></td>
+<td><p>99,17</p></td>
+<td><p>99,25</p></td>
+<td><p>99,3</p></td>
+<td><p>99,33</p></td>
+<td><p>99,36</p></td>
+<td><p>99,37</p></td>
+<td><p>99,39</p></td>
+<td><p>99,4</p></td>
+<td><p>99,43</p></td>
+<td><p>99,45</p></td>
+<td><p>99,47</p></td>
+<td><p>99,47</p></td>
+<td><p>99,48</p></td>
+<td><p>99,49</p></td>
+<td><p>99,49</p></td>
+<td><p>99,5</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>34,12</p></td>
+<td><p>30,82</p></td>
+<td><p>29,46</p></td>
+<td><p>28,71</p></td>
+<td><p>28,24</p></td>
+<td><p>27,91</p></td>
+<td><p>27,67</p></td>
+<td><p>27,49</p></td>
+<td><p>27,35</p></td>
+<td><p>27,23</p></td>
+<td><p>26,87</p></td>
+<td><p>26,69</p></td>
+<td><p>26,5</p></td>
+<td><p>26,41</p></td>
+<td><p>26,35</p></td>
+<td><p>26,24</p></td>
+<td><p>26,18</p></td>
+<td><p>26,13</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>21,2</p></td>
+<td><p>18</p></td>
+<td><p>16,69</p></td>
+<td><p>15,98</p></td>
+<td><p>15,52</p></td>
+<td><p>15,21</p></td>
+<td><p>14,98</p></td>
+<td><p>14,8</p></td>
+<td><p>14,66</p></td>
+<td><p>14,55</p></td>
+<td><p>14,2</p></td>
+<td><p>14,02</p></td>
+<td><p>13,84</p></td>
+<td><p>13,75</p></td>
+<td><p>13,69</p></td>
+<td><p>13,58</p></td>
+<td><p>13,52</p></td>
+<td><p>13,46</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>16,26</p></td>
+<td><p>13,27</p></td>
+<td><p>12,06</p></td>
+<td><p>11,39</p></td>
+<td><p>10,97</p></td>
+<td><p>10,67</p></td>
+<td><p>10,46</p></td>
+<td><p>10,29</p></td>
+<td><p>10,16</p></td>
+<td><p>10,05</p></td>
+<td><p>9,72</p></td>
+<td><p>9,55</p></td>
+<td><p>9,38</p></td>
+<td><p>9,29</p></td>
+<td><p>9,24</p></td>
+<td><p>9,13</p></td>
+<td><p>9,08</p></td>
+<td><p>9,02</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>13,75</p></td>
+<td><p>10,92</p></td>
+<td><p>9,78</p></td>
+<td><p>9,15</p></td>
+<td><p>8,75</p></td>
+<td><p>8,47</p></td>
+<td><p>8,26</p></td>
+<td><p>8,1</p></td>
+<td><p>7,98</p></td>
+<td><p>7,87</p></td>
+<td><p>7,56</p></td>
+<td><p>7,4</p></td>
+<td><p>7,23</p></td>
+<td><p>7,14</p></td>
+<td><p>7,09</p></td>
+<td><p>6,99</p></td>
+<td><p>6,93</p></td>
+<td><p>6,88</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>12,25</p></td>
+<td><p>9,55</p></td>
+<td><p>8,45</p></td>
+<td><p>7,85</p></td>
+<td><p>7,46</p></td>
+<td><p>7,19</p></td>
+<td><p>6,99</p></td>
+<td><p>6,84</p></td>
+<td><p>6,72</p></td>
+<td><p>6,62</p></td>
+<td><p>6,31</p></td>
+<td><p>6,16</p></td>
+<td><p>5,99</p></td>
+<td><p>5,91</p></td>
+<td><p>5,86</p></td>
+<td><p>5,75</p></td>
+<td><p>5,7</p></td>
+<td><p>5,65</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>11,26</p></td>
+<td><p>8,65</p></td>
+<td><p>7,59</p></td>
+<td><p>7,01</p></td>
+<td><p>6,63</p></td>
+<td><p>6,37</p></td>
+<td><p>6,18</p></td>
+<td><p>6,03</p></td>
+<td><p>5,91</p></td>
+<td><p>5,81</p></td>
+<td><p>5,52</p></td>
+<td><p>5,36</p></td>
+<td><p>5,2</p></td>
+<td><p>5,12</p></td>
+<td><p>5,07</p></td>
+<td><p>4,96</p></td>
+<td><p>4,91</p></td>
+<td><p>4,86</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>10,56</p></td>
+<td><p>8,02</p></td>
+<td><p>6,99</p></td>
+<td><p>6,42</p></td>
+<td><p>6,06</p></td>
+<td><p>5,8</p></td>
+<td><p>5,61</p></td>
+<td><p>5,47</p></td>
+<td><p>5,35</p></td>
+<td><p>5,26</p></td>
+<td><p>4,96</p></td>
+<td><p>4,81</p></td>
+<td><p>4,65</p></td>
+<td><p>4,57</p></td>
+<td><p>4,52</p></td>
+<td><p>4,41</p></td>
+<td><p>4,36</p></td>
+<td><p>4,31</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>10,04</p></td>
+<td><p>7,56</p></td>
+<td><p>6,55</p></td>
+<td><p>5,99</p></td>
+<td><p>5,64</p></td>
+<td><p>5,39</p></td>
+<td><p>5,2</p></td>
+<td><p>5,06</p></td>
+<td><p>4,94</p></td>
+<td><p>4,85</p></td>
+<td><p>4,56</p></td>
+<td><p>4,41</p></td>
+<td><p>4,25</p></td>
+<td><p>4,17</p></td>
+<td><p>4,12</p></td>
+<td><p>4,01</p></td>
+<td><p>3,96</p></td>
+<td><p>3,91</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>9,65</p></td>
+<td><p>7,21</p></td>
+<td><p>6,22</p></td>
+<td><p>5,67</p></td>
+<td><p>5,32</p></td>
+<td><p>5,07</p></td>
+<td><p>4,89</p></td>
+<td><p>4,74</p></td>
+<td><p>4,63</p></td>
+<td><p>4,54</p></td>
+<td><p>4,25</p></td>
+<td><p>4,1</p></td>
+<td><p>3,94</p></td>
+<td><p>3,86</p></td>
+<td><p>3,81</p></td>
+<td><p>3,71</p></td>
+<td><p>3,66</p></td>
+<td><p>3,6</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>9,33</p></td>
+<td><p>6,93</p></td>
+<td><p>5,95</p></td>
+<td><p>5,41</p></td>
+<td><p>5,06</p></td>
+<td><p>4,82</p></td>
+<td><p>4,64</p></td>
+<td><p>4,5</p></td>
+<td><p>4,39</p></td>
+<td><p>4,3</p></td>
+<td><p>4,01</p></td>
+<td><p>3,86</p></td>
+<td><p>3,7</p></td>
+<td><p>3,62</p></td>
+<td><p>3,57</p></td>
+<td><p>3,47</p></td>
+<td><p>3,41</p></td>
+<td><p>3,36</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>9,07</p></td>
+<td><p>6,7</p></td>
+<td><p>5,74</p></td>
+<td><p>5,21</p></td>
+<td><p>4,86</p></td>
+<td><p>4,62</p></td>
+<td><p>4,44</p></td>
+<td><p>4,3</p></td>
+<td><p>4,19</p></td>
+<td><p>4,1</p></td>
+<td><p>3,82</p></td>
+<td><p>3,66</p></td>
+<td><p>3,51</p></td>
+<td><p>3,43</p></td>
+<td><p>3,38</p></td>
+<td><p>3,27</p></td>
+<td><p>3,22</p></td>
+<td><p>3,17</p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>8,86</p></td>
+<td><p>6,51</p></td>
+<td><p>5,56</p></td>
+<td><p>5,04</p></td>
+<td><p>4,69</p></td>
+<td><p>4,46</p></td>
+<td><p>4,28</p></td>
+<td><p>4,14</p></td>
+<td><p>4,03</p></td>
+<td><p>3,94</p></td>
+<td><p>3,66</p></td>
+<td><p>3,51</p></td>
+<td><p>3,35</p></td>
+<td><p>3,27</p></td>
+<td><p>3,22</p></td>
+<td><p>3,11</p></td>
+<td><p>3,06</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>8,68</p></td>
+<td><p>6,36</p></td>
+<td><p>5,42</p></td>
+<td><p>4,89</p></td>
+<td><p>4,56</p></td>
+<td><p>4,32</p></td>
+<td><p>4,14</p></td>
+<td><p>4</p></td>
+<td><p>3,89</p></td>
+<td><p>3,8</p></td>
+<td><p>3,52</p></td>
+<td><p>3,37</p></td>
+<td><p>3,21</p></td>
+<td><p>3,13</p></td>
+<td><p>3,08</p></td>
+<td><p>2,98</p></td>
+<td><p>2,92</p></td>
+<td><p>2,87</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>8,53</p></td>
+<td><p>6,23</p></td>
+<td><p>5,29</p></td>
+<td><p>4,77</p></td>
+<td><p>4,44</p></td>
+<td><p>4,2</p></td>
+<td><p>4,03</p></td>
+<td><p>3,89</p></td>
+<td><p>3,78</p></td>
+<td><p>3,69</p></td>
+<td><p>3,41</p></td>
+<td><p>3,26</p></td>
+<td><p>3,1</p></td>
+<td><p>3,02</p></td>
+<td><p>2,97</p></td>
+<td><p>2,86</p></td>
+<td><p>2,81</p></td>
+<td><p>2,75</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>8,4</p></td>
+<td><p>6,11</p></td>
+<td><p>5,18</p></td>
+<td><p>4,67</p></td>
+<td><p>4,34</p></td>
+<td><p>4,1</p></td>
+<td><p>3,93</p></td>
+<td><p>3,79</p></td>
+<td><p>3,68</p></td>
+<td><p>3,59</p></td>
+<td><p>3,31</p></td>
+<td><p>3,16</p></td>
+<td><p>3</p></td>
+<td><p>2,92</p></td>
+<td><p>2,87</p></td>
+<td><p>2,76</p></td>
+<td><p>2,71</p></td>
+<td><p>2,65</p></td>
+</tr>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>8,29</p></td>
+<td><p>6,01</p></td>
+<td><p>5,09</p></td>
+<td><p>4,58</p></td>
+<td><p>4,25</p></td>
+<td><p>4,01</p></td>
+<td><p>3,84</p></td>
+<td><p>3,71</p></td>
+<td><p>3,6</p></td>
+<td><p>3,51</p></td>
+<td><p>3,23</p></td>
+<td><p>3,08</p></td>
+<td><p>2,92</p></td>
+<td><p>2,84</p></td>
+<td><p>2,78</p></td>
+<td><p>2,68</p></td>
+<td><p>2,62</p></td>
+<td><p>2,57</p></td>
+</tr>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>8,18</p></td>
+<td><p>5,93</p></td>
+<td><p>5,01</p></td>
+<td><p>4,5</p></td>
+<td><p>4,17</p></td>
+<td><p>3,94</p></td>
+<td><p>3,77</p></td>
+<td><p>3,63</p></td>
+<td><p>3,52</p></td>
+<td><p>3,43</p></td>
+<td><p>3,15</p></td>
+<td><p>3</p></td>
+<td><p>2,84</p></td>
+<td><p>2,76</p></td>
+<td><p>2,71</p></td>
+<td><p>2,6</p></td>
+<td><p>2,55</p></td>
+<td><p>2,49</p></td>
+</tr>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>8,1</p></td>
+<td><p>5,85</p></td>
+<td><p>4,94</p></td>
+<td><p>4,43</p></td>
+<td><p>4,1</p></td>
+<td><p>3,87</p></td>
+<td><p>3,7</p></td>
+<td><p>3,56</p></td>
+<td><p>3,46</p></td>
+<td><p>3,37</p></td>
+<td><p>3,09</p></td>
+<td><p>2,94</p></td>
+<td><p>2,78</p></td>
+<td><p>2,69</p></td>
+<td><p>2,64</p></td>
+<td><p>2,54</p></td>
+<td><p>2,48</p></td>
+<td><p>2,42</p></td>
+</tr>
+<tr class="row-even"><td><p>22</p></td>
+<td><p>7,95</p></td>
+<td><p>5,72</p></td>
+<td><p>4,82</p></td>
+<td><p>4,31</p></td>
+<td><p>3,99</p></td>
+<td><p>3,76</p></td>
+<td><p>3,59</p></td>
+<td><p>3,45</p></td>
+<td><p>3,35</p></td>
+<td><p>3,26</p></td>
+<td><p>2,98</p></td>
+<td><p>2,83</p></td>
+<td><p>2,67</p></td>
+<td><p>2,58</p></td>
+<td><p>2,53</p></td>
+<td><p>2,42</p></td>
+<td><p>2,36</p></td>
+<td><p>2,31</p></td>
+</tr>
+<tr class="row-odd"><td><p>24</p></td>
+<td><p>7,82</p></td>
+<td><p>5,61</p></td>
+<td><p>4,72</p></td>
+<td><p>4,22</p></td>
+<td><p>3,9</p></td>
+<td><p>3,67</p></td>
+<td><p>3,5</p></td>
+<td><p>3,36</p></td>
+<td><p>3,26</p></td>
+<td><p>3,17</p></td>
+<td><p>2,89</p></td>
+<td><p>2,74</p></td>
+<td><p>2,58</p></td>
+<td><p>2,49</p></td>
+<td><p>2,44</p></td>
+<td><p>2,33</p></td>
+<td><p>2,27</p></td>
+<td><p>2,21</p></td>
+</tr>
+<tr class="row-even"><td><p>26</p></td>
+<td><p>7,72</p></td>
+<td><p>5,53</p></td>
+<td><p>4,64</p></td>
+<td><p>4,14</p></td>
+<td><p>3,82</p></td>
+<td><p>3,59</p></td>
+<td><p>3,42</p></td>
+<td><p>3,29</p></td>
+<td><p>3,18</p></td>
+<td><p>3,09</p></td>
+<td><p>2,81</p></td>
+<td><p>2,66</p></td>
+<td><p>2,5</p></td>
+<td><p>2,42</p></td>
+<td><p>2,36</p></td>
+<td><p>2,25</p></td>
+<td><p>2,19</p></td>
+<td><p>2,13</p></td>
+</tr>
+<tr class="row-odd"><td><p>28</p></td>
+<td><p>7,64</p></td>
+<td><p>5,45</p></td>
+<td><p>4,57</p></td>
+<td><p>4,07</p></td>
+<td><p>3,75</p></td>
+<td><p>3,53</p></td>
+<td><p>3,36</p></td>
+<td><p>3,23</p></td>
+<td><p>3,12</p></td>
+<td><p>3,03</p></td>
+<td><p>2,75</p></td>
+<td><p>2,6</p></td>
+<td><p>2,44</p></td>
+<td><p>2,35</p></td>
+<td><p>2,3</p></td>
+<td><p>2,19</p></td>
+<td><p>2,13</p></td>
+<td><p>2,06</p></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>7,56</p></td>
+<td><p>5,39</p></td>
+<td><p>4,51</p></td>
+<td><p>4,02</p></td>
+<td><p>3,7</p></td>
+<td><p>3,47</p></td>
+<td><p>3,3</p></td>
+<td><p>3,17</p></td>
+<td><p>3,07</p></td>
+<td><p>2,98</p></td>
+<td><p>2,7</p></td>
+<td><p>2,55</p></td>
+<td><p>2,39</p></td>
+<td><p>2,3</p></td>
+<td><p>2,25</p></td>
+<td><p>2,13</p></td>
+<td><p>2,07</p></td>
+<td><p>2,01</p></td>
+</tr>
+<tr class="row-odd"><td><p>35</p></td>
+<td><p>7,42</p></td>
+<td><p>5,27</p></td>
+<td><p>4,4</p></td>
+<td><p>3,91</p></td>
+<td><p>3,59</p></td>
+<td><p>3,37</p></td>
+<td><p>3,2</p></td>
+<td><p>3,07</p></td>
+<td><p>2,96</p></td>
+<td><p>2,88</p></td>
+<td><p>2,6</p></td>
+<td><p>2,44</p></td>
+<td><p>2,28</p></td>
+<td><p>2,19</p></td>
+<td><p>2,14</p></td>
+<td><p>2,02</p></td>
+<td><p>1,96</p></td>
+<td><p>1,89</p></td>
+</tr>
+<tr class="row-even"><td><p>40</p></td>
+<td><p>7,31</p></td>
+<td><p>5,18</p></td>
+<td><p>4,31</p></td>
+<td><p>3,83</p></td>
+<td><p>3,51</p></td>
+<td><p>3,29</p></td>
+<td><p>3,12</p></td>
+<td><p>2,99</p></td>
+<td><p>2,89</p></td>
+<td><p>2,8</p></td>
+<td><p>2,52</p></td>
+<td><p>2,37</p></td>
+<td><p>2,2</p></td>
+<td><p>2,11</p></td>
+<td><p>2,06</p></td>
+<td><p>1,94</p></td>
+<td><p>1,87</p></td>
+<td><p>1,8</p></td>
+</tr>
+<tr class="row-odd"><td><p>50</p></td>
+<td><p>7,17</p></td>
+<td><p>5,06</p></td>
+<td><p>4,2</p></td>
+<td><p>3,72</p></td>
+<td><p>3,41</p></td>
+<td><p>3,19</p></td>
+<td><p>3,02</p></td>
+<td><p>2,89</p></td>
+<td><p>2,78</p></td>
+<td><p>2,7</p></td>
+<td><p>2,42</p></td>
+<td><p>2,27</p></td>
+<td><p>2,1</p></td>
+<td><p>2,01</p></td>
+<td><p>1,95</p></td>
+<td><p>1,82</p></td>
+<td><p>1,76</p></td>
+<td><p>1,68</p></td>
+</tr>
+<tr class="row-even"><td><p>70</p></td>
+<td><p>7,01</p></td>
+<td><p>4,92</p></td>
+<td><p>4,07</p></td>
+<td><p>3,6</p></td>
+<td><p>3,29</p></td>
+<td><p>3,07</p></td>
+<td><p>2,91</p></td>
+<td><p>2,78</p></td>
+<td><p>2,67</p></td>
+<td><p>2,59</p></td>
+<td><p>2,31</p></td>
+<td><p>2,15</p></td>
+<td><p>1,98</p></td>
+<td><p>1,89</p></td>
+<td><p>1,83</p></td>
+<td><p>1,7</p></td>
+<td><p>1,62</p></td>
+<td><p>1,54</p></td>
+</tr>
+<tr class="row-odd"><td><p>100</p></td>
+<td><p>6,9</p></td>
+<td><p>4,82</p></td>
+<td><p>3,98</p></td>
+<td><p>3,51</p></td>
+<td><p>3,21</p></td>
+<td><p>2,99</p></td>
+<td><p>2,82</p></td>
+<td><p>2,69</p></td>
+<td><p>2,59</p></td>
+<td><p>2,5</p></td>
+<td><p>2,22</p></td>
+<td><p>2,07</p></td>
+<td><p>1,89</p></td>
+<td><p>1,8</p></td>
+<td><p>1,74</p></td>
+<td><p>1,6</p></td>
+<td><p>1,52</p></td>
+<td><p>1,43</p></td>
+</tr>
+<tr class="row-even"><td><p>200</p></td>
+<td><p>6,76</p></td>
+<td><p>4,71</p></td>
+<td><p>3,88</p></td>
+<td><p>3,41</p></td>
+<td><p>3,11</p></td>
+<td><p>2,89</p></td>
+<td><p>2,73</p></td>
+<td><p>2,6</p></td>
+<td><p>2,5</p></td>
+<td><p>2,41</p></td>
+<td><p>2,13</p></td>
+<td><p>1,97</p></td>
+<td><p>1,79</p></td>
+<td><p>1,69</p></td>
+<td><p>1,63</p></td>
+<td><p>1,48</p></td>
+<td><p>1,39</p></td>
+<td><p>1,28</p></td>
+</tr>
+<tr class="row-odd"><td><p>1000</p></td>
+<td><p>6,66</p></td>
+<td><p>4,63</p></td>
+<td><p>3,8</p></td>
+<td><p>3,34</p></td>
+<td><p>3,04</p></td>
+<td><p>2,82</p></td>
+<td><p>2,66</p></td>
+<td><p>2,53</p></td>
+<td><p>2,43</p></td>
+<td><p>2,34</p></td>
+<td><p>2,06</p></td>
+<td><p>1,9</p></td>
+<td><p>1,72</p></td>
+<td><p>1,61</p></td>
+<td><p>1,54</p></td>
+<td><p>1,38</p></td>
+<td><p>1,28</p></td>
+<td><p>1,11</p></td>
+</tr>
+<tr class="row-even"><td><p>1e+09</p></td>
+<td><p>6,63</p></td>
+<td><p>4,61</p></td>
+<td><p>3,78</p></td>
+<td><p>3,32</p></td>
+<td><p>3,02</p></td>
+<td><p>2,8</p></td>
+<td><p>2,64</p></td>
+<td><p>2,51</p></td>
+<td><p>2,41</p></td>
+<td><p>2,32</p></td>
+<td><p>2,04</p></td>
+<td><p>1,88</p></td>
+<td><p>1,7</p></td>
+<td><p>1,59</p></td>
+<td><p>1,52</p></td>
+<td><p>1,36</p></td>
+<td><p>1,25</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "ixianslab/srh-data-science",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Kapitel06"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06_Inferenz_Regression_und_Korrelation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Inferenzmethoden in Regression und Korrelation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Aufgaben/Kapitel06/Aufgaben.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Übungsaufgaben</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Wahrscheinlichkeits-Tabellen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#die-z-verteilung">Die <span class="math notranslate nohighlight">\(z\)</span>-Verteilung</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantilen-der-standard-normal-z-verteilung">Quantilen der Standard-Normal-(<span class="math notranslate nohighlight">\(z\)</span>)-Verteilung</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#die-t-verteilung">Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantilen-der-studentschen-t-verteilung">Quantilen der Studentschen t-Verteilung</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#die-chi-quadrat-verteilung">Die Chi-Quadrat-Verteilung</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chi-2-quantilen"><span class="math notranslate nohighlight">\(\chi^2\)</span>-Quantilen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#die-f-verteilung">Die <span class="math notranslate nohighlight">\(F\)</span>-Verteilung</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantilen-der-f-verteilung-alpha-5">Quantilen der <span class="math notranslate nohighlight">\(F\)</span>-Verteilung (<span class="math notranslate nohighlight">\(\alpha=5 \%\)</span>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantilen-der-f-verteilung-alpha-1">Quantilen der <span class="math notranslate nohighlight">\(F\)</span>-Verteilung (<span class="math notranslate nohighlight">\(\alpha=1\%\)</span>)</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By ixians
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

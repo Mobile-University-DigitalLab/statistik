@@ -1,0 +1,26 @@
+name: srh
+channels:
+- conda-forge
+- default
+
+dependencies:
+- python=3.10
+- numpy
+- matplotlib
+- pandas
+- jupyterlab
+- nb_black
+- jupyterlab-git
+- seaborn
+- scipy
+- pip
+- scikit-learn
+- folium
+- openpyxl
+- pyppeteer
+- dtreeviz
+
+- pip:
+  - jupyter-book
+  - sphinx-thebe
+  - ghp-import
