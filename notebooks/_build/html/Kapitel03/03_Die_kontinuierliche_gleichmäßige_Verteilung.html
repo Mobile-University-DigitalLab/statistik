@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Die kontinuierliche gleichmäßige Verteilung &#8212; Modul Statistik und Machine Learning Modelle</title>
   
@@ -15,54 +14,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css?v=342acfa5" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel03/03_Die_kontinuierliche_gleichmäßige_Verteilung';</script>
@@ -72,6 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Die Normalverteilung" href="02_Die%20Normalverteilung.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,32 +78,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -112,7 +95,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -120,16 +102,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -142,9 +133,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -154,12 +149,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Modul Statistik und Machine Learning Modelle - Home"/>
+    <img src="../_static/srh_logo.png" class="logo__image only-dark pst-js-only" alt="Modul Statistik und Machine Learning Modelle - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -181,13 +183,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -195,12 +197,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
 <ul class="current nav bd-sidenav">
@@ -211,35 +213,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
 <ul class="nav bd-sidenav">
@@ -266,59 +268,59 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
 <ul class="nav bd-sidenav">
@@ -338,7 +340,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -347,14 +349,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -408,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel03/03_Die_kontinuierliche_gleichmäßige_Verteilung.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik/issues/new?title=Issue%20on%20page%20%2FKapitel03/03_Die_kontinuierliche_gleichmäßige_Verteilung.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -507,26 +509,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -560,10 +556,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="die-kontinuierliche-gleichmaszige-verteilung">
-<h1>Die kontinuierliche gleichmäßige Verteilung<a class="headerlink" href="#die-kontinuierliche-gleichmaszige-verteilung" title="Permalink to this heading">#</a></h1>
+<h1>Die kontinuierliche gleichmäßige Verteilung<a class="headerlink" href="#die-kontinuierliche-gleichmaszige-verteilung" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -596,7 +592,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Wahrscheinlichkeitsdichte&#39;)
 </pre></div>
 </div>
-<img alt="../_images/0d2e7dd6fd1ccb89a410aa3b9d418b6df9b1d7dec8cec75d212a9334121ae9ce.png" src="../_images/0d2e7dd6fd1ccb89a410aa3b9d418b6df9b1d7dec8cec75d212a9334121ae9ce.png" />
+<img alt="../_images/27b2f7a33a2a962a4d1daef17e7ffc65776182e515c35658e6f245a818a76def.png" src="../_images/27b2f7a33a2a962a4d1daef17e7ffc65776182e515c35658e6f245a818a76def.png" />
 </div>
 </div>
 <p>Der Mittelwert und der Median sind gegeben durch</p>
@@ -625,11 +621,11 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Kummulierte Wahrscheinlichkeitsdichte&#39;)
 </pre></div>
 </div>
-<img alt="../_images/8a1c36e2cc785ee53f28af20f021d3b160f7ffdd8a30c056446903d6c87af736.png" src="../_images/8a1c36e2cc785ee53f28af20f021d3b160f7ffdd8a30c056446903d6c87af736.png" />
+<img alt="../_images/77c0c40b04eaaabdeda9a2121476f4b1f25a1bffe07163d2a70eb89f4683ecc9.png" src="../_images/77c0c40b04eaaabdeda9a2121476f4b1f25a1bffe07163d2a70eb89f4683ecc9.png" />
 </div>
 </div>
 <section id="die-kontinuierliche-gleichmaszige-verteilung-in-python">
-<h2>Die kontinuierliche gleichmäßige Verteilung in Python<a class="headerlink" href="#die-kontinuierliche-gleichmaszige-verteilung-in-python" title="Permalink to this heading">#</a></h2>
+<h2>Die kontinuierliche gleichmäßige Verteilung in Python<a class="headerlink" href="#die-kontinuierliche-gleichmaszige-verteilung-in-python" title="Link to this heading">#</a></h2>
 <p>Python ermöglicht den Zugriff auf die Gleichverteilung mit den Funktionen <code class="docutils literal notranslate"><span class="pre">uniform.pmf()</span></code>, <code class="docutils literal notranslate"><span class="pre">uniform.cdf()</span></code>, <code class="docutils literal notranslate"><span class="pre">uniform.ppf()</span></code> und <code class="docutils literal notranslate"><span class="pre">uniform.rvs()</span></code>. Wenden Sie die Funktion <code class="docutils literal notranslate"><span class="pre">dir()</span></code> auf diese Funktionen an, um weitere Informationen zu erhalten.</p>
 <p>Die Funktion <code class="docutils literal notranslate"><span class="pre">uniform.rvs()</span></code> erzeugt Zufallsabweichungen der Gleichverteilung und wird als <code class="docutils literal notranslate"><span class="pre">uniform.rvs(loc,</span> <span class="pre">loc+scale,</span> <span class="pre">size)</span></code> geschrieben. Wir können auf einfache Weise <span class="math notranslate nohighlight">\(n\)</span> Zufallsstichproben innerhalb eines beliebigen Intervalls erzeugen indem wir die Zahlenwerte für minimalen (<span class="math notranslate nohighlight">\(a\)</span>) und maximalen Wert (<span class="math notranslate nohighlight">\(b\)</span>) in <code class="docutils literal notranslate"><span class="pre">random.uniform(a,b,</span> <span class="pre">size)</span></code> einsetzen.</p>
 <div class="cell docutils container">
@@ -640,14 +636,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.47526547, -0.77524307, -0.69750162,  0.90510431, -0.21372857,
-        0.00799467, -0.23553592, -0.46791496, -0.1854587 , -0.56841289,
-        0.32354469,  0.32769648, -0.47823494, -0.78556549, -0.97341078,
-        0.68080663,  0.70935423, -0.98360363, -0.48166378, -0.02723507,
-        0.03752883,  0.82024959, -0.76152133, -0.29049728, -0.76387229,
-        0.61928259, -0.41072823, -0.03397824,  0.15583435,  0.90074695,
-        0.11072275,  0.18238782, -0.71746941, -0.48452742, -0.15733582,
-        0.7145831 , -0.07374001, -0.86192894, -0.11002129, -0.46315454])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.0205954 ,  0.53221541,  0.51272364,  0.5140732 , -0.16786397,
+       -0.73199718,  0.66645117,  0.63607862,  0.0391667 , -0.303326  ,
+       -0.20869598, -0.89068677, -0.5118229 , -0.90877369,  0.73735285,
+       -0.74602666, -0.30200711,  0.62887019, -0.02298375,  0.33260333,
+        0.77519481, -0.41660946,  0.18846448,  0.08883272,  0.06678826,
+       -0.65314687,  0.89611103, -0.36292166, -0.48991632, -0.87296698,
+        0.58557429, -0.37248086, -0.3111459 ,  0.12273519,  0.68698454,
+       -0.52506539, -0.93348557,  0.05244385,  0.70280723, -0.4530584 ])
 </pre></div>
 </div>
 </div>
@@ -668,17 +664,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([483., 502., 499., 508., 503., 481., 470., 491., 532., 503., 487.,
-        514., 472., 477., 509., 492., 550., 499., 511., 517.]),
- array([-1.99988703, -1.85991134, -1.71993564, -1.57995995, -1.43998426,
-        -1.30000856, -1.16003287, -1.02005717, -0.88008148, -0.74010579,
-        -0.60013009, -0.4601544 , -0.3201787 , -0.18020301, -0.04022732,
-         0.09974838,  0.23972407,  0.37969976,  0.51967546,  0.65965115,
-         0.79962685]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([520., 484., 498., 520., 473., 500., 536., 478., 481., 487., 521.,
+        472., 513., 509., 487., 511., 487., 503., 509., 511.]),
+ array([-1.99985808, -1.85986735, -1.71987662, -1.57988589, -1.43989517,
+        -1.29990444, -1.15991371, -1.01992298, -0.87993225, -0.73994153,
+        -0.5999508 , -0.45996007, -0.31996934, -0.17997861, -0.03998788,
+         0.10000284,  0.23999357,  0.3799843 ,  0.51997503,  0.65996576,
+         0.79995649]),
  &lt;BarContainer object of 20 artists&gt;)
 </pre></div>
 </div>
-<img alt="../_images/62eaa170199abce7a2c06535b825b50965a8492f3345f72820c0c42881d25300.png" src="../_images/62eaa170199abce7a2c06535b825b50965a8492f3345f72820c0c42881d25300.png" />
+<img alt="../_images/82b4a134deaf4175c55f93dc80b05cdab0dad34ff8dbb6776b13bf625a0c109f.png" src="../_images/82b4a134deaf4175c55f93dc80b05cdab0dad34ff8dbb6776b13bf625a0c109f.png" />
 </div>
 </div>
 <p>Außerdem stellen wir sowohl das Dichtehistogramm von oben als auch die gleichmäßige Wahrscheinlichkeitsverteilung für das Intervall <span class="math notranslate nohighlight">\([-2 \ \)</span>,<span class="math notranslate nohighlight">\( \ 0,8]\)</span> dar, indem wir die Funktion <code class="docutils literal notranslate"><span class="pre">uniform.pdf()</span></code> anwenden.</p>
@@ -700,10 +696,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x73fb5b460c40&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ab4b5035c00&gt;]
 </pre></div>
 </div>
-<img alt="../_images/7ecd7836c3598b375f6b40c1b73c8af03c23c6afe44a2c18a27b7104d4bc70fa.png" src="../_images/7ecd7836c3598b375f6b40c1b73c8af03c23c6afe44a2c18a27b7104d4bc70fa.png" />
+<img alt="../_images/ed5201949a7766ea9d516d343405c76ca6d093b147b11687eedbeb3438c406af.png" src="../_images/ed5201949a7766ea9d516d343405c76ca6d093b147b11687eedbeb3438c406af.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -722,7 +718,7 @@ document.write(`
 <p>Die Abbildung zeigt, dass unsere <span class="math notranslate nohighlight">\(10.000\)</span> Stichproben, die nach dem Zufallsprinzip aus einer Gleichverteilung gezogen wurden (Histogramm), sich der Gleichverteilung <span class="math notranslate nohighlight">\(X \sim U(-2 \ \)</span>,<span class="math notranslate nohighlight">\( \ 0,8)\)</span> (Liniendiagramm).</p>
 <p>Außerdem können wir die Funktion <code class="docutils literal notranslate"><span class="pre">uniform.cdf()</span></code> verwenden, um die Fläche unter der Kurve für einen bestimmten Schwellenwert zu berechnen, oder wir können die Funktion <code class="docutils literal notranslate"><span class="pre">uniform.ppf()</span></code> verwenden, um einen Schwellenwert für eine bestimmte Wahrscheinlichkeit zurückzugeben.</p>
 <section id="ubung">
-<h3>Übung<a class="headerlink" href="#ubung" title="Permalink to this heading">#</a></h3>
+<h3>Übung<a class="headerlink" href="#ubung" title="Link to this heading">#</a></h3>
 <p>Betrachten wir die gleichmäßige Wahrscheinlichkeitsverteilung, die durch <span class="math notranslate nohighlight">\(X \sim U(-3 \ \)</span>,<span class="math notranslate nohighlight">\( \ 5,5)\)</span> gegeben ist.</p>
 <p><strong>Frage 1</strong></p>
 <p>Wie lautet der Mittelwert <span class="math notranslate nohighlight">\(\mu\)</span> für die gegebene Gleichverteilung.</p>
@@ -750,7 +746,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.25
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.25)
 </pre></div>
 </div>
 </div>
@@ -775,7 +771,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1728
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.1773)
 </pre></div>
 </div>
 </div>
@@ -790,7 +786,7 @@ Wir interessieren uns also für die Fläche unter der Kurve bis zum Wert von <sp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.17647058823529416
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.17647058823529416)
 </pre></div>
 </div>
 </div>
@@ -805,7 +801,7 @@ Wir interessieren uns also für die Fläche unter der Kurve bis zum Wert von <sp
     {
         requestKernel: true,
         binderOptions: {
-            repo: "ixianslab/srh-data-science",
+            repo: "Mobile-University-DigitalLab/statistik",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -828,8 +824,8 @@ Wir interessieren uns also für die Fläche unter der Kurve bis zum Wert von <sp
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="02_Die%20Normalverteilung.html"
@@ -856,7 +852,9 @@ Wir interessieren uns also für die Fläche unter der Kurve bis zum Wert von <sp
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -889,9 +887,10 @@ By ixians
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -915,8 +914,8 @@ By ixians
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

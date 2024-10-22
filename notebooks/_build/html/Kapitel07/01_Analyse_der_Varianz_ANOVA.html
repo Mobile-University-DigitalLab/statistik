@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Varianzanalyse - ANOVA &#8212; Modul Statistik und Machine Learning Modelle</title>
   
@@ -15,54 +14,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css?v=342acfa5" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel07/01_Analyse_der_Varianz_ANOVA';</script>
@@ -72,6 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Lernziele" href="../Lernziele/Kapitel7_Lernziele.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,32 +78,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -112,7 +95,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -120,16 +102,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -142,9 +133,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -154,12 +149,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Modul Statistik und Machine Learning Modelle - Home"/>
+    <img src="../_static/srh_logo.png" class="logo__image only-dark pst-js-only" alt="Modul Statistik und Machine Learning Modelle - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -181,13 +183,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -195,12 +197,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -211,35 +213,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
 <ul class="nav bd-sidenav">
@@ -266,59 +268,59 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Varianzanalyse - ANOVA</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
 <ul class="nav bd-sidenav">
@@ -338,7 +340,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -347,14 +349,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -408,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel07/01_Analyse_der_Varianz_ANOVA.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik/issues/new?title=Issue%20on%20page%20%2FKapitel07/01_Analyse_der_Varianz_ANOVA.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -507,26 +509,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -579,10 +575,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="varianzanalyse-anova">
-<h1>Varianzanalyse - ANOVA<a class="headerlink" href="#varianzanalyse-anova" title="Permalink to this heading">#</a></h1>
+<h1>Varianzanalyse - ANOVA<a class="headerlink" href="#varianzanalyse-anova" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -599,11 +595,11 @@ document.write(`
 <p>Genauer gesagt geht es um die sogenannte einfaktorielle Varianzanalyse (<span id="id1"></span> s.478). Bei dieser Art der ANOVA werden die Mittelwerte einer Variablen verglichen, die sich aus der Klassifizierung durch <em>eine</em> andere Variable, dem sogenannten <strong>Faktor</strong>, ergeben. Um das Konzept zu veranschaulichen, wollen wir ein einfaches Beispiel entwerfen. Angenommen, wir vergleichen die mittleren Jahresgehälter der in Deutschland lebenden Personen, gruppiert nach Bundesländern, dann erhalten wir <span class="math notranslate nohighlight">\(16\)</span> Mittelwerte der Jahresgehälter, einen für jedes Bundesland. In diesem Beispiel ist die Bundeslandvariable also eine Klassifikationsvariable, der so genannte Faktor.</p>
 <p>Bitte beachten Sie, dass die einfaktorielle Varianzanalyse die Verallgemeinerung des <span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Tests auf mehr als zwei Grundgesamtheiten ist.</p>
 <section id="einfaktorielle-anova">
-<h2>Einfaktorielle ANOVA<a class="headerlink" href="#einfaktorielle-anova" title="Permalink to this heading">#</a></h2>
+<h2>Einfaktorielle ANOVA<a class="headerlink" href="#einfaktorielle-anova" title="Link to this heading">#</a></h2>
 <p>Die grundlegende Logik einer einfaktoriellen ANOVA besteht darin, aus jeder Gruppe unabhängige Zufallsstichproben zu ziehen, dann die Stichprobenmittelwerte für jede Gruppe zu berechnen und anschließend die Variation der Stichprobenmittelwerte zwischen den Gruppen mit der Variation innerhalb der Gruppen zu vergleichen. Schließlich wird auf der Grundlage einer Teststatistik entschieden, ob die Mittelwerte der Gruppen gleich sind oder nicht.</p>
 <p>Auf der Grundlage dieser Logik benötigen wir quantitative <strong>Maße für die Variabilität</strong>. Daher teilen wir die Gesamtvariabilität in zwei Segmente auf: Eines, das die <strong>Variabilität zwischen den Gruppen</strong> berücksichtigt, und das andere, das die <strong>Variabilität innerhalb der Gruppen</strong> berücksichtigt.</p>
 <section id="masze-der-variabilitat">
-<h3>Maße der Variabilität<a class="headerlink" href="#masze-der-variabilitat" title="Permalink to this heading">#</a></h3>
+<h3>Maße der Variabilität<a class="headerlink" href="#masze-der-variabilitat" title="Link to this heading">#</a></h3>
 <p>Wir führen drei quantitative Maße für die Variation ein:</p>
 <ul class="simple">
 <li><p>Summe der Gesamtquadrate (SST)</p></li>
@@ -626,7 +622,7 @@ document.write(`
 \[SSE = SST-SSG\text{.}\]</div>
 </section>
 <section id="masze-der-mittleren-variabilitat">
-<h3>Maße der mittleren Variabilität<a class="headerlink" href="#masze-der-mittleren-variabilitat" title="Permalink to this heading">#</a></h3>
+<h3>Maße der mittleren Variabilität<a class="headerlink" href="#masze-der-mittleren-variabilitat" title="Link to this heading">#</a></h3>
 <p>Bisher haben wir Maße für die Gesamtvariabilität (<span class="math notranslate nohighlight">\(SST\)</span>), die Variabilität zwischen Gruppen (<span class="math notranslate nohighlight">\(SSG\)</span>) und die Variabilität innerhalb von Gruppen (<span class="math notranslate nohighlight">\(SSE\)</span>) berechnet. Um eine durchschnittliche Variabilität zu erhalten, skalieren wir im nächsten Schritt diese Variabilitätsmaße mit dem Stichprobenumfang (genauer gesagt mit den Freiheitsgraden, <span class="math notranslate nohighlight">\(df\)</span>).</p>
 <p>Die <strong>Freiheitsgrade</strong> werden für jede Unterteilung der Variabilität (Gesamtvariabilität, Variabilität zwischen Gruppen und Variabilität innerhalb von Gruppen) definiert.</p>
 <ul class="simple">
@@ -660,7 +656,7 @@ den Gesamtumfang der Stichprobe bezeichnet.</p>
 \[MSE = \frac{SSE}{df_E}\]</div>
 </section>
 <section id="teststatistik-und-p-wert">
-<h3>Teststatistik und <span class="math notranslate nohighlight">\(p\)</span>-Wert<a class="headerlink" href="#teststatistik-und-p-wert" title="Permalink to this heading">#</a></h3>
+<h3>Teststatistik und <span class="math notranslate nohighlight">\(p\)</span>-Wert<a class="headerlink" href="#teststatistik-und-p-wert" title="Link to this heading">#</a></h3>
 <p>Schließlich vergleichen wir die mittlere Variation zwischen den Gruppen, <span class="math notranslate nohighlight">\(MSG\)</span>, mit der Variation innerhalb der Gruppe, <span class="math notranslate nohighlight">\(MSE\)</span>. Daher berechnen wir das Verhältnis zwischen der durchschnittlichen Variation zwischen den Gruppen (<span class="math notranslate nohighlight">\(MSG\)</span>) und der Variation innerhalb der Gruppen (<span class="math notranslate nohighlight">\(MSE\)</span>), das mit <span class="math notranslate nohighlight">\(F\)</span> bezeichnet wird.</p>
 <div class="math notranslate nohighlight">
 \[F= \frac{MSG}{MSE}\]</div>
@@ -670,9 +666,9 @@ den Gesamtumfang der Stichprobe bezeichnet.</p>
 <p>wobei <span class="math notranslate nohighlight">\(k\)</span> für die Anzahl der Gruppen und <span class="math notranslate nohighlight">\(n\)</span> für den Stichprobenumfang steht. Große Werte der <span class="math notranslate nohighlight">\(F\)</span>-Werte zeigen an, dass die Variation zwischen den Stichprobenmittelwerten der Gruppen im Verhältnis zur Variation innerhalb der Gruppe groß ist. Darüber hinaus können wir den <span class="math notranslate nohighlight">\(p\)</span>-Wert für jeden gegebenen <span class="math notranslate nohighlight">\(F\)</span>-Wert berechnen. Wenn der <span class="math notranslate nohighlight">\(p\)</span>-Wert klein ist, liefern die Daten überzeugende Beweise dafür, dass sich mindestens ein Paar von Gruppenmittelwerten voneinander unterscheidet. Ist der <span class="math notranslate nohighlight">\(p\)</span>-Wert groß, liefern die Daten keinen überzeugenden Beweis dafür, dass sich zumindest ein Paar von Gruppenmittelwerten voneinander unterscheidet, und die beobachteten Unterschiede in den Stichprobenmittelwerten sind somit auf Stichprobenvariabilität (oder Zufall) zurückzuführen.</p>
 </section>
 <section id="einfaktorielle-anova-tabellen">
-<h3>Einfaktorielle ANOVA-Tabellen<a class="headerlink" href="#einfaktorielle-anova-tabellen" title="Permalink to this heading">#</a></h3>
+<h3>Einfaktorielle ANOVA-Tabellen<a class="headerlink" href="#einfaktorielle-anova-tabellen" title="Link to this heading">#</a></h3>
 <p>Wie oben dargestellt, umfasst die einfache Varianzanalyse mehrere Analyseschritte. Dabei ist eine gängige Methode zur Darstellung einer einfachen ANOVA die so genannte <strong>einfaktorielle ANOVA-Tabelle</strong>. Der allgemeine Aufbau einer solchen Tabelle ist unten dargestellt.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Quelle</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(df\)</span></p></th>
@@ -706,10 +702,11 @@ den Gesamtumfang der Stichprobe bezeichnet.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 <section id="einfaktorieller-anova-hypothesentest">
-<h2>Einfaktorieller ANOVA-Hypothesentest<a class="headerlink" href="#einfaktorieller-anova-hypothesentest" title="Permalink to this heading">#</a></h2>
+<h2>Einfaktorieller ANOVA-Hypothesentest<a class="headerlink" href="#einfaktorieller-anova-hypothesentest" title="Link to this heading">#</a></h2>
 <p>Der Zweck eines <strong>einfaktoriellen ANOVA-Hypothesentests</strong> ist der Vergleich von <span class="math notranslate nohighlight">\(k\)</span> Grundgesamtheits-/Gruppenmittelwerten, <span class="math notranslate nohighlight">\(\mu_1, \mu_2,...,\mu_k\)</span>.
 Die folgenden Annahmen müssen erfüllt sein, damit eine einseitige ANOVA angewendet werden kann (<span id="id2"></span> s.485):</p>
 <ul class="simple">
@@ -719,7 +716,7 @@ Die folgenden Annahmen müssen erfüllt sein, damit eine einseitige ANOVA angewe
 <li><p>Die Standardabweichungen der betrachteten Variable sind für alle Grundgesamtheiten gleich.</p></li>
 </ul>
 <p>Ein einfaktorieller ANOVA-Hypothesentest folgt demselben schrittweisen Verfahren wie andere Hypothesentests.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p></p></th>
@@ -746,8 +743,9 @@ Die folgenden Annahmen müssen erfüllt sein, damit eine einseitige ANOVA angewe
 </tr>
 </tbody>
 </table>
+</div>
 <section id="einfaktorieller-anova-hypothesentest-ein-beispiel">
-<h3>Einfaktorieller ANOVA-Hypothesentest: Ein Beispiel<a class="headerlink" href="#einfaktorieller-anova-hypothesentest-ein-beispiel" title="Permalink to this heading">#</a></h3>
+<h3>Einfaktorieller ANOVA-Hypothesentest: Ein Beispiel<a class="headerlink" href="#einfaktorieller-anova-hypothesentest-ein-beispiel" title="Link to this heading">#</a></h3>
 <p>Um praktische Erfahrungen zu sammeln, wenden wir den <strong>einfaktoriellen ANOVA-Hypothesentest</strong> in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -761,7 +759,7 @@ Die folgenden Annahmen müssen erfüllt sein, damit eine einseitige ANOVA angewe
 <p>Um den <strong>einfaktoriellen ANOVA-Hypothesentest</strong> zu veranschaulichen, untersuchen wir das mittlere Jahresgehalt der Absolventen, gruppiert nach ihrem Hauptstudienfach. Zur Verdeutlichung: In diesem Beispiel erfolgt die Klassifizierung/Gruppierung durch eine Variable, die Hauptvariable, den so genannten Faktor, wir führen also eine einfaktorielle ANOVA durch. In dieser Übung <strong>wollen wir testen, ob sich das mittlere Jahresgehalt der Absolventen zwischen den Absolventen verschiedener Studienfächer unterscheidet.</strong></p>
 </section>
 <section id="datenexploration-und-aufbereitung">
-<h3>Datenexploration und Aufbereitung<a class="headerlink" href="#datenexploration-und-aufbereitung" title="Permalink to this heading">#</a></h3>
+<h3>Datenexploration und Aufbereitung<a class="headerlink" href="#datenexploration-und-aufbereitung" title="Link to this heading">#</a></h3>
 <p>Wir beginnen unsere Datenanalyse mit dem Zufallsstichprobenverfahren. Wir ziehen eine Zufallsstichprobe von <span class="math notranslate nohighlight">\(275\)</span> Studenten aus dem Datensatz mit Hilfe der <code class="docutils literal notranslate"><span class="pre">sample()</span></code> Methode in Python. Wir wollen sicherstellen, dass wir nur Studenten mit abgeschlossenem Studium in die Stichprobe aufnehmen, deshalb unterteilen wir die Daten des Dataframes zuvor in Python. Des Weiteren reduzieren wir unseren Datensatz auf die zwei Variablen von Interesse, die kategoriale Variable <code class="docutils literal notranslate"><span class="pre">major</span></code> und die numerische Variable <code class="docutils literal notranslate"><span class="pre">salary</span></code>. Dann zeigen wir die ersten <span class="math notranslate nohighlight">\(10\)</span> Zeilen des Datensatzes an.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -865,7 +863,7 @@ Die folgenden Annahmen müssen erfüllt sein, damit eine einseitige ANOVA angewe
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Anzahl&#39;)
 </pre></div>
 </div>
-<img alt="../_images/667944e317f394216b0c02c2689181b64b4a219fe890762ec06d920fca06fc68.png" src="../_images/667944e317f394216b0c02c2689181b64b4a219fe890762ec06d920fca06fc68.png" />
+<img alt="../_images/4321c9ee606b40ba87abd0ad22b2e902c20c07a9f83192a69457738ce12cf4f0.png" src="../_images/4321c9ee606b40ba87abd0ad22b2e902c20c07a9f83192a69457738ce12cf4f0.png" />
 </div>
 </div>
 <p>Wir sehen, dass die verschiedenen Studienteilnehmer in unserer Stichprobe nicht gleich verteilt sind, aber das ist in Ordnung.</p>
@@ -883,12 +881,12 @@ Die folgenden Annahmen müssen erfüllt sein, damit eine einseitige ANOVA angewe
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/aa96f657266e23aab7e9f03e720690395dcc752892c7428c9c7a8059a7eb3987.png" src="../_images/aa96f657266e23aab7e9f03e720690395dcc752892c7428c9c7a8059a7eb3987.png" />
-<img alt="../_images/182c0d505dca81fa5ff689f33d612f481a2f3197a90b125f82244acecdc3cbb1.png" src="../_images/182c0d505dca81fa5ff689f33d612f481a2f3197a90b125f82244acecdc3cbb1.png" />
-<img alt="../_images/b3f176be81712cb41839c3af9702512681d33a55c5f7839e150415642913b5c1.png" src="../_images/b3f176be81712cb41839c3af9702512681d33a55c5f7839e150415642913b5c1.png" />
-<img alt="../_images/65f807941528bc2a46a79dec4b4a4850f87cb7c14caff818a65b35e2e50465d2.png" src="../_images/65f807941528bc2a46a79dec4b4a4850f87cb7c14caff818a65b35e2e50465d2.png" />
-<img alt="../_images/3f87f240883fc7e2e157a19c39d35a484df415708af902ba9c557fc8348af1ca.png" src="../_images/3f87f240883fc7e2e157a19c39d35a484df415708af902ba9c557fc8348af1ca.png" />
-<img alt="../_images/b1cecf0cd598a009634e14bcdb076bb1416ae01d0b1f1cf24bab6da0bdad9926.png" src="../_images/b1cecf0cd598a009634e14bcdb076bb1416ae01d0b1f1cf24bab6da0bdad9926.png" />
+<img alt="../_images/c883c46ed9c1452e7e8fb4a18af37f9ca0d779cffdb861e208b0515af5642370.png" src="../_images/c883c46ed9c1452e7e8fb4a18af37f9ca0d779cffdb861e208b0515af5642370.png" />
+<img alt="../_images/6792b2af4d57fd4a4e990ccca87a97d97418891b57aee6b0d5027fc70aecea3d.png" src="../_images/6792b2af4d57fd4a4e990ccca87a97d97418891b57aee6b0d5027fc70aecea3d.png" />
+<img alt="../_images/cea5bcb2916c07980274dc99c9ec41af6c531b67b2757023a3d606303b19fc27.png" src="../_images/cea5bcb2916c07980274dc99c9ec41af6c531b67b2757023a3d606303b19fc27.png" />
+<img alt="../_images/87801c2fdda88ccde32d831add44e8f3a623530af4857b06ae8cbd69da6e3d5b.png" src="../_images/87801c2fdda88ccde32d831add44e8f3a623530af4857b06ae8cbd69da6e3d5b.png" />
+<img alt="../_images/6ecb4bc7351c3ecb2f4d632717a17e42290086260bde432284e6bddc9fda686f.png" src="../_images/6ecb4bc7351c3ecb2f4d632717a17e42290086260bde432284e6bddc9fda686f.png" />
+<img alt="../_images/1f8fb8eba2cc5ce5663f4dd1864733c531a11293dc741748b9a7cbb6fb87ca0d.png" src="../_images/1f8fb8eba2cc5ce5663f4dd1864733c531a11293dc741748b9a7cbb6fb87ca0d.png" />
 </div>
 </div>
 <p>Als nächstes testen wir die Annahme gleicher Standardabweichungen. Dazu berechnen wir die Standardabweichung für jede Gruppe. Die Programmiersprache Python bietet einige ausgezeichnete Funktionen zur Berechnung statistischer Parameter für verschiedene Gruppierungen eines Datensatzes. Für unser Beispiel verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">pivot_table()</span></code>, um die Standardabweichungen für jede Gruppe zu berechnen.</p>
@@ -980,7 +978,7 @@ Name: salary, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.590273268094179
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.590273268094179)
 </pre></div>
 </div>
 </div>
@@ -989,7 +987,7 @@ Name: salary, dtype: float64
 <p>Beachten Sie, dass die einseitige ANOVA robust gegenüber moderaten Verstößen gegen die Normalitätsannahme und die Annahme gleicher Standardabweichungen ist (<span id="id3"></span> s.486).</p>
 </section>
 <section id="uberprufung-der-hypothesen">
-<h3>Überprüfung der Hypothesen<a class="headerlink" href="#uberprufung-der-hypothesen" title="Permalink to this heading">#</a></h3>
+<h3>Überprüfung der Hypothesen<a class="headerlink" href="#uberprufung-der-hypothesen" title="Link to this heading">#</a></h3>
 <p>Um den <strong>einfaktoriellen ANOVA-Hypothesentest</strong> durchzuführen, folgen wir dem schrittweisen Durchführungsverfahren für Hypothesentests.</p>
 <p><strong>Schritt 1 : Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</strong></p>
 <p>Die Nullhypothese besagt, dass das mittlere Jahresgehalt bei allen Gruppen von Absolventen gleich ist.</p>
@@ -1010,7 +1008,7 @@ Name: salary, dtype: float64
 </div>
 <p><strong>Schritt 3 und 4: Berechnen Sie den Wert der Teststatistik und den <span class="math notranslate nohighlight">\(p\)</span>-Wert</strong></p>
 <p>Um die <span class="math notranslate nohighlight">\(F\)</span>-Test-Statistik zu berechnen, müssen wir zuvor mehrere Größen bestimmen. Zur Veranschaulichung berechnen wir die <span class="math notranslate nohighlight">\(F\)</span>-Teststatistik manuell in Python. Schritt für Schritt füllen wir die ANOVA-Tabelle aus, bis wir schließlich die <span class="math notranslate nohighlight">\(F\)</span>-Teststatistik und folglich den <span class="math notranslate nohighlight">\(p\)</span>-Wert erhalten.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Quelle</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(df\)</span></p></th>
@@ -1044,6 +1042,7 @@ Name: salary, dtype: float64
 </tr>
 </tbody>
 </table>
+</div>
 <p>Wir beginnen mit der ersten Spalte und berechnen die Freiheitsgrade.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1087,7 +1086,7 @@ Name: salary, dtype: float64
 </div>
 </div>
 </div>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Quelle</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(df\)</span></p></th>
@@ -1121,6 +1120,7 @@ Name: salary, dtype: float64
 </tr>
 </tbody>
 </table>
+</div>
 <p>Außerdem berechnen wir die drei Summen der Quadrate, <span class="math notranslate nohighlight">\(SST\)</span>, <span class="math notranslate nohighlight">\(SSG\)</span> und <span class="math notranslate nohighlight">\(SSE\)</span>. Erinnern Sie sich an die Gleichungen von oben.</p>
 <div class="math notranslate nohighlight">
 \[SST = \sum_{i=1}^n(x_i-\bar x)^2\text{,}\]</div>
@@ -1140,7 +1140,7 @@ Name: salary, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33169010775.846596
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(33169010775.846596)
 </pre></div>
 </div>
 </div>
@@ -1183,7 +1183,7 @@ Name: salary, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15425759982.382113
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(15425759982.382113)
 </pre></div>
 </div>
 </div>
@@ -1203,7 +1203,7 @@ Name: salary, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17743250793.46448
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(17743250793.46448)
 </pre></div>
 </div>
 </div>
@@ -1217,12 +1217,12 @@ Name: salary, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17743250793.464485
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(17743250793.464485)
 </pre></div>
 </div>
 </div>
 </div>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Quelle</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(df\)</span></p></th>
@@ -1256,6 +1256,7 @@ Name: salary, dtype: int64
 </tr>
 </tbody>
 </table>
+</div>
 <p>Nun berechnen wir die beiden Maße für die mittlere Variabilität, <span class="math notranslate nohighlight">\(MSG\)</span> und <span class="math notranslate nohighlight">\(MSE\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1266,7 +1267,7 @@ Name: salary, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3085151996.4764223
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(3085151996.4764223)
 </pre></div>
 </div>
 </div>
@@ -1280,12 +1281,12 @@ Name: salary, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65960040.124403276
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(65960040.124403276)
 </pre></div>
 </div>
 </div>
 </div>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Quelle</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(df\)</span></p></th>
@@ -1319,6 +1320,7 @@ Name: salary, dtype: int64
 </tr>
 </tbody>
 </table>
+</div>
 <p>Schließlich erhalten wir die <span class="math notranslate nohighlight">\(F\)</span>-Statistiken durch das Verhältnis von <span class="math notranslate nohighlight">\(MSG\)</span> und <span class="math notranslate nohighlight">\(MSE\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1329,12 +1331,12 @@ Name: salary, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>46.773046084533945
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(46.773046084533945)
 </pre></div>
 </div>
 </div>
 </div>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Quelle</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(df\)</span></p></th>
@@ -1368,6 +1370,7 @@ Name: salary, dtype: int64
 </tr>
 </tbody>
 </table>
+</div>
 <p>Im letzten Schritt berechnen wir den <span class="math notranslate nohighlight">\(p\)</span>-Wert durch Aufruf der Funktion <code class="docutils literal notranslate"><span class="pre">f.cdf()</span></code> in Python. Erinnern Sie sich, wie man die Freiheitsgrade berechnet.</p>
 <div class="math notranslate nohighlight">
 \[df = (k-1, n-k)\]</div>
@@ -1383,12 +1386,12 @@ Name: salary, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0932037477708007e-34
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.0932037477708007e-34)
 </pre></div>
 </div>
 </div>
 </div>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Quelle</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(df\)</span></p></th>
@@ -1422,6 +1425,7 @@ Name: salary, dtype: int64
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>Schritt 5: Wenn <span class="math notranslate nohighlight">\(p \le \alpha , H_0\)</span> ablehnen; ansonsten <span class="math notranslate nohighlight">\(H_0\)</span> nicht ablehnen</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1430,7 +1434,7 @@ Name: salary, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.True_
 </pre></div>
 </div>
 </div>
@@ -1440,7 +1444,7 @@ Name: salary, dtype: int64
 <p><span class="math notranslate nohighlight">\(p=1,093212 \cdot 10^{-34}\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(1 \%\)</span> liefern die Daten sehr starke Hinweise darauf, dass sich mindestens ein Paar von Gruppenmittelwerten voneinander unterscheidet.</p>
 </section>
 <section id="hypothesentests-in-python">
-<h3>Hypothesentests in Python<a class="headerlink" href="#hypothesentests-in-python" title="Permalink to this heading">#</a></h3>
+<h3>Hypothesentests in Python<a class="headerlink" href="#hypothesentests-in-python" title="Link to this heading">#</a></h3>
 <p>Wir haben gerade einen einfaktoriellen ANOVA-Hypothesentest in Python manuell durchgeführt. Toll, aber jetzt wiederholen wir das Beispiel und nutzen die Möglichkeiten von Python, um das gleiche Ergebnis wie oben mit nur wenigen Zeilen Code zu erhalten!</p>
 <p>Um einen einseitigen ANOVA-Hypothesentest in Python durchzuführen, verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">f_oneway()</span></code>. Die <code class="docutils literal notranslate"><span class="pre">f_oneway()</span></code>-Funktion erwartet die Eingabe der zu vergleichenden Untergruppen. Hierfür verwenden wir eine <code class="docutils literal notranslate"><span class="pre">list-comprehension</span></code>. Außerdem lesen wir die <span class="math notranslate nohighlight">\(F\)</span>-Teststatistik <code class="docutils literal notranslate"><span class="pre">statistics</span></code> und <span class="math notranslate nohighlight">\(p\)</span>-Wert <code class="docutils literal notranslate"><span class="pre">p_value</span></code> aus.</p>
 <div class="cell docutils container">
@@ -1467,11 +1471,11 @@ p-Wert: 1.0932037477708007e-34
 </section>
 </section>
 <section id="multiples-testproblem">
-<h2>Multiples Testproblem<a class="headerlink" href="#multiples-testproblem" title="Permalink to this heading">#</a></h2>
+<h2>Multiples Testproblem<a class="headerlink" href="#multiples-testproblem" title="Link to this heading">#</a></h2>
 <p>Eine Einschränkung der ANOVA besteht darin, dass wir, wenn wir die Nullhypothese ablehnen, feststellen, dass die Mittelwerte der betrachteten Populationen nicht alle gleich sind. Wir können jedoch weder entscheiden, welche Mittelwerte unterschiedlich sind, noch, in welchem Verhältnis die Mittelwerte zueinander stehen.</p>
 <p>Um diese Frage zu klären, wenden wir Methoden an, die als <strong>multiples Testen</strong> oder <strong>Mehrfachvergleiche</strong> bezeichnet werden. Das Problem bei Mehrfachvergleichen ist, dass je mehr Hypothesen für einen bestimmten Datensatz getestet werden, desto wahrscheinlicher ist es, dass die Nullhypothese fälschlicherweise zurückgewiesen wird. Daher erfordern die Methoden des Mehrfachvergleichs eine höhere Signifikanzschwelle (<span class="math notranslate nohighlight">\(\alpha\)</span>) für einzelne Vergleiche, um die Anzahl der gezogenen Schlüsse zu kompensieren.</p>
 <section id="alphafehler-kumulierung-engl-family-wise-error-rate-fwer">
-<h3>Alphafehler-Kumulierung (engl. Family Wise Error Rate - FWER)<a class="headerlink" href="#alphafehler-kumulierung-engl-family-wise-error-rate-fwer" title="Permalink to this heading">#</a></h3>
+<h3>Alphafehler-Kumulierung (engl. Family Wise Error Rate - FWER)<a class="headerlink" href="#alphafehler-kumulierung-engl-family-wise-error-rate-fwer" title="Link to this heading">#</a></h3>
 <p>Eine <strong>Testfamilie</strong> ist der Fachbegriff für eine Reihe von Tests, die an einem Datensatz durchgeführt werden. Die <a href="https://de.wikipedia.org/wiki/Alphafehler-Kumulierung">Alphafehler-Kumulierung</a> (engl. Family Wise Error Rate) ist die Wahrscheinlichkeit, dass bei der Durchführung von Mehrfachhypothesentests ein oder mehrere falsche Zurückweisungen der Null-Hypothese oder Fehler vom <a href="https://de.wikipedia.org/wiki/Fehler_1._und_2._Art">Typ I</a> gemacht werden.</p>
 <p>Es sei daran erinnert, dass bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(\alpha=0,05\)</span> die Wahrscheinlichkeit, einen Fehler vom Typ I zu machen, <span class="math notranslate nohighlight">\(0,05\)</span> oder <span class="math notranslate nohighlight">\(5 \%\)</span> beträgt. Folglich ist die Wahrscheinlichkeit, keinen Fehler vom Typ I zu machen, <span class="math notranslate nohighlight">\(1-\alpha=1-0,05=0,95\)</span>. Außerdem ist die Wahrscheinlichkeit, zwei unabhängige Ereignisse zu beobachten, das Produkt ihrer Wahrscheinlichkeiten. Wenn wir also zwei unabhängige Tests durchführen, ist die Wahrscheinlichkeit, beim ersten und beim zweiten Test keinen Fehler vom Typ I zu machen</p>
 <div class="math notranslate nohighlight">
@@ -1495,7 +1499,7 @@ p-Wert: 1.0932037477708007e-34
 <p>Um diesem Problem Rechnung zu tragen, gibt es <a href="https://de.wikipedia.org/wiki/Alphafehler-Kumulierung#Adjustierung_des_globalen_%CE%B1-Niveaus">mehrere statistische Methoden</a>. In diesem Abschnitt werden die <a href="https://de.wikipedia.org/wiki/Bonferroni-Korrektur">Bonferroni-Korrektur</a> und die <a href="https://de.wikipedia.org/wiki/Post-hoc-Test#Tukey-Test">Tukey-Test</a>, auch bekannt als <strong>Tukeys HSD-Test (hoenstly significant difference)</strong>, behandelt.</p>
 </section>
 <section id="beispiel-daten">
-<h3>Beispiel-Daten<a class="headerlink" href="#beispiel-daten" title="Permalink to this heading">#</a></h3>
+<h3>Beispiel-Daten<a class="headerlink" href="#beispiel-daten" title="Link to this heading">#</a></h3>
 <p>In diesem Abschnitt wiederholen wir das Beispiel aus dem vorherigen Abschnitt. Dort haben wir eine einfaktorielle ANOVA angewandt, um zu <strong>testen, ob sich das mittlere Jahresgehalt der Absolventen zwischen den Absolventen verschiedener Studienfächer unterscheidet</strong>. Dieses Mal werden wir jedoch mehrere Vergleiche durchführen, um die Beziehung zwischen allen Gruppenmittelwerten zu analysieren.</p>
 <p>Laden Sie den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz erneut (Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen).</p>
 <div class="cell docutils container">
@@ -1630,7 +1634,7 @@ p-Wert: 2.2839018706608163e-31
 </div>
 </section>
 <section id="bonferroni-korrektur">
-<h3>Bonferroni-Korrektur<a class="headerlink" href="#bonferroni-korrektur" title="Permalink to this heading">#</a></h3>
+<h3>Bonferroni-Korrektur<a class="headerlink" href="#bonferroni-korrektur" title="Link to this heading">#</a></h3>
 <p>Die Bonferroni-Korrektur kompensiert die erhöhte Wahrscheinlichkeit, dass eine Nullhypothese aufgrund von Mehrfachvergleichen fälschlicherweise abgelehnt wird (Fehler vom Typ I), indem das Signifikanzniveau <span class="math notranslate nohighlight">\(\alpha\)</span> in folgender Form angepasst wird</p>
 <div class="math notranslate nohighlight">
 \[\alpha = \frac{\alpha}{m}\text{,}\]</div>
@@ -1641,7 +1645,7 @@ p-Wert: 2.2839018706608163e-31
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bonferroni</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Computes the boferroni correction&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the boferroni correction&quot;&quot;&quot;</span>
     <span class="n">m</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="n">bonf</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">/</span> <span class="n">m</span>
     <span class="k">return</span> <span class="n">bonf</span>
@@ -1651,7 +1655,7 @@ p-Wert: 2.2839018706608163e-31
 </div>
 </section>
 <section id="der-paarweiser-t-test-in-python-bonferroni-korrektur">
-<h3>Der paarweiser <span class="math notranslate nohighlight">\(t\)</span>-Test in Python: Bonferroni-Korrektur<a class="headerlink" href="#der-paarweiser-t-test-in-python-bonferroni-korrektur" title="Permalink to this heading">#</a></h3>
+<h3>Der paarweiser <span class="math notranslate nohighlight">\(t\)</span>-Test in Python: Bonferroni-Korrektur<a class="headerlink" href="#der-paarweiser-t-test-in-python-bonferroni-korrektur" title="Link to this heading">#</a></h3>
 <p>Wie im vorigen Abschnitt erwähnt, ist eine einfaktorielle Varianzanalyse die Verallgemeinerung des <span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Tests auf mehr als zwei Grundgesamtheiten. Die Python-Funktion zur Durchführung von Mehrfachvergleichen ist <code class="docutils literal notranslate"><span class="pre">ttest_ind()</span></code>. Die Funktion <code class="docutils literal notranslate"><span class="pre">ttest_ind()</span></code> vergleicht die jeweiligen Gehaltsverteilungen (<code class="docutils literal notranslate"><span class="pre">salary</span></code>) nach Studienfächer gruppiert (<code class="docutils literal notranslate"><span class="pre">major</span></code>) miteinander.</p>
 <p>Zunächst führen wir einen paarweisen <span class="math notranslate nohighlight">\(t\)</span>-Test ohne Anpassung durch, wodurch sich die Wahrscheinlichkeit erhöht, dass die Nullhypothese falsch zurückgewiesen wird.</p>
 <div class="cell docutils container">
@@ -1694,7 +1698,7 @@ p-Wert: 2.2839018706608163e-31
     <span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">major1</span><span class="si">}</span><span class="s2"> vs. </span><span class="si">{</span><span class="n">major2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p-value:   </span><span class="si">{</span><span class="n">p_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reject H0 (p-value &lt;= </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">p_value</span> <span class="o">&lt;=</span> <span class="n">alpha</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reject H0 (p-value &lt;= </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">p_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">alpha</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1732,7 +1736,7 @@ p-value:   2.6490333956019106e-12
 Reject H0 (p-value &lt;= 0.05): True
 
 PoS vs. SoS
-p-value:   0.230977569202981
+p-value:   0.23097756920298104
 Reject H0 (p-value &lt;= 0.05): False
 
 Bio vs. EnS
@@ -1756,7 +1760,7 @@ p-value:   0.0055758247214054745
 Reject H0 (p-value &lt;= 0.05): True
 
 EcFi vs. SoS
-p-value:   7.145673135006304e-12
+p-value:   7.145673135006227e-12
 Reject H0 (p-value &lt;= 0.05): True
 </pre></div>
 </div>
@@ -1786,7 +1790,7 @@ Reject H0 (p-value &lt;= 0.05): True
     <span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">major1</span><span class="si">}</span><span class="s2"> vs. </span><span class="si">{</span><span class="n">major2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p-value:   </span><span class="si">{</span><span class="n">p_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reject H0 (p-value &lt;= </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">bonf</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">p_value</span> <span class="o">&lt;=</span> <span class="n">bonf</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reject H0 (p-value &lt;= </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">bonf</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">p_value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">bonf</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1824,7 +1828,7 @@ p-value:   2.6490333956019106e-12
 Reject H0 (p-value &lt;= 0.00333): True
 
 PoS vs. SoS
-p-value:   0.230977569202981
+p-value:   0.23097756920298104
 Reject H0 (p-value &lt;= 0.00333): False
 
 Bio vs. EnS
@@ -1848,7 +1852,7 @@ p-value:   0.0055758247214054745
 Reject H0 (p-value &lt;= 0.00333): False
 
 EcFi vs. SoS
-p-value:   7.145673135006304e-12
+p-value:   7.145673135006227e-12
 Reject H0 (p-value &lt;= 0.00333): True
 </pre></div>
 </div>
@@ -1857,7 +1861,7 @@ Reject H0 (p-value &lt;= 0.00333): True
 <p>Der paarweise <span class="math notranslate nohighlight">\(t\)</span>-Test mit der Bonferroni-Anpassung zeigt, dass bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> die Mittelwerte für <span class="math notranslate nohighlight">\(6\)</span> Kombinationen nicht statistisch signifikant unterschiedlich sind. Bei diesen Kombinationen handelt es sich um Bio-EcFi, Bio-MaSt, EcFi-MaSt, EnS-PoS, PoS-SoS, EnS-SoS mit <span class="math notranslate nohighlight">\(p\)</span>-Werten von <span class="math notranslate nohighlight">\(0,5128\)</span>, <span class="math notranslate nohighlight">\(0,2396\)</span>, <span class="math notranslate nohighlight">\(0,61397\)</span>, <span class="math notranslate nohighlight">\(0,1202\)</span>, <span class="math notranslate nohighlight">\(0,230978\)</span> bzw. <span class="math notranslate nohighlight">\(0,00558\)</span>. (beim Bonferroni-Verfahren wird <span class="math notranslate nohighlight">\(\alpha\)</span> durch die Anzahl der Tests geteilt bzw. der <span class="math notranslate nohighlight">\(p\)</span>-Wert mit dieser Anzahl multipliziert und auf <span class="math notranslate nohighlight">\(1\)</span> gekürzt, wenn das Ergebnis über <span class="math notranslate nohighlight">\(1\)</span> liegt und somit keine Wahrscheinlichkeit darstellt). Für die verbleibenden <span class="math notranslate nohighlight">\(9\)</span> Kombinationen haben wir <span class="math notranslate nohighlight">\(H_0\)</span> abgelehnt, d. h. für <span class="math notranslate nohighlight">\(9\)</span> Kombinationen sind die Mittelwerte bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(\approx 0,0067 \%\)</span> unterschiedlich!</p>
 </section>
 <section id="tukey-mehrfach-vergleichsmethode">
-<h3>Tukey-Mehrfach-Vergleichsmethode<a class="headerlink" href="#tukey-mehrfach-vergleichsmethode" title="Permalink to this heading">#</a></h3>
+<h3>Tukey-Mehrfach-Vergleichsmethode<a class="headerlink" href="#tukey-mehrfach-vergleichsmethode" title="Link to this heading">#</a></h3>
 <p>Der <a href="https://de.wikipedia.org/wiki/Post-hoc-Test#Tukey-Test">Tukey-Test</a>, auch bekannt als <strong>Tukey’s HSD-Test (honest significant difference)</strong>, basiert auf der <a href="https://de.wikipedia.org/wiki/Studentisierung">studentized range-Verteilung</a>, die manchmal auch als <span class="math notranslate nohighlight">\(q\)</span>-Verteilung bezeichnet wird. Die <strong><span class="math notranslate nohighlight">\(q\)</span>-Verteilung</strong> ist eine rechtsschiefe Wahrscheinlichkeitsdichtekurve mit zwei Parametern, <span class="math notranslate nohighlight">\(\kappa\)</span> und <span class="math notranslate nohighlight">\(\nu\)</span>, die ihre Form beschreiben. Diese Parameter sind gegeben durch</p>
 <div class="math notranslate nohighlight">
 \[\kappa = k\]</div>
@@ -1871,7 +1875,7 @@ Reject H0 (p-value &lt;= 0.00333): True
 <p>Wenn das Konfidenzintervall für einen paarweisen Vergleich <span class="math notranslate nohighlight">\(0\)</span> einschließt, wird <span class="math notranslate nohighlight">\(H_0\)</span> nicht verworfen, es wird nicht angenommen, dass sie signifikant unterschiedlich sind. Alle anderen Paare, für die das Konfidenzintervall nicht <span class="math notranslate nohighlight">\(0\)</span> einschließt, sind signifikant unterschiedlich, <span class="math notranslate nohighlight">\(H_0\)</span> wird also verworfen.</p>
 </section>
 <section id="tukey-s-test-in-python">
-<h3>Tukey’s Test in Python<a class="headerlink" href="#tukey-s-test-in-python" title="Permalink to this heading">#</a></h3>
+<h3>Tukey’s Test in Python<a class="headerlink" href="#tukey-s-test-in-python" title="Link to this heading">#</a></h3>
 <p>In Python werden Tukey’s HSD Tests durch die <code class="docutils literal notranslate"><span class="pre">pairwise_tukeyhsd()</span></code> Funktion berechnet. Die <code class="docutils literal notranslate"><span class="pre">pairwise_tukeyhsd()</span></code>-Funktion erwartet als Eingabe <code class="docutils literal notranslate"><span class="pre">endog</span></code>, die zu vergleichende Größe und <code class="docutils literal notranslate"><span class="pre">groups</span></code> die Aufteilung der Gruppen. Um die Breite der Konfidenzintervalle festzulegen, geben wir der Funktion das Konfidenzniveau mit dem Argument <code class="docutils literal notranslate"><span class="pre">alpha</span></code> an.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1943,7 +1947,7 @@ Reject H0 (p-value &lt;= 0.00333): True
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1540b3af4cd8302dae33b216f8946497cb85956705183c9cd9ca6c7a388bdad3.png" src="../_images/1540b3af4cd8302dae33b216f8946497cb85956705183c9cd9ca6c7a388bdad3.png" />
+<img alt="../_images/45ca77bed9a6cc9101be4f44fc485da89dc8b1bd2a3942f429cf6654bf8fec53.png" src="../_images/45ca77bed9a6cc9101be4f44fc485da89dc8b1bd2a3942f429cf6654bf8fec53.png" />
 </div>
 </div>
 </section>
@@ -1954,7 +1958,7 @@ Reject H0 (p-value &lt;= 0.00333): True
     {
         requestKernel: true,
         binderOptions: {
-            repo: "ixianslab/srh-data-science",
+            repo: "Mobile-University-DigitalLab/statistik",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -1977,8 +1981,8 @@ Reject H0 (p-value &lt;= 0.00333): True
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="../Lernziele/Kapitel7_Lernziele.html"
@@ -2005,7 +2009,9 @@ Reject H0 (p-value &lt;= 0.00333): True
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -2057,9 +2063,10 @@ By ixians
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -2083,8 +2090,8 @@ By ixians
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

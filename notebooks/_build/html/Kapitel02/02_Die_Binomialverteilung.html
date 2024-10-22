@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Die Binomialverteilung &#8212; Modul Statistik und Machine Learning Modelle</title>
   
@@ -15,54 +14,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css?v=342acfa5" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel02/02_Die_Binomialverteilung';</script>
@@ -72,6 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen" href="01_Diskrete_Zufallsvariablen.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,32 +78,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -112,7 +95,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -120,16 +102,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -142,9 +133,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -154,12 +149,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Modul Statistik und Machine Learning Modelle - Home"/>
+    <img src="../_static/srh_logo.png" class="logo__image only-dark pst-js-only" alt="Modul Statistik und Machine Learning Modelle - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -181,13 +183,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
 <ul class="current nav bd-sidenav">
@@ -195,12 +197,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Die Binomialverteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -211,35 +213,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
 <ul class="nav bd-sidenav">
@@ -266,59 +268,59 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
 <ul class="nav bd-sidenav">
@@ -338,7 +340,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -347,14 +349,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -408,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel02/02_Die_Binomialverteilung.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik/issues/new?title=Issue%20on%20page%20%2FKapitel02/02_Die_Binomialverteilung.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -507,26 +509,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -571,10 +567,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="die-binomialverteilung">
-<h1>Die Binomialverteilung<a class="headerlink" href="#die-binomialverteilung" title="Permalink to this heading">#</a></h1>
+<h1>Die Binomialverteilung<a class="headerlink" href="#die-binomialverteilung" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -590,9 +586,9 @@ document.write(`
 <p>Um wiederholte Versuche eines Experiments mit zwei möglichen Ergebnissen zu analysieren, benötigen wir Kenntnisse über <strong>Fakultäten</strong>, <strong>Binomialkoeffizienten</strong> und <strong>Bernoulli-Versuche</strong>.</p>
 <p>Auf der Grundlage dieser Voraussetzungen lernen wir die <strong>Binomialverteilung</strong> kennen, die eine <strong>Wahrscheinlichkeitsverteilung</strong> für die Anzahl der Erfolge in einer Folge von <strong>Bernoulli-Versuchen</strong> ist (<span id="id1">[]</span> s.213,s.289).</p>
 <section id="voraussetzungen">
-<h2>Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Permalink to this heading">#</a></h2>
+<h2>Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Link to this heading">#</a></h2>
 <section id="fakultat">
-<h3>Fakultät<a class="headerlink" href="#fakultat" title="Permalink to this heading">#</a></h3>
+<h3>Fakultät<a class="headerlink" href="#fakultat" title="Link to this heading">#</a></h3>
 <p>Das Produkt der ersten <span class="math notranslate nohighlight">\(k\)</span> positiven ganzen Zahlen wird als <span class="math notranslate nohighlight">\(k\)</span>-Faktultät bezeichnet und mit <span class="math notranslate nohighlight">\(k!\)</span> abgekürzt (<span id="id2">[]</span> s.186).</p>
 <div class="math notranslate nohighlight">
 \[k! = k \times (k - 1) \times ...\times 2 \times  1\]</div>
@@ -628,7 +624,7 @@ document.write(`
 </div>
 </section>
 <section id="binomialkoeffizienten">
-<h3>Binomialkoeffizienten<a class="headerlink" href="#binomialkoeffizienten" title="Permalink to this heading">#</a></h3>
+<h3>Binomialkoeffizienten<a class="headerlink" href="#binomialkoeffizienten" title="Link to this heading">#</a></h3>
 <p>Wenn <span class="math notranslate nohighlight">\(n\)</span> eine positive ganze Zahl und <span class="math notranslate nohighlight">\(k\)</span> eine nicht negative ganze Zahl kleiner oder gleich <span class="math notranslate nohighlight">\(n\)</span> ist, dann ist der <a href="https://de.wikipedia.org/wiki/Binomialkoeffizient">Binomialkoeffizient</a> <span class="math notranslate nohighlight">\({n \choose k}\)</span> definiert als:</p>
 <div class="math notranslate nohighlight">
 \[{n \choose k}= \frac{n!}{k!(n - k)!}\]</div>
@@ -708,7 +704,7 @@ document.write(`
 <p>Die Studenten können <span class="math notranslate nohighlight">\(10.626\)</span> verschiedene Antworten geben.</p>
 </section>
 <section id="bernoulli-versuche">
-<h3>Bernoulli-Versuche<a class="headerlink" href="#bernoulli-versuche" title="Permalink to this heading">#</a></h3>
+<h3>Bernoulli-Versuche<a class="headerlink" href="#bernoulli-versuche" title="Link to this heading">#</a></h3>
 <p>Wiederholte Versuche eines Experiments werden als <strong>Bernoulli-Versuche</strong> bezeichnet, wenn die folgenden drei Bedingungen erfüllt sind:</p>
 <ol class="arabic simple">
 <li><p>Das Experiment (jeder Versuch) hat zwei mögliche Ergebnisse, die mit <span class="math notranslate nohighlight">\(s\)</span> für Erfolg und <span class="math notranslate nohighlight">\(f\)</span> für Misserfolg bezeichnet werden.</p></li>
@@ -718,10 +714,10 @@ document.write(`
 </section>
 </section>
 <section id="id3">
-<h2>Die Binomialverteilung<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2>Die Binomialverteilung<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>Die Binomialverteilung ist die <strong>Wahrscheinlichkeitsverteilung</strong> für die Anzahl der Erfolge in einer Folge von <strong>Bernoulli-Versuchen</strong> (<span id="id4">[]</span> s.350).</p>
 <section id="die-binomische-wahrscheinlichkeitsformel">
-<h3>Die binomische Wahrscheinlichkeitsformel<a class="headerlink" href="#die-binomische-wahrscheinlichkeitsformel" title="Permalink to this heading">#</a></h3>
+<h3>Die binomische Wahrscheinlichkeitsformel<a class="headerlink" href="#die-binomische-wahrscheinlichkeitsformel" title="Link to this heading">#</a></h3>
 <p>Bei <span class="math notranslate nohighlight">\(n\)</span> Bernoulli-Versuchen ist die Anzahl der Ergebnisse, die genau <span class="math notranslate nohighlight">\(x\)</span> Erfolge enthalten, gleich dem Binomialkoeffizienten <span class="math notranslate nohighlight">\({n \choose x}\)</span> (<span id="id5">[]</span> s.188).</p>
 <p><span class="math notranslate nohighlight">\(X\)</span> sei die Gesamtzahl der Erfolge in <span class="math notranslate nohighlight">\(n\)</span> Bernoulli-Versuchen mit der Erfolgswahrscheinlichkeit <span class="math notranslate nohighlight">\(p\)</span>. Dann ist die Wahrscheinlichkeitsverteilung der Zufallsvariablen <span class="math notranslate nohighlight">\(X\)</span> gegeben durch:</p>
 <div class="math notranslate nohighlight">
@@ -808,7 +804,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.024279988711700378
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.024279988711700378)
 </pre></div>
 </div>
 </div>
@@ -820,7 +816,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0013248974242351943
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0013248974242351943)
 </pre></div>
 </div>
 </div>
@@ -838,7 +834,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8105639764950541
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.8105639764950539)
 </pre></div>
 </div>
 </div>
@@ -853,7 +849,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8105639764950546
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.8105639764950546)
 </pre></div>
 </div>
 </div>
@@ -866,7 +862,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.18943602350494537
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.18943602350494537)
 </pre></div>
 </div>
 </div>
@@ -878,7 +874,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.18943602350494537
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.18943602350494537)
 </pre></div>
 </div>
 </div>
@@ -906,7 +902,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/46d09ccdb485cbe2eda2af6093e83187f40e3c9668e04ece017644cce593adba.png" src="../_images/46d09ccdb485cbe2eda2af6093e83187f40e3c9668e04ece017644cce593adba.png" />
+<img alt="../_images/041b5e4420352d6614a16d6eeafa5c3b113937b152af84e979f4e5db8fcd9a45.png" src="../_images/041b5e4420352d6614a16d6eeafa5c3b113937b152af84e979f4e5db8fcd9a45.png" />
 </div>
 </div>
 <p>Zusätzlich visualisieren wir die oben diskutierten Wahrscheinlichkeiten: <span class="math notranslate nohighlight">\(P(X=3), P(X=15), P(X≤9), P(X&gt;9)\)</span> und die entsprechende <strong>kumulative binomiale Wahrscheinlichkeitsverteilungsfunktion</strong>.</p>
@@ -983,7 +979,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e16d684938e110da2de61d6a633a20af16b1437f99ffde11d7304ec39663f00a.png" src="../_images/e16d684938e110da2de61d6a633a20af16b1437f99ffde11d7304ec39663f00a.png" />
+<img alt="../_images/81c61cdd590d8e078972c029489098da847d668a17e6bf97aba03d72730524bc.png" src="../_images/81c61cdd590d8e078972c029489098da847d668a17e6bf97aba03d72730524bc.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1040,7 +1036,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(1.5, 0.85, &#39;P(X &lt;= 9) = 0.81)&#39;)
 </pre></div>
 </div>
-<img alt="../_images/b33a453c23a4e8c44fe5e2b9d19d2179a66fc4a96c9c010bf8c86f637dfd2b08.png" src="../_images/b33a453c23a4e8c44fe5e2b9d19d2179a66fc4a96c9c010bf8c86f637dfd2b08.png" />
+<img alt="../_images/6c4951c0074b6bb2f1de10c791592ce324731df1e744bc59ac54b7fd224c6f7c.png" src="../_images/6c4951c0074b6bb2f1de10c791592ce324731df1e744bc59ac54b7fd224c6f7c.png" />
 </div>
 </div>
 <p>Zum Abschluss dieses Abschnitts und um Ihnen ein Gefühl für die Formen der verschiedenen binomischen Wahrscheinlichkeitsverteilungen zu vermitteln, werden im Folgenden drei verschiedene binomische Wahrscheinlichkeitsverteilungen und die entsprechenden kumulativen binomischen Beweisbarkeitsverteilungen für <span class="math notranslate nohighlight">\(p=0,1, p=0,5\)</span> und <span class="math notranslate nohighlight">\(p=0,9\)</span> angegeben.</p>
@@ -1067,13 +1063,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9c472917644065b9cfcfcb99d839bd7ce1d0fba43d471c69a0ab8ce37b6924cf.png" src="../_images/9c472917644065b9cfcfcb99d839bd7ce1d0fba43d471c69a0ab8ce37b6924cf.png" />
+<img alt="../_images/e99e8082cb5d1b56c06e5b2e355b0f530fff02687121f8ebf049e7fde257f4a4.png" src="../_images/e99e8082cb5d1b56c06e5b2e355b0f530fff02687121f8ebf049e7fde257f4a4.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="mittelwert-und-standardabweichung-einer-binomialen-zufallsvariable">
-<h2>Mittelwert und Standardabweichung einer binomialen Zufallsvariable<a class="headerlink" href="#mittelwert-und-standardabweichung-einer-binomialen-zufallsvariable" title="Permalink to this heading">#</a></h2>
+<h2>Mittelwert und Standardabweichung einer binomialen Zufallsvariable<a class="headerlink" href="#mittelwert-und-standardabweichung-einer-binomialen-zufallsvariable" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Der Mittelwert und die Standardabweichung einer binomialen Zufallsvariablen mit den Parametern <span class="math notranslate nohighlight">\(n\)</span> und <span class="math notranslate nohighlight">\(p\)</span> sind jeweils</p>
 <div class="math notranslate nohighlight">
@@ -1128,17 +1124,17 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(13.25, 0.2, &#39;$+\\sigma$&#39;)
 </pre></div>
 </div>
-<img alt="../_images/1f38ae8b7fc1dd58d643e7d1766e86c1c07c7f3309fbfb480edbfac9ee5ec9c9.png" src="../_images/1f38ae8b7fc1dd58d643e7d1766e86c1c07c7f3309fbfb480edbfac9ee5ec9c9.png" />
+<img alt="../_images/d7d244ea8146d5ab401a39de14c785f050b05aabe6f7f4bda1960ac265d74152.png" src="../_images/d7d244ea8146d5ab401a39de14c785f050b05aabe6f7f4bda1960ac265d74152.png" />
 </div>
 </div>
 </section>
 <section id="binomiale-approximation-der-hypergeometrische-verteilung">
-<h2>Binomiale Approximation der hypergeometrische Verteilung<a class="headerlink" href="#binomiale-approximation-der-hypergeometrische-verteilung" title="Permalink to this heading">#</a></h2>
+<h2>Binomiale Approximation der hypergeometrische Verteilung<a class="headerlink" href="#binomiale-approximation-der-hypergeometrische-verteilung" title="Link to this heading">#</a></h2>
 <p>Häufig möchte man den Anteil (Prozentsatz) der Mitglieder einer endlichen Grundgesamtheit bestimmen, die ein bestimmtes Attribut aufweisen. Im Allgemeinen ist die betrachtete Grundgesamtheit zu groß, als dass der Grundgesamtheitsanteil durch eine Zählung ermittelt werden könnte. Nehmen wir an, dass eine einfache Zufallsstichprobe des Umfangs <span class="math notranslate nohighlight">\(n\)</span> aus einer Grundgesamtheit entnommen wird, in der der Anteil der Mitglieder, die ein bestimmtes Merkmal aufweisen, <span class="math notranslate nohighlight">\(p\)</span> ist. Dann ist eine Zufallsvariable von primärer Bedeutung für die Schätzung von <span class="math notranslate nohighlight">\(p\)</span> die Anzahl der Mitglieder der Stichprobe, die das bestimmte Merkmal aufweisen, die wir als <span class="math notranslate nohighlight">\(X\)</span> bezeichnen.Die genaue Wahrscheinlichkeitsverteilung von <span class="math notranslate nohighlight">\(X\)</span> hängt davon ab, ob die Stichprobe <strong>mit</strong> oder <strong>ohne Ersetzung</strong> durchgeführt wird. Wird die Stichprobe mit Ersetzung durchgeführt, handelt es sich um Bernoulli-Versuche: Jede Auswahl eines Mitglieds der Grundgesamtheit entspricht einem Versuch. Ein Versuch ist erfolgreich, wenn das in diesem Versuch ausgewählte Mitglied das angegebene Attribut aufweist; andernfalls ist er nicht erfolgreich. Die Versuche sind <strong>unabhängig</strong>, da die Stichprobe mit Ersetzung durchgeführt wird. Die Erfolgswahrscheinlichkeit bleibt von Versuch zu Versuch gleich, sie ist immer gleich dem Anteil der Grundgesamtheit, der das angegebene Merkmal aufweist. Daher hat die Zufallsvariable <span class="math notranslate nohighlight">\(X\)</span> die <strong>Binomialverteilung</strong> mit den Parametern <span class="math notranslate nohighlight">\(n\)</span> (der Stichprobenumfang) und <span class="math notranslate nohighlight">\(p\)</span> (der Anteil der Grundgesamtheit) (<span id="id7">[]</span> s.356).</p>
 <p>In der Realität werden die Stichproben jedoch in der Regel <strong>ohne Ersetzung</strong> durchgeführt. Unter diesen Umständen handelt es sich bei dem Stichprobenverfahren nicht um Bernoulli-Versuche, da die Versuche <strong>nicht unabhängig</strong> sind und die Erfolgswahrscheinlichkeit von Versuch zu Versuch variiert. Mit anderen Worten: Die Zufallsvariable <span class="math notranslate nohighlight">\(X\)</span> hat keine Binomialverteilung. Ihre Verteilung wird als <a href="https://de.wikipedia.org/wiki/Hypergeometrische_Verteilung">hypergeometrische Verteilung</a> bezeichnet (<span id="id8">[]</span> s.364).</p>
 <p>In der Praxis kann eine hypergeometrische Verteilung jedoch in der Regel durch eine Binomialverteilung angenähert werden. Der Grund dafür ist, dass es bei einem <strong>Stichprobenumfang von nicht mehr als 5 % der Grundgesamtheit</strong> kaum einen Unterschied zwischen einer Stichprobe mit und ohne Ersatz gibt (<span id="id9">[]</span> s.365).</p>
 <section id="stichproben-und-die-binomialverteilung">
-<h3>Stichproben und die Binomialverteilung<a class="headerlink" href="#stichproben-und-die-binomialverteilung" title="Permalink to this heading">#</a></h3>
+<h3>Stichproben und die Binomialverteilung<a class="headerlink" href="#stichproben-und-die-binomialverteilung" title="Link to this heading">#</a></h3>
 <p>Angenommen, eine einfache Zufallsstichprobe des Umfangs <span class="math notranslate nohighlight">\(n\)</span> wird aus einer endlichen Grundgesamtheit entnommen, in der der Anteil der Mitglieder, die ein bestimmtes Merkmal aufweisen, <span class="math notranslate nohighlight">\(p\)</span> ist. Dann hat die Anzahl der in der Stichprobe enthaltenen Mitglieder, die das bestimmte Merkmal aufweisen</p>
 <ul class="simple">
 <li><p>eine exakte Binomialverteilung mit den Parametern <span class="math notranslate nohighlight">\(n\)</span> und <span class="math notranslate nohighlight">\(p\)</span>, wenn die Stichprobe mit Ersatz durchgeführt wird</p></li>
@@ -1152,7 +1148,7 @@ document.write(`
     {
         requestKernel: true,
         binderOptions: {
-            repo: "ixianslab/srh-data-science",
+            repo: "Mobile-University-DigitalLab/statistik",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -1175,8 +1171,8 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="01_Diskrete_Zufallsvariablen.html"
@@ -1203,7 +1199,9 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1247,9 +1245,10 @@ By ixians
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1273,8 +1272,8 @@ By ixians
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

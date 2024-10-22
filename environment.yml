@@ -1,4 +1,4 @@
-name: srh
+name: statistik-env
 channels:
 - conda-forge
 - default
@@ -19,6 +19,7 @@ dependencies:
 - openpyxl
 - pyppeteer
 - dtreeviz
+- statsmodels
 
 - pip:
   - jupyter-book

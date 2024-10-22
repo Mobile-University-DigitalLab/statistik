@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Polynomiale Regression &#8212; Modul Statistik und Machine Learning Modelle</title>
   
@@ -15,54 +14,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css?v=342acfa5" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel08/02_Polynomiale_Regression';</script>
@@ -72,6 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Lineare Regression" href="01_Lineare_Regression.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,32 +78,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -112,7 +95,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -120,16 +102,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -142,9 +133,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -154,12 +149,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Modul Statistik und Machine Learning Modelle - Home"/>
+    <img src="../_static/srh_logo.png" class="logo__image only-dark pst-js-only" alt="Modul Statistik und Machine Learning Modelle - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -181,13 +183,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -195,12 +197,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -211,35 +213,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
 <ul class="nav bd-sidenav">
@@ -266,59 +268,59 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_Lineare_Regression.html">Lineare Regression</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Polynomiale Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
 <ul class="nav bd-sidenav">
@@ -338,7 +340,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -347,14 +349,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -408,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel08/02_Polynomiale_Regression.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik/issues/new?title=Issue%20on%20page%20%2FKapitel08/02_Polynomiale_Regression.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -507,26 +509,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -565,10 +561,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="polynomiale-regression">
-<h1>Polynomiale Regression<a class="headerlink" href="#polynomiale-regression" title="Permalink to this heading">#</a></h1>
+<h1>Polynomiale Regression<a class="headerlink" href="#polynomiale-regression" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -594,7 +590,7 @@ document.write(`
 \[RMSE = \sqrt{\frac{\sum_{i=1}^n (\hat y - y)^2}{n}}\]</div>
 <p>um die Eignung des Modells zu bewerten.</p>
 <section id="id1">
-<h2>Polynomiale Regression<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>Polynomiale Regression<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <p>Wir beginnen mit unserer Übung, indem wir Daten sammeln. Die Daten werden von einer Funktion generiert, die Sie nicht kennen. Diese Vorbedingung macht das Beispiel realistischer, da wir in realen Anwendungen die genauen Spezifikationen des zugrunde liegenden Datenerzeugungsprozesses nicht kennen. Am Ende dieses Abschnitts lüften wir das Geheimnis des Datengenerierungsprozesses.</p>
 <p>Dies sind die Daten, unsere Beobachtungen, in tabellarischer Form. Wir haben <span class="math notranslate nohighlight">\(25\)</span> Datenpunkte, jeder Datenpunkt ist ein (<span class="math notranslate nohighlight">\(x,y\)</span>) Paar.</p>
@@ -625,11 +621,11 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
 </pre></div>
 </div>
-<img alt="../_images/28bac3ee94ed4b288160687e3d1cedf2b602f9081e28f97cae89f7ecc2be85a8.png" src="../_images/28bac3ee94ed4b288160687e3d1cedf2b602f9081e28f97cae89f7ecc2be85a8.png" />
+<img alt="../_images/dae20de972dacebc3fb2ca7791c8038d5c20117413922d272067e60728ef2f6b.png" src="../_images/dae20de972dacebc3fb2ca7791c8038d5c20117413922d272067e60728ef2f6b.png" />
 </div>
 </div>
 <section id="anpassen-einer-kurve-in-python-die-notation-in-python">
-<h3>Anpassen einer Kurve in Python: Die Notation in Python<a class="headerlink" href="#anpassen-einer-kurve-in-python-die-notation-in-python" title="Permalink to this heading">#</a></h3>
+<h3>Anpassen einer Kurve in Python: Die Notation in Python<a class="headerlink" href="#anpassen-einer-kurve-in-python-die-notation-in-python" title="Link to this heading">#</a></h3>
 <p>Python bietet leistungsstarke Funktionen zur Anpassung eines Polynoms an Daten. Um ein <span class="math notranslate nohighlight">\(k\)</span>-dimensionales Polynom anzupassen, verwenden wir <code class="docutils literal notranslate"><span class="pre">linear_model</span></code> aus dem <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> Paket  und fügen dem Funktionsaufruf <code class="docutils literal notranslate"><span class="pre">LinearRegression()</span></code> zusätzliche <code class="docutils literal notranslate"><span class="pre">PolynomialFeatures</span></code> hinzu. Darüber hinaus gibt es zwei verschiedene Möglichkeiten, eine polynomiale Regression zu kodieren.</p>
 <p>Für ein Polynom <span class="math notranslate nohighlight">\(2\)</span>. Ordnung besteht die erste Möglichkeit darin, <code class="docutils literal notranslate"><span class="pre">model.predict(X-werte)</span></code> einzugeben und zu plotten, und die zweite Möglichkeit ist die Koeffizienten mit <code class="docutils literal notranslate"><span class="pre">model.coef_</span></code> aus dem Model auszulesen und daraus äquivalent zu <span class="math notranslate nohighlight">\(\hat y = \beta_0+\beta_1x+\beta_2x^2+...+\beta_kx^k+\epsilon\)</span>  ,  <code class="docutils literal notranslate"><span class="pre">model.coef_[0][0]</span> <span class="pre">+</span> <span class="pre">model.coef_[0][1]</span> <span class="pre">*</span> <span class="pre">X-werte</span> <span class="pre">+</span> <span class="pre">model.coef_[0][2]</span> <span class="pre">*</span> <span class="pre">(X-werte)**2</span> <span class="pre">+</span> <span class="pre">...</span></code> zu konstruieren.</p>
 <p>Um die Verwirrung zu lindern, zeigen wir ein Beispiel in Python. Wir konstruieren zwei Polynome der Ordnung <span class="math notranslate nohighlight">\(2\)</span> für <code class="docutils literal notranslate"><span class="pre">poly_data</span></code>.</p>
@@ -648,7 +644,411 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-container-id-1 {color: black;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div></div></div>
+<div class="output text_html"><style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div>
 </div>
 <p>Zum Auslesen der Koeffizienten und des Achsenabschnitts des Modells verwenden wir das Attribut <code class="docutils literal notranslate"><span class="pre">coef_</span></code> und <code class="docutils literal notranslate"><span class="pre">intercept_</span></code>.</p>
 <p>Wir überprüfen die Ergebnisse des Modells.</p>
@@ -684,10 +1084,10 @@ Koeffizienten:   [[ 0.         -2.45381544  0.82240915]]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7476e0960a00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb29eeb6b00&gt;
 </pre></div>
 </div>
-<img alt="../_images/d4d2d5f00a7e1162a9202f096e407383c8b49258d7dcdb20c2cc785b27f6a421.png" src="../_images/d4d2d5f00a7e1162a9202f096e407383c8b49258d7dcdb20c2cc785b27f6a421.png" />
+<img alt="../_images/4e3ed643ab67fffe96008bccb1d6f6eb2532aea62d8bea1f1d4414790bab6730.png" src="../_images/4e3ed643ab67fffe96008bccb1d6f6eb2532aea62d8bea1f1d4414790bab6730.png" />
 </div>
 </div>
 <p>Andererseits können wir die Regressionslinie auch mit der Methode <code class="docutils literal notranslate"><span class="pre">predict()</span></code> für beliebige <span class="math notranslate nohighlight">\(x\)</span>-Werte erzeugen.</p>
@@ -704,15 +1104,15 @@ Koeffizienten:   [[ 0.         -2.45381544  0.82240915]]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7476e2cd1270&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb29ee9ffa0&gt;
 </pre></div>
 </div>
-<img alt="../_images/b581058af2086daad83ed867044b33a7ab4e7e7be9d8f6fa8d19146644e531cb.png" src="../_images/b581058af2086daad83ed867044b33a7ab4e7e7be9d8f6fa8d19146644e531cb.png" />
+<img alt="../_images/4de78b91032f3d6b6f6823bba9e00a0c116de22b7a6aef2bc8f2a3e8256398dd.png" src="../_images/4de78b91032f3d6b6f6823bba9e00a0c116de22b7a6aef2bc8f2a3e8256398dd.png" />
 </div>
 </div>
 </section>
 <section id="anpassen-einer-kurve-in-python-fortsetzung">
-<h3>Anpassen einer Kurve in Python (Fortsetzung)<a class="headerlink" href="#anpassen-einer-kurve-in-python-fortsetzung" title="Permalink to this heading">#</a></h3>
+<h3>Anpassen einer Kurve in Python (Fortsetzung)<a class="headerlink" href="#anpassen-einer-kurve-in-python-fortsetzung" title="Link to this heading">#</a></h3>
 <p>Da wir nun die Notation in Python kennen, beginnen wir mit der Erstellung von <span class="math notranslate nohighlight">\(6\)</span> verschiedenen Modellen, mit <span class="math notranslate nohighlight">\(k=1,2,3,5,9,12\)</span>. Für jedes Modell berechnen wir den <span class="math notranslate nohighlight">\(RMSE\)</span>. Schließlich stellen wir die Daten zusammen mit der Regressionslinie dar, die durch jedes einzelne Modell gegeben ist. Der Einfachheit halber konstruieren wir eine Schleife, um den Kodierungsaufwand zu verringern.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -739,13 +1139,13 @@ Koeffizienten:   [[ 0.         -2.45381544  0.82240915]]
     <span class="n">regline</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_poly</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">regline</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Regressionslinie der </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2">. Ordnung&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Beobachtungen&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;RMSE (k=</span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">rmse</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;RMSE (k=</span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">rmse</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">e</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/29bb5aaff6d66a92830dcac073dc9fbbafabb59e2c8c2a499a1e994f0e07a4a1.png" src="../_images/29bb5aaff6d66a92830dcac073dc9fbbafabb59e2c8c2a499a1e994f0e07a4a1.png" />
+<img alt="../_images/f2ac9fe8e0ba9dc0eb45bf1fed6a68884eff73b3fab0eb58941c1e90852d92a9.png" src="../_images/f2ac9fe8e0ba9dc0eb45bf1fed6a68884eff73b3fab0eb58941c1e90852d92a9.png" />
 </div>
 </div>
 <p>Fantastische Diagramme! Die Abbildung zeigt, dass wenn wir <span class="math notranslate nohighlight">\(k\)</span>, die Ordnung des Polynoms, erhöht, wird die Kurve flexibler und passt immer besser zu den Daten. Je besser die Daten angepasst werden, desto geringer wird der Fehler, <span class="math notranslate nohighlight">\(RMSE\)</span>.</p>
@@ -763,14 +1163,14 @@ Koeffizienten:   [[ 0.         -2.45381544  0.82240915]]
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;k-te Ordnung&#39;)
 </pre></div>
 </div>
-<img alt="../_images/b279a65651dcecf3b346c3f4927842689b09fb88f4cf1eb4a41cfdbb915b7f5d.png" src="../_images/b279a65651dcecf3b346c3f4927842689b09fb88f4cf1eb4a41cfdbb915b7f5d.png" />
+<img alt="../_images/6d709853b975c2cd9c15449259805bd27b7660cd3fdcd521459745ec6eac5c88.png" src="../_images/6d709853b975c2cd9c15449259805bd27b7660cd3fdcd521459745ec6eac5c88.png" />
 </div>
 </div>
 <p>Daher stellt sich wieder einmal die Frage, welches Polynom am besten zu den Daten passt. Glauben wir, dass das Polynom der Ordnung <span class="math notranslate nohighlight">\(9\)</span> am besten zu dem zugrunde liegenden Datenerzeugungsprozess passt? Obwohl wir eine hervorragende Anpassung an die Beobachtungsdaten erhalten, indem wir die Ordnung des Polynoms erhöhen, bleibt es fraglich, ob das Polynom hoher Ordnung gut verallgemeinert werden kann. Stellen Sie sich vor, wir führen eine neue Messreihe durch und erhalten neue Daten. Glauben Sie, dass die wild schwingende Kurve eines Polynoms hoher Ordnung immer noch gut zu den Daten passt? Nein, wahrscheinlich nicht!</p>
 <p>Dieses Verhalten wird als <a href="https://de.wikipedia.org/wiki/%C3%9Cberanpassung">Überanpassung</a> bezeichnet. Erinnern Sie sich daran, dass das Ziel darin besteht, die Parameter aus den Daten zu lernen. Wir sind also daran interessiert, eine gute Verallgemeinerung des Modells zu erreichen und nicht unbedingt perfekt angepasste Beobachtungsdaten.</p>
 </section>
 <section id="aus-den-daten-lernen">
-<h3>Aus den Daten lernen<a class="headerlink" href="#aus-den-daten-lernen" title="Permalink to this heading">#</a></h3>
+<h3>Aus den Daten lernen<a class="headerlink" href="#aus-den-daten-lernen" title="Link to this heading">#</a></h3>
 <p>Wie können wir das Problem lösen? Wie bestimmen wir das beste Polynom <span class="math notranslate nohighlight">\(n\)</span>-ter Ordnung für unseren Datensatz? Nun, es gibt viele Methoden und Strategien, um einer Überanpassung entgegenzuwirken. In diesem Abschnitt verfolgen wir einen einfachen Ansatz. Zunächst teilen wir den Datensatz in zwei Teile auf. Einen Teil nennen wir <strong>Trainingsmenge</strong>, den anderen Teil nennen wir <strong>Validierungsmenge</strong>. Dann verwenden wir alle Daten des Trainingssatzes, um die Modellparameter <span class="math notranslate nohighlight">\(\beta_i\)</span> zu lernen, und zwar auf die gleiche Weise wie oben. Danach wenden wir das gelernte Modell an, um die Daten des Validierungssatzes vorherzusagen, und bewerten die Leistung des Modells, indem wir den <span class="math notranslate nohighlight">\(RMSE\)</span> berechnen. Wir verwenden also die Validierungsmenge, um die, durch <span class="math notranslate nohighlight">\(k\)</span> gegebene, Komplexität des Modells zu optimieren.</p>
 <p>Leider brauchen wir, wenn wir aus Daten lernen wollen, letztendlich auch Daten, aus denen wir lernen können. Bislang haben wir mit <span class="math notranslate nohighlight">\(25\)</span> Beobachtungen gearbeitet. Das ist nicht viel. In realen Anwendungen müssten wir wahrscheinlich neue Beobachtungen durch eine neue Messreihen gewinnen. In unserer Übung können wir jedoch relativ leicht mehr Daten erzeugen. Daher setzen wir dieses Beispiel mit einem neuen Datensatz von <span class="math notranslate nohighlight">\(150\)</span> Beobachtungen fort.</p>
 <p>Lassen Sie uns die Daten plotten!</p>
@@ -792,19 +1192,15 @@ Koeffizienten:   [[ 0.         -2.45381544  0.82240915]]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/imarevic/.local/lib/python3.10/site-packages/pandas/plotting/_matplotlib/core.py:1114: UserWarning: No data for colormapping provided via &#39;c&#39;. Parameters &#39;cmap&#39; will be ignored
-  scatter = ax.scatter(
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;x&#39;, ylabel=&#39;y&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/59140888b456f82fee921e948d75752e3fd7a4534fe896fd0c236c790b084a92.png" src="../_images/59140888b456f82fee921e948d75752e3fd7a4534fe896fd0c236c790b084a92.png" />
+<img alt="../_images/80d6c8271c3437634ebe166f5004117b63cfc3f7af13689eeb125e4c91934961.png" src="../_images/80d6c8271c3437634ebe166f5004117b63cfc3f7af13689eeb125e4c91934961.png" />
 </div>
 </div>
 </section>
 <section id="trainings-und-validierungsmenge">
-<h3>Trainings- und Validierungsmenge<a class="headerlink" href="#trainings-und-validierungsmenge" title="Permalink to this heading">#</a></h3>
+<h3>Trainings- und Validierungsmenge<a class="headerlink" href="#trainings-und-validierungsmenge" title="Link to this heading">#</a></h3>
 <p>Nun sind wir bereit, unsere Trainings- und Validierungsmenge zu erstellen. Dazu verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">train_test_split()</span></code> aus dem <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>-Paket. Wir teilen die Daten so auf, dass <span class="math notranslate nohighlight">\(65 \%\)</span> der Daten dem Trainingsset und der Rest, <span class="math notranslate nohighlight">\(35 \%\)</span> der Daten, dem Validationsset zugewiesen werden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -850,15 +1246,15 @@ y_val: (53, 1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7476ddf8b160&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb29e376230&gt;
 </pre></div>
 </div>
-<img alt="../_images/3e3213b5f75c541366ce11d5d0df216114e644a702e580e57a8052858a56b531.png" src="../_images/3e3213b5f75c541366ce11d5d0df216114e644a702e580e57a8052858a56b531.png" />
+<img alt="../_images/4d55a7370e06f978f0dc953e28a4e2028dc7c10823b1a24155b405f01d358ca8.png" src="../_images/4d55a7370e06f978f0dc953e28a4e2028dc7c10823b1a24155b405f01d358ca8.png" />
 </div>
 </div>
 </section>
 <section id="modellbildung-und-modellbewertung">
-<h3>Modellbildung und Modellbewertung<a class="headerlink" href="#modellbildung-und-modellbewertung" title="Permalink to this heading">#</a></h3>
+<h3>Modellbildung und Modellbewertung<a class="headerlink" href="#modellbildung-und-modellbewertung" title="Link to this heading">#</a></h3>
 <p>In dieser Übung werden wir <span class="math notranslate nohighlight">\(10\)</span> Modelle mit <span class="math notranslate nohighlight">\(k=1,2,...,10\)</span> erstellen. Wir bewerten jedes der <span class="math notranslate nohighlight">\(10\)</span> polynomialen Regressionsmodelle, indem wir den <span class="math notranslate nohighlight">\(RMSE\)</span> auf dem Trainingssatz berechnen. Nach der Erstellung des Modells und der Ermittlung der Modellparameter <span class="math notranslate nohighlight">\(\beta_i\)</span> verwenden wir das Modell, um die Antwortvariable in der Validierungsmenge vorherzusagen. Auch hier stützen wir uns auf den <span class="math notranslate nohighlight">\(RMSE\)</span>, um die Vorhersagen für den Validierungssatz zu bewerten. Schließlich stellen wir den <span class="math notranslate nohighlight">\(RMSE\)</span> jedes Modells sowohl für die Trainingsmenge als auch für die Validierungsmenge dar. Anhand des <span class="math notranslate nohighlight">\(RMSE\)</span> bewerten wir die Generalisierung des Modells.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -916,7 +1312,9 @@ RMSE val (k=8):   0.345
 RMSE train (k=9): 0.282
 RMSE val (k=9):   0.345
 ------------------------
-RMSE train (k=10): 0.282
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE train (k=10): 0.282
 RMSE val (k=10):   0.345
 ------------------------
 </pre></div>
@@ -936,16 +1334,16 @@ RMSE val (k=10):   0.345
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7476de4beb60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb29df181f0&gt;
 </pre></div>
 </div>
-<img alt="../_images/a877e92d10329b4c2112583fa3d08be7ebc43cae2a90ea00d2206410351ec0bb.png" src="../_images/a877e92d10329b4c2112583fa3d08be7ebc43cae2a90ea00d2206410351ec0bb.png" />
+<img alt="../_images/065bfcd2b064e672be25f9064b64dae95c9c3bb6f7ae8f2e7e242a62adea611b.png" src="../_images/065bfcd2b064e672be25f9064b64dae95c9c3bb6f7ae8f2e7e242a62adea611b.png" />
 </div>
 </div>
 <p>Die Abbildung zeigt, dass der Fehler bei den Trainingsdaten (blaue Linie) stetig abnimmt. Das macht durchaus Sinn, denn je komplexer das Modell wird, indem <span class="math notranslate nohighlight">\(k\)</span> erhöht wird, desto besser passt das Modell zu den Trainingsdaten. Das gleiche Verhalten haben wir im obigen Abschnitt beobachtet, als wir unser Modell mit nur <span class="math notranslate nohighlight">\(25\)</span> Beobachtungen trainiert haben. Wenn wir uns den <span class="math notranslate nohighlight">\(RMSE\)</span> für den Validierungssatz (rote Linie) ansehen, sehen wir, dass mit zunehmendem <span class="math notranslate nohighlight">\(k\)</span> und damit zunehmender Modellkomplexität der Fehler abnimmt. Es gibt jedoch einen “Sweet Spot”, der durch den niedrigsten <span class="math notranslate nohighlight">\(RMSE\)</span> angezeigt wird, an dem das Modell gerade komplex genug ist, um auf den bisher ungesehenen Validierungsdaten gut zu generalisieren. Wenn die Modellkomplexität weiter zunimmt, beginnt auch der <span class="math notranslate nohighlight">\(RMSE\)</span> zu steigen. Dies deutet auf eine Überanpassung des Modells hin. Das Modell merkt sich also die Daten in der Trainingsmenge gut, aber die Vorhersagekraft des Modells für bisher ungesehene Daten, wie die Daten der Validierungsmenge, wird schlechter. Ein Blick auf die obige Abbildung zeigt, dass der niedrigste Fehler im Validierungssatz, der so genannte Sweet Spot, für ein Regressionsmodell <span class="math notranslate nohighlight">\(3\)</span>-ter Ordnung erreicht wird.</p>
 </section>
 <section id="vorstellung-des-modells">
-<h3>Vorstellung des Modells<a class="headerlink" href="#vorstellung-des-modells" title="Permalink to this heading">#</a></h3>
+<h3>Vorstellung des Modells<a class="headerlink" href="#vorstellung-des-modells" title="Link to this heading">#</a></h3>
 <p>Im vorangegangenen Abschnitt haben wir festgestellt, dass ein polynomiales Regressionsmodell der Ordnung <span class="math notranslate nohighlight">\(3\)</span> in der Validierungsgruppe am besten funktioniert. Nun stellen wir dieses Modell auf dem gesamten Datensatz dar, um seine Qualität visuell zu bewerten. Außerdem stellen wir die Funktion dar, die dem Prozess der Datengenerierung zugrunde liegt.</p>
 <blockquote>
 <div><p><strong>Datenerzeugung:</strong> Die Eingabewerte <span class="math notranslate nohighlight">\(x_n\)</span> für die zugrundeliegende Funktion werden gleichmäßig im Bereich <span class="math notranslate nohighlight">\(U(0,1)\)</span> erzeugt, und die entsprechenden Zielwerte <span class="math notranslate nohighlight">\(y\)</span> erhält man, indem man zunächst die entsprechenden Werte der Funktion <span class="math notranslate nohighlight">\(\sin( \pi x )\)</span> berechnet und dann zufälliges Rauschen mit einer Gaußschen Verteilung mit einer Standardabweichung von <span class="math notranslate nohighlight">\(0,35\)</span> hinzufügt.</p>
@@ -987,10 +1385,10 @@ RMSE val (k=10):   0.345
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7476de4bd930&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb29df83010&gt;
 </pre></div>
 </div>
-<img alt="../_images/60b5e36096b12f17c048753e34e38f0cc6aae8cab8cf4d0cec3bd477cfd1d640.png" src="../_images/60b5e36096b12f17c048753e34e38f0cc6aae8cab8cf4d0cec3bd477cfd1d640.png" />
+<img alt="../_images/8cfa72be92a7bf231187ee8c16956c6604fb3b1f1102252d9d48774fd12fc93c.png" src="../_images/8cfa72be92a7bf231187ee8c16956c6604fb3b1f1102252d9d48774fd12fc93c.png" />
 </div>
 </div>
 <p>Die Abbildung zeigt, dass unser Modell die Daten gut abbildet und wir daher recht zufrieden damit sein können.</p>
@@ -1002,7 +1400,7 @@ RMSE val (k=10):   0.345
     {
         requestKernel: true,
         binderOptions: {
-            repo: "ixianslab/srh-data-science",
+            repo: "Mobile-University-DigitalLab/statistik",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -1025,8 +1423,8 @@ RMSE val (k=10):   0.345
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="01_Lineare_Regression.html"
@@ -1053,7 +1451,9 @@ RMSE val (k=10):   0.345
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1091,9 +1491,10 @@ By ixians
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1117,8 +1518,8 @@ By ixians
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

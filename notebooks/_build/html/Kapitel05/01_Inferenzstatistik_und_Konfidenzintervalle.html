@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Inferenzstatistik und Konfidenzintervalle &#8212; Modul Statistik und Machine Learning Modelle</title>
   
@@ -15,54 +14,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css?v=342acfa5" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle';</script>
@@ -72,6 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Lernziele" href="../Lernziele/Kapitel5_Lernziele.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,32 +78,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -112,7 +95,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -120,16 +102,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -142,9 +133,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -154,12 +149,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Modul Statistik und Machine Learning Modelle - Home"/>
+    <img src="../_static/srh_logo.png" class="logo__image only-dark pst-js-only" alt="Modul Statistik und Machine Learning Modelle - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -181,13 +183,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -195,12 +197,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -211,35 +213,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Inferenzstatistik und Konfidenzintervalle</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
 <ul class="nav bd-sidenav">
@@ -266,59 +268,59 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
 <ul class="nav bd-sidenav">
@@ -338,7 +340,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -347,14 +349,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -408,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik/issues/new?title=Issue%20on%20page%20%2FKapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -507,26 +509,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -566,10 +562,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="inferenzstatistik-und-konfidenzintervalle">
-<h1>Inferenzstatistik und Konfidenzintervalle<a class="headerlink" href="#inferenzstatistik-und-konfidenzintervalle" title="Permalink to this heading">#</a></h1>
+<h1>Inferenzstatistik und Konfidenzintervalle<a class="headerlink" href="#inferenzstatistik-und-konfidenzintervalle" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -583,11 +579,11 @@ document.write(`
 <p>Die <a href="https://de.wikipedia.org/wiki/Statistische_Inferenz">Inferenzstatistik</a> besteht aus Methoden, die Stichprobenergebnisse verwenden, um Entscheidungen oder Vorhersagen über eine Grundgesamtheit zu treffen (<span id="id1">[]</span> s.12, <span id="id2">[]</span> s.237). Dieser Bereich der angewandten Statistik ist in allen Situationen von grundlegender Bedeutung, in denen das Wissen über die Grundgesamtheit begrenzt ist oder sogar gänzlich fehlt, was bei den meisten Anwendungen im wirklichen Leben der Fall ist. Außerdem ist es in vielen Fällen einfach zu teuer, sehr zeitaufwändig oder praktisch unmöglich, die Daten aller Mitglieder einer Grundgesamtheit zu erfassen. Daher wird eine Stichprobe aus der Grundgesamtheit gezogen und eine geeignete Stichprobenstatistik berechnet. Auf der Grundlage des Wertes der Stichprobenstatistik wird dann dem entsprechenden (unbekannten) Grundgesamtheitsparameter ein Wert zugewiesen.</p>
 <p>Dieses Verfahren, bei dem Grundgesamtheitsparameter auf der Grundlage von Stichproben ein numerischer Wert zugewiesen wird, wird als <a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzung">Schätzung</a> bezeichnet.Der numerische Wert wird als <strong>Schätzung</strong> des Grundgesamtheitsparameters bezeichnet. Die zur Schätzung eines Populationsparameters verwendete Stichprobenstatistik wird als <strong>Schätzer</strong> bezeichnet (<span id="id3">[]</span> s.339).</p>
 <section id="die-punkteschatzung">
-<h2>Die Punkteschätzung<a class="headerlink" href="#die-punkteschatzung" title="Permalink to this heading">#</a></h2>
+<h2>Die Punkteschätzung<a class="headerlink" href="#die-punkteschatzung" title="Link to this heading">#</a></h2>
 <p>Bei einer Stichprobe ergibt der Wert der berechneten Stichprobenstatistik eine <strong>Punktschätzung</strong> (<span id="id4">[]</span> s.338) des entsprechenden Populationsparameters. Beispielsweise ist der Stichprobenmittelwert (<span class="math notranslate nohighlight">\(\bar{x}\)</span>) eine Punktschätzung des entsprechenden Populationsmittelwerts <span class="math notranslate nohighlight">\(\mu\)</span>, oder die Stichprobenstandardabweichung <span class="math notranslate nohighlight">\(s\)</span> ist eine Punktschätzung für die Standardabweichung der Grundgesamtheit <span class="math notranslate nohighlight">\(\sigma\)</span>. Es ist jedoch zu beachten, dass jede zufällig ausgewählte Stichprobe aus einer Population voraussichtlich einen anderen Wert der Stichprobenstatistik ergibt. Mit anderen Worten, der Stichprobenmittelwert <span class="math notranslate nohighlight">\(\bar{x}\)</span> und die Stichprobenstandardabweichung <span class="math notranslate nohighlight">\(s\)</span> variieren von Stichprobe zu Stichprobe, während der Grundgesamtheitsmittelwert <span class="math notranslate nohighlight">\(\mu\)</span> und die Grundgesamtheitsstandardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span> fest sind. Folglich weicht der Punktschätzer fast immer vom wahren Wert der Grundgesamtheit ab. Daher sollte jeder Punktschätzung eine Information beigefügt werden, die die Genauigkeit dieser Schätzung angibt.</p>
 </section>
 <section id="die-intervall-schatzung">
-<h2>Die Intervall-Schätzung<a class="headerlink" href="#die-intervall-schatzung" title="Permalink to this heading">#</a></h2>
+<h2>Die Intervall-Schätzung<a class="headerlink" href="#die-intervall-schatzung" title="Link to this heading">#</a></h2>
 <p>Anstatt einem Grundgesamtheitsparameter einen einzelnen Wert zuzuordnen, gibt eine <strong>Intervallschätzung</strong> eine probabilistische Aussage, die das gegebene Intervall mit der Wahrscheinlichkeit in Beziehung setzt, dass dieses Intervall tatsächlich den wahren (unbekannten) Grundgesamtheitsparameter enthält.</p>
 <p>Das <strong>Konfidenzniveau</strong> wird a priori gewählt und hängt somit von den Präferenzen des Nutzers ab. Es wird bezeichnet durch</p>
 <div class="math notranslate nohighlight">
@@ -699,7 +695,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
 </pre></div>
 </div>
-<img alt="../_images/fc815d2ce9655f3f98a459a9e1252e8da8ca887f2e99bf2714bb971c4712285b.png" src="../_images/fc815d2ce9655f3f98a459a9e1252e8da8ca887f2e99bf2714bb971c4712285b.png" />
+<img alt="../_images/3e94a3628930137543bf1ff33c72c4c9d565b6bb8d5660573a398a07f5650312.png" src="../_images/3e94a3628930137543bf1ff33c72c4c9d565b6bb8d5660573a398a07f5650312.png" />
 </div>
 </div>
 <p>Dementsprechend lautet die vollständige Gleichung für das Konfidenzintervall wie folgt</p>
@@ -714,7 +710,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.6448536269514729
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-1.6448536269514729)
 </pre></div>
 </div>
 </div>
@@ -726,7 +722,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6448536269514722
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.6448536269514722)
 </pre></div>
 </div>
 </div>
@@ -743,7 +739,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.9599639845400545
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-1.9599639845400545)
 </pre></div>
 </div>
 </div>
@@ -755,7 +751,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.959963984540054
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.959963984540054)
 </pre></div>
 </div>
 </div>
@@ -772,7 +768,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.575829303548901
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-2.575829303548901)
 </pre></div>
 </div>
 </div>
@@ -784,7 +780,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.5758293035489004
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.5758293035489004)
 </pre></div>
 </div>
 </div>
@@ -795,9 +791,9 @@ document.write(`
 \[CI_{99\%}: \text{Punktschätzung} \pm 2,58 \times \frac{\sigma}{\sqrt{n}}\]</div>
 </section>
 <section id="die-breite-eines-konfidenzintervalls-und-der-kompromiss-zwischen-prazision-und-genauigkeit">
-<h2>Die Breite eines Konfidenzintervalls und der Kompromiss zwischen Präzision und Genauigkeit<a class="headerlink" href="#die-breite-eines-konfidenzintervalls-und-der-kompromiss-zwischen-prazision-und-genauigkeit" title="Permalink to this heading">#</a></h2>
+<h2>Die Breite eines Konfidenzintervalls und der Kompromiss zwischen Präzision und Genauigkeit<a class="headerlink" href="#die-breite-eines-konfidenzintervalls-und-der-kompromiss-zwischen-prazision-und-genauigkeit" title="Link to this heading">#</a></h2>
 <section id="ein-gedankenexperiment">
-<h3>Ein Gedankenexperiment<a class="headerlink" href="#ein-gedankenexperiment" title="Permalink to this heading">#</a></h3>
+<h3>Ein Gedankenexperiment<a class="headerlink" href="#ein-gedankenexperiment" title="Link to this heading">#</a></h3>
 <p>Betrachten wir die durchschnittliche Tagestemperatur in Berlin an einem schönen Sommertag im Juni. Nehmen wir an, wir messen eine mittlere Tagestemperatur von <span class="math notranslate nohighlight">\(19^\circ\text{C}\)</span>. Nun geht es darum, die mittlere Temperatur von morgen zu schätzen.</p>
 <p>Es gibt natürlich mehrere mehr oder weniger ausgeklügelte Ansätze, um diese Aufgabe zu lösen. Man kann in den Datenarchiven nachsehen und die Schätzung auf deskriptive Statistiken stützen, oder man kann sogar einen sehr ausgeklügelten Modellierungsansatz mit einer Unmenge von Modellparametern anwenden, oder man kann einfach eine Schätzung auf der Grundlage des gesunden Menschenverstands vornehmen. Unabhängig davon, welcher Ansatz gewählt wird, wird das Ergebnis immer eine Schätzung sein, die mit einem gewissen Grad an Unsicherheit verbunden ist.</p>
 <p>Um dieser Unsicherheit Rechnung zu tragen, präsentieren wir keine Punktschätzung der morgigen Temperatur, sondern eine Intervallschätzung. Um eine hohe <strong>Genauigkeit</strong> unserer Schätzung zu erreichen, also, dass wir sehr sicher sein wollen, dass unser Intervall den tatsächlichen Wert enthält, wenden wir eine sehr große Fehlermarge an. Wir sagen zum Beispiel, dass die morgige Temperatur <span class="math notranslate nohighlight">\(19 \pm 20^\circ\text{C}\)</span> beträgt. Nach gesundem Menschenverstand würden wir wahrscheinlich zustimmen, dass die durchschnittliche Tagestemperatur an einem Sommertag im Juni in Berlin zwischen <span class="math notranslate nohighlight">\(-1\)</span> und <span class="math notranslate nohighlight">\(39^\circ\text{C}\)</span> liegt.</p>
@@ -807,7 +803,7 @@ document.write(`
 </section>
 </section>
 <section id="schatzung-des-mittelwerts-einer-grundgesamtheit-die-z-verteilung">
-<h2>Schätzung des Mittelwerts einer Grundgesamtheit - Die <span class="math notranslate nohighlight">\(z\)</span>-Verteilung<a class="headerlink" href="#schatzung-des-mittelwerts-einer-grundgesamtheit-die-z-verteilung" title="Permalink to this heading">#</a></h2>
+<h2>Schätzung des Mittelwerts einer Grundgesamtheit - Die <span class="math notranslate nohighlight">\(z\)</span>-Verteilung<a class="headerlink" href="#schatzung-des-mittelwerts-einer-grundgesamtheit-die-z-verteilung" title="Link to this heading">#</a></h2>
 <p>Die Schätzung des Mittelwerts einer Grundgesamtheit anhand einer Stichprobe ist eine sehr häufige Aufgabe. Wenn die Standardabweichung der Grundgesamtheit (<span class="math notranslate nohighlight">\(\sigma\)</span>) bekannt ist, basiert die Konstruktion eines Konfidenzintervalls für den Grundgesamtheitsmittelwert (<span class="math notranslate nohighlight">\(\mu\)</span>) auf der normalverteilten Stichprobenverteilung der Stichprobenmittelwerte (gewährleistet durch den <a href="https://de.wikipedia.org/wiki/Zentraler_Grenzwertsatz">zentralen Grenzwertsatz</a>). Wenn die Grundgesamtheit, aus der die Stichprobe gezogen wird, nicht normalverteilt ist, sollte der Stichprobenumfang <span class="math notranslate nohighlight">\(n \gt 30\)</span> sein.</p>
 <p>Das <span class="math notranslate nohighlight">\(100(1-α) \%\)</span>ige Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span> ist gegeben durch</p>
 <div class="math notranslate nohighlight">
@@ -818,7 +814,7 @@ document.write(`
 <p>Der Standardfehler (<span class="math notranslate nohighlight">\(\sigma_{\bar{x}}\)</span>) ergibt sich aus dem Verhältnis zwischen der Standardabweichung der Grundgesamtheit (<span class="math notranslate nohighlight">\(\sigma\)</span>) und der Quadratwurzel des Stichprobenumfangs <span class="math notranslate nohighlight">\(n\)</span>. Er beschreibt das Ausmaß, in dem die berechnete Stichprobenstatistik von einer Stichprobe zur anderen abweichen kann. Das Produkt aus dem kritischen Wert und dem Standardfehler wird als Fehlermarge bezeichnet. Es ist die Größe, die vom Wert von <span class="math notranslate nohighlight">\(\bar{x}\)</span> subtrahiert und zu diesem addiert wird, um das Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span> zu erhalten.</p>
 </section>
 <section id="intervallschatzung-fur-einen-mittelwert-die-z-verteilung">
-<h2>Intervallschätzung für einen Mittelwert - Die <span class="math notranslate nohighlight">\(z\)</span>-Verteilung<a class="headerlink" href="#intervallschatzung-fur-einen-mittelwert-die-z-verteilung" title="Permalink to this heading">#</a></h2>
+<h2>Intervallschätzung für einen Mittelwert - Die <span class="math notranslate nohighlight">\(z\)</span>-Verteilung<a class="headerlink" href="#intervallschatzung-fur-einen-mittelwert-die-z-verteilung" title="Link to this heading">#</a></h2>
 <p>Zum besseren Verständnis der Schätzung eines Populationsmittelwerts und der Konstruktion eines Konfidenzintervalls diskutieren wir das Verfahren anhand eines Datensatzes. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Zunächst importieren wir den Datensatz und geben ihm einen passenden Namen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -857,7 +853,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Größe in cm&#39;)
 </pre></div>
 </div>
-<img alt="../_images/3c8533bc7698a86c37bf25910f3ec4934d507c721f0bfad2302bd01354e20d25.png" src="../_images/3c8533bc7698a86c37bf25910f3ec4934d507c721f0bfad2302bd01354e20d25.png" />
+<img alt="../_images/04906c2bbe2c95a3ac5c12258daa24b9b115d5d006080dd7beba120c007311e2.png" src="../_images/04906c2bbe2c95a3ac5c12258daa24b9b115d5d006080dd7beba120c007311e2.png" />
 </div>
 </div>
 <p>Auf der Grundlage der gegebenen Daten berechnen wir zunächst den Populationsmittelwert <span class="math notranslate nohighlight">\(\mu\)</span> und die Populationsstandardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
@@ -869,7 +865,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>163.65328467153284
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(163.65328467153284)
 </pre></div>
 </div>
 </div>
@@ -882,7 +878,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.918762263149209
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(7.918762263149209)
 </pre></div>
 </div>
 </div>
@@ -910,7 +906,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Größe in cm&#39;)
 </pre></div>
 </div>
-<img alt="../_images/d9f366cd291538e97666648f9dcb4be1812f03b4a0b7a16c3c3017299f172a91.png" src="../_images/d9f366cd291538e97666648f9dcb4be1812f03b4a0b7a16c3c3017299f172a91.png" />
+<img alt="../_images/aeab0dba7bf9c02f2c77eabd65cd8ffa04c7641745d5b7e38d34a9596f22a314.png" src="../_images/aeab0dba7bf9c02f2c77eabd65cd8ffa04c7641745d5b7e38d34a9596f22a314.png" />
 </div>
 </div>
 <p>Eine gute Übereinstimmung!</p>
@@ -943,7 +939,7 @@ aus der Wahrscheinlichkeitsverteilung, indem wir die Funktion <code class="docut
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>162.88404905120882
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(162.88404905120882)
 </pre></div>
 </div>
 </div>
@@ -957,7 +953,7 @@ aus der Wahrscheinlichkeitsverteilung, indem wir die Funktion <code class="docut
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.False_
 </pre></div>
 </div>
 </div>
@@ -982,11 +978,11 @@ aus der Wahrscheinlichkeitsverteilung, indem wir die Funktion <code class="docut
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CI_eval</span><span class="p">(</span><span class="n">pop_mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Funktion zur Evaluierung des Konfidenzintervalls&quot;&quot;&quot;</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">:</span> <span class="p">{}</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">alpha</span><span class="p">}</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Funktion zur Evaluierung des Konfidenzintervalls&quot;&quot;&quot;</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">:</span> <span class="p">{}</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">alpha</span><span class="p">}</span>
 
     <span class="k">for</span> <span class="n">e</span><span class="p">,</span> <span class="n">_alpha</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_alpha</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">_alpha</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span>
         <span class="n">out</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;true value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pop_mean</span>
         <span class="n">out</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;estimate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estimate</span>
         <span class="n">upper</span> <span class="o">=</span> <span class="n">estimate</span> <span class="o">+</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
@@ -1078,7 +1074,7 @@ aus der Wahrscheinlichkeitsverteilung, indem wir die Funktion <code class="docut
 <p>Ein interessantes Ergebnis. Der wahre Mittelwert der Grundgesamtheit (<code class="docutils literal notranslate"><span class="pre">f_mean</span></code> = <span class="math notranslate nohighlight">\(163,65\)</span>) wird von allen drei Konfidenzintervallen erfasst. Der Mittelwert unserer Zufallsstichprobe (<code class="docutils literal notranslate"><span class="pre">sample_mean</span></code> = <span class="math notranslate nohighlight">\(162,884\)</span>) war ein recht guter Schätzer.</p>
 </section>
 <section id="schatzung-des-mittelwerts-einer-grundgesamtheit-die-t-verteilung">
-<h2>Schätzung des Mittelwerts einer Grundgesamtheit - Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung<a class="headerlink" href="#schatzung-des-mittelwerts-einer-grundgesamtheit-die-t-verteilung" title="Permalink to this heading">#</a></h2>
+<h2>Schätzung des Mittelwerts einer Grundgesamtheit - Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung<a class="headerlink" href="#schatzung-des-mittelwerts-einer-grundgesamtheit-die-t-verteilung" title="Link to this heading">#</a></h2>
 <p>Bisher haben wir uns auf <span class="math notranslate nohighlight">\(\sigma\)</span>, die Standardabweichung der Grundgesamtheit, gestützt, um auf den Mittelwert der Grundgesamtheit zu schließen. Der Populationsparameter <span class="math notranslate nohighlight">\(\sigma\)</span> wird zur Berechnung des Standardfehlers (<span class="math notranslate nohighlight">\(SF=\frac{\sigma}{\sqrt{n}}\)</span>) verwendet, der ein Bestandteil der Fehlermarge ist. Was aber, wenn man die Standardabweichung der Grundgesamtheit nicht kennt, was in der Regel der Fall ist? Man kann die Standardabweichung der Stichprobe, die mit <span class="math notranslate nohighlight">\(s\)</span> bezeichnet wird, als Schätzwert für die Standardabweichung der Grundgesamtheit verwenden.</p>
 <div class="math notranslate nohighlight">
 \[\text{wenn } \  s \approx \sigma \  \text{ dann } \  SF = \frac{s}{\sqrt{n}}\]</div>
@@ -1101,7 +1097,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.7822875556491593
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-1.7822875556491593)
 </pre></div>
 </div>
 </div>
@@ -1113,7 +1109,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.782287555649159
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.782287555649159)
 </pre></div>
 </div>
 </div>
@@ -1130,7 +1126,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.178812829663418
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-2.178812829663418)
 </pre></div>
 </div>
 </div>
@@ -1142,7 +1138,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1788128296634177
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(2.1788128296634177)
 </pre></div>
 </div>
 </div>
@@ -1159,7 +1155,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-3.054539588336871
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-3.054539589392901)
 </pre></div>
 </div>
 </div>
@@ -1171,7 +1167,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0545395883368704
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(3.0545395893929017)
 </pre></div>
 </div>
 </div>
@@ -1182,7 +1178,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 \[CI_{99\%}: \text{Punktschätzung} \pm 3,05 \times \frac{s}{\sqrt{n}}\]</div>
 </section>
 <section id="intervallschatzung-fur-einen-mittelwert-die-t-verteilung">
-<h2>Intervallschätzung für einen Mittelwert - Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung<a class="headerlink" href="#intervallschatzung-fur-einen-mittelwert-die-t-verteilung" title="Permalink to this heading">#</a></h2>
+<h2>Intervallschätzung für einen Mittelwert - Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung<a class="headerlink" href="#intervallschatzung-fur-einen-mittelwert-die-t-verteilung" title="Link to this heading">#</a></h2>
 <p>Wir üben das Verfahren “The One-Mean t-Interval Procedure”, um Konfidenzintervalle mit einem Datensatz zu konstruieren. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Zunächst importieren wir den Datensatz und geben ihm einen passenden Namen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1210,7 +1206,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>163.65328467153284
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(163.65328467153284)
 </pre></div>
 </div>
 </div>
@@ -1222,7 +1218,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.918762263149209
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(7.918762263149209)
 </pre></div>
 </div>
 </div>
@@ -1238,7 +1234,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>161.44236164394297
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(161.44236164394297)
 </pre></div>
 </div>
 </div>
@@ -1251,7 +1247,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.09685230523463
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(10.09685230523463)
 </pre></div>
 </div>
 </div>
@@ -1265,7 +1261,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.False_
 </pre></div>
 </div>
 </div>
@@ -1277,7 +1273,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.False_
 </pre></div>
 </div>
 </div>
@@ -1289,7 +1285,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.False_
 </pre></div>
 </div>
 </div>
@@ -1316,11 +1312,11 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">CI_eval_t</span><span class="p">(</span><span class="n">pop_mean</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Funktion zur Evaluierung des Konfidenzintervalls&quot;&quot;&quot;</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">:</span> <span class="p">{}</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">alpha</span><span class="p">}</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Funktion zur Evaluierung des Konfidenzintervalls&quot;&quot;&quot;</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">:</span> <span class="p">{}</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">alpha</span><span class="p">}</span>
 
     <span class="k">for</span> <span class="n">e</span><span class="p">,</span> <span class="n">_alpha</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_alpha</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">((</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">_alpha</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">%&quot;</span>
         <span class="n">out</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;true value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pop_mean</span>
         <span class="n">out</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;estimate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estimate</span>
         <span class="n">upper</span> <span class="o">=</span> <span class="n">estimate</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">_alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
@@ -1415,7 +1411,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>163.65328467153284
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(163.65328467153284)
 </pre></div>
 </div>
 </div>
@@ -1427,7 +1423,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>161.44236164394297
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(161.44236164394297)
 </pre></div>
 </div>
 </div>
@@ -1440,7 +1436,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
     {
         requestKernel: true,
         binderOptions: {
-            repo: "ixianslab/srh-data-science",
+            repo: "Mobile-University-DigitalLab/statistik",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -1463,8 +1459,8 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="../Lernziele/Kapitel5_Lernziele.html"
@@ -1491,7 +1487,9 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1530,9 +1528,10 @@ By ixians
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1556,8 +1555,8 @@ By ixians
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

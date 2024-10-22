@@ -1,75 +1,51 @@
-# Getting started
+# Statistik und Machine Learning Modelle
+
+Modul "Statistik und Machine Learning Modelle".
+
+Ein umfassender Kurs über Statistik und Machine Learning Modelle.
 
 
-## Clone from git 
+# Installation
+- bei github anmelden (siehe schnellanleitung.pdf)
+- git installieren
 
-Repo: https://github.com/ixianslab/srh-data-science
+- miniconda installieren:
+- hier: `https://docs.anaconda.com/free/miniconda/miniconda-other-installer-links/` finden Sie die benötigten Installer. 
+- Wählen Sie den **miniconda** Installer für Ihr Betriebssystem aus
+- Wählen Sie den Installer für Python 3.12
+- Downloaden Sie den Installer
+- Führen Sie den Installer aus.
+- Starten Sie die miniconda console (siehe schnellanleitung.pdf)
 
+- Legen Sie ein Fork des Kurs-Repositories an (siehe schnellanleitung.pdf)
+- Legen Sie einen Ordner an, in dem Sie arbeiten wollen, z.B. <Ihr-Home-Ordner>\mu_kurse
+- "clonen" Sie das Repository (siehe schnellanleitung.pdf)
 
-## Build conda environment
+- cd <Ihr-Home-Ordner>\mu_kurse\statistik
 
-Run the command `conda env create -f environment.yml` to install the conda env named `srh`.
+# Python vorbereiten
 
-To activate the environment run `conda activate srh`.
+Führen Sie folgenden Befehl auf der miniconda Konsole aus:
+`conda env create -f environment.yml`
 
-To deactivate the environment run `conda deactivate`.
+# Kurs ausführen
 
+### Environment aktivieren
+`conda activate statistik-env`
 
-## Development of new content
+### Kurs als Jupyter Notebook starten
+`jupyter lab`
 
-### Git branches 
-We work with branches. Our naming convention for a branch is `kapitel_XXX_name`. The current deployed version in the srh moodle environment is
-on the branch `srh-script`. 
+# Kurs schließen
 
-### Folder structure
-Add new folders such as `Kapitel_CLT` in the `./notebooks` folder so that we get a reliable structure.
+Geben sie in der miniconda Konsole ein: `conda deactivate`
 
-The repository should have the following structure:
+# Contributing Guidelines
 
-    repo-name
-    ├── _experimental        # Stuff that never made it but is too valuable to be deleted ;-)   
-    ├── .git                 # Git internals, don't mess around here.
-    ├── .gitignore           # Specifies files and folders that should be ignored by git.
-    ├── environment.yml      # The requirements file for reproducing the analysis environment in conda. 
-    ├── notebooks            # Find all Jupyter notebooks here.
-    │   └── Kapitel_00       # Serves as a template. Copy and paste this folder to get staretd
-    │   │   └── _img         # Rendered images/pdfs/videos within notebooks are placed here.
-    │   └── Kapitel_xxx      # Any topic of interest
-    │   │   └── _img         # Rendered images/pdfs/videos within notebooks are placed here.
-    │   └── ...              # Find all Jupyter notebooks here.
-    │       └── _img         # Rendered images/pdfs/videos within notebooks are placed here.│   
-    ├── README.md            # README for using this project.
-    ├── references           # Scientific papers, links, manuals, and all other explanatory materials.
-    ├── reports              # Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures          # Generated graphics and figures to be used in reporting.
-    └── src                  # Source code for use in this project.
-        ├── __init__.py      # Makes src a Python module.
-        └── notebook_env.py  # A file with basic settings when working with Jupyter notebooks.
-        
-## Build a jupyter book
+> [!IMPORTANT]  
+> Die folgenden Informationen sind hauptsächlich für Entwickler des Kurses oder fortgeschrittene Nutzer gedacht, welche die Notebooks als Bundle zu einem Jupyter Book zusammenfügen möchten oder dieses als PDF generieren möchten.
 
-AN **HTML version** of the book can be built using the following command:
+Wenn Sie detaillierte Informationen zum Builden des kompletten Jupyter Books benötigen, sind diese hier hinterlegt:
 
-`jupyter-book build notebooks/` 
+[CONTRIBUTING](CONTRIBUTING.md)
 
-Make sure that you are in the right directory so that `notebooks/` yields to the place where the `_config.yml` and `_toc.yml` are found. Also please note that when you make many changes to the individual notebooks regarding the cache:
-
-- please set the `execute_notebooks: force` in the `_conig.yml` when many chnages made
-- please set `execute_notebooks: cache` on small rebuilds
-
-Then, after the successful build you can find the hmtl files in `repo-name/notebooks/_build/html/`. If you want to build individual chapters you need to specifiy a `_config.yml` and `_toc.yml` within each chapters directory. 
-
-A ***PDF version*** of the book can be built with the following command:
-
-`jupyter-book build notebooks/ --builder pdfhtml`
-
-This builds a pdf version from the previously created html files by emulating a browser (chromium).After the build completes, the pdf can be found in `repo-name/notebooks/_build/pdf/`
-
-**Note:** after the pdf has been built, the HTML Version has been modified as an intermediate step, thus if the HTML is needed again, you need to trigger the HTML build again afterwards.
- 
-## Push to repo
-`ghp-import -n -p -f notebooks/_build/html`
-
-## Published at...
-
-https://ixianslab.github.io/srh-data-science/intro.html

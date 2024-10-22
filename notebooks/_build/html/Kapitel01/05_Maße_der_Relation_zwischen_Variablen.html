@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Maße für die Relation zwischen Variablen &#8212; Modul Statistik und Machine Learning Modelle</title>
   
@@ -15,54 +14,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css?v=342acfa5" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel01/05_Maße_der_Relation_zwischen_Variablen';</script>
@@ -72,6 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Das Positionsmaß" href="04_Ma%C3%9Fe_der_Position.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,32 +78,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -112,7 +95,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -120,16 +102,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -142,9 +133,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -154,12 +149,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Modul Statistik und Machine Learning Modelle - Home"/>
+    <img src="../_static/srh_logo.png" class="logo__image only-dark pst-js-only" alt="Modul Statistik und Machine Learning Modelle - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -181,13 +183,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Maße für die Relation zwischen Variablen</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -195,12 +197,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -211,35 +213,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
 <ul class="nav bd-sidenav">
@@ -266,59 +268,59 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
 <ul class="nav bd-sidenav">
@@ -338,7 +340,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -347,14 +349,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -408,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel01/05_Maße_der_Relation_zwischen_Variablen.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik/issues/new?title=Issue%20on%20page%20%2FKapitel01/05_Maße_der_Relation_zwischen_Variablen.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -507,26 +509,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -569,10 +565,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="masze-fur-die-relation-zwischen-variablen">
-<h1>Maße für die Relation zwischen Variablen<a class="headerlink" href="#masze-fur-die-relation-zwischen-variablen" title="Permalink to this heading">#</a></h1>
+<h1>Maße für die Relation zwischen Variablen<a class="headerlink" href="#masze-fur-die-relation-zwischen-variablen" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -585,7 +581,7 @@ document.write(`
 </div>
 <p>In den vorangegangenen Abschnitten haben wir uns hauptsächlich auf eine einzelne Variable, die Beschreibung einer Verteilung und die Berechnung von zusammenfassenden Statistiken konzentriert. Statistiken, die eine einzelne Variable beschreiben, werden als <a href="https://de.wikipedia.org/wiki/Univariat">univariate Statistiken</a> bezeichnet. Untersucht man die Beziehung zwischen zwei Variablen, spricht man von <a href="https://de.wikipedia.org/wiki/Univariat#Verwendung_in_der_Mathematik">bivariater Statistik</a>. Wenn die Beziehungen zwischen mehreren Variablen gleichzeitig untersucht werden, spricht man von <a href="https://de.wikipedia.org/wiki/Multivariate_Verfahren">multivariaten Statistiken</a>. <strong>Maße für die Relation</strong> zwischen Variablen bieten die Möglichkeit, die Größe der Verknüpfung zwischen zwei Variablen zusammenzufassen.</p>
 <section id="kovarianz">
-<h2>Kovarianz<a class="headerlink" href="#kovarianz" title="Permalink to this heading">#</a></h2>
+<h2>Kovarianz<a class="headerlink" href="#kovarianz" title="Link to this heading">#</a></h2>
 <p>Die <a href="https://de.wikipedia.org/wiki/Kovarianz_(Stochastik)">Kovarianz</a> ist ein Maß für die gemeinsame Variabilität von zwei Variablen. Die Kovarianz kann jeden Wert im Intervall <span class="math notranslate nohighlight">\(]-\infty \ \)</span>,<span class="math notranslate nohighlight">\( \ +\infty[\)</span> annehmen.</p>
 <p>Die Kovarianz ist positiv, wenn die größeren/kleineren Werte der einen Variablen hauptsächlich mit den größeren/kleineren Werten der anderen Variablen übereinstimmen. Die Kovarianz ist negativ, wenn die Variablen tendenziell ein entgegengesetztes Verhalten zeigen. Die Kovarianz ist negativ, wenn die größeren Werte der einen Variablen hauptsächlich mit den kleineren Werten der anderen Variablen übereinstimmen.</p>
 <p>Die Kovarianz, <span class="math notranslate nohighlight">\(s_{xy}\)</span>
@@ -595,9 +591,9 @@ wird durch die folgende Gleichung berechnet</p>
 <p>Die <strong>normalisierte Version der Kovarianz</strong> wird <strong>Korrelationskoeffizient</strong> genannt, dessen Größe die Stärke einer linearen Beziehung zwischen zwei Variablen angibt.</p>
 </section>
 <section id="korrelation">
-<h2>Korrelation<a class="headerlink" href="#korrelation" title="Permalink to this heading">#</a></h2>
+<h2>Korrelation<a class="headerlink" href="#korrelation" title="Link to this heading">#</a></h2>
 <section id="pearson-produkt-moment-korrelationskoeffizient">
-<h3>Pearson-Produkt-Moment-Korrelationskoeffizient<a class="headerlink" href="#pearson-produkt-moment-korrelationskoeffizient" title="Permalink to this heading">#</a></h3>
+<h3>Pearson-Produkt-Moment-Korrelationskoeffizient<a class="headerlink" href="#pearson-produkt-moment-korrelationskoeffizient" title="Link to this heading">#</a></h3>
 <p>Die Korrelation ist eine weit verbreitete Methode zur Untersuchung der Beziehung zwischen <strong>quantitativen Variablen</strong>. Die am häufigsten verwendete Statistik ist der <strong>lineare Korrelationskoeffizient</strong> <span class="math notranslate nohighlight">\(r\)</span>, der zu Ehren seines Entwicklers, <a href="https://de.wikipedia.org/wiki/Karl_Pearson">Karl Pearson</a>, auch als <a href="https://de.wikipedia.org/wiki/Korrelationskoeffizient">Pearson-Produkt-Moment-Korrelationskoeffizient</a> bekannt ist. Er ist gegeben durch</p>
 <div class="math notranslate nohighlight">
 \[ r = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2} \sqrt{ \sum_{i=1}^n (y_i - \bar{y})^2}} = \frac{s_{xy}}{s_x s_y}\]</div>
@@ -606,7 +602,7 @@ wird durch die folgende Gleichung berechnet</p>
 <p><img alt="Alt-Text" src="../_images/pearson.png" /></p>
 <p>Eine interessante Eigenschaft von <span class="math notranslate nohighlight">\(r\)</span> ist, dass sein Vorzeichen die Steigung der linearen Beziehung zwischen zwei Variablen widerspiegelt. Ein positiver Wert von <span class="math notranslate nohighlight">\(r\)</span> deutet darauf hin, dass die Variablen <strong>positiv linear korreliert</strong> sind, was bedeutet, dass <span class="math notranslate nohighlight">\(y\)</span> tendenziell linear zunimmt, wenn <span class="math notranslate nohighlight">\(x\)</span> zunimmt. Ein negativer Wert von <span class="math notranslate nohighlight">\(r\)</span> deutet darauf hin, dass die Variablen <strong>negativ linear korreliert</strong> sind, was bedeutet, dass <span class="math notranslate nohighlight">\(y\)</span> tendenziell linear abnimmt, wenn <span class="math notranslate nohighlight">\(x\)</span> zunimmt.</p>
 <p>Es gibt keine eindeutige Klassifizierungsregel für die Größe einer linearen Beziehung zwischen zwei Variablen. Die folgende Tabelle kann jedoch als Faustregel für den Umgang mit den numerischen Werten des Pearson-Produkt-Moment-Korrelationskoeffizienten dienen.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
 <th class="head"><p></p></th>
@@ -627,6 +623,7 @@ wird durch die folgende Gleichung berechnet</p>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Die Pearson-Korrelation setzt voraus, dass die Variablen annähernd normalverteilt sind, und sie ist bei Vorhandensein von Ausreißern nicht robust.</p>
 <p>In einem späteren Abschnitt über lineare Regression wird das Bestimmtheitsmaß, <span class="math notranslate nohighlight">\(R^2\)</span>
 ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine enge Beziehung zwischen <span class="math notranslate nohighlight">\(R^2\)</span> und dem linearen Korrelationskoeffizienten <span class="math notranslate nohighlight">\(r\)</span>. Das Bestimmtheitsmaß <span class="math notranslate nohighlight">\(R^2\)</span> ist gleich dem Quadrat des linearen Korrelationskoeffizienten <span class="math notranslate nohighlight">\(r\)</span>.</p>
@@ -634,7 +631,7 @@ ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine
 \[\text{Determinationskoeffizient} (R^2) = r^2\]</div>
 </section>
 <section id="korrelationskoeffizient-nach-pearson-ein-beispiel">
-<h3>Korrelationskoeffizient nach Pearson: Ein Beispiel<a class="headerlink" href="#korrelationskoeffizient-nach-pearson-ein-beispiel" title="Permalink to this heading">#</a></h3>
+<h3>Korrelationskoeffizient nach Pearson: Ein Beispiel<a class="headerlink" href="#korrelationskoeffizient-nach-pearson-ein-beispiel" title="Link to this heading">#</a></h3>
 <p>Um ein Gefühl dafür zu bekommen, berechnen wir den Pearson-Produkt-Moment-Korrelationskoeffizienten in einem Beispiel. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz in unseren Arbeitsbereich (Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -668,7 +665,7 @@ ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5af3254190400147c13b66c94172a16cfef186c41939cfa5b15e46d0cf5f43bc.png" src="../_images/5af3254190400147c13b66c94172a16cfef186c41939cfa5b15e46d0cf5f43bc.png" />
+<img alt="../_images/8748c3de571e06770ada44cd59eee334a4095daf0c4460eef5ad9e4f0f930952.png" src="../_images/8748c3de571e06770ada44cd59eee334a4095daf0c4460eef5ad9e4f0f930952.png" />
 </div>
 </div>
 <p>Das Streudiagramm zeigt, dass eine lineare Beziehung zwischen den beiden betrachteten Variablen besteht. Für diese Übung berechnen wir den linearen Korrelationskoeffizienten zunächst von Hand und wenden dann die <code class="docutils literal notranslate"><span class="pre">np.corrcoef()</span></code>-Funktion in Python an. Wir erinnern uns an die Gleichung von oben</p>
@@ -688,7 +685,7 @@ ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9295600715108283
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9295600715108283)
 </pre></div>
 </div>
 </div>
@@ -711,7 +708,7 @@ ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.929560071510828
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.929560071510828)
 </pre></div>
 </div>
 </div>
@@ -724,7 +721,7 @@ ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9295600715108281
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.9295600715108281)
 </pre></div>
 </div>
 </div>
@@ -786,6 +783,30 @@ ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine
   </thead>
   <tbody>
     <tr>
+      <th>163772</th>
+      <td>23</td>
+      <td>163</td>
+      <td>65.4</td>
+      <td>1.90</td>
+      <td>76.0</td>
+      <td>67.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>28235.06</td>
+    </tr>
+    <tr>
+      <th>580061</th>
+      <td>23</td>
+      <td>177</td>
+      <td>71.4</td>
+      <td>1.99</td>
+      <td>60.0</td>
+      <td>60.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
       <th>210967</th>
       <td>18</td>
       <td>159</td>
@@ -796,6 +817,54 @@ ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine
       <td>1</td>
       <td>0</td>
       <td>NaN</td>
+    </tr>
+    <tr>
+      <th>855463</th>
+      <td>23</td>
+      <td>157</td>
+      <td>66.0</td>
+      <td>3.41</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>523713</th>
+      <td>21</td>
+      <td>194</td>
+      <td>91.5</td>
+      <td>1.62</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>973462</th>
+      <td>21</td>
+      <td>167</td>
+      <td>63.3</td>
+      <td>1.36</td>
+      <td>68.0</td>
+      <td>64.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>112287</th>
+      <td>19</td>
+      <td>176</td>
+      <td>76.1</td>
+      <td>2.68</td>
+      <td>52.0</td>
+      <td>55.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>46075.27</td>
     </tr>
     <tr>
       <th>133917</th>
@@ -810,100 +879,28 @@ ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine
       <td>NaN</td>
     </tr>
     <tr>
-      <th>947965</th>
-      <td>22</td>
-      <td>172</td>
-      <td>71.0</td>
-      <td>1.51</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>861418</th>
-      <td>21</td>
-      <td>155</td>
-      <td>61.9</td>
-      <td>1.81</td>
-      <td>55.0</td>
-      <td>50.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>206456</th>
-      <td>24</td>
-      <td>162</td>
-      <td>69.6</td>
-      <td>2.89</td>
-      <td>78.0</td>
-      <td>79.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>729441</th>
-      <td>34</td>
-      <td>167</td>
-      <td>70.4</td>
-      <td>1.13</td>
-      <td>60.0</td>
-      <td>57.0</td>
+      <th>567950</th>
+      <td>20</td>
+      <td>182</td>
+      <td>79.7</td>
+      <td>1.37</td>
+      <td>59.0</td>
+      <td>58.0</td>
       <td>1</td>
       <td>1</td>
-      <td>33208.01</td>
+      <td>42604.55</td>
     </tr>
     <tr>
-      <th>681278</th>
+      <th>591911</th>
       <td>21</td>
       <td>158</td>
-      <td>60.8</td>
-      <td>1.03</td>
-      <td>55.0</td>
-      <td>52.0</td>
+      <td>63.7</td>
+      <td>1.10</td>
+      <td>61.0</td>
+      <td>72.0</td>
       <td>1</td>
       <td>0</td>
       <td>NaN</td>
-    </tr>
-    <tr>
-      <th>397699</th>
-      <td>23</td>
-      <td>172</td>
-      <td>69.4</td>
-      <td>1.83</td>
-      <td>69.0</td>
-      <td>67.0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>37854.66</td>
-    </tr>
-    <tr>
-      <th>152166</th>
-      <td>20</td>
-      <td>163</td>
-      <td>62.8</td>
-      <td>1.74</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>635788</th>
-      <td>22</td>
-      <td>167</td>
-      <td>69.6</td>
-      <td>1.22</td>
-      <td>47.0</td>
-      <td>47.0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>33318.30</td>
     </tr>
   </tbody>
 </table>
@@ -962,28 +959,76 @@ ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine
   </thead>
   <tbody>
     <tr>
-      <th>193855</th>
-      <td>20</td>
-      <td>181</td>
-      <td>80.1</td>
-      <td>2.20</td>
-      <td>50.0</td>
-      <td>53.0</td>
+      <th>324623</th>
+      <td>19</td>
+      <td>157</td>
+      <td>66.1</td>
+      <td>1.75</td>
+      <td>70.0</td>
+      <td>69.0</td>
       <td>1</td>
       <td>1</td>
-      <td>25706.96</td>
+      <td>37807.11</td>
     </tr>
     <tr>
-      <th>618746</th>
-      <td>18</td>
-      <td>178</td>
-      <td>80.0</td>
-      <td>3.14</td>
-      <td>44.0</td>
-      <td>41.0</td>
+      <th>112287</th>
+      <td>19</td>
+      <td>176</td>
+      <td>76.1</td>
+      <td>2.68</td>
+      <td>52.0</td>
+      <td>55.0</td>
       <td>0</td>
       <td>1</td>
-      <td>40899.32</td>
+      <td>46075.27</td>
+    </tr>
+    <tr>
+      <th>648227</th>
+      <td>24</td>
+      <td>187</td>
+      <td>91.0</td>
+      <td>1.94</td>
+      <td>51.0</td>
+      <td>50.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>41601.20</td>
+    </tr>
+    <tr>
+      <th>729441</th>
+      <td>34</td>
+      <td>167</td>
+      <td>70.4</td>
+      <td>1.13</td>
+      <td>60.0</td>
+      <td>57.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>33208.01</td>
+    </tr>
+    <tr>
+      <th>601421</th>
+      <td>24</td>
+      <td>197</td>
+      <td>99.9</td>
+      <td>2.72</td>
+      <td>64.0</td>
+      <td>70.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>40460.52</td>
+    </tr>
+    <tr>
+      <th>111998</th>
+      <td>20</td>
+      <td>174</td>
+      <td>75.8</td>
+      <td>2.15</td>
+      <td>64.0</td>
+      <td>72.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>37364.35</td>
     </tr>
     <tr>
       <th>163772</th>
@@ -998,6 +1043,30 @@ ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine
       <td>28235.06</td>
     </tr>
     <tr>
+      <th>193855</th>
+      <td>20</td>
+      <td>181</td>
+      <td>80.1</td>
+      <td>2.20</td>
+      <td>50.0</td>
+      <td>53.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>25706.96</td>
+    </tr>
+    <tr>
+      <th>397699</th>
+      <td>23</td>
+      <td>172</td>
+      <td>69.4</td>
+      <td>1.83</td>
+      <td>69.0</td>
+      <td>67.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>37854.66</td>
+    </tr>
+    <tr>
       <th>462072</th>
       <td>23</td>
       <td>172</td>
@@ -1008,78 +1077,6 @@ ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine
       <td>0</td>
       <td>1</td>
       <td>47556.44</td>
-    </tr>
-    <tr>
-      <th>635788</th>
-      <td>22</td>
-      <td>167</td>
-      <td>69.6</td>
-      <td>1.22</td>
-      <td>47.0</td>
-      <td>47.0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>33318.30</td>
-    </tr>
-    <tr>
-      <th>225865</th>
-      <td>20</td>
-      <td>177</td>
-      <td>75.4</td>
-      <td>2.11</td>
-      <td>72.0</td>
-      <td>70.0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>50078.33</td>
-    </tr>
-    <tr>
-      <th>679734</th>
-      <td>19</td>
-      <td>173</td>
-      <td>70.5</td>
-      <td>1.86</td>
-      <td>69.0</td>
-      <td>76.0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>43441.64</td>
-    </tr>
-    <tr>
-      <th>643038</th>
-      <td>24</td>
-      <td>184</td>
-      <td>85.1</td>
-      <td>3.42</td>
-      <td>71.0</td>
-      <td>77.0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>41028.24</td>
-    </tr>
-    <tr>
-      <th>768607</th>
-      <td>22</td>
-      <td>192</td>
-      <td>86.1</td>
-      <td>1.41</td>
-      <td>68.0</td>
-      <td>71.0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>36291.58</td>
-    </tr>
-    <tr>
-      <th>834001</th>
-      <td>21</td>
-      <td>144</td>
-      <td>55.0</td>
-      <td>3.42</td>
-      <td>49.0</td>
-      <td>57.0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>33726.58</td>
     </tr>
   </tbody>
 </table>
@@ -1244,16 +1241,16 @@ ein anschauliches Maß für die Qualität von linearen Modellen. Es besteht eine
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x73fe03d53d60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x79624dfb3d30&gt;
 </pre></div>
 </div>
-<img alt="../_images/108d182b6e8f328825fcf222fb0a95ad72a321f7e0e9479c736c05f3693c9b0c.png" src="../_images/108d182b6e8f328825fcf222fb0a95ad72a321f7e0e9479c736c05f3693c9b0c.png" />
+<img alt="../_images/54e9159180a23bd07d6f53b8863d2e1108429a8e72143bf3bbc2a2ad079e5c11.png" src="../_images/54e9159180a23bd07d6f53b8863d2e1108429a8e72143bf3bbc2a2ad079e5c11.png" />
 </div>
 </div>
 <p>Es fällt sofort auf, dass die Mehrzahl der Variablen nicht linear korreliert zu sein scheint. Im Gegensatz dazu scheinen die Variablenpaare <code class="docutils literal notranslate"><span class="pre">height</span></code> und <code class="docutils literal notranslate"><span class="pre">weight</span></code> sowie <code class="docutils literal notranslate"><span class="pre">score1</span></code> und <code class="docutils literal notranslate"><span class="pre">score2</span></code> positiv korreliert zu sein.</p>
 </section>
 <section id="rangkorrelationskoeffizient-nach-spearman">
-<h3>Rangkorrelationskoeffizient nach Spearman<a class="headerlink" href="#rangkorrelationskoeffizient-nach-spearman" title="Permalink to this heading">#</a></h3>
+<h3>Rangkorrelationskoeffizient nach Spearman<a class="headerlink" href="#rangkorrelationskoeffizient-nach-spearman" title="Link to this heading">#</a></h3>
 <p>Der Rangkorrelationskoeffizient nach Spearman (<span id="id1">[]</span> s.133), auch bekannt als Spearmans <span class="math notranslate nohighlight">\(\rho\)</span>, ist ein nichtparametrischer Rangkorrelationskoeffizient. Er wurde von <a href="https://de.wikipedia.org/wiki/Charles_Spearman">Charles Spearman</a> entwickelt und ist eine Alternative zum Produkt-Moment-Korrelationskoeffizienten von Pearson. Der Spearman <span class="math notranslate nohighlight">\(\rho\)</span> Rangkorrelationskoeffizient wird für Stichprobendaten mit <span class="math notranslate nohighlight">\(r_s\)</span> und für Grundgesamtheitsdaten mit <span class="math notranslate nohighlight">\(\rho_s\)</span> bezeichnet (Mann 2012). Der Korrelationskoeffizient bewertet die monotone Beziehung zwischen zwei Variablen und liegt zwischen <span class="math notranslate nohighlight">\(-1\)</span> und <span class="math notranslate nohighlight">\(1\)</span>. Er beschreibt die lineare Korrelation zwischen den Rängen der Daten zu den Variablen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span>. Die Spearman-Korrelation ist hoch, wenn die Variablen einen ähnlichen Rang haben, und niedrig, wenn die Variablen einen ungleichen Rang haben.</p>
 <p>Um <span class="math notranslate nohighlight">\(r_s\)</span> zu berechnen, werden die Daten für jede Variable, <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span>, getrennt eingestuft. Die Differenz zwischen jedem Paar von Rängen bezeichnen wir mit <span class="math notranslate nohighlight">\(d\)</span>. Für eine gegebene bivariate Sequenz <span class="math notranslate nohighlight">\((x_1,y_1),(x_2,y_2), \dots,(x_n,y_n)\)</span> ist Spearmans <span class="math notranslate nohighlight">\(r_s\)</span> gegeben durch</p>
 <div class="math notranslate nohighlight">
@@ -1263,13 +1260,13 @@ die Stichprobengröße ist.</p>
 <p>Im Gegensatz zum linearen Korrelationskoeffizienten von Pearson ist der lineare Koeffizient von Spearman sowohl für quantitative als auch für ordinale Variablen geeignet. Außerdem sind rangbasierte Korrelationen nicht von der Normalverteilungsannahme abhängig und resistenter gegenüber Ausreißern (<span id="id2">[]</span> s.135).</p>
 </section>
 <section id="spearman-s-rangkorrelationskoeffizient-ein-beispiel">
-<h3>Spearman’s Rangkorrelationskoeffizient: Ein Beispiel<a class="headerlink" href="#spearman-s-rangkorrelationskoeffizient-ein-beispiel" title="Permalink to this heading">#</a></h3>
+<h3>Spearman’s Rangkorrelationskoeffizient: Ein Beispiel<a class="headerlink" href="#spearman-s-rangkorrelationskoeffizient-ein-beispiel" title="Link to this heading">#</a></h3>
 <p>Betrachten wir ein Beispiel. Die Bevölkerung einer Gemeinde an einem Fluss ist der Meinung, dass der jüngste Anstieg der Abflussspitzen auf die Abholzung durch ein Holzunternehmen in den letzten Jahren zurückzuführen ist. Wir berechnen den Spearman’schen Rangkorrelationskoeffizienten, um festzustellen, ob es eine Korrelation zwischen dem Spitzenabfluss und dem Anteil der abgeholzten Fläche im Wassereinzugsgebiet gibt (Daten geändert nach <a href=https://www.routledge.com/Modeling-Hydrologic-Change-Statistical-Methods/McCuen/p/book/9781566706001>McCuen 2003, S. 112</a>).</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Jahr</p></th>
-<th class="text-center head"><p>Abflussspitzen <span class="math notranslate nohighlight">\((m^3s^{-1})\)</span></p></th>
-<th class="text-center head"><p>abgeholzten Fläche (%)</p></th>
+<th class="head text-center"><p>Abflussspitzen <span class="math notranslate nohighlight">\((m^3s^{-1})\)</span></p></th>
+<th class="head text-center"><p>abgeholzten Fläche (%)</p></th>
 </tr>
 </thead>
 <tbody>
@@ -1331,6 +1328,7 @@ die Stichprobengröße ist.</p>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Lassen Sie uns unsere Datenvektoren konstruieren. Wir ordnen die Abflusswerte der Variablen <code class="docutils literal notranslate"><span class="pre">Q</span></code> und die abgeholzte Fläche der Variablen <code class="docutils literal notranslate"><span class="pre">logged</span></code> zu.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1557,24 +1555,24 @@ die Stichprobengröße ist.</p>
 </section>
 </section>
 <section id="kontingenzkoeffizient">
-<h2>Kontingenzkoeffizient<a class="headerlink" href="#kontingenzkoeffizient" title="Permalink to this heading">#</a></h2>
+<h2>Kontingenzkoeffizient<a class="headerlink" href="#kontingenzkoeffizient" title="Link to this heading">#</a></h2>
 <p>Der <strong>Kontingenzkoeffizient</strong> <span class="math notranslate nohighlight">\(C\)</span> ist ein <span class="math notranslate nohighlight">\(\chi ^2\)</span>-basiertes Maß für die Assoziation von kategorialen Daten. Er stützt sich auf den <a href="https://de.wikipedia.org/wiki/Chi-Quadrat-Test"><span class="math notranslate nohighlight">\(\chi ^2\)</span>-Test auf Unabhängigkeit</a>. Die <span class="math notranslate nohighlight">\(\chi ^2\)</span> Statistik ermöglicht es zu beurteilen, ob eine statistische Beziehung zwischen den Variablen in den <a href="https://de.wikipedia.org/wiki/Kontingenztafel">Kontingenztabellen</a> (auch bekannt als Kontingenztafeln oder Kreuztabellen) besteht oder nicht. In dieser Art von Tabellen wird die Verteilung der Variablen in einem Matrixformat dargestellt.</p>
 <p>Für die Berechnung des <strong>Kontingenzkoeffizienten</strong> <span class="math notranslate nohighlight">\(C\)</span>
 zu berechnen, müssen wir die <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik im Voraus bestimmen.</p>
 <section id="berechnung-der-chi-2-statistik">
-<h3>Berechnung der <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik<a class="headerlink" href="#berechnung-der-chi-2-statistik" title="Permalink to this heading">#</a></h3>
+<h3>Berechnung der <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik<a class="headerlink" href="#berechnung-der-chi-2-statistik" title="Link to this heading">#</a></h3>
 <p>Die <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik ist gegeben durch
 $<span class="math notranslate nohighlight">\(\chi^2= \sum{\frac{(O-E)^2}{E}}\text{,}\)</span>$</p>
 <p>wobei <span class="math notranslate nohighlight">\(O\)</span> für die beobachtete Häufigkeit und <span class="math notranslate nohighlight">\(E\)</span> für die erwartete Häufigkeit steht. Bitte beachten Sie, dass <span class="math notranslate nohighlight">\(\frac{(O-E)^2}{E}\)</span> für jede Zelle ausgewertet und dann aufsummiert wird.</p>
 <p>Anhand eines Beispiels soll die Berechnung der <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik auf der Grundlage kategorialer Beobachtungsdaten näher erläutert werden. Nehmen wir eine Prüfung am Ende des Semesters. Es gibt drei Gruppen von Studierenden: Die Studierenden haben entweder bestanden, nicht bestanden oder nicht an der Prüfung teilgenommen. Außerdem wird die Anzahl der Übungen, die jeder einzelne Studierende während des Semesters absolviert hat, in vier Gruppen eingeteilt: Keine, weniger als die Hälfte <span class="math notranslate nohighlight">\((\lt 0,5)\)</span>, mehr als die Hälfte <span class="math notranslate nohighlight">\((\ge 0,5)\)</span>, alle.</p>
 <p>Die resultierende Kontingenztabelle sieht wie folgt aus:</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
-<th class="text-center head"><p>Keine</p></th>
-<th class="text-center head"><p><span class="math notranslate nohighlight">\(&lt;0,5\)</span></p></th>
-<th class="text-center head"><p><span class="math notranslate nohighlight">\(\geq 0,5\)</span></p></th>
-<th class="text-center head"><p>Alle</p></th>
+<th class="head text-center"><p>Keine</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(&lt;0,5\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\geq 0,5\)</span></p></th>
+<th class="head text-center"><p>Alle</p></th>
 </tr>
 </thead>
 <tbody>
@@ -1598,6 +1596,7 @@ $<span class="math notranslate nohighlight">\(\chi^2= \sum{\frac{(O-E)^2}{E}}\te
 </tr>
 </tbody>
 </table>
+</div>
 <p>Zunächst konstruieren wir ein <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> Objekt und geben ihm den Namen <code class="docutils literal notranslate"><span class="pre">obs</span></code>, um uns daran zu erinnern, dass diese Daten der beobachteten Häufigkeit entsprechen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1687,14 +1686,14 @@ Zeilensummen:  [63 47 38]
 </div>
 </div>
 <p>Setzt man alle Teile zusammen, sieht die Kontingenztabelle wie folgt aus:</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p></p></th>
-<th class="text-center head"><p>Keine</p></th>
-<th class="text-center head"><p><span class="math notranslate nohighlight">\(&lt;0,5\)</span></p></th>
-<th class="text-center head"><p><span class="math notranslate nohighlight">\(\geq 0,5\)</span></p></th>
-<th class="text-center head"><p>Alle</p></th>
-<th class="text-center head"><p>Zeilensumme</p></th>
+<th class="head text-center"><p>Keine</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(&lt;0,5\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\geq 0,5\)</span></p></th>
+<th class="head text-center"><p>Alle</p></th>
+<th class="head text-center"><p>Zeilensumme</p></th>
 </tr>
 </thead>
 <tbody>
@@ -1728,6 +1727,7 @@ Zeilensummen:  [63 47 38]
 </tr>
 </tbody>
 </table>
+</div>
 <p>Toll, jetzt haben wir eine Tabelle mit den beobachteten Häufigkeiten. Im nächsten Schritt berechnen wir die erwarteten Häufigkeiten. Um die erwarteten Häufigkeiten <span class="math notranslate nohighlight">\((E)\)</span> zu berechnen, wenden wir diese Gleichung an:</p>
 <div class="math notranslate nohighlight">
 \[E = \frac{R\times C}{n} \text{,}\]</div>
@@ -1820,14 +1820,14 @@ Zeilensummen:  [63 47 38]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.344387665138406
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(17.344387665138406)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="berechnung-des-kontingenzkoeffizienten-c">
-<h3>Berechnung des Kontingenzkoeffizienten <span class="math notranslate nohighlight">\(C\)</span><a class="headerlink" href="#berechnung-des-kontingenzkoeffizienten-c" title="Permalink to this heading">#</a></h3>
+<h3>Berechnung des Kontingenzkoeffizienten <span class="math notranslate nohighlight">\(C\)</span><a class="headerlink" href="#berechnung-des-kontingenzkoeffizienten-c" title="Link to this heading">#</a></h3>
 <p>Der Kontingenzkoeffizient, bezeichnet als <span class="math notranslate nohighlight">\(C^∗\)</span>, passt die <span class="math notranslate nohighlight">\(\chi ^2\)</span>-Statistik um den Stichprobenumfang <span class="math notranslate nohighlight">\((n)\)</span> an. Er kann wie folgt geschrieben werden</p>
 <div class="math notranslate nohighlight">
 \[ C^*=\sqrt{\frac{\chi^2}{n+\chi^2}}\text{,} \]</div>
@@ -1846,7 +1846,7 @@ Zeilensummen:  [63 47 38]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3238804670641156
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.3238804670641156)
 </pre></div>
 </div>
 </div>
@@ -1876,7 +1876,7 @@ Zeilensummen:  [63 47 38]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.39667094098068806
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.39667094098068806)
 </pre></div>
 </div>
 </div>
@@ -1890,7 +1890,7 @@ Zeilensummen:  [63 47 38]
     {
         requestKernel: true,
         binderOptions: {
-            repo: "ixianslab/srh-data-science",
+            repo: "Mobile-University-DigitalLab/statistik",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -1913,8 +1913,8 @@ Zeilensummen:  [63 47 38]
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="04_Ma%C3%9Fe_der_Position.html"
@@ -1941,7 +1941,9 @@ Zeilensummen:  [63 47 38]
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1983,9 +1985,10 @@ By ixians
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -2009,8 +2012,8 @@ By ixians
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

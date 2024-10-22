@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Hypothesentests für zwei Grundgesamtheitsmittelwerte &#8212; Modul Statistik und Machine Learning Modelle</title>
   
@@ -15,54 +14,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css?v=342acfa5" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel06/03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte';</script>
@@ -72,6 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Hypothesentests für den Mittelwert einer Grundgesamtheit" href="02_Hypothesentests_Mittelwert_einer_Grundgesamtheit.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,32 +78,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -112,7 +95,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -120,16 +102,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -142,9 +133,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -154,12 +149,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Modul Statistik und Machine Learning Modelle - Home"/>
+    <img src="../_static/srh_logo.png" class="logo__image only-dark pst-js-only" alt="Modul Statistik und Machine Learning Modelle - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -181,13 +183,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -195,12 +197,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -211,35 +213,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
 <ul class="current nav bd-sidenav">
@@ -266,59 +268,59 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
 <ul class="nav bd-sidenav">
@@ -338,7 +340,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -347,14 +349,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -408,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel06/03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik/issues/new?title=Issue%20on%20page%20%2FKapitel06/03_Hypothesentests_zwei_Grundgesamtheitsmittelwerte.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -507,26 +509,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -582,10 +578,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="hypothesentests-fur-zwei-grundgesamtheitsmittelwerte">
-<h1>Hypothesentests für zwei Grundgesamtheitsmittelwerte<a class="headerlink" href="#hypothesentests-fur-zwei-grundgesamtheitsmittelwerte" title="Permalink to this heading">#</a></h1>
+<h1>Hypothesentests für zwei Grundgesamtheitsmittelwerte<a class="headerlink" href="#hypothesentests-fur-zwei-grundgesamtheitsmittelwerte" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <p>Bisher haben wir uns auf Hypothesentests für den Mittelwert einer Grundgesamtheit konzentriert. In vielen Anwendungen wollen wir jedoch die Mittelwerte von zwei oder mehr Grundgesamtheiten vergleichen. In den folgenden Abschnitten werden Schlussfolgerungsverfahren für den Vergleich der Mittelwerte von zwei Grundgesamtheiten erörtert. Daher müssen wir zunächst zwischen Stichproben aus zwei <a href="https://de.wikipedia.org/wiki/Stochastisch_unabh%C3%A4ngige_Ereignisse">unabhängigen</a> Populationen und Stichproben aus nicht unabhängigen Populationen unterscheiden, die als <a href="https://de.wikipedia.org/wiki/Zufallsstichprobe#Abh%C3%A4ngige_und_unabh%C3%A4ngige_Stichproben">abhängige</a> Stichproben bezeichnet werden.</p>
 <p>In den folgenden Abschnitten werden die Parameter und die Statistiken von Population <span class="math notranslate nohighlight">\(1\)</span> und Population <span class="math notranslate nohighlight">\(2\)</span> mit dem Index <span class="math notranslate nohighlight">\(1\)</span> bzw. <span class="math notranslate nohighlight">\(2\)</span> bezeichnet. Somit sind <span class="math notranslate nohighlight">\(\mu_1\)</span> und <span class="math notranslate nohighlight">\(\sigma_1\)</span> die Populationsparameter der Population <span class="math notranslate nohighlight">\(1\)</span> und <span class="math notranslate nohighlight">\(\mu_2\)</span> und <span class="math notranslate nohighlight">\(\sigma_2\)</span> die der Population <span class="math notranslate nohighlight">\(2\)</span>. Analog dazu sind <span class="math notranslate nohighlight">\(\bar{x}_1, s_1\)</span> und <span class="math notranslate nohighlight">\(n_1\)</span> der Stichprobenmittelwert, die Stichprobenstandardabweichung und der Stichprobenumfang der Grundgesamtheit <span class="math notranslate nohighlight">\(1\)</span>, während <span class="math notranslate nohighlight">\(\bar{x}_2, s_2\)</span> und <span class="math notranslate nohighlight">\(n_2\)</span> der aus der Grundgesamtheit <span class="math notranslate nohighlight">\(2\)</span> gezogenen Stichprobe entsprechen.</p>
@@ -631,17 +627,17 @@ document.write(`
 Working on the host: imarevic-pc
 
 ---------------------------------
-Python version: 3.10.9 | packaged by conda-forge | (main, Feb  2 2023, 20:20:04) [GCC 11.3.0]
+Python version: 3.10.12 (main, Sep 11 2024, 15:47:36) [GCC 11.4.0]
 
 ---------------------------------
-Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
+Python interpreter: /home/imarevic/Documents/teaching/SRH/content/statistik/statistik-env/bin/python3
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-approx-s-2">
-<h1>Inferenz für zwei Grundgesamtheitsmittelwerte bei unabhängigen Stichproben; <span class="math notranslate nohighlight">\(s_1 \approx s_2\)</span><a class="headerlink" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-approx-s-2" title="Permalink to this heading">#</a></h1>
+<h1>Inferenz für zwei Grundgesamtheitsmittelwerte bei unabhängigen Stichproben; <span class="math notranslate nohighlight">\(s_1 \approx s_2\)</span><a class="headerlink" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-approx-s-2" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -675,14 +671,14 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 <div class="math notranslate nohighlight">
 \[df = n_1+n_2-2\]</div>
 <section id="intervall-schatzung-von-mu-1-mu-2">
-<h2>Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_1-\mu_2\)</span><a class="headerlink" href="#intervall-schatzung-von-mu-1-mu-2" title="Permalink to this heading">#</a></h2>
+<h2>Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_1-\mu_2\)</span><a class="headerlink" href="#intervall-schatzung-von-mu-1-mu-2" title="Link to this heading">#</a></h2>
 <p>Das <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span>-Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu_1-\mu_2\)</span> ist gegeben durch</p>
 <div class="math notranslate nohighlight">
 \[(\bar x_1 - \bar x_2) \pm t \times s_g \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}\text{,}\]</div>
 <p>wobei sich der Wert von <span class="math notranslate nohighlight">\(t\)</span> aus der <span class="math notranslate nohighlight">\(t\)</span>-Verteilung für das gegebene Konfidenzniveau und <span class="math notranslate nohighlight">\(n_1+n_2-2\)</span> Freiheitsgrade ergibt.</p>
 </section>
 <section id="der-zweistichproben-t-test-fur-unabhangige-stichproben-engl-pooled-t-test-ein-beispiel">
-<h2>Der Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben (engl. pooled <span class="math notranslate nohighlight">\(t\)</span>-Test): Ein Beispiel<a class="headerlink" href="#der-zweistichproben-t-test-fur-unabhangige-stichproben-engl-pooled-t-test-ein-beispiel" title="Permalink to this heading">#</a></h2>
+<h2>Der Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben (engl. pooled <span class="math notranslate nohighlight">\(t\)</span>-Test): Ein Beispiel<a class="headerlink" href="#der-zweistichproben-t-test-fur-unabhangige-stichproben-engl-pooled-t-test-ein-beispiel" title="Link to this heading">#</a></h2>
 <p>Python ermöglicht es uns, einen <strong>Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben</strong> durchzuführen, indem wir die Funktion <code class="docutils literal notranslate"><span class="pre">ttest_ind()</span></code> um das Argument <code class="docutils literal notranslate"><span class="pre">equal_var</span> <span class="pre">=</span> <span class="pre">True</span></code> erweitern.</p>
 <p>Um den Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test zu üben, laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und weisen Sie ihm einen geeigneten Namen zu.</p>
 <div class="cell docutils container">
@@ -697,7 +693,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 <p>Um den Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben zu veranschaulichen, untersuchen wir das mittlere Jahresgehalt (in Euro) der Absolventen. Die erste Grundgesamtheit besteht aus männlichen Studenten und die zweite aus weiblichen Studenten. <strong>Die Frage ist, ob es einen Unterschied im mittleren Jahresgehalt der Absolventen in Bezug auf das Geschlecht gibt?</strong></p>
 </section>
 <section id="vorbereitung-der-daten">
-<h2>Vorbereitung der Daten<a class="headerlink" href="#vorbereitung-der-daten" title="Permalink to this heading">#</a></h2>
+<h2>Vorbereitung der Daten<a class="headerlink" href="#vorbereitung-der-daten" title="Link to this heading">#</a></h2>
 <p>Wir beginnen mit der Datenaufbereitung.</p>
 <ul class="simple">
 <li><p>Wir unterteilen den Datensatz anhand der binären Variable <code class="docutils literal notranslate"><span class="pre">graduated</span></code>, die angibt, ob der Student seinen Abschluss bereits gemacht hat. Die ganze Zahl <span class="math notranslate nohighlight">\(1\)</span> steht für “abgeschlossen”, <span class="math notranslate nohighlight">\(0\)</span>
@@ -735,7 +731,7 @@ bedeutet, dass der Schüler seinen Abschluss noch nicht gemacht hat.</p></li>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Stichproben Quantillen&#39;)
 </pre></div>
 </div>
-<img alt="../_images/1722b25450ec901664f1ed40a341185c31bc03a4ed8944121826a5ac3bbdcb8e.png" src="../_images/1722b25450ec901664f1ed40a341185c31bc03a4ed8944121826a5ac3bbdcb8e.png" />
+<img alt="../_images/c2164e76f9fe36d4a47f41e3103691ebc4ba324d10d841eb2f71681efa0dec62.png" src="../_images/c2164e76f9fe36d4a47f41e3103691ebc4ba324d10d841eb2f71681efa0dec62.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -753,7 +749,7 @@ bedeutet, dass der Schüler seinen Abschluss noch nicht gemacht hat.</p></li>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Theoretische Quantillen&#39;)
 </pre></div>
 </div>
-<img alt="../_images/4d98d81289e8e5c9a01cd0098feea544e43ddc66e22034a83b36bfb8ac0d5227.png" src="../_images/4d98d81289e8e5c9a01cd0098feea544e43ddc66e22034a83b36bfb8ac0d5227.png" />
+<img alt="../_images/2d8a3adc9b7360497583a24954872ddb4526b134629ca3d1fc7899e954859a41.png" src="../_images/2d8a3adc9b7360497583a24954872ddb4526b134629ca3d1fc7899e954859a41.png" />
 </div>
 </div>
 <p>Wir sehen, dass die Stichprobendaten etwas Rauschen beinhalten sind, aber sie sind immer noch ungefähr normalverteilt. Die Abweichung von der Geraden im oberen und unteren Teil deutet darauf hin, dass die Wahrscheinlichkeitsverteilung leicht schief ist.</p>
@@ -766,7 +762,7 @@ bedeutet, dass der Schüler seinen Abschluss noch nicht gemacht hat.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9653.18969182546
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(9653.18969182546)
 </pre></div>
 </div>
 </div>
@@ -779,7 +775,7 @@ bedeutet, dass der Schüler seinen Abschluss noch nicht gemacht hat.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7723.490231798204
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(7723.490231798204)
 </pre></div>
 </div>
 </div>
@@ -792,7 +788,7 @@ bedeutet, dass der Schüler seinen Abschluss noch nicht gemacht hat.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2498481129790953
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.2498481129790953)
 </pre></div>
 </div>
 </div>
@@ -813,12 +809,12 @@ bedeutet, dass der Schüler seinen Abschluss noch nicht gemacht hat.</p></li>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Jährliches Einkommen in EUR&#39;)
 </pre></div>
 </div>
-<img alt="../_images/ac1c680f91efe7c34b3520a9e0dd893cbe74d247d591ffe0f2dea98c2a6ac1ce.png" src="../_images/ac1c680f91efe7c34b3520a9e0dd893cbe74d247d591ffe0f2dea98c2a6ac1ce.png" />
+<img alt="../_images/a24776cb1c74002a15e6f6b7e28942068094526d56f50b6c5eb51675d0699725.png" src="../_images/a24776cb1c74002a15e6f6b7e28942068094526d56f50b6c5eb51675d0699725.png" />
 </div>
 </div>
 </section>
 <section id="uberprufung-der-hypothesen">
-<h2>Überprüfung der Hypothesen<a class="headerlink" href="#uberprufung-der-hypothesen" title="Permalink to this heading">#</a></h2>
+<h2>Überprüfung der Hypothesen<a class="headerlink" href="#uberprufung-der-hypothesen" title="Link to this heading">#</a></h2>
 <p>Wir führen den Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben durch, indem wir das schrittweise Durchführungsverfahren für Hypothesentests befolgen.</p>
 <p><strong>Schritt 1 : Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</strong></p>
 <p>Die Nullhypothese besagt, dass das durchschnittliche Jahresgehalt der männlichen Absolventen (<span class="math notranslate nohighlight">\(μ_1\)</span>) gleich dem durchschnittlichen Jahresgehalt der weiblichen Absolventen (<span class="math notranslate nohighlight">\(μ_2\)</span>) ist.</p>
@@ -867,7 +863,7 @@ bedeutet, dass der Schüler seinen Abschluss noch nicht gemacht hat.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.591470501655584
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(5.591470501655584)
 </pre></div>
 </div>
 </div>
@@ -886,7 +882,7 @@ bedeutet, dass der Schüler seinen Abschluss noch nicht gemacht hat.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0169262409931434e-07
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.0169262409931434e-07)
 </pre></div>
 </div>
 </div>
@@ -899,7 +895,7 @@ bedeutet, dass der Schüler seinen Abschluss noch nicht gemacht hat.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.True_
 </pre></div>
 </div>
 </div>
@@ -909,7 +905,7 @@ bedeutet, dass der Schüler seinen Abschluss noch nicht gemacht hat.</p></li>
 <p><span class="math notranslate nohighlight">\(p=1,0169 \cdot 10^{-7}\)</span>; Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(1 \%\)</span> lassen die Daten den Schluss zu, dass das Durchschnittsgehalt männlicher Studenten höher ist als das Durchschnittsgehalt weiblicher Studenten.</p>
 </section>
 <section id="hypothesentests-in-python">
-<h2>Hypothesentests in Python<a class="headerlink" href="#hypothesentests-in-python" title="Permalink to this heading">#</a></h2>
+<h2>Hypothesentests in Python<a class="headerlink" href="#hypothesentests-in-python" title="Link to this heading">#</a></h2>
 <p>Wir haben soeben manuell einen Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben in Python durchgeführt. Bitte beachten Sie jedoch, dass wir die volle Leistungsfähigkeit von Python nutzen können, um das gleiche Ergebnis wie oben in nur einer Zeile Code zu erhalten!</p>
 <p>Um einen Zweistichproben-<span class="math notranslate nohighlight">\(t\)</span>-Test für unabhängige Stichproben in Python durchzuführen, verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">ttest_ind()</span></code>. Wir geben zwei Vektoren als Dateneingabe an und setzen <code class="docutils literal notranslate"><span class="pre">equal_var=True</span></code>, um explizit anzugeben, dass wir die gepoolte Version des <span class="math notranslate nohighlight">\(t\)</span>-Tests anwenden, und wir setzen das Argument <code class="docutils literal notranslate"><span class="pre">alternative</span></code> auf <code class="docutils literal notranslate"><span class="pre">alternative=greater</span></code>, um <span class="math notranslate nohighlight">\(H_A\)</span> widerzuspiegeln: <span class="math notranslate nohighlight">\(\mu1 \gt \mu2\)</span></p>
 <div class="cell docutils container">
@@ -919,7 +915,7 @@ bedeutet, dass der Schüler seinen Abschluss noch nicht gemacht hat.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=5.591470501655584, pvalue=1.0169262412759705e-07)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=np.float64(5.591470501655584), pvalue=np.float64(1.0169262412759704e-07), df=np.float64(98.0))
 </pre></div>
 </div>
 </div>
@@ -951,13 +947,13 @@ The lab_black extension is already loaded. To reload it, use:
 Working on the host: imarevic-pc
 
 ---------------------------------
-Python version: 3.10.9 | packaged by conda-forge | (main, Feb  2 2023, 20:20:04) [GCC 11.3.0]
+Python version: 3.10.12 (main, Sep 11 2024, 15:47:36) [GCC 11.4.0]
 
 ---------------------------------
-Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
+Python interpreter: /home/imarevic/Documents/teaching/SRH/content/statistik/statistik-env/bin/python3
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 864x432 with 0 Axes&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -965,7 +961,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </section>
 </section>
 <section id="inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-ne-s-2">
-<h1>Inferenz für zwei Grundgesamtheitsmittelwerte bei unabhängigen Stichproben; <span class="math notranslate nohighlight">\(s_1 \ne s_2\)</span><a class="headerlink" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-ne-s-2" title="Permalink to this heading">#</a></h1>
+<h1>Inferenz für zwei Grundgesamtheitsmittelwerte bei unabhängigen Stichproben; <span class="math notranslate nohighlight">\(s_1 \ne s_2\)</span><a class="headerlink" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-unabhangigen-stichproben-s-1-ne-s-2" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -993,14 +989,14 @@ und bei der Berechnung der Freiheitsgrade (<span class="math notranslate nohighl
 <p>Runden Sie die Freiheitsgrade auf die nächste ganze Zahl ab, wenn Sie Wahrscheinlichkeitstabellen verwenden.</p>
 <p>Der <strong>nicht gepoolte <span class="math notranslate nohighlight">\(t\)</span>-Test</strong> ist robust gegenüber mäßigen Verstößen gegen die Normalverteilungsannahme, aber er ist weniger robust gegenüber Ausreißern (<span id="id1"></span> s.403).</p>
 <section id="id2">
-<h2>Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_1 - \mu_2\)</span><a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_1 - \mu_2\)</span><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>Das <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span>-Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu_1-\mu_2\)</span> ist</p>
 <div class="math notranslate nohighlight">
 \[(\bar x_1 - \bar x_2) \pm t^* \times  \sqrt{\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}}\]</div>
 <p>wobei der Wert von <span class="math notranslate nohighlight">\(t\)</span> aus der <span class="math notranslate nohighlight">\(t\)</span>-Verteilung für das gegebene Konfidenzniveau ermittelt wird. Die Freiheitsgrade (<span class="math notranslate nohighlight">\(df\)</span>) und die Standardabweichung (<span class="math notranslate nohighlight">\(s_{\bar x_1 - \bar x_2}\)</span>) ergeben sich aus der obigen Gleichung.</p>
 </section>
 <section id="der-welch-s-t-test-ein-beispiel">
-<h2>Der Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test: Ein Beispiel<a class="headerlink" href="#der-welch-s-t-test-ein-beispiel" title="Permalink to this heading">#</a></h2>
+<h2>Der Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test: Ein Beispiel<a class="headerlink" href="#der-welch-s-t-test-ein-beispiel" title="Link to this heading">#</a></h2>
 <p>Um praktische Erfahrungen zu sammeln, wenden wir den Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1014,7 +1010,7 @@ und bei der Berechnung der Freiheitsgrade (<span class="math notranslate nohighl
 <p>Zur Veranschaulichung des <strong>nicht gepoolten <span class="math notranslate nohighlight">\(t\)</span>-Tests</strong> untersuchen wir das mittlere Jahresgehalt (in Euro) von Absolventinnen in Abhängigkeit von ihrem Studienfach. Die erste Grundgesamtheit besteht aus Studentinnen mit dem Hauptfach Politikwissenschaft und die zweite Grundgesamtheit aus Studentinnen mit dem Hauptfach Sozialwissenschaften. Wir wollen testen, <strong>ob es einen Unterschied im mittleren Gehalt dieser beiden Gruppen gibt.</strong></p>
 </section>
 <section id="id3">
-<h2>Vorbereitung der Daten<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2>Vorbereitung der Daten<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>Wir beginnen mit der Datenaufbereitung.</p>
 <ul class="simple">
 <li><p>Wir unterteilen den Datensatz anhand der Variablen <code class="docutils literal notranslate"><span class="pre">gender</span></code> und <code class="docutils literal notranslate"><span class="pre">graduated</span></code>.</p></li>
@@ -1053,7 +1049,7 @@ und bei der Berechnung der Freiheitsgrade (<span class="math notranslate nohighl
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Stichproben Quantillen&#39;)
 </pre></div>
 </div>
-<img alt="../_images/c22fdb6a5209666e7bbe5fe9a5013b5f4a1642f21d5a22d7c74b047743e486fb.png" src="../_images/c22fdb6a5209666e7bbe5fe9a5013b5f4a1642f21d5a22d7c74b047743e486fb.png" />
+<img alt="../_images/d51d3a2e4e6a93eab28739c3c87f742a48c99894192c22365df822524288d19f.png" src="../_images/d51d3a2e4e6a93eab28739c3c87f742a48c99894192c22365df822524288d19f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1073,7 +1069,7 @@ und bei der Berechnung der Freiheitsgrade (<span class="math notranslate nohighl
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Stichproben Quantillen&#39;)
 </pre></div>
 </div>
-<img alt="../_images/ee66aef6393dc272bff84100cc50923f46ccd3a7133aa872ed8ac91f57866c93.png" src="../_images/ee66aef6393dc272bff84100cc50923f46ccd3a7133aa872ed8ac91f57866c93.png" />
+<img alt="../_images/e3807416088859a7fb8fd92aee20a71e5dd8641d5bf85d5a968129f774f1c1b7.png" src="../_images/e3807416088859a7fb8fd92aee20a71e5dd8641d5bf85d5a968129f774f1c1b7.png" />
 </div>
 </div>
 <p>Wir sehen, dass die Daten beider Stichproben ungefähr auf einer Geraden liegen.</p>
@@ -1092,23 +1088,23 @@ und bei der Berechnung der Freiheitsgrade (<span class="math notranslate nohighl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;whiskers&#39;: [&lt;matplotlib.lines.Line2D at 0x7246a6982ce0&gt;,
-  &lt;matplotlib.lines.Line2D at 0x7246a6980a30&gt;],
- &#39;caps&#39;: [&lt;matplotlib.lines.Line2D at 0x7246a69eeb00&gt;,
-  &lt;matplotlib.lines.Line2D at 0x7246a69eec50&gt;],
- &#39;boxes&#39;: [&lt;matplotlib.lines.Line2D at 0x7246a6982d40&gt;],
- &#39;medians&#39;: [&lt;matplotlib.lines.Line2D at 0x7246a69eeef0&gt;],
- &#39;fliers&#39;: [&lt;matplotlib.lines.Line2D at 0x7246a69ef190&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;whiskers&#39;: [&lt;matplotlib.lines.Line2D at 0x79a96ddca8c0&gt;,
+  &lt;matplotlib.lines.Line2D at 0x79a96ddcab60&gt;],
+ &#39;caps&#39;: [&lt;matplotlib.lines.Line2D at 0x79a96ddcae00&gt;,
+  &lt;matplotlib.lines.Line2D at 0x79a96ddcb0a0&gt;],
+ &#39;boxes&#39;: [&lt;matplotlib.lines.Line2D at 0x79a96ddca620&gt;],
+ &#39;medians&#39;: [&lt;matplotlib.lines.Line2D at 0x79a96ddcb340&gt;],
+ &#39;fliers&#39;: [&lt;matplotlib.lines.Line2D at 0x79a96ddcb5e0&gt;],
  &#39;means&#39;: []}
 </pre></div>
 </div>
-<img alt="../_images/0ec4bd47cacb95eea5f0322526a756adae036c9c607df575fe8b3b51157933c1.png" src="../_images/0ec4bd47cacb95eea5f0322526a756adae036c9c607df575fe8b3b51157933c1.png" />
+<img alt="../_images/7bd00e81bd305747decaa31c524a620ad087966c0763846d7f0092f11742b1f2.png" src="../_images/7bd00e81bd305747decaa31c524a620ad087966c0763846d7f0092f11742b1f2.png" />
 </div>
 </div>
 <p>Auf der Grundlage des grafischen Auswertungsansatzes kommen wir zu dem Schluss, dass die Daten annähernd normalverteilt sind und dass die Standardabweichungen voneinander abweichen.</p>
 </section>
 <section id="id4">
-<h2>Überprüfung der Hypothesen<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<h2>Überprüfung der Hypothesen<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>Erinnern Sie sich an die Forschungsfrage. <strong>Lassen die Daten den Schluss zu, dass sich das mittlere Jahresgehalt von Absolventinnen mit einem Hauptfach in Politikwissenschaft vom mittleren Jahresgehalt von Absolventinnen mit einem Hauptfach in Sozialwissenschaften unterscheidet?</strong></p>
 <p>Um den nicht zusammengefassten <span class="math notranslate nohighlight">\(t\)</span>-Test durchzuführen, folgen wir dem schrittweisen Durchführungsverfahren für Hypothesentests.</p>
 <p><strong>Schritt 1 : Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</strong></p>
@@ -1147,7 +1143,7 @@ und bei der Berechnung der Freiheitsgrade (<span class="math notranslate nohighl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.054456171492353
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(3.054456171492353)
 </pre></div>
 </div>
 </div>
@@ -1167,7 +1163,7 @@ und bei der Berechnung der Freiheitsgrade (<span class="math notranslate nohighl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>81.31178520706362
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(81.31178520706362)
 </pre></div>
 </div>
 </div>
@@ -1184,7 +1180,7 @@ und bei der Berechnung der Freiheitsgrade (<span class="math notranslate nohighl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0030479813074539763
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.0030479813074539763)
 </pre></div>
 </div>
 </div>
@@ -1197,7 +1193,7 @@ und bei der Berechnung der Freiheitsgrade (<span class="math notranslate nohighl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.True_
 </pre></div>
 </div>
 </div>
@@ -1207,7 +1203,7 @@ und bei der Berechnung der Freiheitsgrade (<span class="math notranslate nohighl
 <p><span class="math notranslate nohighlight">\(p=0,003047987\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> lassen die Daten den Schluss zu, dass sich das durchschnittliche Jahresgehalt von Absolventinnen der Politikwissenschaft vom durchschnittlichen Jahresgehalt von Absolventinnen der Sozialwissenschaften unterscheidet.</p>
 </section>
 <section id="id5">
-<h2>Hypothesentests in Python<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<h2>Hypothesentests in Python<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>Wir haben gerade einen Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test in Python manuell durchgeführt. Jetzt nutzen wir die volle Leistung  von Python, um das gleiche Ergebnis wie oben mit nur einer Zeile Code zu erhalten!</p>
 <p>Um einen Welch’s <span class="math notranslate nohighlight">\(t\)</span>-Test in Python durchzuführen, verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">ttest_ind()</span></code>. Wir geben zwei Vektoren als Dateneingabe an und setzen <code class="docutils literal notranslate"><span class="pre">equal_var</span> <span class="pre">=</span> <span class="pre">False</span></code>, um explizit anzugeben, dass wir die nicht gepoolte Version des <span class="math notranslate nohighlight">\(t\)</span>-Tests anwenden. Das Argument <code class="docutils literal notranslate"><span class="pre">alternative</span></code> muss nicht gesetzt werden, da der Standardwert unserer Alternativhypothese entspricht <span class="math notranslate nohighlight">\(H_A: \; \mu_1 \ne \mu_2\)</span></p>
 <div class="cell docutils container">
@@ -1217,7 +1213,7 @@ und bei der Berechnung der Freiheitsgrade (<span class="math notranslate nohighl
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=3.0544561714923537, pvalue=0.0030479813074539563)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=np.float64(3.054456171492353), pvalue=np.float64(0.003047981307453968), df=np.float64(81.31178520706362))
 </pre></div>
 </div>
 </div>
@@ -1249,13 +1245,13 @@ The lab_black extension is already loaded. To reload it, use:
 Working on the host: imarevic-pc
 
 ---------------------------------
-Python version: 3.10.9 | packaged by conda-forge | (main, Feb  2 2023, 20:20:04) [GCC 11.3.0]
+Python version: 3.10.12 (main, Sep 11 2024, 15:47:36) [GCC 11.4.0]
 
 ---------------------------------
-Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
+Python interpreter: /home/imarevic/Documents/teaching/SRH/content/statistik/statistik-env/bin/python3
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 864x432 with 0 Axes&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -1263,7 +1259,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </section>
 </section>
 <section id="inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-gepaarten-stichproben">
-<h1>Inferenz für zwei Grundgesamtheitsmittelwerte bei gepaarten Stichproben<a class="headerlink" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-gepaarten-stichproben" title="Permalink to this heading">#</a></h1>
+<h1>Inferenz für zwei Grundgesamtheitsmittelwerte bei gepaarten Stichproben<a class="headerlink" href="#inferenz-fur-zwei-grundgesamtheitsmittelwerte-bei-gepaarten-stichproben" title="Link to this heading">#</a></h1>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1293,14 +1289,14 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 \[t= \frac{\bar d}{\frac{s_d}{\sqrt{n}}}\text{,}\]</div>
 <p>wenn <span class="math notranslate nohighlight">\(\mu_1-\mu_2 = 0\)</span>. Die Teststatistik <span class="math notranslate nohighlight">\(t\)</span> für gepaarte Stichproben folgt einer <span class="math notranslate nohighlight">\(t\)</span>-Verteilung mit <span class="math notranslate nohighlight">\(df=n-1\)</span>.</p>
 <section id="intervall-schatzung-von-mu-d">
-<h2>Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_d\)</span><a class="headerlink" href="#intervall-schatzung-von-mu-d" title="Permalink to this heading">#</a></h2>
+<h2>Intervall-Schätzung von <span class="math notranslate nohighlight">\(\mu_d\)</span><a class="headerlink" href="#intervall-schatzung-von-mu-d" title="Link to this heading">#</a></h2>
 <p>Das <span class="math notranslate nohighlight">\(100(1-\alpha)\%\)</span>-Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu_d\)</span> ist</p>
 <div class="math notranslate nohighlight">
 \[\bar d \pm t \times \frac{s_d}{\sqrt{n}}\]</div>
 <p>wobei sich der Wert von <span class="math notranslate nohighlight">\(t\)</span> aus der <span class="math notranslate nohighlight">\(t\)</span>-Verteilung für das gegebene Konfidenzniveau und <span class="math notranslate nohighlight">\(n-1\)</span> Freiheitsgrade ergibt.</p>
 </section>
 <section id="der-2-stichproben-t-test-fur-gepaarte-abhangige-stichproben-ein-beispiel">
-<h2>Der <span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test für gepaarte (abhängige) Stichproben: Ein Beispiel<a class="headerlink" href="#der-2-stichproben-t-test-fur-gepaarte-abhangige-stichproben-ein-beispiel" title="Permalink to this heading">#</a></h2>
+<h2>Der <span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test für gepaarte (abhängige) Stichproben: Ein Beispiel<a class="headerlink" href="#der-2-stichproben-t-test-fur-gepaarte-abhangige-stichproben-ein-beispiel" title="Link to this heading">#</a></h2>
 <p>Um praktische Erfahrungen zu sammeln, wenden wir den <strong>gepaarten <span class="math notranslate nohighlight">\(t\)</span>-Test</strong> in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1315,7 +1311,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 <p>Im Wesentlichen sind zwei Forschungsfragen von Interesse. <strong>Erstens wollen wir untersuchen, ob die Gruppe der Studierenden, die das Online-Tutorial zum Statistiklernen besucht hat, in der zweiten Prüfung besser abschneidet als in den ersten Prüfungen. Zweitens wird untersucht, wie die Gruppe der Studierenden, die nicht am Online-Tutorium für Statistik teilgenommen hat, bei beiden Prüfungen abgeschnitten hat.</strong></p>
 </section>
 <section id="id6">
-<h2>Vorbereitung der Daten<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<h2>Vorbereitung der Daten<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>Wir beginnen mit der ersten Forschungsfrage und konzentrieren uns auf die Studierenden, die das Online-Tutorial zum Thema Statistik besucht haben.</p>
 <p>Für die Datenaufbereitung unterteilen wir den Datensatz anhand der Variable <code class="docutils literal notranslate"><span class="pre">online_tutorial</span></code>, die angibt, ob der Studierende das Tutorium besucht hat oder nicht (<span class="math notranslate nohighlight">\(1\)</span>=ja, <span class="math notranslate nohighlight">\(0\)</span>=nein). Dann ziehen wir eine Zufallsstichprobe von <span class="math notranslate nohighlight">\(65\)</span> Studenten aus dem Datensatz und extrahieren die beiden Variablen von Interesse, <code class="docutils literal notranslate"><span class="pre">score1</span></code> und <code class="docutils literal notranslate"><span class="pre">score2</span></code>. Wir speichern jede von ihnen in einem Vektor mit den Namen <code class="docutils literal notranslate"><span class="pre">score1_sample</span></code> und <code class="docutils literal notranslate"><span class="pre">score2_sample</span></code>.</p>
 <div class="cell docutils container">
@@ -1345,7 +1341,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &quot;Unterschied der &#39;Scores&#39;&quot;)
 </pre></div>
 </div>
-<img alt="../_images/e0f7a1c4a01f1ae4ec50e697a50866bea062868047cf5594ce6c9b00eb58a366.png" src="../_images/e0f7a1c4a01f1ae4ec50e697a50866bea062868047cf5594ce6c9b00eb58a366.png" />
+<img alt="../_images/2ad07e90ff2a5137b4afefed63613e6827392fe03c93c342da0134cfa8d8edcf.png" src="../_images/2ad07e90ff2a5137b4afefed63613e6827392fe03c93c342da0134cfa8d8edcf.png" />
 </div>
 </div>
 <p>Das Diagramm sieht wie erwartet aus. Einige Studierende schneiden in der ersten Prüfung besser ab als in der zweiten Prüfung und umgekehrt.</p>
@@ -1365,7 +1361,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Stichproben Quantillen&#39;)
 </pre></div>
 </div>
-<img alt="../_images/fd75661c13b4530e09f4e6495c3ef32f9c6e24f9740244a24907a5e66cbc496d.png" src="../_images/fd75661c13b4530e09f4e6495c3ef32f9c6e24f9740244a24907a5e66cbc496d.png" />
+<img alt="../_images/7c51afd3105e332eb48045e066dd49121633eb87ef61672a619e93ffd3e870f4.png" src="../_images/7c51afd3105e332eb48045e066dd49121633eb87ef61672a619e93ffd3e870f4.png" />
 </div>
 </div>
 <p>Die Daten sind nicht sehr genau und etwas verrauscht, aber sie scheinen ungefähr normalverteilt zu sein.</p>
@@ -1398,14 +1394,14 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.836391139947831
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(5.836391139947831)
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="id7">
-<h2>Überprüfung der Hypothesen<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<h2>Überprüfung der Hypothesen<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>Jetzt sind wir bereit, den <strong>gepaarten <span class="math notranslate nohighlight">\(t\)</span>-Test</strong> anzuwenden. Erinnern Sie sich an unsere erste Forschungsfrage: <strong>Lassen die Daten den Schluss zu, dass sich die durchschnittlichen Prüfungsergebnisse verbessern, wenn die Studierenden ein Online-Tutorial zum Thema Statistik besuchen?</strong></p>
 <p>Wir folgen dem schrittweisen Implementierungsverfahren für Hypothesentests.</p>
 <p><strong>Schritt 1 : Geben Sie die Nullhypothese <span class="math notranslate nohighlight">\(H_0\)</span> und alternative Hypothese <span class="math notranslate nohighlight">\(H_A\)</span> an</strong></p>
@@ -1451,7 +1447,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.4227231184673745
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(-2.4227231184673745)
 </pre></div>
 </div>
 </div>
@@ -1470,7 +1466,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.009122595661033035
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.009122595661033035)
 </pre></div>
 </div>
 </div>
@@ -1483,7 +1479,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.True_
 </pre></div>
 </div>
 </div>
@@ -1493,7 +1489,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 <p><span class="math notranslate nohighlight">\(p=0,009123\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> lassen die Daten den Schluss zu, dass sich die Prüfungsnoten der Studierenden nach der Teilnahme an einem Online-Tutorium für Statistik verbessern.</p>
 </section>
 <section id="id8">
-<h2>Hypothesentests in Python<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<h2>Hypothesentests in Python<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>Wir haben soeben manuell einen gepaarten <span class="math notranslate nohighlight">\(t\)</span>-Test in Python durchgeführt. Das ist gut, aber jetzt nutzen wir die ganze Macht von Python, um das gleiche Ergebnis wie oben mit nur einer Zeile Code zu erhalten!</p>
 <p>Um einen gepaarten <span class="math notranslate nohighlight">\(t\)</span>-Test in Python durchzuführen, verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">ttest_rel()</span></code>. Wir geben zwei Vektoren als Dateneingabe an und wir setzen das Argument <code class="docutils literal notranslate"><span class="pre">alternative</span></code> auf <code class="docutils literal notranslate"><span class="pre">alternative</span> <span class="pre">=</span> <span class="pre">'less'</span></code>, um auf <span class="math notranslate nohighlight">\(HA:\mu_1 \lt \mu_2\)</span> zu testen</p>
 <div class="cell docutils container">
@@ -1503,7 +1499,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_relResult(statistic=-2.4227231184673745, pvalue=0.009122595661033035)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=np.float64(-2.4227231184673745), pvalue=np.float64(0.009122595661033035), df=np.int64(64))
 </pre></div>
 </div>
 </div>
@@ -1529,7 +1525,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_relResult(statistic=2.1307181194375913, pvalue=0.9771439852770387)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TtestResult(statistic=np.float64(2.1307181194375913), pvalue=np.float64(0.9771439852770387), df=np.int64(20))
 </pre></div>
 </div>
 </div>
@@ -1541,7 +1537,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.False_
 </pre></div>
 </div>
 </div>
@@ -1555,7 +1551,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
     {
         requestKernel: true,
         binderOptions: {
-            repo: "ixianslab/srh-data-science",
+            repo: "Mobile-University-DigitalLab/statistik",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -1578,8 +1574,8 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="02_Hypothesentests_Mittelwert_einer_Grundgesamtheit.html"
@@ -1606,7 +1602,9 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1661,9 +1659,10 @@ By ixians
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1687,8 +1686,8 @@ By ixians
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

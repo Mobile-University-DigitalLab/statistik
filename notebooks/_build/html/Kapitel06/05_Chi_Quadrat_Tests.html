@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Chi-Quadrat-Tests &#8212; Modul Statistik und Machine Learning Modelle</title>
   
@@ -15,54 +14,53 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css?v=342acfa5" />
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Kapitel06/05_Chi_Quadrat_Tests';</script>
@@ -72,6 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Inferenz für die Standardabweichung der Grundgesamtheit" href="04_Standardabweichung_der_Grundgesamtheit.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,32 +78,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -112,7 +95,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -120,16 +102,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -142,9 +133,13 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../intro.html">
+  
   
   
   
@@ -154,12 +149,19 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/srh_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/srh_logo.png" class="logo__image only-light" alt="Modul Statistik und Machine Learning Modelle - Home"/>
+    <img src="../_static/srh_logo.png" class="logo__image only-dark pst-js-only" alt="Modul Statistik und Machine Learning Modelle - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -181,13 +183,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/03_Streuungsma%C3%9Fe.html">Streuungsmaße</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/04_Ma%C3%9Fe_der_Position.html">Das Positionsmaß</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel01/05_Ma%C3%9Fe_der_Relation_zwischen_Variablen.html">Maße für die Relation zwischen Variablen</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel01/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/pandas.html">Die Pandas Bibliothek</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Pandas_Dataframes.html">Übung zu Pandas Dataframes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Fuenf_Punkte.html">Maße der zentralen Tendenz, Streumaße und Fünf-Punkte Zusammenfassung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel01/Arithmetisches_Mittel.html">Arithmetisches Mittel</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskrete Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -195,12 +197,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/01_Diskrete_Zufallsvariablen.html">Diskrete Zufallsvariablen und ihre Wahrscheinlichkeitsverteilungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/02_Die_Binomialverteilung.html">Die Binomialverteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel02/03_Die_Poisson_Verteilung.html">Die Poisson-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel02/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Hewert.html">Häufigkeiten und Erwartungswert</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/Normierung.html">Normierung</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel02/binomial.html">Binomialverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Stetige Zufallsvariablen</span></p>
 <ul class="nav bd-sidenav">
@@ -211,35 +213,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/04_Die_Student_t_Verteilung.html">Die Student t-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/05_Die_Chi_Quadrat_Verteilung.html">Die Chi-Quadrat-Verteilung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel03/06_Die_F_Verteilung.html">Die F-Verteilung</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel03/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/PDF.html">Wahrscheinlichkeitsdichtefunktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/689599_Regel.html">Die 68-95-99,7-Regel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel03/Normalverteilung.html">Die Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Der Zentrale Grenzwertsatz</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel4_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel04/01_Zentraler_Grenzwertsatz.html">Der zentrale Grenzwertsatz</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel04/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/CLT.html">Der Zentrale Grenzwertsatz</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Schaetzfehler.html">Stichprobenfehler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Wuerfel.html">Würfelexperiment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel04/Test_auf_Normalverteilung.html">Test auf Normalverteilung</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Inferenzstatistik und Konfidenzintervalle</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel5_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html">Inferenzstatistik und Konfidenzintervalle</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel05/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Konfidenzintervall.html">Konfidenzintervall</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkschaetzer.html">Punktschätzungen bei unbekanntem <span class="math notranslate nohighlight">\(\sigma\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel05/Punkt_Intervall.html">Punkt- und Intervallschätzungen</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hypothesentests</span></p>
 <ul class="current nav bd-sidenav">
@@ -266,59 +268,59 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel06/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/Fehler_1ter_2ter_Art.html">Fehler <span class="math notranslate nohighlight">\(1\)</span>-ter und <span class="math notranslate nohighlight">\(2\)</span>-ter Art</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/hypo_unabhSt.html">Hypothesentest - unabhängige Stichproben, <span class="math notranslate nohighlight">\(\sigma_1 \approx \sigma_2\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel06/pooled_t.html"><span class="math notranslate nohighlight">\(2\)</span>-Stichproben <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Varianzanalyse - ANOVA</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel7_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel07/01_Analyse_der_Varianz_ANOVA.html">Varianzanalyse - ANOVA</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel07/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/ANOVA_basics.html">Einfaktorielle ANOVA Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Einfache_ANOVA.html">Einfaktorielle ANOVA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel07/Bonferroni.html">Bonferroni Korrektur</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lineare Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">Lineare Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel08/02_Polynomiale_Regression.html">Polynomiale Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel08/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LinReg_basics.html">Lineare Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/LineareReg.html">Lineare Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel08/PolyReg.html">Polynomiale Regression</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Logistische Regression</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Lernziele/Kapitel9_Lernziele.html">Lernziele</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel09/01_Logistische_Regression.html">Logistische Regression</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel09/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/LogReg_basics.html">Logistische Regression - Grundbegriffe</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logit_funktion.html">Logistische Funktion</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logodds.html">Odds und Log-Odds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel09/logregmodell.html">Einfaches logistisches Regressionsmodell</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Entscheidungsbäume</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/01_DecisionTrees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/02_BaggingBoosting.html">Bagging und Boosting bei Entscheidungsbäumen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Kapitel10/03_RandomForest.html">Random Forest</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Aufgaben/Kapitel10/Aufgaben.html">Übungsaufgaben</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/decision_trees.html">Entscheidungsbäume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Aufgaben/Kapitel10/bagging_and_random_forests.html">Bagging &amp; Random Forests</a></li>
 
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Literaturverzeichnis</span></p>
 <ul class="nav bd-sidenav">
@@ -338,7 +340,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -347,14 +349,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -408,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science" target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel06/05_Chi_Quadrat_Tests.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Mobile-University-DigitalLab/statistik/issues/new?title=Issue%20on%20page%20%2FKapitel06/05_Chi_Quadrat_Tests.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -507,26 +509,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -572,10 +568,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chi-quadrat-tests">
-<h1>Chi-Quadrat-Tests<a class="headerlink" href="#chi-quadrat-tests" title="Permalink to this heading">#</a></h1>
+<h1>Chi-Quadrat-Tests<a class="headerlink" href="#chi-quadrat-tests" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -590,7 +586,7 @@ document.write(`
 <p>Neben Inferenzverfahren für Hypothesentests für Grundgesamtheitsparameter wie den Mittelwert <span class="math notranslate nohighlight">\(\mu\)</span> und die Standardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span> gibt es statistische Verfahren, um Rückschlüsse auf die Verteilung einer Variablen zu ziehen. Diese Schlussfolgerungsmethoden beruhen auf der Chi-Quadrat-Verteilung (<span class="math notranslate nohighlight">\(\chi^2\)</span>) und werden daher als <span class="math notranslate nohighlight">\(\chi^2\)</span>-Tests bezeichnet.</p>
 <p>Im folgenden Abschnitt werden der <strong>Chi-Quadrat-Anpassungstest</strong>, ein Hypothesentest, der angewandt wird, um Rückschlüsse auf die Verteilung einer Variablen zu ziehen, und der <strong>Chi-Quadrat-Unabhängigkeitstest</strong>, ein Hypothesentest, der angewandt wird, um zu entscheiden, ob ein Zusammenhang zwischen zwei Variablen einer Grundgesamtheit besteht, erörtert.</p>
 <section id="chi-2-verteilung">
-<h2><span class="math notranslate nohighlight">\(\chi^2\)</span>-Verteilung<a class="headerlink" href="#chi-2-verteilung" title="Permalink to this heading">#</a></h2>
+<h2><span class="math notranslate nohighlight">\(\chi^2\)</span>-Verteilung<a class="headerlink" href="#chi-2-verteilung" title="Link to this heading">#</a></h2>
 <p><strong>Grundlegende Eigenschaften von <span class="math notranslate nohighlight">\(\chi^2\)</span>-Kurven (<span id="id1"></span> s.279)</strong></p>
 <ul class="simple">
 <li><p>Die Gesamtfläche unter einer <span class="math notranslate nohighlight">\(\chi^2\)</span>-Kurve ist gleich <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
@@ -625,26 +621,26 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x743924e91900&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x759f9ea9e530&gt;
 </pre></div>
 </div>
-<img alt="../_images/84444ce8af16eee08dc0189bf37691a1dcdba538c2461685e3b64eaa764ee06a.png" src="../_images/84444ce8af16eee08dc0189bf37691a1dcdba538c2461685e3b64eaa764ee06a.png" />
+<img alt="../_images/2d794008bf243c50186de80f438d2cc4c61e701a9f95a2b16136e74f058d0bf0.png" src="../_images/2d794008bf243c50186de80f438d2cc4c61e701a9f95a2b16136e74f058d0bf0.png" />
 </div>
 </details>
 </div>
 </section>
 <section id="chi-quadrat-test-auf-anpassungsgute">
-<h2>Chi-Quadrat-Test auf Anpassungsgüte<a class="headerlink" href="#chi-quadrat-test-auf-anpassungsgute" title="Permalink to this heading">#</a></h2>
+<h2>Chi-Quadrat-Test auf Anpassungsgüte<a class="headerlink" href="#chi-quadrat-test-auf-anpassungsgute" title="Link to this heading">#</a></h2>
 <p>Der <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest</strong> wird angewandt, um Hypothesentests über die Verteilung einer qualitativen (kategorialen) Variable oder einer diskreten quantitativen Variable, die nur endlich viele mögliche Werte hat, durchzuführen.</p>
 <p>Die grundlegende Logik des <span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest besteht darin, die Häufigkeiten von zwei Variablen zu vergleichen. Wir vergleichen die <strong>beobachteten Häufigkeiten</strong> einer Stichprobe mit den <strong>erwarteten Häufigkeiten</strong>.</p>
 <p>Betrachten wir ein einfaches Beispiel:</p>
 <p>Am <span class="math notranslate nohighlight">\(22\)</span>. September <span class="math notranslate nohighlight">\(2013\)</span> fand in Deutschland die <a href="https://de.wikipedia.org/wiki/Bundestagswahl_2013">Bundestagswahl <span class="math notranslate nohighlight">\(2013\)</span></a> statt. Mehr als <span class="math notranslate nohighlight">\(44\)</span> Millionen Menschen gingen zur Wahl. <span class="math notranslate nohighlight">\(41,5 \%\)</span> der deutschen Wähler entschieden sich für die Christlich Demokratische Union (CDU) und <span class="math notranslate nohighlight">\(25,7 \%\)</span> für die Sozialdemokratische Partei (SPD). Der Einfachheit halber fassen wir den verbleibenden Prozentsatz der Stimmen (<span class="math notranslate nohighlight">\(32,8 \%\)</span>) als Sonstige zusammen.</p>
 <p>Auf der Grundlage dieser Daten können wir eine Häufigkeitstabelle erstellen.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Partei</p></th>
-<th class="text-center head"><p>Prozent</p></th>
-<th class="text-center head"><p>Relative Häufigkeit</p></th>
+<th class="head text-center"><p>Prozent</p></th>
+<th class="head text-center"><p>Relative Häufigkeit</p></th>
 </tr>
 </thead>
 <tbody>
@@ -666,6 +662,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>Die dritte Spalte der obigen Tabelle entspricht den <strong>relativen Häufigkeiten</strong> in der deutschen Bevölkerung/Wählerschaft. Für diese Übung nehmen wir eine Zufallsstichprobe. Wir befragen <span class="math notranslate nohighlight">\(123\)</span> Studierende der FU Berlin nach ihrer Parteizugehörigkeit und halten die folgenden Antworten fest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -806,7 +803,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;SPD: 26&#39;, &#39;Sonstige: 40&#39;, &#39;CDU: 57&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;CDU: 57&#39;, &#39;SPD: 26&#39;, &#39;Sonstige: 40&#39;]
 </pre></div>
 </div>
 </div>
@@ -823,11 +820,11 @@ document.write(`
 \[E_{Sonstige} = n\times p = 123 \times 0,382 = 46,986\]</div>
 <p>Beachten Sie, dass es sich zwar um einzelne Zählungen handelt, die durch ganzzahlige Werte dargestellt werden, die <strong>erwartete Häufigkeit</strong>, <span class="math notranslate nohighlight">\(E\)</span> eine Fließkommazahl ist. Das ist in Ordnung.</p>
 <p>Nun werden die <strong>beobachteten Häufigkeiten</strong> und die <strong>erwarteten Häufigkeiten</strong> in einer Tabelle zusammengeführt.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Partei</p></th>
-<th class="text-center head"><p>Beobachtete Häufigkeit</p></th>
-<th class="text-center head"><p>Erwartete Häufigkeit</p></th>
+<th class="head text-center"><p>Beobachtete Häufigkeit</p></th>
+<th class="head text-center"><p>Erwartete Häufigkeit</p></th>
 </tr>
 </thead>
 <tbody>
@@ -849,6 +846,7 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>Großartig! Sobald wir die erwarteten Häufigkeiten kennen, müssen wir auf zwei Annahmen prüfen. Erstens müssen wir sicherstellen, dass alle erwarteten Häufigkeiten <span class="math notranslate nohighlight">\(1\)</span> oder größer sind, und zweitens, dass höchstens <span class="math notranslate nohighlight">\(20 \%\)</span> der erwarteten Häufigkeiten kleiner als <span class="math notranslate nohighlight">\(5\)</span> sind. Durch einen Blick auf die Tabelle können wir bestätigen, dass beide Annahmen erfüllt sind.</p>
 <p>Jetzt haben wir alle Zutaten, die wir brauchen, außer der Teststatistik, um einen <span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest durchzuführen.</p>
 <p>Die <span class="math notranslate nohighlight">\(\chi^2\)</span> Teststatistik für die Anpassungsgüte ist gegeben durch</p>
@@ -858,14 +856,14 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[df = c-1\]</div>
 <p>Ausgehend von den in der obigen Tabelle angegebenen beobachteten und erwarteten Häufigkeiten lässt sich der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Wert relativ einfach berechnen. Um das Berechnungsverfahren jedoch übersichtlicher zu gestalten, haben wir alle erforderlichen Berechnungsschritte in einer Tabelle zusammengefasst.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Partei</p></th>
-<th class="text-center head"><p>Beobachtete Häufigkeit</p></th>
-<th class="text-center head"><p>Erwartete Häufigkeit</p></th>
-<th class="text-center head"><p>Differenz <span class="math notranslate nohighlight">\(O-E\)</span></p></th>
-<th class="text-center head"><p>Quadrat der Differenz <span class="math notranslate nohighlight">\((O-E)^2\)</span></p></th>
-<th class="text-center head"><p><span class="math notranslate nohighlight">\(\chi^2\)</span> Zwischensumme <span class="math notranslate nohighlight">\((O-E)^2 / E\)</span></p></th>
+<th class="head text-center"><p>Beobachtete Häufigkeit</p></th>
+<th class="head text-center"><p>Erwartete Häufigkeit</p></th>
+<th class="head text-center"><p>Differenz <span class="math notranslate nohighlight">\(O-E\)</span></p></th>
+<th class="head text-center"><p>Quadrat der Differenz <span class="math notranslate nohighlight">\((O-E)^2\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\chi^2\)</span> Zwischensumme <span class="math notranslate nohighlight">\((O-E)^2 / E\)</span></p></th>
 </tr>
 </thead>
 <tbody>
@@ -899,12 +897,13 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</div>
 <p>In unserem Beispiel ergibt die <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik für die Anpassungsgüte den Wert</p>
 <div class="math notranslate nohighlight">
 \[\chi^2=\sum \frac{(O-E)^2}{E} \approx2,729\]</div>
 <p>Wenn die Nullhypothese wahr ist, sind die beobachtete und die erwartete Häufigkeit ungefähr gleich. Dies führt zu einem kleinen Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik und unterstützt somit <span class="math notranslate nohighlight">\(H_0\)</span>. Ist der Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik jedoch groß, liefern die Daten Beweise gegen <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
 <section id="chi-2-anpassungstest-ein-beispiel">
-<h3><span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest: Ein Beispiel<a class="headerlink" href="#chi-2-anpassungstest-ein-beispiel" title="Permalink to this heading">#</a></h3>
+<h3><span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest: Ein Beispiel<a class="headerlink" href="#chi-2-anpassungstest-ein-beispiel" title="Link to this heading">#</a></h3>
 <p>Um praktische Erfahrungen zu sammeln, wenden wir den <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstest in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -938,12 +937,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/13609288c4a538d41e83b30b4932007985a964905f7ab181f5a8b6cf2576d004.png" src="../_images/13609288c4a538d41e83b30b4932007985a964905f7ab181f5a8b6cf2576d004.png" />
+<img alt="../_images/e2156caa1c4d59e4c4c26776e7a69cb885d7dd608337f71fabf4fdea38bd4df2.png" src="../_images/e2156caa1c4d59e4c4c26776e7a69cb885d7dd608337f71fabf4fdea38bd4df2.png" />
 </div>
 </div>
 </section>
 <section id="vorbereitung-der-daten">
-<h3>Vorbereitung der Daten<a class="headerlink" href="#vorbereitung-der-daten" title="Permalink to this heading">#</a></h3>
+<h3>Vorbereitung der Daten<a class="headerlink" href="#vorbereitung-der-daten" title="Link to this heading">#</a></h3>
 <p>Wir beginnen mit der Datenexploration und der Datenaufbereitung.</p>
 <p>Zunächst wollen wir wissen, welche Kategorien im Datensatz vorhanden sind. Dazu wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">unique()</span></code> an, die die einzelnen Spaltennamen (Kategorien) ausgibt.</p>
 <div class="cell docutils container">
@@ -1047,12 +1046,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Other         85
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>religion
+Other         85
 Catholic      77
 Protestant    60
 Orthodox      27
 Muslim         7
-Name: religion, dtype: int64
+Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -1217,7 +1217,7 @@ Name: religion, dtype: int64
 <p>Perfekt, jetzt sind wir fertig! Der Datensatz ist bereit für die Analyse mit dem <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstest zu analysieren. Erinnern Sie sich an die Frage, an der wir interessiert sind: <strong>Ist die Religion unter den Studierenden gleichmäßig verteilt, verglichen mit der Verteilung der Religion in der Bevölkerung der Europäischen Union?</strong></p>
 </section>
 <section id="uberprufung-der-hypothesen">
-<h3>Überprüfung der Hypothesen<a class="headerlink" href="#uberprufung-der-hypothesen" title="Permalink to this heading">#</a></h3>
+<h3>Überprüfung der Hypothesen<a class="headerlink" href="#uberprufung-der-hypothesen" title="Link to this heading">#</a></h3>
 <p>Zur Durchführung des <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstests folgen wir dem schrittweisen Durchführungsverfahren für Hypothesentests. Der <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstest folgt demselben schrittweisen Verfahren wie Hypothesentests für den Grundgesamtheitsmittelwert.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1284,7 +1284,7 @@ Name: religion, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.811017529549072e-10
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(6.811017529549072e-10)
 </pre></div>
 </div>
 </div>
@@ -1297,7 +1297,7 @@ Name: religion, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.True_
 </pre></div>
 </div>
 </div>
@@ -1307,7 +1307,7 @@ Name: religion, dtype: int64
 <p><span class="math notranslate nohighlight">\(p=6,8110175 \cdot 10^{-10}\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(1 \%\)</span> lassen die Daten den Schluss zu, dass die Religionsverteilung unter den Studenten von der Religionsverteilung der Bevölkerung der Europäischen Union abweicht.</p>
 </section>
 <section id="hypothesentests-in-python">
-<h3>Hypothesentests in Python<a class="headerlink" href="#hypothesentests-in-python" title="Permalink to this heading">#</a></h3>
+<h3>Hypothesentests in Python<a class="headerlink" href="#hypothesentests-in-python" title="Link to this heading">#</a></h3>
 <p>Wir haben gerade einen <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstest in Python manuell durchgeführt. Sehr cool, aber jetzt wiederholen wir dieses Beispiel und nutzen die Python-Maschinerie, um das gleiche Ergebnis wie oben mit nur einer Zeile Code zu erhalten!</p>
 <p>Für die Durchführung eines <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungsgüte-Test in Python durchzuführen, verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">chisquare()</span></code>. Wir geben zwei Vektoren als Daten ein: <code class="docutils literal notranslate"><span class="pre">data['beobachtete</span> <span class="pre">Häufigkeit']</span></code> und <code class="docutils literal notranslate"><span class="pre">data['erwartete</span> <span class="pre">Häufigkeit']</span></code>.</p>
 <div class="cell docutils container">
@@ -1318,7 +1318,7 @@ Name: religion, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Power_divergenceResult(statistic=48.679361979166664, pvalue=6.811017529549072e-10)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Power_divergenceResult(statistic=np.float64(48.679361979166664), pvalue=np.float64(6.811017529549072e-10))
 </pre></div>
 </div>
 </div>
@@ -1350,13 +1350,13 @@ The lab_black extension is already loaded. To reload it, use:
 Working on the host: imarevic-pc
 
 ---------------------------------
-Python version: 3.10.9 | packaged by conda-forge | (main, Feb  2 2023, 20:20:04) [GCC 11.3.0]
+Python version: 3.10.12 (main, Sep 11 2024, 15:47:36) [GCC 11.4.0]
 
 ---------------------------------
-Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
+Python interpreter: /home/imarevic/Documents/teaching/SRH/content/statistik/statistik-env/bin/python3
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 864x432 with 0 Axes&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -1364,7 +1364,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </section>
 </section>
 <section id="der-chi-quadrat-unabhangigkeitstest">
-<h2>Der Chi-Quadrat-Unabhängigkeitstest<a class="headerlink" href="#der-chi-quadrat-unabhangigkeitstest" title="Permalink to this heading">#</a></h2>
+<h2>Der Chi-Quadrat-Unabhängigkeitstest<a class="headerlink" href="#der-chi-quadrat-unabhangigkeitstest" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1379,7 +1379,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 <p>Der <strong><span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest</strong> ist eine inferentielle Methode, um zu entscheiden, ob ein Zusammenhang zwischen zwei Variablen besteht. Ähnlich wie bei anderen Hypothesentests besagt die Nullhypothese, dass die beiden Variablen nicht miteinander verbunden sind. Im Gegensatz dazu besagt die Alternativhypothese, dass die beiden Variablen miteinander verbunden sind.</p>
 <p>Es sei daran erinnert, dass statistisch <strong>abhängige Variablen</strong> als <strong>assoziierte Variablen</strong> bezeichnet werden. Im Gegensatz dazu werden nicht-assoziierte Variablen als statistisch unabhängige Variablen bezeichnet. Erinnern Sie sich auch an das Konzept der <a href="https://de.wikipedia.org/wiki/Kontingenztafel">Kontingenztabellen</a> (auch als Zwei-Wege-Tabellen oder Kreuztabellen bezeichnet), in denen die Häufigkeitsverteilungen von bivariaten Daten dargestellt werden.</p>
 <section id="chi-2-unabhangigkeitstest">
-<h3><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstest<a class="headerlink" href="#chi-2-unabhangigkeitstest" title="Permalink to this heading">#</a></h3>
+<h3><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstest<a class="headerlink" href="#chi-2-unabhangigkeitstest" title="Link to this heading">#</a></h3>
 <p>Die Grundidee des <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstests</strong> besteht darin, die <strong>beobachteten Häufigkeiten</strong> in einer Kontingenztabelle mit den <strong>erwarteten Häufigkeiten</strong> zu vergleichen, unter der Annahme das die Nullhypothese der Nicht-Assoziation wahr ist. Die erwartete Häufigkeit für jede Zelle einer Kontingenztabelle ist gegeben durch</p>
 <div class="math notranslate nohighlight">
 \[E = \frac{R\times C}{n} \text{,}\]</div>
@@ -1433,7 +1433,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 <p>Wenn die Nullhypothese wahr ist, sind die beobachtete und die erwartete Häufigkeit ungefähr gleich, was zu einem kleinen Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik führt und somit <span class="math notranslate nohighlight">\(H_0\)</span> unterstützt. Ist der Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik jedoch groß, liefern die Daten Beweise gegen <span class="math notranslate nohighlight">\(H_0\)</span>. In den nächsten Abschnitten wird weiter erörtert, wie der Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik im Rahmen der Hypothesentests zu bewerten ist.</p>
 </section>
 <section id="chi-2-unabhangigkeitstest-ein-beispiel">
-<h3><span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest: Ein Beispiel<a class="headerlink" href="#chi-2-unabhangigkeitstest-ein-beispiel" title="Permalink to this heading">#</a></h3>
+<h3><span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest: Ein Beispiel<a class="headerlink" href="#chi-2-unabhangigkeitstest-ein-beispiel" title="Link to this heading">#</a></h3>
 <p>Um praktische Erfahrungen zu sammeln, wenden wir den <span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1447,7 +1447,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 <p>In dieser Übung wollen wir untersuchen, <strong>ob es einen Zusammenhang zwischen den Variablen <code class="docutils literal notranslate"><span class="pre">gender</span></code> und <code class="docutils literal notranslate"><span class="pre">major</span></code> gibt, oder mit anderen Worten, wir wollen wissen, ob männliche Studenten andere Studienfächer bevorzugen als weibliche Studenten.</strong></p>
 </section>
 <section id="id2">
-<h3>Vorbereitung der Daten<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3>Vorbereitung der Daten<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Wir beginnen mit der Datenaufbereitung. Da wir nicht den gesamten Datensatz von <span class="math notranslate nohighlight">\(8239\)</span> Einträgen bearbeiten wollen, wählen wir zufällig <span class="math notranslate nohighlight">\(865\)</span> Studenten aus dem Datensatz aus. Der erste Schritt der Datenvorbereitung besteht darin, die interessierenden Daten in Form einer Kontingenztabelle darzustellen. Pandas bietet die Funktion <code class="docutils literal notranslate"><span class="pre">crosstab()</span></code>, die diese Aufgabe übernehmen wird.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1719,7 +1719,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 <p>Jetzt haben wir alle Daten, die wir für einen <span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest durchzuführen.</p>
 </section>
 <section id="id3">
-<h3>Überprüfung der Hypothesen<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3>Überprüfung der Hypothesen<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>Zur Durchführung des <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstests</strong> folgen wir dem Verfahren der schrittweisen Durchführung von Hypothesentests. Der <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstest</strong> folgt demselben schrittweisen Verfahren wie in den vorangegangenen Abschnitten beschrieben.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1768,7 +1768,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>76.42971653913816
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(76.42971653913816)
 </pre></div>
 </div>
 </div>
@@ -1801,7 +1801,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.678888864647207e-15
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(4.678888864647207e-15)
 </pre></div>
 </div>
 </div>
@@ -1814,7 +1814,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.True_
 </pre></div>
 </div>
 </div>
@@ -1824,7 +1824,7 @@ Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 <p><span class="math notranslate nohighlight">\(p=4,67888886 \cdot 10^{-15}\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> lassen die Daten den Schluss zu, dass es einen Zusammenhang zwischen dem Geschlecht und dem Hauptstudienfach gibt</p>
 </section>
 <section id="id4">
-<h3>Hypothesentests in Python<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h3>Hypothesentests in Python<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Wir haben gerade einen <span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest manuell durchgeführt. Wir können dasselbe in Python mit nur einer Zeile Code tun!</p>
 <p>Dazu wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">chi2_contingency()</span></code> an. Wir achten darauf die Spalte und die Reihe <code class="docutils literal notranslate"><span class="pre">All</span></code> zu exkludieren.</p>
 <div class="cell docutils container">
@@ -1855,7 +1855,7 @@ chi^2 : 76.42971653913814
     {
         requestKernel: true,
         binderOptions: {
-            repo: "ixianslab/srh-data-science",
+            repo: "Mobile-University-DigitalLab/statistik",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -1878,8 +1878,8 @@ chi^2 : 76.42971653913814
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="04_Standardabweichung_der_Grundgesamtheit.html"
@@ -1906,7 +1906,9 @@ chi^2 : 76.42971653913814
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1951,9 +1953,10 @@ By ixians
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1977,8 +1980,8 @@ By ixians
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
